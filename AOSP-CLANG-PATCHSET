@@ -128,6 +128,28 @@ git fetch https://android.googlesource.com/platform/hardware/invensense refs/cha
 cd "$AOSP"/hardware/samsung_slsi/exynos5
 git fetch https://android.googlesource.com/platform/hardware/samsung_slsi/exynos5 refs/changes/20/110220/1 && git cherry-pick FETCH_HEAD
 
+# Nexus 5 -- unused variables
+# https://android-review.googlesource.com/#/c/110301/
+cd "$AOSP"/hardware/qcom/camera
+git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/01/110301/1 && git cherry-pick FETCH_HEAD
+# checks for conditions that can't happen
+# https://android-review.googlesource.com/#/c/110291/
+git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/91/110291/2 && git cherry-pick FETCH_HEAD
+# more of the same
+# https://android-review.googlesource.com/#/c/110109/
+git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/09/110109/1 && git cherry-pick FETCH_HEAD
+# more of the same, also optimize out a double-to-string-and-back conv
+# https://android-review.googlesource.com/#/c/110292/
+git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/92/110292/1 && git cherry-pick FETCH_HEAD
+# initializers
+# https://android-review.googlesource.com/#/c/110293/
+git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/93/110293/1 && git cherry-pick FETCH_HEAD
+
+cd "$AOSP"/hardware/qcom/media
+# Condition that can't happen
+# https://android-review.googlesource.com/#/c/110320/
+git fetch https://android.googlesource.com/platform/hardware/qcom/media refs/changes/20/110320/1 && git cherry-pick FETCH_HEAD
+
 #==============
 # Enable clang 
 #==============
