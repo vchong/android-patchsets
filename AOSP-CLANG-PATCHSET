@@ -150,6 +150,11 @@ cd "$AOSP"/hardware/qcom/media
 # https://android-review.googlesource.com/#/c/110320/
 git fetch https://android.googlesource.com/platform/hardware/qcom/media refs/changes/20/110320/1 && git cherry-pick FETCH_HEAD
 
+cd "$AOSP"/device/lge/mako
+# Assorted clang build fixes
+# https://android-review.googlesource.com/#/c/110324/
+git fetch https://android.googlesource.com/device/lge/mako refs/changes/24/110324/1 && git cherry-pick FETCH_HEAD
+
 #==============
 # Enable clang 
 #==============
