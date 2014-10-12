@@ -72,11 +72,6 @@ git fetch https://android.googlesource.com/platform/art refs/changes/81/109381/1
 cd "$AOSP"/external/libnfc-nci
 git fetch https://android.googlesource.com/platform/external/libnfc-nci refs/changes/82/109682/1 && git cherry-pick FETCH_HEAD
 
-# asm includes
-# https://android-review.googlesource.com/#/c/110379/
-cd "$AOSP"/external/libvpx
-git fetch https://android.googlesource.com/platform/external/libvpx refs/changes/79/110379/2 && git cherry-pick FETCH_HEAD
-
 # undefined internals in Binder
 # https://android-review.googlesource.com/#/c/109553/
 cd "$AOSP"/frameworks/native
