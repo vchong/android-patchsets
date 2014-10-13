@@ -157,3 +157,8 @@ git fetch https://android.googlesource.com/device/lge/mako refs/changes/24/11032
 # https://android-review.googlesource.com/#/c/109778/
 cd "$AOSP"/system/core
 git fetch https://android.googlesource.com/platform/system/core refs/changes/78/109778/1 && git cherry-pick FETCH_HEAD
+
+# Don't build GLES wrappers with clang
+# https://android-review.googlesource.com/#/c/110612/1
+cd "$AOSP"/frameworks/native
+git fetch https://android.googlesource.com/platform/frameworks/native refs/changes/12/110612/1 && git cherry-pick FETCH_HEAD
