@@ -12,12 +12,18 @@ apply() {
 
 	cd "$AOSP"/"$1"
 	echo "=== Applying $2 ==="
-	if ! git fetch https://android.googlesource.com/"$REPO" refs/changes/$DIR/"$2" && git cherry-pick FETCH_HEAD; then
-		echo "$2 failed to apply, please fix."
+	if ! git fetch https://android.googlesource.com/"$REPO" refs/changes/$DIR/"$2"; then
+		echo "Failed to fetch $2, typo in script?"
 		exit 1
 	fi
+	if ! git cherry-pick FETCH_HEAD; then
+		echo "$2 failed to apply, please fix"
+		exit 1
+	fi
+	PATCHES=$((PATCHES+1))
 }
 
+PATCHES=0
 if [ -n "$1" ]; then
 	AOSP="$1"
 else
@@ -50,10 +56,6 @@ apply external/chromium_org 109380/1
 # https://android-review.googlesource.com/109681
 apply external/chromium_org/third_party/WebKit 109681/1
 
-# this == NULL
-# https://android-review.googlesource.com/#/c/107686/3
-apply frameworks/native 107686/3
-
 # Variable length array of non-POD element type
 # https://android-review.googlesource.com/#/c/72512/
 apply frameworks/base 72512/3
@@ -74,17 +76,10 @@ apply frameworks/base 109777/1
 # https://android-review.googlesource.com/#/c/109776/
 apply frameworks/av 109776/1
 
-# NULL vs. 0
-# https://android-review.googlesource.com/#/c/109682/
-apply external/libnfc-nci 109682/1
-
 # undefined internals in Binder
 # https://android-review.googlesource.com/#/c/109553/
 apply frameworks/native 109553/1
 
-# singleton static instance declarations outside of namespace
-# https://android-review.googlesource.com/#/c/72263/
-apply hardware/qcom/display 72263/1
 # non-standard initializers
 # https://android-review.googlesource.com/#/c/109555/
 apply hardware/qcom/display 109555/1
@@ -140,9 +135,4 @@ apply hardware/qcom/media 110320/1
 # https://android-review.googlesource.com/#/c/110324/
 apply device/lge/mako 110324/1
 
-#================================
-# Patches needed to make it work
-#================================
-# Don't build init with clang
-# https://android-review.googlesource.com/#/c/109778/
-apply system/core 109778/1
+echo "Applied $PATCHES patches"
