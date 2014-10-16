@@ -1,4 +1,23 @@
 #!/bin/sh
+
+apply() {
+	local REPO
+	local DIR
+	if echo "$1" |grep -q '^device/'; then
+		REPO="$1"
+	else
+		REPO="platform/$1"
+	fi
+	DIR=`echo $2 |cut -d/ -f1 |rev |cut -b1-2 |rev`
+
+	cd "$AOSP"/"$1"
+	echo "=== Applying $2 ==="
+	if ! git fetch https://android.googlesource.com/"$REPO" refs/changes/$DIR/"$2" && git cherry-pick FETCH_HEAD; then
+		echo "$2 failed to apply, please fix."
+		exit 1
+	fi
+}
+
 if [ -n "$1" ]; then
 	AOSP="$1"
 else
@@ -12,143 +31,118 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 # Not directly clang related, but let's fix the build...
-cd "$AOSP"/build
-git fetch https://android.googlesource.com/platform/build refs/changes/21/101221/2 && git cherry-pick FETCH_HEAD
+apply build 101221/2
 
 #============================================
 # Patches needed to make it build with clang
 #============================================
 # Don't #define snprintf
 # https://android-review.googlesource.com/#/c/109026/
-cd "$AOSP"/bionic
-git fetch https://android.googlesource.com/platform/bionic refs/changes/26/109026/1 && git cherry-pick FETCH_HEAD
+apply bionic 109026/1
 
 # Work around register usage and superfluous functions in chromium
 # https://android-review.googlesource.com/#/c/109153/
-cd "$AOSP"/external/chromium_org
-git fetch https://android.googlesource.com/platform/external/chromium_org refs/changes/53/109153/2 && git cherry-pick FETCH_HEAD
+apply external/chromium_org 109153/2
 # Array subscript of type 'char'
 # https://android-review.googlesource.com/#/c/109380/1
-git fetch https://android.googlesource.com/platform/external/chromium_org refs/changes/80/109380/1 && git cherry-pick FETCH_HEAD
+apply external/chromium_org 109380/1
 # Work around register usage
 # https://android-review.googlesource.com/109681
-cd third_party/WebKit
-git fetch https://android.googlesource.com/platform/external/chromium_org/third_party/WebKit refs/changes/81/109681/1 && git cherry-pick FETCH_HEAD
+apply external/chromium_org/third_party/WebKit 109681/1
 
 # this == NULL
 # https://android-review.googlesource.com/#/c/107686/3
-cd "$AOSP"/frameworks/native
-git fetch https://android.googlesource.com/platform/frameworks/native refs/changes/86/107686/3 && git cherry-pick FETCH_HEAD
+apply frameworks/native 107686/3
 
-cd "$AOSP"/frameworks/base
 # Variable length array of non-POD element type
 # https://android-review.googlesource.com/#/c/72512/
-git fetch https://android.googlesource.com/platform/frameworks/base refs/changes/12/72512/3 && git cherry-pick FETCH_HEAD
+apply frameworks/base 72512/3
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
-git fetch https://android.googlesource.com/platform/frameworks/base refs/changes/86/109786/1 && git cherry-pick FETCH_HEAD
+apply frameworks/base 109786/1
 # Remove unused function
 # https://android-review.googlesource.com/#/c/109762/
-git fetch https://android.googlesource.com/platform/frameworks/base refs/changes/62/109762/1 && git cherry-pick FETCH_HEAD
+apply frameworks/base 109762/1
 # Remove unused variable
 # https://android-review.googlesource.com/#/c/109787/
-git fetch https://android.googlesource.com/platform/frameworks/base refs/changes/87/109787/1 && git cherry-pick FETCH_HEAD
+apply frameworks/base 109787/1
 # More unused variables
 # https://android-review.googlesource.com/#/c/109777/
-git fetch https://android.googlesource.com/platform/frameworks/base refs/changes/77/109777/1 && git cherry-pick FETCH_HEAD
+apply frameworks/base 109777/1
 
-cd "$AOSP"/frameworks/av
 # Remove check for an impossible condition
 # https://android-review.googlesource.com/#/c/109776/
-git fetch https://android.googlesource.com/platform/frameworks/av refs/changes/76/109776/1 && git cherry-pick FETCH_HEAD
-
-# Stack frame size in art
-# https://android-review.googlesource.com/#/c/109381/
-cd "$AOSP"/art
-git fetch https://android.googlesource.com/platform/art refs/changes/81/109381/1 && git cherry-pick FETCH_HEAD
+apply frameworks/av 109776/1
 
 # NULL vs. 0
 # https://android-review.googlesource.com/#/c/109682/
-cd "$AOSP"/external/libnfc-nci
-git fetch https://android.googlesource.com/platform/external/libnfc-nci refs/changes/82/109682/1 && git cherry-pick FETCH_HEAD
+apply external/libnfc-nci 109682/1
 
 # undefined internals in Binder
 # https://android-review.googlesource.com/#/c/109553/
-cd "$AOSP"/frameworks/native
-git fetch https://android.googlesource.com/platform/frameworks/native refs/changes/53/109553/1 && git cherry-pick FETCH_HEAD
+apply frameworks/native 109553/1
 
 # singleton static instance declarations outside of namespace
 # https://android-review.googlesource.com/#/c/72263/
-cd "$AOSP"/hardware/qcom/display
-git fetch https://android.googlesource.com/platform/hardware/qcom/display refs/changes/63/72263/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/display 72263/1
 # non-standard initializers
 # https://android-review.googlesource.com/#/c/109555/
-git fetch https://android.googlesource.com/platform/hardware/qcom/display refs/changes/55/109555/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/display 109555/1
 
-cd "$AOSP"/hardware/qcom/media
 # Condition that can't be true
 # https://android-review.googlesource.com/109556
-git fetch https://android.googlesource.com/platform/hardware/qcom/media refs/changes/56/109556/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/media 109556/1
 
-cd "$AOSP"/system/core
 # __attribute__((__aligned__)) workaround
 # https://android-review.googlesource.com/#/c/109567/
-git fetch https://android.googlesource.com/platform/system/core refs/changes/67/109567/2 && git cherry-pick FETCH_HEAD
+apply system/core 109567/2
 
-cd "$AOSP"/external/aac
 # Fix checks for {Front,Side,Back}ElementIsCpe
 # https://android-review.googlesource.com/#/c/109025/
-git fetch https://android.googlesource.com/platform/external/aac refs/changes/25/109025/2 && git cherry-pick FETCH_HEAD
+apply external/aac 109025/2
 
-cd "$AOSP"/external/skia
 # Unused parameters
 # https://android-review.googlesource.com/#/c/109785/
-git fetch https://android.googlesource.com/platform/external/skia refs/changes/85/109785/2 && git cherry-pick FETCH_HEAD
+apply external/skia 109785/2
 # Unused parameters (ugly part)
 # https://android-review.googlesource.com/#/c/109860/
-git fetch https://android.googlesource.com/platform/external/skia refs/changes/60/109860/1 && git cherry-pick FETCH_HEAD
+apply external/skia 109860/1
 
 # Check for condition that can't happen
 # https://android-review.googlesource.com/#/c/109765/
-cd "$AOSP"/hardware/invensense
-git fetch https://android.googlesource.com/platform/hardware/invensense refs/changes/65/109765/1 && git cherry-pick FETCH_HEAD
+apply hardware/invensense 109765/1
 
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
-cd "$AOSP"/hardware/samsung_slsi/exynos5
-git fetch https://android.googlesource.com/platform/hardware/samsung_slsi/exynos5 refs/changes/20/110220/1 && git cherry-pick FETCH_HEAD
+apply hardware/samsung_slsi/exynos5 110220/1
 
 # Nexus 5 -- unused variables
 # https://android-review.googlesource.com/#/c/110301/
-cd "$AOSP"/hardware/qcom/camera
-git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/01/110301/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/camera 110301/1
 # checks for conditions that can't happen
 # https://android-review.googlesource.com/#/c/110291/
-git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/91/110291/2 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/camera 110291/2
 # more of the same
 # https://android-review.googlesource.com/#/c/110109/
-git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/09/110109/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/camera 110109/1
 # more of the same, also optimize out a double-to-string-and-back conv
 # https://android-review.googlesource.com/#/c/110292/
-git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/92/110292/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/camera 110292/1
 # initializers
 # https://android-review.googlesource.com/#/c/110293/
-git fetch https://android.googlesource.com/platform/hardware/qcom/camera refs/changes/93/110293/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/camera 110293/1
 
-cd "$AOSP"/hardware/qcom/media
 # Condition that can't happen
 # https://android-review.googlesource.com/#/c/110320/
-git fetch https://android.googlesource.com/platform/hardware/qcom/media refs/changes/20/110320/1 && git cherry-pick FETCH_HEAD
+apply hardware/qcom/media 110320/1
 
-cd "$AOSP"/device/lge/mako
 # Assorted clang build fixes
 # https://android-review.googlesource.com/#/c/110324/
-git fetch https://android.googlesource.com/device/lge/mako refs/changes/24/110324/1 && git cherry-pick FETCH_HEAD
+apply device/lge/mako 110324/1
 
 #================================
 # Patches needed to make it work
 #================================
 # Don't build init with clang
 # https://android-review.googlesource.com/#/c/109778/
-cd "$AOSP"/system/core
-git fetch https://android.googlesource.com/platform/system/core refs/changes/78/109778/1 && git cherry-pick FETCH_HEAD
+apply system/core 109778/1
