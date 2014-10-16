@@ -108,11 +108,6 @@ git fetch https://android.googlesource.com/platform/external/skia refs/changes/8
 # https://android-review.googlesource.com/#/c/109860/
 git fetch https://android.googlesource.com/platform/external/skia refs/changes/60/109860/1 && git cherry-pick FETCH_HEAD
 
-# Unused parameters
-# https://android-review.googlesource.com/#/c/109764/
-cd "$AOSP"/external/neven
-git fetch https://android.googlesource.com/platform/external/neven refs/changes/64/109764/1 && git cherry-pick FETCH_HEAD
-
 # Check for condition that can't happen
 # https://android-review.googlesource.com/#/c/109765/
 cd "$AOSP"/hardware/invensense
@@ -157,8 +152,3 @@ git fetch https://android.googlesource.com/device/lge/mako refs/changes/24/11032
 # https://android-review.googlesource.com/#/c/109778/
 cd "$AOSP"/system/core
 git fetch https://android.googlesource.com/platform/system/core refs/changes/78/109778/1 && git cherry-pick FETCH_HEAD
-
-# Don't build GLES wrappers with clang
-# https://android-review.googlesource.com/#/c/110612/1
-cd "$AOSP"/frameworks/native
-git fetch https://android.googlesource.com/platform/frameworks/native refs/changes/12/110612/1 && git cherry-pick FETCH_HEAD
