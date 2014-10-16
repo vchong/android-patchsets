@@ -36,9 +36,6 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 	exit 1
 fi
 
-# Not directly clang related, but let's fix the build...
-apply build 101221/2
-
 #============================================
 # Patches needed to make it build with clang
 #============================================
@@ -79,10 +76,6 @@ apply frameworks/av 109776/1
 # undefined internals in Binder
 # https://android-review.googlesource.com/#/c/109553/
 apply frameworks/native 109553/1
-
-# non-standard initializers
-# https://android-review.googlesource.com/#/c/109555/
-apply hardware/qcom/display 109555/1
 
 # Condition that can't be true
 # https://android-review.googlesource.com/109556
