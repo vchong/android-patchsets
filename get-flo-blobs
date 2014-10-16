@@ -1,0 +1,15 @@
+#!/bin/sh
+wget https://dl.google.com/dl/android/aosp/asus-flo-1502407-fd8350b5.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-flo-1502407-d869edf7.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-flo-1502407-e3e59c91.tgz
+for i in *-flo-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-flo.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-flo-*.tgz extract-*-flo.sh
