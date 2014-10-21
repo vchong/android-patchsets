@@ -130,7 +130,7 @@ apply device/lge/mako 110324/1
 
 # Weird K&R issue seen on android-build but not locally
 # https://android-review.googlesource.com/#/c/111267/
-apply external/ipsec-tools 111267/1
+apply external/ipsec-tools 111267/2
 
 # Increase max. allowed stack frame size, needed for art::dex2oat for now
 # https://android-review.googlesource.com/#/c/107300/
