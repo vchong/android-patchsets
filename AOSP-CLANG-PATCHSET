@@ -120,10 +120,6 @@ apply hardware/qcom/camera 110292/1
 # https://android-review.googlesource.com/#/c/110293/
 apply hardware/qcom/camera 110293/1
 
-# Condition that can't happen
-# https://android-review.googlesource.com/#/c/110320/
-apply hardware/qcom/media 110320/1
-
 # Assorted clang build fixes
 # https://android-review.googlesource.com/#/c/110324/
 apply device/lge/mako 110324/1
