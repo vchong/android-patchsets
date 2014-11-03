@@ -43,9 +43,13 @@ fi
 # https://android-review.googlesource.com/#/c/109026/
 apply bionic 109026/1
 
+# Don't force external/chromium_org to be built with gcc
+# https://android-review.googlesource.com/#/c/112764/
+apply external/chromium_org 112764/1
+
 # Work around register usage and superfluous functions in chromium
 # https://android-review.googlesource.com/#/c/109153/
-apply external/chromium_org 109153/2
+apply external/chromium_org 109153/3
 # Array subscript of type 'char'
 # https://android-review.googlesource.com/#/c/109380/1
 apply external/chromium_org 109380/1
@@ -53,9 +57,6 @@ apply external/chromium_org 109380/1
 # https://android-review.googlesource.com/109681
 apply external/chromium_org/third_party/WebKit 109681/1
 
-# Variable length array of non-POD element type
-# https://android-review.googlesource.com/#/c/72512/
-apply frameworks/base 72512/3
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
 apply frameworks/base 109786/1
@@ -76,10 +77,6 @@ apply frameworks/av 109776/1
 # undefined internals in Binder
 # https://android-review.googlesource.com/#/c/109553/
 apply frameworks/native 109553/1
-
-# Condition that can't be true
-# https://android-review.googlesource.com/109556
-apply hardware/qcom/media 109556/1
 
 # __attribute__((__aligned__)) workaround
 # https://android-review.googlesource.com/#/c/109567/
@@ -104,9 +101,7 @@ apply hardware/invensense 109765/1
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/1
 
-# Nexus 5 -- unused variables
-# https://android-review.googlesource.com/#/c/110301/
-apply hardware/qcom/camera 110301/1
+# Nexus 5
 # checks for conditions that can't happen
 # https://android-review.googlesource.com/#/c/110291/
 apply hardware/qcom/camera 110291/2
@@ -116,9 +111,6 @@ apply hardware/qcom/camera 110109/1
 # more of the same, also optimize out a double-to-string-and-back conv
 # https://android-review.googlesource.com/#/c/110292/
 apply hardware/qcom/camera 110292/1
-# initializers
-# https://android-review.googlesource.com/#/c/110293/
-apply hardware/qcom/camera 110293/1
 
 # Assorted clang build fixes
 # https://android-review.googlesource.com/#/c/110324/
