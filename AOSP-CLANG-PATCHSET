@@ -49,7 +49,7 @@ apply external/chromium_org 112764/2
 
 # Work around register usage and superfluous functions in chromium
 # https://android-review.googlesource.com/#/c/109153/
-apply external/chromium_org 109153/3
+apply external/chromium_org 109153/4
 # Array subscript of type 'char'
 # https://android-review.googlesource.com/#/c/109380/1
 apply external/chromium_org 109380/1
