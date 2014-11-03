@@ -45,7 +45,7 @@ apply bionic 109026/1
 
 # Don't force external/chromium_org to be built with gcc
 # https://android-review.googlesource.com/#/c/112764/
-apply external/chromium_org 112764/1
+apply external/chromium_org 112764/2
 
 # Work around register usage and superfluous functions in chromium
 # https://android-review.googlesource.com/#/c/109153/
