@@ -45,17 +45,17 @@ apply bionic 109026/1
 
 # Don't force external/chromium_org to be built with gcc
 # https://android-review.googlesource.com/#/c/112764/
-apply external/chromium_org 112764/3
+#apply external/chromium_org 112764/3
 
 # Work around register usage and superfluous functions in chromium
 # https://android-review.googlesource.com/#/c/109153/
-apply external/chromium_org 109153/5
+#apply external/chromium_org 109153/5
 # Array subscript of type 'char'
 # https://android-review.googlesource.com/#/c/109380/1
-apply external/chromium_org 109380/1
+#apply external/chromium_org 109380/1
 # Work around register usage
 # https://android-review.googlesource.com/109681
-apply external/chromium_org/third_party/WebKit 109681/1
+#apply external/chromium_org/third_party/WebKit 109681/1
 
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
