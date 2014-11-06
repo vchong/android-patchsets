@@ -15,6 +15,21 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 	exit 1
 fi
 
+# Patches that have already been applied on master...
+
+# Not directly clang related, but let's fix the build...
+cherrypick build abf0e4e956fdadc1078cf199e0fd1b98d133d24e
+
+# build infrastructure
+apply --linaro build 15253/1
+
+# Clang related build fixes
+cherrypick external/libunwind 999f963cb70225fbd27e6846fdb490abd2368529
+cherrypick external/libunwind 5f0b9af0e9dbf486b220cec1168a9321222ab7f7
+cherrypick external/libunwind f760bf5b2c822d21442aa9f765da0e62284e4f48
+
+echo "Applied $PATCHES patches"
+exit 0
 #============================================
 # Patches needed to make it build with clang
 #============================================

@@ -1,0 +1,46 @@
+# vim:syn=sh
+
+apply() {
+	local REPO
+	local DIR
+	local SERVER
+	if [ "$1" = "--linaro" ]; then
+		SERVER="git://review.android.git.linaro.org/"
+		shift
+	elif [ "$1" = "--server" ]; then
+		shift
+		SERVER="$1"
+		shift
+	else
+		SERVER="https://android.googlesource.com/"
+	fi
+
+	if echo "$1" |grep -q '^device/'; then
+		REPO="$1"
+	else
+		REPO="platform/$1"
+	fi
+	DIR=`echo $2 |cut -d/ -f1 |rev |cut -b1-2 |rev`
+
+	cd "$AOSP"/"$1"
+	echo "=== Applying $2 ==="
+	if ! git fetch "$SERVER$REPO" refs/changes/$DIR/"$2"; then
+		echo "Failed to fetch $2, typo in script?"
+		exit 1
+	fi
+	if ! git cherry-pick FETCH_HEAD; then
+		echo "$2 failed to apply, please fix"
+		exit 1
+	fi
+	PATCHES=$((PATCHES+1))
+}
+
+cherrypick() {
+	cd "$AOSP"/"$1"
+	echo "=== Cherry-picking $2 ==="
+	if ! git cherry-pick "$2"; then
+		echo "$2 failed to apply, please fix"
+		exit 1
+	fi
+	PATCHES=$((PATCHES+1))
+}
