@@ -23,6 +23,16 @@ apply() {
 	PATCHES=$((PATCHES+1))
 }
 
+cherry-pick() {
+	cd "$AOSP"/"$1"
+	echo "=== Cherry-picking $2 ==="
+	if ! git cherry-pick "$2"; then
+		echo "$2 failed to apply, please fix"
+		exit 1
+	fi
+	PATCHES=$((PATCHES+1))
+}
+
 PATCHES=0
 if [ -n "$1" ]; then
 	AOSP="$1"
