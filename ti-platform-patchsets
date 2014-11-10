@@ -22,4 +22,4 @@ fi
 apply --linaro bionic 15430/1
 apply --linaro bionic 15431/1
 apply --linaro external/tinyalsa 15432/1
-
+apply --linaro device/ti/jacinto6evm 15468/1
