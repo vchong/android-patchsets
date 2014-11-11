@@ -18,11 +18,13 @@ fi
 # Patches that have already been applied on master...
 
 # Not directly clang related, but let's fix the build...
-cherrypick build abf0e4e956fdadc1078cf199e0fd1b98d133d24e
+cherrypick build 311384fec340a7f2f76ca7f45599987df4341d5b
 
 # build infrastructure
 apply --linaro build 15253/1
 cherrypick build 9aa69a675233fe4fc1dc40d2065b8659f639f838
+cherrypick build fb482c6d5dd702b8386cf87535094a75b084ec18
+cherrypick build 22b6c5c2c1b6e5d306517ce2e480710fcab352bf
 
 # Clang related build fixes
 cherrypick external/libunwind 999f963cb70225fbd27e6846fdb490abd2368529
