@@ -25,6 +25,8 @@ apply bionic 109026/1
 # Bluedroid cleanups
 # https://android-review.googlesource.com/#/c/114282/
 apply external/bluetooth/bluedroid 114282/1
+# https://android-review.googlesource.com/#/c/114283/1
+apply external/bluetooth/bluedroid 114283/1
 
 # Don't force external/chromium_org to be built with gcc
 # https://android-review.googlesource.com/#/c/112764/
