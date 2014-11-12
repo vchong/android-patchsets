@@ -1,0 +1,15 @@
+#!/bin/sh
+wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-lrx21o-01fad5db.tgz
+wget https://dl.google.com/dl/android/aosp/lge-hammerhead-lrx21o-c6cf4582.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-lrx21o-e0cd4949.tgz
+for i in *-hammerhead-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-hammerhead.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-hammerhead-*.tgz extract-*-hammerhead.sh

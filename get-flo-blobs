@@ -1,7 +1,7 @@
 #!/bin/sh
-wget https://dl.google.com/dl/android/aosp/asus-flo-1537103-7039b5f9.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-flo-1537103-5d0f4b74.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-flo-1537103-92417c98.tgz
+wget https://dl.google.com/dl/android/aosp/asus-flo-lrx21p-4d3460bb.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-flo-lrx21p-ed7aabcb.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-flo-lrx21p-294f38cd.tgz
 for i in *-flo-*.tgz; do
 	tar xf $i
 done
