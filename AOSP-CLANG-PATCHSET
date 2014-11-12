@@ -22,6 +22,10 @@ fi
 # https://android-review.googlesource.com/#/c/109026/
 apply bionic 109026/1
 
+# Bluedroid cleanups
+# https://android-review.googlesource.com/#/c/114282/
+apply external/bluetooth/bluedroid 114282/1
+
 # Don't force external/chromium_org to be built with gcc
 # https://android-review.googlesource.com/#/c/112764/
 #apply external/chromium_org 112764/3
@@ -38,16 +42,16 @@ apply bionic 109026/1
 
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
-apply frameworks/base 109786/1
+#apply frameworks/base 109786/1
 # Remove unused function
 # https://android-review.googlesource.com/#/c/109762/
 apply frameworks/base 109762/1
 # Remove unused variable
 # https://android-review.googlesource.com/#/c/109787/
-apply frameworks/base 109787/1
+apply frameworks/base 109787/2
 # More unused variables
 # https://android-review.googlesource.com/#/c/109777/
-apply frameworks/base 109777/1
+apply frameworks/base 109777/2
 
 # Remove check for an impossible condition
 # https://android-review.googlesource.com/#/c/109776/
@@ -67,7 +71,7 @@ apply external/aac 109025/2
 
 # Unused parameters
 # https://android-review.googlesource.com/#/c/109785/
-apply external/skia 109785/2
+apply external/skia 109785/3
 # Unused parameters (ugly part)
 # https://android-review.googlesource.com/#/c/109860/
 apply external/skia 109860/1
@@ -78,22 +82,22 @@ apply hardware/invensense 109765/1
 
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
-apply hardware/samsung_slsi/exynos5 110220/1
+apply hardware/samsung_slsi/exynos5 110220/2
 
 # Nexus 5
 # checks for conditions that can't happen
 # https://android-review.googlesource.com/#/c/110291/
-apply hardware/qcom/camera 110291/2
+#apply hardware/qcom/camera 110291/2
 # more of the same
 # https://android-review.googlesource.com/#/c/110109/
-apply hardware/qcom/camera 110109/1
+#apply hardware/qcom/camera 110109/1
 # more of the same, also optimize out a double-to-string-and-back conv
 # https://android-review.googlesource.com/#/c/110292/
-apply hardware/qcom/camera 110292/1
+#apply hardware/qcom/camera 110292/1
 
 # Assorted clang build fixes
 # https://android-review.googlesource.com/#/c/110324/
-apply device/lge/mako 110324/1
+#apply device/lge/mako 110324/1
 
 # Weird K&R issue seen on android-build but not locally
 # https://android-review.googlesource.com/#/c/111267/

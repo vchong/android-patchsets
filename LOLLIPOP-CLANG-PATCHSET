@@ -21,15 +21,14 @@ fi
 cherrypick build 311384fec340a7f2f76ca7f45599987df4341d5b
 
 # build infrastructure
-apply --linaro build 15253/1
-cherrypick build 9aa69a675233fe4fc1dc40d2065b8659f639f838
-cherrypick build fb482c6d5dd702b8386cf87535094a75b084ec18
-cherrypick build 22b6c5c2c1b6e5d306517ce2e480710fcab352bf
+apply --linaro build 15270/2
 
 # Clang related build fixes
 cherrypick external/libunwind 999f963cb70225fbd27e6846fdb490abd2368529
 cherrypick external/libunwind 5f0b9af0e9dbf486b220cec1168a9321222ab7f7
 cherrypick external/libunwind f760bf5b2c822d21442aa9f765da0e62284e4f48
+
+cherrypick bionic ae558d6b4bcee740f7e61434982eb5f2c999fb97
 
 echo "Applied $PATCHES patches"
 exit 0
