@@ -54,6 +54,9 @@ apply frameworks/base 109787/2
 # More unused variables
 # https://android-review.googlesource.com/#/c/109777/
 apply frameworks/base 109777/2
+# Unused parameter
+# https://android-review.googlesource.com/114928
+apply frameworks/av 114928/1
 
 # Remove check for an impossible condition
 # https://android-review.googlesource.com/#/c/109776/
@@ -130,9 +133,22 @@ apply frameworks/base 114903/1
 # incorrect use of bool
 # https://android-review.googlesource.com/114931
 apply frameworks/base 114931/1
+
 # incorrect parentheses placement
 # https://android-review.googlesource.com/114922
 apply frameworks/base 114922/1
+
+# Extraneous parentheses
+# https://android-review.googlesource.com/114926
+apply frameworks/av 114926/1
+
+# C++11 extensions in C++98 code
+# https://android-review.googlesource.com/114951
+apply frameworks/av 114951/1
+
+# uninitialized variable
+# https://android-review.googlesource.com/114927
+apply frameworks/av 114927/1
 
 # format strings
 # https://android-review.googlesource.com/114900
@@ -152,9 +168,13 @@ apply frameworks/base 114921/1
 # https://android-review.googlesource.com/114901
 apply hardware/ril 114901/1
 
-# abs vs. std::abs
+# Incorrect use of string operations
+# https://android-review.googlesource.com/114924
+apply frameworks/base 114924/1
+
+# abs vs. fabsf
 # https://android-review.googlesource.com/114930
-apply frameworks/base 114930/1
+apply frameworks/base 114930/2
 
 # C++11 mode
 # https://android-review.googlesource.com/114875
