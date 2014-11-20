@@ -80,12 +80,13 @@ apply external/skia 109785/3
 # Unused parameters (ugly part)
 # https://android-review.googlesource.com/#/c/109860/
 apply external/skia 109860/1
+# C++11 extensions
+# https://android-review.googlesource.com/115622/
+apply external/skia 115622/1
 
 # Check for condition that can't happen
 # https://android-review.googlesource.com/#/c/109765/
 apply hardware/invensense 109765/1
-# https://android-review.googlesource.com/114902
-apply frameworks/native 114902/1
 
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
@@ -119,12 +120,14 @@ apply external/ipsec-tools 111267/3
 apply external/skia 114872/1
 
 # struct vs. class
-# https://android-review.googlesource.com/114873
-apply frameworks/av 114873/1
-# https://android-review.googlesource.com/114912
-apply frameworks/native 114912/1
 # https://android-review.googlesource.com/114877
 apply frameworks/base 114877/3
+# struct vs. class
+# https://android-review.googlesource.com/115664
+apply frameworks/av 115664/1
+# bogus overload
+# https://android-review.googlesource.com/115615
+apply frameworks/av 115615/1
 
 # unreachable code
 # https://android-review.googlesource.com/114903
@@ -134,13 +137,15 @@ apply frameworks/base 114903/1
 # https://android-review.googlesource.com/114931
 apply frameworks/base 114931/1
 
-# incorrect parentheses placement
-# https://android-review.googlesource.com/114922
-apply frameworks/base 114922/1
+# gcc pragmas
+# https://android-review.googlesource.com/115662
+apply frameworks/base 115662/2
 
 # Extraneous parentheses
 # https://android-review.googlesource.com/114926
 apply frameworks/av 114926/1
+# https://android-review.googlesource.com/115624
+apply frameworks/av 115624/1
 
 # C++11 extensions in C++98 code
 # https://android-review.googlesource.com/114951
@@ -164,20 +169,20 @@ apply system/core 114910/1
 # https://android-review.googlesource.com/114921
 apply frameworks/base 114921/1
 
-# Prototype mismatching implementation
-# https://android-review.googlesource.com/114901
-apply hardware/ril 114901/1
-
 # Incorrect use of string operations
 # https://android-review.googlesource.com/114924
 apply frameworks/base 114924/1
 
-# abs vs. fabsf
-# https://android-review.googlesource.com/114930
-apply frameworks/base 114930/2
+# asm fixes
+# https://android-review.googlesource.com/115660
+apply external/libhevc 115660/1
 
 # C++11 mode
 # https://android-review.googlesource.com/114875
-apply hardware/ril 114875/1
+#apply hardware/ril 114875/1
+
+# Workaround for clang bug
+# https://android-review.googlesource.com/115666
+apply frameworks/av 115666/1
 
 echo "Applied $PATCHES patches"
