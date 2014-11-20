@@ -25,8 +25,6 @@ apply bionic 109026/1
 # Bluedroid cleanups
 # https://android-review.googlesource.com/#/c/114282/
 apply external/bluetooth/bluedroid 114282/1
-# https://android-review.googlesource.com/#/c/114283/1
-apply external/bluetooth/bluedroid 114283/1
 
 # Don't force external/chromium_org to be built with gcc
 # https://android-review.googlesource.com/#/c/112764/
@@ -133,27 +131,17 @@ apply frameworks/av 115615/1
 # https://android-review.googlesource.com/114903
 apply frameworks/base 114903/1
 
-# incorrect use of bool
-# https://android-review.googlesource.com/114931
-apply frameworks/base 114931/1
-
 # gcc pragmas
 # https://android-review.googlesource.com/115662
 apply frameworks/base 115662/2
 
 # Extraneous parentheses
-# https://android-review.googlesource.com/114926
-apply frameworks/av 114926/1
 # https://android-review.googlesource.com/115624
 apply frameworks/av 115624/1
 
 # C++11 extensions in C++98 code
 # https://android-review.googlesource.com/114951
 apply frameworks/av 114951/1
-
-# uninitialized variable
-# https://android-review.googlesource.com/114927
-apply frameworks/av 114927/1
 
 # format strings
 # https://android-review.googlesource.com/114900
