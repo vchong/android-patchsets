@@ -26,20 +26,6 @@ apply bionic 109026/1
 # https://android-review.googlesource.com/#/c/114282/
 apply external/bluetooth/bluedroid 114282/1
 
-# Don't force external/chromium_org to be built with gcc
-# https://android-review.googlesource.com/#/c/112764/
-#apply external/chromium_org 112764/3
-
-# Work around register usage and superfluous functions in chromium
-# https://android-review.googlesource.com/#/c/109153/
-#apply external/chromium_org 109153/5
-# Array subscript of type 'char'
-# https://android-review.googlesource.com/#/c/109380/1
-#apply external/chromium_org 109380/1
-# Work around register usage
-# https://android-review.googlesource.com/109681
-#apply external/chromium_org/third_party/WebKit 109681/1
-
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
 apply frameworks/native 114876/1
@@ -72,16 +58,6 @@ apply system/core 109567/2
 # https://android-review.googlesource.com/#/c/109025/
 apply external/aac 109025/2
 
-# Unused parameters
-# https://android-review.googlesource.com/#/c/109785/
-apply external/skia 109785/3
-# Unused parameters (ugly part)
-# https://android-review.googlesource.com/#/c/109860/
-apply external/skia 109860/1
-# C++11 extensions
-# https://android-review.googlesource.com/115622/
-apply external/skia 115622/1
-
 # Check for condition that can't happen
 # https://android-review.googlesource.com/#/c/109765/
 apply hardware/invensense 109765/1
@@ -90,32 +66,9 @@ apply hardware/invensense 109765/1
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/2
 
-# Nexus 5
-# checks for conditions that can't happen
-# https://android-review.googlesource.com/#/c/110291/
-#apply hardware/qcom/camera 110291/2
-# more of the same
-# https://android-review.googlesource.com/#/c/110109/
-#apply hardware/qcom/camera 110109/1
-# more of the same, also optimize out a double-to-string-and-back conv
-# https://android-review.googlesource.com/#/c/110292/
-#apply hardware/qcom/camera 110292/1
-
-# Assorted clang build fixes
-# https://android-review.googlesource.com/#/c/110324/
-#apply device/lge/mako 110324/1
-
 # Weird K&R issue seen on android-build but not locally
 # https://android-review.googlesource.com/#/c/111267/
 apply external/ipsec-tools 111267/3
-
-# Increase max. allowed stack frame size, needed for art::dex2oat for now
-# https://android-review.googlesource.com/#/c/107300/
-#apply art 107300/2
-
-# Assembly fixes
-# https://android-review.googlesource.com/114872
-apply external/skia 114872/1
 
 # struct vs. class
 # https://android-review.googlesource.com/114877
@@ -127,50 +80,46 @@ apply frameworks/av 115664/1
 # https://android-review.googlesource.com/115615
 apply frameworks/av 115615/1
 
-# unreachable code
-# https://android-review.googlesource.com/114903
-apply frameworks/base 114903/1
-
 # gcc pragmas
 # https://android-review.googlesource.com/115662
 apply frameworks/base 115662/2
-
-# Extraneous parentheses
-# https://android-review.googlesource.com/115624
-apply frameworks/av 115624/1
 
 # C++11 extensions in C++98 code
 # https://android-review.googlesource.com/114951
 apply frameworks/av 114951/1
 
-# format strings
-# https://android-review.googlesource.com/114900
-apply frameworks/base 114900/1
-# https://android-review.googlesource.com/114874
-apply system/core 114874/1
 # https://android-review.googlesource.com/114911
 apply frameworks/native 114911/1
 
-# Unused parameters
-# https://android-review.googlesource.com/114910
-apply system/core 114910/1
 # https://android-review.googlesource.com/114921
-apply frameworks/base 114921/1
-
-# Incorrect use of string operations
-# https://android-review.googlesource.com/114924
-apply frameworks/base 114924/1
+apply frameworks/base 114921/2
 
 # asm fixes
 # https://android-review.googlesource.com/115660
 apply external/libhevc 115660/1
 
-# C++11 mode
-# https://android-review.googlesource.com/114875
-#apply hardware/ril 114875/1
-
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
 apply frameworks/av 115666/1
+
+# Unused functions
+# https://android-review.googlesource.com/115875
+apply external/conscrypt 115875/1
+
+# Invalid assembly
+# https://android-review.googlesource.com/114872
+apply external/skia 114872/1
+
+# Unused parameters
+# https://android-review.googlesource.com/115882
+apply frameworks/native 115882/1
+
+# Unused variable
+# https://android-review.googlesource.com/115883
+apply system/core 115883/1
+
+# C++11 in C++98 mode
+# https://android-review.googlesource.com/115876
+apply hardware/ril 115876/1
 
 echo "Applied $PATCHES patches"
