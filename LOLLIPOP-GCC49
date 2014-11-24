@@ -15,6 +15,8 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
+init
+
 # Build art with clang until gcc 4.9 does the job http://review.android.git.linaro.org/#/c/15334/
 apply --linaro art 15334/1
 

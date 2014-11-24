@@ -1,5 +1,11 @@
 # vim:syn=sh
 
+init() {
+	# AOSP's gerrit doesn't like anonymous checkouts
+	git config --global user.email &>/dev/null || git config --global user.email buildbot@linaro.org
+	git config --global user.name &>/dev/null || git config --global user.name "Linaro Build Bot"
+}
+
 apply() {
 	local REPO
 	local DIR
