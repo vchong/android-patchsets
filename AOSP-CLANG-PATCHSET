@@ -114,6 +114,9 @@ apply external/skia 114872/1
 # https://android-review.googlesource.com/115882
 apply frameworks/native 115882/1
 
+# https://android-review.googlesource.com/115884
+apply frameworks/base 115884/1
+
 # Unused variable
 # https://android-review.googlesource.com/115883
 apply system/core 115883/1
