@@ -1,0 +1,22 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+# Build art with clang until gcc 4.9 does the job http://review.android.git.linaro.org/#/c/15334/
+apply --linaro art 15334/1
+
+# Fix uninitialized variable http://review.android.git.linaro.org/#/c/15335
+apply --linaro external/bluetooth/bluedroid 15335/1
