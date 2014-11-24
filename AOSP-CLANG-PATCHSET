@@ -98,7 +98,7 @@ apply frameworks/base 114921/2
 
 # asm fixes
 # https://android-review.googlesource.com/115660
-apply external/libhevc 115660/1
+apply external/libhevc 115660/2
 
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
