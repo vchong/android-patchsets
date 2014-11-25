@@ -33,24 +33,7 @@ apply external/bluetooth/bluedroid 114282/1
 apply frameworks/native 114876/1
 # Remove unused function
 # https://android-review.googlesource.com/#/c/109762/
-apply frameworks/base 109762/1
-# Remove unused variable
-# https://android-review.googlesource.com/#/c/109787/
-apply frameworks/base 109787/2
-# More unused variables
-# https://android-review.googlesource.com/#/c/109777/
-apply frameworks/base 109777/2
-# Unused parameter
-# https://android-review.googlesource.com/114928
-apply frameworks/av 114928/1
-
-# Remove check for an impossible condition
-# https://android-review.googlesource.com/#/c/109776/
-apply frameworks/av 109776/1
-
-# undefined internals in Binder
-# https://android-review.googlesource.com/#/c/112044/
-apply frameworks/native 112044/3
+#apply frameworks/base 109762/1
 
 # __attribute__((__aligned__)) workaround
 # https://android-review.googlesource.com/#/c/109567/
@@ -68,16 +51,6 @@ apply hardware/invensense 109765/1
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/2
 
-# Weird K&R issue seen on android-build but not locally
-# https://android-review.googlesource.com/#/c/111811/
-apply external/ipsec-tools 111811/1
-
-# struct vs. class
-# https://android-review.googlesource.com/114877
-apply frameworks/base 114877/4
-# struct vs. class
-# https://android-review.googlesource.com/115664
-apply frameworks/av 115664/1
 # bogus overload
 # https://android-review.googlesource.com/115615
 apply frameworks/av 115615/1
@@ -91,37 +64,26 @@ apply frameworks/base 115662/2
 apply frameworks/av 114951/1
 
 # https://android-review.googlesource.com/114911
-apply frameworks/native 114911/1
-
-# https://android-review.googlesource.com/114921
-apply frameworks/base 114921/2
+#apply frameworks/native 114911/1
 
 # asm fixes
 # https://android-review.googlesource.com/115660
-apply external/libhevc 115660/2
+# https://android-review.googlesource.com/#/c/116241
+# 115660 breaks compatibility with gcc, but is the
+# right thing to do once binutils is fixed.
+#apply external/libhevc 115660/2
+apply external/libhevc 116241/1
 
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
 apply frameworks/av 115666/1
 
-# Unused functions
-# https://android-review.googlesource.com/115973
-apply external/conscrypt 115973/1
-
 # Invalid assembly
 # https://android-review.googlesource.com/114872
 apply external/skia 114872/1
 
-# Unused parameters
-# https://android-review.googlesource.com/115882
-apply frameworks/native 115882/1
-
 # https://android-review.googlesource.com/115884
 apply frameworks/base 115884/1
-
-# Unused variable
-# https://android-review.googlesource.com/115883
-apply system/core 115883/1
 
 # C++11 in C++98 mode
 # https://android-review.googlesource.com/115876
