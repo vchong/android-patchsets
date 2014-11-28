@@ -86,7 +86,6 @@ apply hardware/ril 115876/1
 #apply frameworks/av 116341/1
 apply frameworks/av 116493/1
 apply external/aac 116625/1
-apply external/skia 116647/1
 apply hardware/qcom/media 116672/1
 apply hardware/qcom/media 116648/1
 apply system/extras 116673/1
