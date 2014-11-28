@@ -88,6 +88,5 @@ apply frameworks/av 116493/1
 apply external/aac 116625/1
 apply hardware/qcom/media 116672/1
 apply hardware/qcom/media 116648/1
-apply system/extras 116673/1
 
 echo "Applied $PATCHES patches"
