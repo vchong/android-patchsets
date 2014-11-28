@@ -26,11 +26,11 @@ apply bionic 109026/1
 
 # Bluedroid cleanups
 # https://android-review.googlesource.com/#/c/114282/
-apply external/bluetooth/bluedroid 114282/1
+apply external/bluetooth/bluedroid 114282/2
 
 # Overloaded virtual
 # https://android-review.googlesource.com/#/c/109786/
-apply frameworks/native 114876/1
+#apply frameworks/native 114876/1
 # Remove unused function
 # https://android-review.googlesource.com/#/c/109762/
 #apply frameworks/base 109762/1
@@ -43,17 +43,9 @@ apply system/core 109567/2
 # https://android-review.googlesource.com/#/c/109025/
 apply external/aac 109025/3
 
-# Check for condition that can't happen
-# https://android-review.googlesource.com/#/c/109765/
-apply hardware/invensense 109765/1
-
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/2
-
-# bogus overload
-# https://android-review.googlesource.com/115615
-apply frameworks/av 115615/1
 
 # gcc pragmas
 # https://android-review.googlesource.com/115662
@@ -88,5 +80,15 @@ apply frameworks/base 115884/1
 # C++11 in C++98 mode
 # https://android-review.googlesource.com/115876
 apply hardware/ril 115876/1
+
+# Fixes needed only after C++11 switch
+#apply frameworks/native 116340/1
+#apply frameworks/av 116341/1
+apply frameworks/av 116493/1
+apply external/aac 116625/1
+apply external/skia 116647/1
+apply hardware/qcom/media 116672/1
+apply hardware/qcom/media 116648/1
+apply system/extras 116673/1
 
 echo "Applied $PATCHES patches"
