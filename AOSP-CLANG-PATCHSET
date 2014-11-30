@@ -28,13 +28,6 @@ apply bionic 109026/1
 # https://android-review.googlesource.com/#/c/114282/
 apply external/bluetooth/bluedroid 114282/2
 
-# Overloaded virtual
-# https://android-review.googlesource.com/#/c/109786/
-#apply frameworks/native 114876/1
-# Remove unused function
-# https://android-review.googlesource.com/#/c/109762/
-#apply frameworks/base 109762/1
-
 # __attribute__((__aligned__)) workaround
 # https://android-review.googlesource.com/#/c/109567/
 apply system/core 109567/2
@@ -55,24 +48,17 @@ apply frameworks/base 115662/2
 # https://android-review.googlesource.com/114951 --- ultimately to be replaced by 115674
 apply frameworks/av 114951/1
 
-# https://android-review.googlesource.com/114911
-#apply frameworks/native 114911/1
-
 # asm fixes
 # https://android-review.googlesource.com/115660
-# https://android-review.googlesource.com/#/c/116241
-# 115660 breaks compatibility with gcc, but is the
-# right thing to do once binutils is fixed.
-#apply external/libhevc 115660/2
-apply external/libhevc 116241/1
+apply external/libhevc 115660/3
 
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
 apply frameworks/av 115666/1
 
 # Invalid assembly
-# https://android-review.googlesource.com/114872
-apply external/skia 114872/1
+# https://android-review.googlesource.com/116718
+apply external/skia 116718/1
 
 # https://android-review.googlesource.com/115884
 apply frameworks/base 115884/1
@@ -82,11 +68,14 @@ apply frameworks/base 115884/1
 apply hardware/ril 115876/1
 
 # Fixes needed only after C++11 switch
-#apply frameworks/native 116340/1
-#apply frameworks/av 116341/1
 apply frameworks/av 116493/1
 apply external/aac 116625/1
 apply hardware/qcom/media 116672/1
 apply hardware/qcom/media 116648/1
+
+# 64-bit support
+apply art 116717/1
+apply frameworks/av 116770/1
+apply frameworks/base 116780/2
 
 echo "Applied $PATCHES patches"
