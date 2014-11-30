@@ -50,7 +50,7 @@ apply frameworks/av 114951/1
 
 # asm fixes
 # https://android-review.googlesource.com/115660
-apply external/libhevc 115660/3
+apply external/libhevc 115660/4
 
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
