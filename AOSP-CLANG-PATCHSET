@@ -63,6 +63,10 @@ apply external/skia 116718/1
 # https://android-review.googlesource.com/115884
 apply frameworks/base 115884/1
 
+# Use of pldw without specifying target CPU
+# https://android-review.googlesource.com/116773
+apply bionic 116773/1
+
 # C++11 in C++98 mode
 # https://android-review.googlesource.com/115876
 apply hardware/ril 115876/1
