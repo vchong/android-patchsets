@@ -32,10 +32,6 @@ apply external/bluetooth/bluedroid 114282/2
 # https://android-review.googlesource.com/#/c/109567/
 apply system/core 109567/2
 
-# Fix checks for {Front,Side,Back}ElementIsCpe
-# https://android-review.googlesource.com/#/c/109025/
-apply external/aac 109025/3
-
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/2
