@@ -44,24 +44,9 @@ apply frameworks/base 115662/2
 # https://android-review.googlesource.com/114951 --- ultimately to be replaced by 115674
 apply frameworks/av 114951/1
 
-# asm fixes
-# https://android-review.googlesource.com/115660
-apply external/libhevc 115660/6
-
 # Workaround for clang bug
 # https://android-review.googlesource.com/115666
 apply frameworks/av 115666/1
-
-# Invalid assembly
-# https://android-review.googlesource.com/116718
-apply external/skia 116718/1
-
-# https://android-review.googlesource.com/115884
-apply frameworks/base 115884/1
-
-# Use of pldw without specifying target CPU
-# https://android-review.googlesource.com/116773
-apply bionic 116773/1
 
 # C++11 in C++98 mode
 # https://android-review.googlesource.com/115876
@@ -71,7 +56,6 @@ apply hardware/ril 115876/1
 apply frameworks/av 116493/1
 apply external/aac 116625/1
 apply hardware/qcom/media 116672/1
-apply hardware/qcom/media 116648/1
 
 # 64-bit support
 apply art 116717/1
