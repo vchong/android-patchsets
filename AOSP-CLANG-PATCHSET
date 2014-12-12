@@ -53,13 +53,12 @@ apply frameworks/av 115666/1
 apply hardware/ril 115876/1
 
 # Fixes needed only after C++11 switch
-apply frameworks/av 116493/1
 apply external/aac 116625/1
 apply hardware/qcom/media 116672/1
+apply hardware/libhardware 119290/1
 
 # 64-bit support
 apply art 116717/1
-apply frameworks/av 116770/1
 apply frameworks/base 116780/2
 
 echo "Applied $PATCHES patches"
