@@ -60,6 +60,9 @@ apply hardware/libhardware 119290/1
 # Unused functions/label
 apply system/core 119241/1
 
+# Check for condition that is always true
+apply external/iptables 119300/1
+
 # 64-bit support
 apply art 116717/1
 apply frameworks/base 116780/2
