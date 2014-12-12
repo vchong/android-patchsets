@@ -57,6 +57,9 @@ apply external/aac 116625/1
 apply hardware/qcom/media 116672/1
 apply hardware/libhardware 119290/1
 
+# Unused functions/label
+apply system/core 119241/1
+
 # 64-bit support
 apply art 116717/1
 apply frameworks/base 116780/2
