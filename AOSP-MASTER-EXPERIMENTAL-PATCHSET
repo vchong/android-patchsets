@@ -17,11 +17,3 @@ fi
 
 # Include bionic tests patch http://review.android.git.linaro.org/#/c/15343/
 apply --linaro system/extras 15343/1
-
-# Include fix for monkey crash on browser package:
-# https://android-review.googlesource.com/#/c/116885/
-apply packages/apps/Browser 116885/1
-
-# Include patch for start and stop file path for bootchart:
-# https://android-review.googlesource.com/#/c/117071/
-apply system/core 117071/1
