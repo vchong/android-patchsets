@@ -67,5 +67,6 @@ apply external/iptables 119300/1
 apply art 116717/1
 apply frameworks/base 116780/2
 apply external/libvpx 119303/1
+apply external/valgrind 119291/1
 
 echo "Applied $PATCHES patches"
