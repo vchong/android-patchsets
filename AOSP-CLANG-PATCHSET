@@ -66,5 +66,6 @@ apply external/iptables 119300/1
 # 64-bit support
 apply art 116717/1
 apply frameworks/base 116780/2
+apply external/libvpx 119303/1
 
 echo "Applied $PATCHES patches"
