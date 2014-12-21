@@ -15,14 +15,27 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
+##################################################
+################ Non-upstreamable ################
+##################################################
 # Include bionic tests patch http://review.android.git.linaro.org/#/c/15288/
 apply --linaro system/extras 15288/1
 
+##################################################
+################ Backport ########################
+##################################################
 # Include fix for monkey crash on browser package:
 # https://android-review.googlesource.com/#/c/118963
 apply packages/apps/Browser 118963/1
 
+##################################################
+################ Temporary fix ###################
+##################################################
 # Include patch for start and stop file path for bootchart:
 # https://android-review.googlesource.com/#/c/117071/
 apply --linaro system/core 15367/2
 apply --linaro external/sepolicy 15366/2
+
+##################################################
+################ Linaro hack   ###################
+##################################################
