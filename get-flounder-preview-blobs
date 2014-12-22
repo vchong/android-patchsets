@@ -1,0 +1,14 @@
+#!/bin/sh
+# https://developers.google.com/android/nexus/blobs-preview
+wget https://dl.google.com/dl/android/aosp/htc-flounder-1632165-c832bb6b.tgz
+for i in *-flounder-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-flounder.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-flounder-*.tgz extract-*-flounder.sh

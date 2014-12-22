@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-lrx22c-964d941e.tgz
-wget https://dl.google.com/dl/android/aosp/lge-hammerhead-lrx22c-95a9d465.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-lrx22c-e1a10593.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-shamu-lrx22c-602f9b2e.tgz
+wget https://dl.google.com/dl/android/aosp/moto-shamu-lrx22c-b19e597a.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-shamu-lrx22c-ddeee8d1.tgz
 for i in *-hammerhead-*.tgz; do
 	tar xf $i
 done

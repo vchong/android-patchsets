@@ -1,0 +1,16 @@
+#!/bin/sh
+# https://developers.google.com/android/nexus/blobs-preview
+wget https://dl.google.com/dl/android/aosp/asus-flo-1632165-bfc2b534.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-flo-1632165-0676c4e6.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-flo-1632165-0613da04.tgz
+for i in *-flo-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-flo.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-flo-*.tgz extract-*-flo.sh

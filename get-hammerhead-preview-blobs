@@ -1,0 +1,16 @@
+#!/bin/sh
+# https://developers.google.com/android/nexus/blobs-preview
+wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-1632165-faaa4e24.tgz
+wget https://dl.google.com/dl/android/aosp/lge-hammerhead-1632165-898085bf.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-1632165-a0e3f7be.tgz
+for i in *-hammerhead-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-hammerhead.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-hammerhead-*.tgz extract-*-hammerhead.sh
