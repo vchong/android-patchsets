@@ -72,4 +72,7 @@ apply external/libvpx 119303/1
 apply external/valgrind 119291/1
 apply external/vixl 119292/1
 
+# Restore ABI needed by Nexus 10 blobs
+apply frameworks/base 120810/1
+
 echo "Applied $PATCHES patches"
