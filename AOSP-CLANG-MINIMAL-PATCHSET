@@ -30,6 +30,6 @@ apply hardware/invensense 120763/1
 apply art 116717/1
 
 # Restore ABI needed by Nexus 10 blobs
-apply frameworks/base 120810/1
+apply frameworks/native 120810/1
 
 echo "Applied $PATCHES patches"
