@@ -1,0 +1,35 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+	AOSP="$1"
+else
+	AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+	echo "This script must be run from the AOSP source directory"
+	echo "or with the AOSP source directory as its first parameter."
+	exit 1
+fi
+
+init
+
+#============================================
+# Patches needed to make it build with clang
+#============================================
+# Fix Nexus 10 build
+# https://android-review.googlesource.com/#/c/110220/
+apply hardware/samsung_slsi/exynos5 110220/3
+# https://android-review.googlesource.com/#/c/120763/
+apply hardware/invensense 120763/1
+
+# 64-bit support
+apply art 116717/1
+
+# Restore ABI needed by Nexus 10 blobs
+apply frameworks/base 120810/1
+
+echo "Applied $PATCHES patches"
