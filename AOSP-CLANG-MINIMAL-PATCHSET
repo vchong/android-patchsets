@@ -28,6 +28,7 @@ apply hardware/invensense 120763/1
 
 # 64-bit support
 apply art 116717/1
+apply external/libvpx 119303/1
 
 # Restore ABI needed by Nexus 10 blobs
 apply frameworks/native 120810/1
