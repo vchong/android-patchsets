@@ -23,14 +23,5 @@ init
 # Fix Nexus 10 build
 # https://android-review.googlesource.com/#/c/110220/
 apply hardware/samsung_slsi/exynos5 110220/3
-# https://android-review.googlesource.com/#/c/120763/
-apply hardware/invensense 120763/1
-
-# 64-bit support
-apply art 116717/1
-apply external/libvpx 119303/1
-
-# Restore ABI needed by Nexus 10 blobs
-apply frameworks/native 120810/1
 
 echo "Applied $PATCHES patches"
