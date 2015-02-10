@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/audience-manta-1537103-8f1a4c56.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-manta-1537103-15b8bdff.tgz
-wget https://dl.google.com/dl/android/aosp/samsung-manta-1537103-bcd253ac.tgz
+wget https://dl.google.com/dl/android/aosp/audience-manta-1718904-b4df207a.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-manta-1718904-dc5de3e9.tgz
+wget https://dl.google.com/dl/android/aosp/samsung-manta-1718904-c3840991.tgz
 for i in *-manta-*.tgz; do
 	tar xf $i
 done
