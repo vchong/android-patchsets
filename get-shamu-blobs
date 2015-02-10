@@ -3,14 +3,14 @@
 wget https://dl.google.com/dl/android/aosp/broadcom-shamu-lrx22c-602f9b2e.tgz
 wget https://dl.google.com/dl/android/aosp/moto-shamu-lrx22c-b19e597a.tgz
 wget https://dl.google.com/dl/android/aosp/qcom-shamu-lrx22c-ddeee8d1.tgz
-for i in *-hammerhead-*.tgz; do
+for i in *-shamu-*.tgz; do
 	tar xf $i
 done
 mkdir junk
 echo 'cat "$@"' >junk/more
 chmod +x junk/more
 export PATH=`pwd`/junk:$PATH
-for i in extract-*-hammerhead.sh; do
+for i in extract-*-shamu.sh; do
 	echo -e "\nI ACCEPT" |./$i
 done
-rm -rf junk *-hammerhead-*.tgz extract-*-hammerhead.sh
+rm -rf junk *-shamu-*.tgz extract-*-shamu.sh
