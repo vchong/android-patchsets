@@ -1,0 +1,16 @@
+#!/bin/sh
+# https://developers.google.com/android/nexus/blobs-preview
+wget https://dl.google.com/dl/android/aosp/broadcom-shamu-1718904-3c241a9b.tgz
+wget https://dl.google.com/dl/android/aosp/moto-shamu-1718904-d7570c12.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-shamu-1718904-363aedd5.tgz
+for i in *-shamu-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-shamu.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-shamu-*.tgz extract-*-shamu.sh
