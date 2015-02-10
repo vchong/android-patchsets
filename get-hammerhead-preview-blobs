@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-1632165-faaa4e24.tgz
-wget https://dl.google.com/dl/android/aosp/lge-hammerhead-1632165-898085bf.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-1632165-a0e3f7be.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-1718904-a9c486c5.tgz
+wget https://dl.google.com/dl/android/aosp/lge-hammerhead-1718904-2d2ad49f.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-1718904-d9c48efb.tgz
 for i in *-hammerhead-*.tgz; do
 	tar xf $i
 done
