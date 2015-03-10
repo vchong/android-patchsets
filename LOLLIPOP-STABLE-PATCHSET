@@ -34,7 +34,7 @@ apply packages/apps/Browser 118963/1
 # Include patch for start and stop file path for bootchart:
 # https://android-review.googlesource.com/#/c/117071/
 apply --linaro system/core 15367/2
-apply --linaro external/sepolicy 15366/2
+apply --linaro external/sepolicy 15506/1
 
 ##################################################
 ################ Linaro hack   ###################
