@@ -34,6 +34,8 @@ cherrypick build 311384fec340a7f2f76ca7f45599987df4341d5b
 # Allow the Denver implementation of memset to build
 # with clang
 cherrypick bionic ce46f5576ad0c9aefd842492949c4d2965e23e89
+# Allow Bionic to build with clang
+apply --linaro bionic 15515/1
 
 ##################################################
 ################ Temporary fix ###################
