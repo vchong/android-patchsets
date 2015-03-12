@@ -27,6 +27,10 @@ apply --linaro system/extras 15288/1
 # Include fix for monkey crash on browser package:
 # https://android-review.googlesource.com/#/c/118963
 apply packages/apps/Browser 118963/1
+# Fix Java detection on Linux distributions that
+# rely on update-alternatives to allow several JDKs
+# to coexist
+cherrypick build 311384fec340a7f2f76ca7f45599987df4341d5b
 
 ##################################################
 ################ Temporary fix ###################
