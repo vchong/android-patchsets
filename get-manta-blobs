@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/audience-manta-lrx22g-2509b5a4.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-manta-lrx22g-c974573c.tgz
-wget https://dl.google.com/dl/android/aosp/samsung-manta-lrx22g-fa6b88d4.tgz
+wget https://dl.google.com/dl/android/aosp/audience-manta-1743759-5e904069.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-manta-1743759-83262102.tgz
+wget https://dl.google.com/dl/android/aosp/samsung-manta-1743759-3cdcd57c.tgz
 for i in *-manta-*.tgz; do
 	tar xf $i
 done
