@@ -44,6 +44,10 @@ apply --linaro bionic 15515/1
 # https://android-review.googlesource.com/#/c/117071/
 apply --linaro system/core 15367/2
 apply --linaro external/sepolicy 15506/1
+# Add optimizations from cortex-string for bionic
+apply --linaro bionic 15494/5
+apply --linaro bionic 15526/1
+apply --linaro bionic 15529/1
 
 ##################################################
 ################ Linaro hack   ###################
