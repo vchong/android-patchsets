@@ -52,9 +52,6 @@ apply --linaro external/sepolicy 15506/1
 apply --linaro bionic 15494/5
 apply --linaro bionic 15528/1
 apply --linaro bionic 15529/1
-# And some Bionic optimizations not from cortex-strings
-apply --linaro bionic 15553/1
-apply --linaro bionic 15554/1
 
 ##################################################
 ################ Linaro hack   ###################
