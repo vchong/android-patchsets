@@ -52,6 +52,9 @@ apply --linaro external/sepolicy 15506/1
 apply --linaro bionic 15494/5
 apply --linaro bionic 15528/1
 apply --linaro bionic 15529/1
+# Further Bionic optimizations
+apply --linaro bionic 15553/1
+apply --linaro bionic 15566/1
 
 ##################################################
 ################ Linaro hack   ###################
