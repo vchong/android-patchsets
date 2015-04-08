@@ -19,7 +19,7 @@ fi
 ################ Non-upstreamable ################
 ##################################################
 # Include bionic tests patch http://review.android.git.linaro.org/#/c/15288/
-apply --linaro system/extras 15288/1
+apply --linaro system/extras 15288/2
 
 ##################################################
 ################ Backport ########################
