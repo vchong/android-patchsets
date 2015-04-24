@@ -38,6 +38,12 @@ cherrypick bionic ce46f5576ad0c9aefd842492949c4d2965e23e89
 apply --linaro bionic 15515/1
 
 ##################################################
+################## Bug fixes #####################
+##################################################
+# Uninitialized variable
+apply --linaro external/bluetooth/bluedroid 15610/1
+
+##################################################
 ################ Temporary fix ###################
 ##################################################
 # Include patch for start and stop file path for bootchart:
