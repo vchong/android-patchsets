@@ -42,6 +42,8 @@ apply --linaro bionic 15515/1
 ##################################################
 # Uninitialized variable
 apply --linaro external/bluetooth/bluedroid 15610/1
+# Fix API check on build hosts with modern glibc versions
+apply system/core 114555/1
 
 ##################################################
 ################ Temporary fix ###################
