@@ -1,0 +1,29 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+# char16_t/char32_t definitions in Bionic
+apply bionic 148147/1
+
+# 0xffffffff assigned to a signed int
+apply external/chromium_org/third_party/WebKit 148220/1
+
+# gcc 5.x warns about !/&/&& precedence
+apply frameworks/base 148148/1
+
+# -Wstrict-overflow level (this patch is a little questionable
+# for upstreaming, but let's try)
+apply bionic 148213/1
