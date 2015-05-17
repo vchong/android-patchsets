@@ -44,6 +44,8 @@ apply --linaro bionic 15515/1
 apply --linaro external/bluetooth/bluedroid 15610/1
 # Fix API check on build hosts with modern glibc versions
 apply system/core 114555/1
+# Make sure HAVE_MALLOC_H has a value to make updated sqlite happy
+cherrypick build 9b44afb4529d743e291d6565d6fbe463cd8c964b
 
 ##################################################
 ################ Temporary fix ###################

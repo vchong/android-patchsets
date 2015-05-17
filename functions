@@ -50,3 +50,27 @@ cherrypick() {
 	fi
 	PATCHES=$((PATCHES+1))
 }
+
+revert() {
+	local PATCH
+	PATCH=false
+	if [ "$1" == "--patch" -o "$1" == "-p" ]; then
+		PATCH=true
+		shift
+	fi
+	cd "$AOSP"/"$1"
+	echo "=== Reverting $2 ==="
+	if $PATCH; then
+		if ! git show $2 |patch -p1 -R; then
+			echo "$2 failed to revert by patching, please fix"
+			exit 1
+		fi
+		git commit -am "Revert $2"
+	else
+		if ! git revert --no-edit "$2"; then
+			echo "$2 failed to revert, please fix"
+			exit 1
+		fi
+	fi
+	PATCHES=$((PATCHES+1))
+}
