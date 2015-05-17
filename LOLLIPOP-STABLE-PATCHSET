@@ -36,6 +36,8 @@ cherrypick build 311384fec340a7f2f76ca7f45599987df4341d5b
 cherrypick bionic ce46f5576ad0c9aefd842492949c4d2965e23e89
 # Allow Bionic to build with clang
 apply --linaro bionic 15515/1
+# Allow skia to build with giflib 5.1
+apply external/skia 151010/1
 
 ##################################################
 ################## Bug fixes #####################
