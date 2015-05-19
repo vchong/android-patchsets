@@ -57,6 +57,9 @@ cherrypick build 9b44afb4529d743e291d6565d6fbe463cd8c964b
 apply --linaro system/core 15367/2
 apply --linaro external/sepolicy 15506/1
 
+# patch to integrate tjbench test on jpeg project
+apply --linaro external/jpeg 15791/1
+
 ##################################################
 #### Optimizations not yet submitted upstream ####
 ##################################################
