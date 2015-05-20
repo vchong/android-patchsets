@@ -60,10 +60,18 @@ apply --linaro external/sepolicy 15506/1
 ##################################################
 #### Optimizations not yet submitted upstream ####
 ##################################################
+# Add optimizations from cortex-string for bionic
+apply --linaro bionic 15494/5
+apply --linaro bionic 15528/1
+apply --linaro bionic 15529/1
+# Further Bionic optimizations
+apply --linaro bionic 15553/1
+apply --linaro bionic 15566/1
 
 ########################################################
 #### Backports of optimizations submitted to master ####
 ########################################################
+apply --linaro bionic 15613/3
 
 ##################################################
 ################ Linaro hack   ###################
