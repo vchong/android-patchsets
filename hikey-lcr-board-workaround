@@ -19,5 +19,4 @@ fi
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-apply --linaro frameworks/native 15422/1
-apply --linaro frameworks/base 15423/1
+apply --linaro external/wpa_supplicant_8 15578/1

@@ -1,0 +1,4 @@
+[gerrit]
+host=review.android.git.linaro.org
+port=29418
+project=android-patchsets.git
