@@ -14,3 +14,4 @@ for i in extract-*-manta.sh; do
 	echo -e "\nI ACCEPT" |./$i
 done
 rm -rf junk *-manta-*.tgz extract-*-manta.sh
+sed -i -e '/LOCAL_MODULE := libmalicore/iLOCAL_STRIP_MODULE := false' vendor/samsung/manta/proprietary/Android.mk
