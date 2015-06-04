@@ -76,3 +76,7 @@ apply --linaro bionic 15613/3
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+# changes to make perf work on Lollipop
+apply --linaro bionic 15845/2
+apply --linaro external/elfutils 15844/1
+apply --linaro external/linux-tools-perf 15843/1
