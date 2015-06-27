@@ -15,11 +15,6 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
-# Include bionic tests patch http://review.android.git.linaro.org/#/c/15343/
-apply --linaro system/extras 15343/1
-
-# Allow skia to build with giflib5.1
-apply external/skia 151010/1
-
-# patch to integrate tjbench test on jpeg project
-apply --linaro external/jpeg 15791/1
+# hack for LAVA
+apply --linaro external/mksh 15922/1
+apply --linaro external/toybox 15924/1
