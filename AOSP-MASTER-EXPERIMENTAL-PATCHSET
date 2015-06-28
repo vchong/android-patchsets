@@ -20,3 +20,6 @@ apply --linaro system/extras 15343/1
 
 # Allow skia to build with giflib5.1
 apply external/skia 151010/1
+
+# patch to integrate tjbench test on jpeg project   24
+apply --linaro external/jpeg 15791/1
