@@ -20,4 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 # get adb working at bootup
-cherrypick device/htc/flounder b8a1f42a0f7502656927da94538b533ab84f9714
+apply --linaro device/htc/flounder 15950/1
