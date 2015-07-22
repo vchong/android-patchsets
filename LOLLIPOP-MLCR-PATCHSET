@@ -102,3 +102,6 @@ apply --linaro external/chromium_org 15960/5
 apply --linaro external/chromium_org/third_party/ots 15957/2
 apply --linaro external/chromium_org/third_party/freetype 15958/1
 apply --linaro external/chromium_org/third_party/WebKit 15959/2
+apply --linaro frameworks/base 15963/1
+apply --linaro external/zlib 15978/1
+apply --linaro external/chromium_org 15980/1
