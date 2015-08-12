@@ -56,6 +56,7 @@ cherrypick build 9b44afb4529d743e291d6565d6fbe463cd8c964b
 # https://android-review.googlesource.com/#/c/117071/
 apply --linaro system/core 15367/2
 apply --linaro external/sepolicy 15506/1
+apply --linaro packages/apps/Settings 16007/1
 
 ##################################################
 #### Optimizations not yet submitted upstream ####
