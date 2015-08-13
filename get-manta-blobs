@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/audience-manta-lmy47v-c4c9b3f6.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-manta-lmy47v-a74b784c.tgz
-wget https://dl.google.com/dl/android/aosp/samsung-manta-lmy47v-cb388740.tgz
+wget https://dl.google.com/dl/android/aosp/audience-manta-lmy48i-be487489.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-manta-lmy48i-767a1093.tgz
+wget https://dl.google.com/dl/android/aosp/samsung-manta-lmy48i-89713a80.tgz
 for i in *-manta-*.tgz; do
 	tar xf $i
 done

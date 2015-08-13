@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/broadcom-shamu-1718904-3c241a9b.tgz
-wget https://dl.google.com/dl/android/aosp/moto-shamu-1718904-d7570c12.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-shamu-1718904-363aedd5.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-shamu-2129077-94dd9ecc.tgz
+wget https://dl.google.com/dl/android/aosp/moto-shamu-2129077-f72c7387.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-shamu-2129077-f6c375aa.tgz
 for i in *-shamu-*.tgz; do
 	tar xf $i
 done

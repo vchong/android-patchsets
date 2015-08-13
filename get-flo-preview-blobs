@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/asus-flo-1718904-94213546.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-flo-1718904-a2fee4c4.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-flo-1718904-f1c6bdc3.tgz
+wget https://dl.google.com/dl/android/aosp/asus-flo-2129077-c5f26a4b.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-flo-2129077-01fc5830.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-flo-2129077-8e693d41.tgz
 for i in *-flo-*.tgz; do
 	tar xf $i
 done

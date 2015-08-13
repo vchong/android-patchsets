@@ -1,6 +1,6 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/htc-flounder-2002986-471221c6.tgz
+wget https://dl.google.com/dl/android/aosp/htc-flounder-2129077-236b7731.tgz
 for i in *-flounder-*.tgz; do
 	tar xf $i
 done

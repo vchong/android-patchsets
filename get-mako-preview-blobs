@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/blobs-preview
-wget https://dl.google.com/dl/android/aosp/broadcom-mako-1632165-2c667b21.tgz
-wget https://dl.google.com/dl/android/aosp/lge-mako-1632165-86576932.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-mako-1632165-609d4eb0.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-mako-2129077-63ab494e.tgz
+wget https://dl.google.com/dl/android/aosp/lge-mako-2129077-8195b9ae.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-mako-2129077-b225071c.tgz
 for i in *-mako-*.tgz; do
 	tar xf $i
 done
