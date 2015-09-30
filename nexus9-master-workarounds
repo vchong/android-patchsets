@@ -20,3 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 apply --linaro device/htc/flounder 15932/3
+apply --linaro device/htc/flounder 16130/1
