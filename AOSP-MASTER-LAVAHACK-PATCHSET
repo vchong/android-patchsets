@@ -16,5 +16,4 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 # hack for LAVA
-apply --linaro external/mksh 15922/1
 apply --linaro external/toybox 15924/1
