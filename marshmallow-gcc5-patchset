@@ -16,4 +16,21 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 # Fix libatomic.a detection with gcc 5+
+# Not submitted upstream yet, looking for a cleaner solution.
+# (But this one works without drawbacks)
 apply --linaro build 16156/1
+# Fix uchar.h for use with gcc 5+
+# Accepted upstream, already on master
+apply --linaro bionic 16161/1
+# Fix gcc 5+ compiler warning in code built with -Werror
+# Submitted upstream, not yet accepted
+# https://android-review.googlesource.com/175288
+apply frameworks/base 175288/1
+# Fix build with gcc 5+
+# Not yet submitted upstream, need to check if it breaks gcc 4.x
+apply --linaro external/compiler-rt 16187/1
+
+# Optional components -- let's fix them only if they're checked out
+if [ -d "$AOSP/external/powerdebug" ]; then
+	apply --linaro external/powerdebug 16185/1
+fi
