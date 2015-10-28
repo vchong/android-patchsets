@@ -29,6 +29,7 @@ apply frameworks/base 175288/1
 # Fix build with gcc 5+
 # Not yet submitted upstream, need to check if it breaks gcc 4.x
 apply --linaro external/compiler-rt 16187/1
+apply --linaro external/compiler-rt 16230/1
 
 # Optional components -- let's fix them only if they're checked out
 if [ -d "$AOSP/external/powerdebug" ]; then
