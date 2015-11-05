@@ -37,6 +37,10 @@ apply --linaro frameworks/av 16238/1
 ##################################################
 #### Optimizations not yet submitted upstream ####
 ##################################################
+# Cortex-A57 support in Bionic
+apply --linaro bionic 16260/1
+# ... and in ART
+apply --linaro art 16262/1
 
 ########################################################
 #### Backports of optimizations submitted to master ####
