@@ -33,6 +33,8 @@ apply --linaro frameworks/av 16238/1
 ##################################################
 ################ Temporary fix ###################
 ##################################################
+# patch to integrate tjbench test on jpeg project
+apply --linaro external/jpeg 15791/1
 
 ##################################################
 #### Optimizations not yet submitted upstream ####
