@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/broadcom-mako-lmy48i-03207d49.tgz
-wget https://dl.google.com/dl/android/aosp/lge-mako-lmy48i-8378a7ca.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-mako-lmy48i-9e546faa.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-mako-lmy48t-decb9f51.tgz
+wget https://dl.google.com/dl/android/aosp/lge-mako-lmy48t-ff9ca8d1.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-mako-lmy48t-8c489b7e.tgz
 for i in *-mako-*.tgz; do
 	tar xf $i
 done

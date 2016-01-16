@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-lmy48i-6922f559.tgz
-wget https://dl.google.com/dl/android/aosp/lge-hammerhead-lmy48i-42aa57af.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-lmy48i-b7faab74.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-hammerhead-mmb29s-3a3c03c6.tgz
+wget https://dl.google.com/dl/android/aosp/lge-hammerhead-mmb29s-fa0209c9.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-hammerhead-mmb29s-bd184be4.tgz
 for i in *-hammerhead-*.tgz; do
 	tar xf $i
 done

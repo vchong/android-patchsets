@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/asus-flo-mra58k-87448153.tgz
-wget https://dl.google.com/dl/android/aosp/broadcom-flo-mra58k-b07af3c3.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-flo-mra58k-c1fa7908.tgz
+wget https://dl.google.com/dl/android/aosp/asus-flo-mmb29o-1091e4d0.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-flo-mmb29o-081d2369.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-flo-mmb29o-42ca50ad.tgz
 for i in *-flo-*.tgz; do
 	tar xf $i
 done

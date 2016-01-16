@@ -1,0 +1,15 @@
+#!/bin/sh
+# https://developers.google.com/android/nexus/drivers
+wget https://dl.google.com/dl/android/aosp/google_devices-dragon-mxb48k-b7757cf8.tgz
+wget https://dl.google.com/dl/android/aosp/nvidia-dragon-mxb48k-d8e0daf3.tgz
+for i in *-dragon-*.tgz; do
+	tar xf $i
+done
+mkdir junk
+echo 'cat "$@"' >junk/more
+chmod +x junk/more
+export PATH=`pwd`/junk:$PATH
+for i in extract-*-dragon.sh; do
+	echo -e "\nI ACCEPT" |./$i
+done
+rm -rf junk *-dragon-*.tgz extract-*-dragon.sh

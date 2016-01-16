@@ -1,8 +1,8 @@
 #!/bin/sh
 # https://developers.google.com/android/nexus/drivers
-wget https://dl.google.com/dl/android/aosp/broadcom-shamu-lmy48i-9527e42c.tgz
-wget https://dl.google.com/dl/android/aosp/moto-shamu-lmy48i-6a571991.tgz
-wget https://dl.google.com/dl/android/aosp/qcom-shamu-lmy48i-6d0f48b2.tgz
+wget https://dl.google.com/dl/android/aosp/broadcom-shamu-mmb29s-faefff51.tgz
+wget https://dl.google.com/dl/android/aosp/moto-shamu-mmb29s-62c5030c.tgz
+wget https://dl.google.com/dl/android/aosp/qcom-shamu-mmb29s-1ae957bd.tgz
 for i in *-shamu-*.tgz; do
 	tar xf $i
 done
