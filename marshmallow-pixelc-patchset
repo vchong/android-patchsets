@@ -17,3 +17,4 @@ fi
 
 # Add kludge for Pixel C keyboard layout support that made it to 6.0.1_r5 but not 6.0.1_r10
 cherrypick frameworks/base f3ec536edbad295303d9a3cf80bd72a4675cf7c7
+cherrypick packages/apps/Settings ee3c64a0882e359ea455ac5e5042fdaf6d47b640
