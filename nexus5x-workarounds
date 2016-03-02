@@ -20,4 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 # get adb working at bootup
-apply --linaro device/lge/bullhead 16637/2
+apply --linaro device/lge/bullhead 16637/3
