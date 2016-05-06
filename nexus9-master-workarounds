@@ -21,5 +21,5 @@ fi
 ##################################################
 apply --linaro device/htc/flounder 15932/3
 apply --linaro device/htc/flounder 16130/1
-apply --linaro device/htc/flounder 16814/1
+apply --linaro device/htc/flounder 16814/2
 apply --linaro frameworks/base 16132/1
