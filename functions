@@ -12,7 +12,7 @@ apply() {
 	local SERVER
 	local LOCAL_DIR
 	if [ "$1" = "--linaro" ]; then
-		SERVER="git://review.android.git.linaro.org/"
+		SERVER="git://android-review.linaro.org/"
 		shift
 	elif [ "$1" = "--server" ]; then
 		shift
@@ -53,7 +53,30 @@ apply() {
 }
 
 cherrypick() {
+	local URL=""
+	local BRANCH=""
+	if [ "$1" = "--url" ]; then
+		shift
+		URL="$1"
+		shift
+	fi
+	if [ "$1" = "--branch" ]; then
+		shift
+		BRANCH="$1"
+		shift
+	fi
 	cd "$AOSP"/"$1"
+	if [ -n "${URL}" ]; then
+		local remote_name=$(mktemp -u cherrypick-server-XXXX)
+		if ! git remote add ${remote_name} ${URL}; then
+			echo "Failed to add remote ${remote_name} for ${URL}"
+			exit 1
+		fi
+		if ! git fetch ${remote_name} ${BRANCH}; then
+		echo "Failed to fetch from ${remote_name} for branch ${BRANCH}"
+		exit 1
+		fi
+	fi
 	echo "=== Cherry-picking $2 ==="
 	if ! git cherry-pick "$2"; then
 		echo "$2 failed to apply, please fix"

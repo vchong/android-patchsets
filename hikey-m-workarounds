@@ -1,0 +1,33 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## Linaro patch for development based on the AOSP master branch
+## revert hack for dhcpcd_eth0 service
+revert device/linaro/hikey 4c1238443cce2a0c0a689ab60d09f2df2a0500c7
+
+## Set TARGET_CPU_VARIANT and TARGET_2ND_CPU_VARIANT,
+## and integrated tests, enabling kernel compilation, etc
+## http://android-review.linaro.org/16656
+apply --linaro device/linaro/hikey 16656/12
+
+## workaround for ASIX AX88772B USB 2.0 adapter problem
+## reported here: https://bugs.96boards.org/show_bug.cgi?id=333
+## https://github.com/torvalds/linux/commit/cd9e2e5d3ff148be9ea210f622ce3e8e8292fcd6
+cherrypick --url https://github.com/torvalds/linux.git --branch master kernel/linaro/hisilicon cd9e2e5d3ff148be9ea210f622ce3e8e8292fcd6
