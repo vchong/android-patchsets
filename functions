@@ -47,6 +47,7 @@ apply() {
 	fi
 	if ! git cherry-pick FETCH_HEAD; then
 		echo "$2 failed to apply, please fix"
+		git reset --hard
 		exit 1
 	fi
 	PATCHES=$((PATCHES+1))
@@ -80,6 +81,7 @@ cherrypick() {
 	echo "=== Cherry-picking $2 ==="
 	if ! git cherry-pick "$2"; then
 		echo "$2 failed to apply, please fix"
+		git reset --hard
 		exit 1
 	fi
 	PATCHES=$((PATCHES+1))
@@ -103,6 +105,7 @@ revert() {
 	else
 		if ! git revert --no-edit "$2"; then
 			echo "$2 failed to revert, please fix"
+			git reset --hard
 			exit 1
 		fi
 	fi
