@@ -21,7 +21,3 @@ fi
 ## Linaro patch for development based on the AOSP master branch
 ## revert hack for dhcpcd_eth0 service
 revert device/linaro/hikey 4c1238443cce2a0c0a689ab60d09f2df2a0500c7
-
-## patches for kernel compilation based on the AOSP master branch
-## https://android-review.linaro.org/#/c/16834/
-apply --linaro device/linaro/hikey 16834/3
