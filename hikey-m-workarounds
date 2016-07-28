@@ -21,3 +21,6 @@ fi
 ## Linaro patch for development based on the AOSP master branch
 ## revert hack for dhcpcd_eth0 service
 revert device/linaro/hikey 4c1238443cce2a0c0a689ab60d09f2df2a0500c7
+
+## revert removal of  definition of configfs
+revert device/linaro/hikey 644d7abe37111bbd9b83486bc449e96a49c8cf30
