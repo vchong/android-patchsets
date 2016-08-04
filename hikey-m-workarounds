@@ -29,6 +29,10 @@ revert device/linaro/hikey 644d7abe37111bbd9b83486bc449e96a49c8cf30
 ## http://android-review.linaro.org/17114
 apply --linaro device/linaro/hikey 17114/1
 
+## make adb root by default
+## http://android-review.linaro.org/17121
+apply --linaro device/linaro/hikey 17121/1
+
 ## backport AOSP master change for netlink socket classes
 ## for SELinux support
 ##http://android-review.linaro.org/16931
