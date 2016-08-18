@@ -25,6 +25,9 @@ revert device/linaro/hikey 4c1238443cce2a0c0a689ab60d09f2df2a0500c7
 ## revert removal of  definition of configfs
 revert device/linaro/hikey 644d7abe37111bbd9b83486bc449e96a49c8cf30
 
+## revert system_server sepolicy rules to allow /proc/tid/timerslack_ns access
+revert device/linaro/hikey da092471de1452c686461e7f03faa54cce147f48
+
 ## rules for marshmallow
 ## http://android-review.linaro.org/17114
 apply --linaro device/linaro/hikey 17114/1
