@@ -19,4 +19,4 @@ fi
 ########################################################
 #### unable to determine archtecture bug workaround ####
 ########################################################
-apply --server ssh://git@dev-private-review.linaro.org/linaro-art/  art 958/1
+apply --server ssh://git@dev-private-review.linaro.org/linaro-art/  art 958/2
