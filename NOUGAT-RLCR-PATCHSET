@@ -45,3 +45,7 @@ fi
 # changes for mksh prompt and alias ll
 # http://android-review.linaro.org/16756
 apply --linaro external/mksh 16756/1
+
+# integrate tjbench test
+# http://android-review.linaro.org/17283
+apply --linaro external/libjpeg-turbo 17283/1
