@@ -30,5 +30,5 @@ apply --linaro external/libdrm 17281/1
 
 ## patch to inherit linaro common-device.mk
 ## mainly for support lava test
-## http://android-review.linaro.org/17309
-apply --linaro  device/ti/am57xevm  17309/1
+## https://android-review.linaro.org/#/c/17309/
+apply --linaro  device/ti/am57xevm  17309/2
