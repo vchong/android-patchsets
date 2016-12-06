@@ -19,14 +19,14 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 ## Linaro patch for development based on the AOSP master branch
-## Set TARGET_CPU_VARIANT and TARGET_2ND_CPU_VARIANT,
-## and integrated tests
+
+## integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro device/linaro/hikey 17155/2
+apply --linaro device/linaro/hikey 17155/4
 
 ## enabling kernel compilation, etc
 ## https://android-review.linaro.org/#/c/16834/
-apply --linaro device/linaro/hikey 16834/3
+apply --linaro device/linaro/hikey 16834/5
 
 ## revert to have default serialno
 revert device/linaro/hikey 128d7e6340d693af53bdecac28fd97d3ae8695ee
