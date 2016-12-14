@@ -33,3 +33,9 @@ revert device/linaro/hikey 128d7e6340d693af53bdecac28fd97d3ae8695ee
 
 ## revert changes for using internal fat16copy
 revert device/linaro/hikey fcfe2d6ac00539f2d4cf77295503c0d285ee8170
+
+## revert "hikey: Fix hci_attach sepolicy"
+revert device/linaro/hikey a7097bfa8eb6fa4d6065af9923134b34629be0c2
+
+## revert "Move hci_attach to hikey specific policy"
+revert device/linaro/hikey bafa947af807e2908e18b5ab8d68e2c2456032eb
