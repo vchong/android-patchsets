@@ -37,11 +37,11 @@ apply() {
 	else
 		REPO="platform/$1"
 	fi
-	DIR=`echo $2 |cut -d/ -f1 |rev |cut -b1-2 |rev`
+	DIR=$(echo "$2" |cut -d/ -f1 |rev |cut -b1-2 |rev)
 
 	cd "$AOSP"/"${LOCAL_DIR}"
 	echo "=== Applying $2 ==="
-	if ! git fetch "$SERVER$REPO" refs/changes/$DIR/"$2"; then
+	if ! git fetch "$SERVER$REPO" "refs/changes/$DIR/$2"; then
 		echo "Failed to fetch $2, typo in script?"
 		exit 1
 	fi
@@ -51,6 +51,7 @@ apply() {
 		exit 1
 	fi
 	PATCHES=$((PATCHES+1))
+	cd "$AOSP"
 }
 
 cherrypick() {
@@ -69,11 +70,11 @@ cherrypick() {
 	cd "$AOSP"/"$1"
 	if [ -n "${URL}" ]; then
 		local remote_name=$(mktemp -u cherrypick-server-XXXX)
-		if ! git remote add ${remote_name} ${URL}; then
+		if ! git remote add "${remote_name}" "${URL}"; then
 			echo "Failed to add remote ${remote_name} for ${URL}"
 			exit 1
 		fi
-		if ! git fetch ${remote_name} ${BRANCH}; then
+		if ! git fetch "${remote_name}" "${BRANCH}"; then
 		echo "Failed to fetch from ${remote_name} for branch ${BRANCH}"
 		exit 1
 		fi
@@ -85,19 +86,20 @@ cherrypick() {
 		exit 1
 	fi
 	PATCHES=$((PATCHES+1))
+	cd "$AOSP"
 }
 
 revert() {
 	local PATCH
 	PATCH=false
-	if [ "$1" == "--patch" -o "$1" == "-p" ]; then
+	if [ "$1" = "--patch" ] || [ "$1" = "-p" ]; then
 		PATCH=true
 		shift
 	fi
 	cd "$AOSP"/"$1"
 	echo "=== Reverting $2 ==="
 	if $PATCH; then
-		if ! git show $2 |patch -p1 -R; then
+		if ! git show "$2" |patch -p1 -R; then
 			echo "$2 failed to revert by patching, please fix"
 			exit 1
 		fi
@@ -110,4 +112,5 @@ revert() {
 		fi
 	fi
 	PATCHES=$((PATCHES+1))
+	cd "$AOSP"
 }
