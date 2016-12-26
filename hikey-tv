@@ -20,5 +20,5 @@ fi
 ##################################################
 ## Enable TV support for Hikey
 ## http://android-review.linaro.org/17422
-apply --linaro device/linaro/hikey 17422/2
+apply --linaro device/linaro/hikey 17422/1
 
