@@ -41,8 +41,5 @@ apply --linaro  device/ti/am57xevm  17370/2
 ## http://android-review.linaro.org/17369
 apply --linaro  --local device/ti/proprietary-open  device/ti/proprietary-open-jacinto  17369/1
 
-## Following 2 changes are workarounds for using eth0 as default
-## revert "disable aio support in recommended configuration"
-revert kernel/ti/x15 b5dc98b52e1d367d18e2fb6f77a09a4db973617a
 ## revert "android_omap.cfg : enable config_vt"
-revert kernel/ti/x15 3ff793f3db4d5415a851e55431656f1dfb77fc1f
+revert kernel/ti/x15 b5dc98b52e1d367d18e2fb6f77a09a4db973617a
