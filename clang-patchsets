@@ -22,4 +22,11 @@ fi
 ## Set TARGET_CPU_VARIANT and TARGET_2ND_CPU_VARIANT,
 ## and integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro build/soong 17447/1
+apply --linaro art 17470/1
+apply --linaro build/soong 17471/1
+apply --linaro system/bt 17472/1
+apply --linaro external/llvm 17473/1
+apply --linaro frameworks/compile/slang 17474/1
+apply --linaro frameworks/native 17475/1
+apply --linaro system/netd 17476/1
+apply --linaro frameworks/base 17477/1
