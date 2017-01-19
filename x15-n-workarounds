@@ -35,7 +35,7 @@ apply --linaro  device/ti/am57xevm  17309/2
 
 ## workaround for build kernel from source
 ## http://android-review.linaro.org/17370
-apply --linaro  device/ti/am57xevm  17370/2
+apply --linaro  device/ti/am57xevm  17370/3
 
 ## jacinto6/sgx/Android.mk: workaround for kernel building support
 ## http://android-review.linaro.org/17369
