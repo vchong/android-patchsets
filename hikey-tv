@@ -22,3 +22,15 @@ fi
 ## http://android-review.linaro.org/17422
 apply --linaro device/linaro/hikey 17422/1
 
+##################################################
+################ Linaro hack   ###################
+##################################################
+## Enable OPTEE support for AOSP TV on Hikey
+## http://android-review.linaro.org/17488
+## http://android-review.linaro.org/17489
+## http://android-review.linaro.org/17490
+## http://android-review.linaro.org/17491
+apply --linaro device/linaro/hikey 17488/1
+apply --linaro device/linaro/hikey 17489/1
+apply --linaro device/linaro/hikey 17490/1
+apply --linaro device/linaro/hikey 17491/1
