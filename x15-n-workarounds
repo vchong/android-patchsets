@@ -43,3 +43,6 @@ apply --linaro  --local device/ti/proprietary-open  device/ti/proprietary-open-j
 
 ## revert "am57xevm: Use Launcher2 instead of Launcher3"
 revert device/ti/am57xevm 08aa0e5de0de0816278bd305db9a2c9753b9dee9
+
+## Revert "disable aio support in recommended configuration"
+revert kernel/ti/x15 3ff793f3db4d5415a851e55431656f1dfb77fc1f
