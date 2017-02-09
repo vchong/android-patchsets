@@ -31,8 +31,13 @@ apply() {
 		LOCAL_DIR="$1"
 	fi
 
-	# device and kernel have different path on repo to projects under platform
-	if echo "$1" |grep -q -e '^device/' -e '^kernel/'; then
+	if [ "$1" = "--remote" ]; then
+		## when --remote specified, use the next argument as remote project path directly
+		REMOTE_OPT=true
+		shift
+		REPO="$1"
+	elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/'; then
+		# device and kernel have different path on repo to projects under platform
 		REPO="$1"
 	else
 		REPO="platform/$1"
