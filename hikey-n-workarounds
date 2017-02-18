@@ -28,6 +28,9 @@ apply --linaro device/linaro/hikey 17155/4
 ## https://android-review.linaro.org/#/c/16834/
 apply --linaro device/linaro/hikey 16834/9
 
+## revert "Switch Bluetooth HAL policy to _client/_server"
+revert device/linaro/hikey 66b7b5ed3831dc07315b212d91c867c4cabbe8ad
+
 ## hikey: Add Bluetooth HAL sepolicy
 revert device/linaro/hikey f66707691e05fa532a229d9b0f2d71be614be04a
 
