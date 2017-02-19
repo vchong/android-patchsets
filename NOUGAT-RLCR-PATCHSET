@@ -26,6 +26,9 @@ fi
 ##################################################
 ################## Bug fixes #####################
 ##################################################
+## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
+## http://android-review.linaro.org/17547
+apply --linaro system/netd 17547/1
 
 ##################################################
 ################ Temporary fix ###################
