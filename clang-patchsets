@@ -22,6 +22,7 @@ fi
 ## Set TARGET_CPU_VARIANT and TARGET_2ND_CPU_VARIANT,
 ## and integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro art 17558/1
-apply --linaro bionic 17559/1
-apply --linaro build/soong 17560/1
+apply --linaro art 17558/2
+apply --linaro bionic 17559/2
+apply --linaro build/soong 17560/2
+apply --linaro prebuilts/ndk 17565/1
