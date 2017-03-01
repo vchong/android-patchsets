@@ -15,15 +15,37 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
-##################################################
-################ Linaro hack   ###################
-##################################################
-## Linaro patch for development based on the AOSP master branch
+#######################################################
+## workaround for using 4.9 kernel on nougato##########
+#######################################################
+## sepolicy rules for using kernel 4.9 on nougat
+## http://android-review.linaro.org/17567
+apply --linaro device/linaro/hikey 17567/1
 
+## Zygote: Add CAP_WAKE_ALARM to system_server to properly support timerfd alarms
+cherrypick frameworks/base 5733f387be6cef3836ed06ed897ab43897eb470d
+
+## Remove dependency on android_alarm.h.
+cherrypick frameworks/base 338893e47ed8e2a913e5def987469647809cdbc6
+
+## AlarmManagerService: remove legacy /dev/alarm support
+## http://android-review.linaro.org/17570
+#cherrypick frameworks/base d7151c06f11c05ad3dcab175a6e4b4ea694dab96
+apply --linaro frameworks/base 17570/1
+
+## AlarmManagerService: explain some timerfd_create() failures
+cherrypick frameworks/base a0126e0857481866dab5060384d611c83ca53d0e
+
+#######################################################
+## workaround for using master device for nougat ######
+#######################################################
 ## update sepolicy rules on bluetooth
 ## http://android-review.linaro.org/17563
 apply --linaro device/linaro/hikey 17563/1
 
+#######################################################
+##  workaround for linaro work                   ######
+#######################################################
 ## integrated tests
 ## http://android-review.linaro.org/17155
 apply --linaro device/linaro/hikey 17155/4
