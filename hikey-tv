@@ -54,3 +54,6 @@ revert device/linaro/hikey 66b7b5e
 revert device/linaro/hikey f667076
 revert device/linaro/hikey a7097bf
 revert device/linaro/hikey bafa947
+
+# fix optee failure on 2.3.0
+cherrypick external/optee_test b208e1d7ae757a610ed0fc13cfa3895cf4904488
