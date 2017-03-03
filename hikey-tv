@@ -50,7 +50,7 @@ apply --linaro device/linaro/hikey 17177/4
 
 
 ## revert upstream changes
-revert device/linaro/hikey faf309a
+revert device/linaro/hikey 66b7b5e
 revert device/linaro/hikey f667076
 revert device/linaro/hikey a7097bf
 revert device/linaro/hikey bafa947
