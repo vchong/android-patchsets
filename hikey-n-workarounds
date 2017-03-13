@@ -16,11 +16,19 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 #######################################################
-## workaround for using 4.9 kernel on nougato##########
+## workaround for using 4.9 kernel on nougat ##########
 #######################################################
+## boot parameters: set printk.devkmsg to on
+## http://android-review.linaro.org/17601
+apply --linaro device/linaro/hikey 17601/1
+
+## init rc files: enabled adb over tcpip by default
+## http://android-review.linaro.org/17597
+apply --linaro device/linaro/hikey 17597/1
+
 ## sepolicy rules for using kernel 4.9 on nougat
 ## http://android-review.linaro.org/17567
-apply --linaro device/linaro/hikey 17567/1
+apply --linaro device/linaro/hikey 17567/2
 
 ## Zygote: Add CAP_WAKE_ALARM to system_server to properly support timerfd alarms
 cherrypick frameworks/base 5733f387be6cef3836ed06ed897ab43897eb470d
@@ -52,10 +60,7 @@ apply --linaro device/linaro/hikey 17155/4
 
 ## enabling kernel compilation, etc
 ## https://android-review.linaro.org/#/c/16834/
-apply --linaro device/linaro/hikey 16834/9
+apply --linaro device/linaro/hikey 16834/10
 
 ## revert to have default serialno
 revert device/linaro/hikey 128d7e6340d693af53bdecac28fd97d3ae8695ee
-
-## revert changes for using internal fat16copy
-revert device/linaro/hikey fcfe2d6ac00539f2d4cf77295503c0d285ee8170
