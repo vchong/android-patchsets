@@ -1,0 +1,59 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+###### OP-TEE patches on kernel 4.9           ####
+##################################################
+## dt/bindings: add bindings for optee
+## http://android-review.linaro.org/17574
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17574/1
+
+## tee: generic TEE subsystem
+## http://android-review.linaro.org/17575
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17575/1
+
+## tee: add OP-TEE driver
+## http://android-review.linaro.org/17576
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17576/1
+
+## Documentation: tee subsystem and op-tee driver
+## http://android-review.linaro.org/17577
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17577/1
+
+## tee: generic TEE subsystem
+## http://android-review.linaro.org/17578
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17578/1
+
+## tee: add OP-TEE driver
+## http://android-review.linaro.org/17579
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17579/1
+
+## tee: apply v11 delta
+## http://android-review.linaro.org/17580
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17580/1
+
+## tee: apply v12 delta
+## http://android-review.linaro.org/17581
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17581/1
+
+## tee: apply v14 delta
+## http://android-review.linaro.org/17582
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17582/1
+
+## hikey_defconfig & hi6220-hikey.dts: enable OP-TEE
+## http://android-review.linaro.org/17583
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/1
