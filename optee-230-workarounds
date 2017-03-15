@@ -1,0 +1,28 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+## fix android build error on optee-test project
+## https://github.com/OP-TEE/optee_test/commit/b208e1d7ae757a610ed0fc13cfa3895cf4904488
+if [ -d "${AOSP}/external/optee_test" ]; then
+   cherrypick external/optee_test b208e1d7ae757a610ed0fc13cfa3895cf4904488
+fi
+
+## fix x1008 failure on xtest
+## https://github.com/OP-TEE/optee_client/commit/5477e9ebf093ba3ac5296409a690944db6c0014c
+if [ -d "${AOSP}/external/optee_client" ]; then
+   cherrypick external/optee_client 5477e9ebf093ba3ac5296409a690944db6c0014c
+fi
