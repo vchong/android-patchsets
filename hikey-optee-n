@@ -24,7 +24,7 @@ apply --linaro device/linaro/hikey 16991/6
 
 ## OP-TEE SELinux
 ## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/4
+apply --linaro device/linaro/hikey 17177/6
 
 ## Enable OP-TEE in the bootloader
 ## https://android-review.linaro.org/#/c/17488/
