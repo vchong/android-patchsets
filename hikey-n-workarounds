@@ -54,6 +54,10 @@ apply --linaro device/linaro/hikey 17563/1
 #######################################################
 ##  workaround for linaro work                   ######
 #######################################################
+## disable bluetooth
+## https://android-review.linaro.org/#/c/17621/
+apply --linaro device/linaro/hikey 17621/1
+
 ## integrated tests
 ## http://android-review.linaro.org/17155
 apply --linaro device/linaro/hikey 17155/4
