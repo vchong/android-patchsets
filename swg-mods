@@ -23,3 +23,11 @@ fi
 ## for non-lava builds as normal users prefer adb over usb
 ## http://android-review.linaro.org/17625
 apply --linaro device/linaro/hikey 17625/1
+
+## Add hello world app and TA
+## http://android-review.linaro.org/17629
+apply --linaro device/linaro/hikey 17629/1
+
+## Allow extra flags for optee_os builds
+## http://android-review.linaro.org/17632
+apply --linaro device/linaro/hikey 17632/1
