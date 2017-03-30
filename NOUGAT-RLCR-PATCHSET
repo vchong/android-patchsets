@@ -18,6 +18,9 @@ fi
 ##################################################
 ################ Non-upstreamable ################
 ##################################################
+## Disable unsigned integer sanitizer for basic_string::replace()
+## http://android-review.linaro.org/17635
+apply --linaro external/libcxx 17635/1
 
 ##################################################
 ################ Backport ########################
