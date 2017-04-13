@@ -51,3 +51,6 @@ revert device/ti/am57xevm 08aa0e5de0de0816278bd305db9a2c9753b9dee9
 ## am57xx_evm.h: increase CONFIG_SYS_BOOTM_LEN to 16M
 ## https://android-review.linaro.org/#/c/17528/
 apply --linaro --local ti/u-boot --remote u-boot/linaro/jacinto6evm 17528/1
+
+## revert ti_config_fragments: android_am57x.cfg: Add PRU Ethernet support
+revert kernel/ti/x15 9bbb06056ad2db2889dbd1c9a5e64c5083a4dcea
