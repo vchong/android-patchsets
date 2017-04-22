@@ -119,3 +119,20 @@ revert() {
 	PATCHES=$((PATCHES+1))
 	cd "$AOSP"
 }
+
+curl_am(){
+    local PATCH_URL=$1 && shift
+    local PATCH_PROJECT=$1 && shift
+
+    cd "$AOSP"/"${PATCH_PROJECT}"
+    echo "=== AM Applying patch ${PATCH_URL} ==="
+
+    curl "${PATCH_URL}"|git am
+    if [ $? -ne 0 ]; then
+        echo "Failed to apply patch ${PATCH_URL} for project $2"
+        git reset --hard
+        cd "$AOSP"
+        exit 1
+    fi
+    cd "$AOSP"
+}

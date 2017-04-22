@@ -2,6 +2,13 @@
 
 . $(dirname $0)/functions
 
+curl_am_hikey_optee(){
+    local patch_id=$1
+    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
+
 PATCHES=0
 if [ -n "$1" ]; then
         AOSP="$1"
@@ -18,7 +25,7 @@ fi
 ##################################################
 ###### OP-TEE patches on kernel 4.9           ####
 ##################################################
-## dt/bindings: add bindings for optee
+## dt/bindings: add bindings for OP-TEE
 ## http://android-review.linaro.org/17574
 apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17574/1
 
@@ -53,6 +60,14 @@ apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 1758
 ## tee: apply v14 delta
 ## http://android-review.linaro.org/17582
 apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17582/1
+
+## tee: apply v15 delta
+## https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=1fbe822e889bb912bdf6ef02b9db96bf6d216f67
+curl_am_hikey_optee 1fbe822e889bb912bdf6ef02b9db96bf6d216f67
+
+## tee: apply v16 delta
+## https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=5d62f03ab40442fb0b710d030017c88948db042a
+curl_am_hikey_optee 5d62f03ab40442fb0b710d030017c88948db042a
 
 ## hikey_defconfig & hi6220-hikey.dts: enable OP-TEE
 ## http://android-review.linaro.org/17583
