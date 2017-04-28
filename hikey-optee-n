@@ -20,11 +20,11 @@ fi
 ##################################################
 ## Integrate OP-TEE components
 ## http://android-review.linaro.org/16991
-apply --linaro device/linaro/hikey 16991/9
+apply --linaro device/linaro/hikey 16991/11
 
-## OP-TEE SELinux
+## OP-TEE selinux
 ## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/6
+apply --linaro device/linaro/hikey 17177/9
 
 ## Enable OP-TEE in the bootloader
 ## https://android-review.linaro.org/#/c/17488/
