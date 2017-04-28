@@ -25,6 +25,13 @@ apply --linaro external/libcxx 17635/1
 ##################################################
 ################ Backport ########################
 ##################################################
+## improvements on bootchart
+## http://android-review.linaro.org/17416
+apply --linaro system/core 17416/2
+
+## add bootchart_parse
+## http://android-review.linaro.org/17667
+apply --linaro system/core 17667/6
 
 ##################################################
 ################## Bug fixes #####################
