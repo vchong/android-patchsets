@@ -18,14 +18,7 @@ fi
 ##################################################
 ###### OP-TEE support on device config        ####
 ##################################################
-## Integrate OP-TEE components
-## http://android-review.linaro.org/16991
-apply --linaro device/linaro/hikey 16991/11
-
-## OP-TEE selinux
-## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/9
-
-## Enable OP-TEE in the bootloader
-## https://android-review.linaro.org/#/c/17488/
-apply --linaro device/linaro/hikey 17488/3
+## Please use the linaro-nougat branch of linaro git here:
+## https://android-git.linaro.org/device/linaro/hikey.git/log/?h=linaro-nougat
+## Then the patches used before are not necessary,
+## since they all in the branch already
