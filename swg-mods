@@ -25,3 +25,7 @@ apply --linaro device/linaro/hikey 17718/1
 ## Allow extra flags for optee_os builds
 ## http://android-review.linaro.org/17632
 apply --linaro device/linaro/hikey 17632/1
+
+## build_uefi.mk: to build uefi files automatically when build android
+## http://android-review.linaro.org/17728
+apply --linaro device/linaro/hikey 17728/3
