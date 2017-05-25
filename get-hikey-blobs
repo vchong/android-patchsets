@@ -1,6 +1,6 @@
 #!/bin/bash
-# https://dl.google.com/dl/android/aosp/linaro-hikey-20160226-67c37b1a.tgz
-wget https://dl.google.com/dl/android/aosp/linaro-hikey-20160226-67c37b1a.tgz
+# https://dl.google.com/dl/android/aosp/linaro-hikey-20170523-4b9ebaff.tgz
+wget https://dl.google.com/dl/android/aosp/linaro-hikey-20170523-4b9ebaff.tgz
 for i in linaro-hikey-*.tgz; do
 	tar xf $i
 done
