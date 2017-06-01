@@ -1,0 +1,31 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Non-upstreamable ################
+##################################################
+
+##################################################
+################ Backport ########################
+##################################################
+## fix android build error and xtest failures on optee-test projec
+## based on the tag 2.4.0
+if [ -d "${AOSP}/external/optee_client" ]; then
+    ## Android.mk: include teec_benchmark.c to fix compiling error
+    ## https://github.com/liuyq/optee_client/commit/1bf48dc90c2bf524730a200bf8f25badd3fc6477
+    cherrypick --url https://github.com/liuyq/optee_client external/optee_client 1bf48dc90c2bf524730a200bf8f25badd3fc6477
+fi
