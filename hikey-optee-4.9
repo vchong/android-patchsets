@@ -25,18 +25,6 @@ fi
 ##################################################
 ###### OP-TEE patches on kernel 4.9           ####
 ##################################################
-## staging/ion: add Allwinner ION "secure" heap **not for mainline**
-## http://android-review.linaro.org/17712
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17712/1
-
-## ion: "unmapped" heap for secure data path **not for mainline**
-## http://android-review.linaro.org/17713
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17713/1
-
-## ion: unmapped heap support in ion dummy driver **not for mainline**
-## http://android-review.linaro.org/17714
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17714/1
-
 ## Sync OP-TEE driver with new naming of interrupts
 ## http://android-review.linaro.org/17715
 apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17715/1
