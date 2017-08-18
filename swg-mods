@@ -25,3 +25,7 @@ apply --linaro device/linaro/hikey 17718/1
 ## Allow extra flags for optee_os builds
 ## http://android-review.linaro.org/17632
 apply --linaro device/linaro/hikey 17632/1
+
+## optee: Enable opteed in the bootloader
+## https://android-review.linaro.org/#/c/17488
+apply --linaro device/linaro/hikey 17488/7
