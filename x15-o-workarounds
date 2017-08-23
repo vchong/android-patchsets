@@ -1,0 +1,60 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## DRM patches for TI X15
+## https://android-review.linaro.org/#/c/17278
+## https://android-review.linaro.org/#/c/17279
+## https://android-review.linaro.org/#/c/17280
+## https://android-review.linaro.org/#/c/17281
+apply --linaro external/libdrm 17278/1
+apply --linaro external/libdrm 17279/1
+apply --linaro external/libdrm 17280/1
+apply --linaro external/libdrm 17281/1
+
+## patch to inherit linaro common-device.mk
+## mainly for support lava test
+## http://android-review.linaro.org/17497
+apply --linaro  device/ti/am57xevm  17497/1
+
+## workaround for build kernel from source
+## http://android-review.linaro.org/17370
+apply --linaro  device/ti/am57xevm  17370/5
+
+## BoardConfig.mk: enable compiling of u-boot
+## http://android-review.linaro.org/17498
+apply --linaro  device/ti/am57xevm  17498/1
+
+## jacinto6/sgx/Android.mk: workaround for kernel building support
+## http://android-review.linaro.org/17369
+apply --linaro  --local device/ti/proprietary-open  device/ti/proprietary-open-jacinto  17369/1
+
+## revert "am57xevm: Use Launcher2 instead of Launcher3"
+revert device/ti/am57xevm 08aa0e5de0de0816278bd305db9a2c9753b9dee9
+
+## am57xx_evm.h: increase CONFIG_SYS_BOOTM_LEN to 16M
+## https://android-review.linaro.org/#/c/17528/
+apply --linaro --local ti/u-boot --remote u-boot/linaro/jacinto6evm 17528/1
+
+################################################################
+## workarounds for o preview
+################################################################
+# update for o preview based builds
+# http://android-review.linaro.org/17685
+apply --linaro  device/ti/am57xevm  17685/1

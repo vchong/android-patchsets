@@ -1,0 +1,217 @@
+#!/bin/bash
+
+# vim:syn=sh
+
+. $(dirname $0)/functions
+
+curl_am_hikey_clang(){
+    local patch_id=$1
+    local patch_url="https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+    AOSP="$1"
+else
+    AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+    echo "This script must be run from the AOSP source directory"
+    echo "or with the AOSP source directory as its first parameter."
+    exit 1
+fi
+###########################################################################################################
+### This patchset script is to apply the patches on aosp hikey 4.9 kernel for compiling with clang ########
+###########################################################################################################
+## kbuild, LLVMLinux: Add better clang cross build support
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=8fdec5a9d87672260debe39160d9486317724e4c
+## curl_am_hikey_clang 8fdec5a9d87672260debe39160d9486317724e4c
+## http://android-review.linaro.org/17670
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17670/1
+
+## Kbuild: LLVMLinux: Disable the use of the Integrated Assembler when compiling with Clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=b86eb29480e3302fcc8f4101beef2aad21f5b629
+curl_am_hikey_clang b86eb29480e3302fcc8f4101beef2aad21f5b629
+
+## fs, LLVMLinux: Remove warning from COMPATIBLE_IOCTL
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=cd7bc69d5ed471ffb319b86a37ffda7b9560577a
+curl_am_hikey_clang cd7bc69d5ed471ffb319b86a37ffda7b9560577a
+
+## kbuild: LLVMLinux: Add support to generate LLVM bitcode files
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=679614075d9a6e85e4b278987d367d8e38e02e75
+curl_am_hikey_clang 679614075d9a6e85e4b278987d367d8e38e02e75
+
+## kbuild, LLVMLinux: Add more compiler options for clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=9c8d0d1afe9558b5235e8397bdd26c49dec51e47
+curl_am_hikey_clang 9c8d0d1afe9558b5235e8397bdd26c49dec51e47
+
+## kbuild, LLVMLinux: Fix asm-offset generation to work with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=bba304980882c37f175f50d286ef3b11d91d7918
+curl_am_hikey_clang bba304980882c37f175f50d286ef3b11d91d7918
+
+## kbuild, LLVMLinux: Add -Werror to cc-option to support clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=d3934948da8eb676052c4c7cb81acc0405e511db
+curl_am_hikey_clang d3934948da8eb676052c4c7cb81acc0405e511db
+
+## mpi, LLVMLinux: Fix ASM for clang in mpi
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=b9c61082902e37822ac5c9fabf2410bd22eb9243
+curl_am_hikey_clang b9c61082902e37822ac5c9fabf2410bd22eb9243
+
+## md, sysfs, LLVMLinux: Remove nested function from bcache sysfs
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=6788398f4879b06a865bdc241f843d137d5361e9
+curl_am_hikey_clang 6788398f4879b06a865bdc241f843d137d5361e9
+
+## DO-NOT-UPSTREAM scsi, osd, LLVMLinux: Remove __weak attribute
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=1bc3c2cd82d08136e57a7ea5e58989940a9c20f7
+curl_am_hikey_clang 1bc3c2cd82d08136e57a7ea5e58989940a9c20f7
+
+## apparmor: LLVMLinux: Remove VLAIS
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=f90beea87b8af7f432fc99af2a923a814732fa12
+curl_am_hikey_clang f90beea87b8af7f432fc99af2a923a814732fa12
+
+## exofs, LLVMLinux: Remove VLAIS from exofs
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=3cd166cb2fd39f0d8c7d7f7fce0d596ab03a6e47
+curl_am_hikey_clang 3cd166cb2fd39f0d8c7d7f7fce0d596ab03a6e47
+
+## md, raid10, LLVMLinux: Remove VLAIS from raid10 driver
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=7610d38257a9b5578cc637103a93f1bd485d1109
+curl_am_hikey_clang 7610d38257a9b5578cc637103a93f1bd485d1109
+
+## fs, nfs, LLVMLinux: Remove VLAIS from nfs
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=0d5f2f03e087e3d6ba92e296f70f2f139a3473c8
+curl_am_hikey_clang 0d5f2f03e087e3d6ba92e296f70f2f139a3473c8
+
+## net, wimax, i2400, LLVMLinux: Remove VLAIS from wimax i2400m driver
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=6b54c966a24915a141f58d14741af19bc465e54a
+curl_am_hikey_clang 6b54c966a24915a141f58d14741af19bc465e54a
+
+## compiler-gcc
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=a4b94777de1ae07d34be637d6b0cc41eb7b6436b
+curl_am_hikey_clang a4b94777de1ae07d34be637d6b0cc41eb7b6436b
+
+## LLVMLinux: use -Oz instead of -Os when using clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=a8b62cd1df657efea4a612d28b59a6743abc0446
+curl_am_hikey_clang a8b62cd1df657efea4a612d28b59a6743abc0446
+
+## x86: LLVMLinux: Add option for clang in export of memcpy.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=aefd06b7940977568a2f43cd8c8fbd9fd080224d
+curl_am_hikey_clang aefd06b7940977568a2f43cd8c8fbd9fd080224d
+
+## WORKAROUND DO-NOT-UPSTREAM x86, boot: Work around clang PR18415.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=31136aacb14fca103df61d7f136796f85ba092b1
+#curl_am_hikey_clang 31136aacb14fca103df61d7f136796f85ba092b1
+
+## DO-NOT-UPSTREAM xen, LLVMLinux: Remove VLAIS from xen mmu
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=695201161a8c0790976a962a0befa6f41a47d65f
+curl_am_hikey_clang 695201161a8c0790976a962a0befa6f41a47d65f
+
+## DO-NOT-UPSTREAM arm: LLVMLinux: Provide __aeabi_* symbols which are needed for clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=a0acfc7cbfef95cb088c1da0ebb808789a27e03e
+curl_am_hikey_clang a0acfc7cbfef95cb088c1da0ebb808789a27e03e
+
+## bcm: address clang inline asm incompatibility
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=59c258226613f8d53ce833cf89d80f4da0eed55a
+curl_am_hikey_clang 59c258226613f8d53ce833cf89d80f4da0eed55a
+
+## DO-NOT-UPSTREAM arm, LLVMLinus: ASM workaround
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=471385425e17774ab2cb56535bfb070954c83b96
+curl_am_hikey_clang 471385425e17774ab2cb56535bfb070954c83b96
+
+## DO-NOT-UPSTREAM arm, firmware, LLVMLinux: replace naked function with hard coded parameters
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=76640c9791472d27bbd4a2e518012a5fe3691c94
+curl_am_hikey_clang 76640c9791472d27bbd4a2e518012a5fe3691c94
+
+## arm, LLVMLinux: Remove unreachable from naked function
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=a60c4ee1aa9f7fb9498c7a290ca170ae47acdf47
+curl_am_hikey_clang a60c4ee1aa9f7fb9498c7a290ca170ae47acdf47
+
+## DO-NOT-UPSTREAM arm64: LLVMLinux: Check for NULL in futext_atomic_cmpxchg_inatomic()
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=335c9ff4f06d655bd5c990ba5b4e684575d692aa
+curl_am_hikey_clang 335c9ff4f06d655bd5c990ba5b4e684575d692aa
+
+## DO-NOT-UPSTREAM crypto: LLVMLinux: Explicitly pass through assembler options
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=aa3980b8d2e8a2bcbdafeb0dd146d8971d71ec7c
+curl_am_hikey_clang aa3980b8d2e8a2bcbdafeb0dd146d8971d71ec7c
+
+## DO-NOT-UPSTREAM arm64, LLVMLinux: prfm
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=a05ab494a4320b5e4551a60fb4245434c611c2dd
+curl_am_hikey_clang a05ab494a4320b5e4551a60fb4245434c611c2dd
+
+## MIPS: LLVMLinux: Fix a 'cast to type not present in union' error.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=8738c756f5a5db17fde88e3adaf2de10ba62ffac
+curl_am_hikey_clang 8738c756f5a5db17fde88e3adaf2de10ba62ffac
+
+## MIPS: LLVMLinux: Fix an 'inline asm input/output type mismatch' error.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=2c123f4f8896992e486b3a42010bfebf3f3c2c1b
+curl_am_hikey_clang 2c123f4f8896992e486b3a42010bfebf3f3c2c1b
+
+## MIPS: LLVMLinux: Silence variable self-assignment warnings.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=b27d471cd03bb02deff661a0bb78f08bb65658ba
+curl_am_hikey_clang b27d471cd03bb02deff661a0bb78f08bb65658ba
+
+## MIPS: LLVMLinux: Silence unicode warnings when preprocessing assembly.
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=c13b1285b7d492619e681f0a8447a2e2672c351b
+curl_am_hikey_clang c13b1285b7d492619e681f0a8447a2e2672c351b
+
+## Don't use attributes error and warning with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=55772e2bd6048555c683e91667d19c0b8dabc2a0
+curl_am_hikey_clang 55772e2bd6048555c683e91667d19c0b8dabc2a0
+
+## Fix undefined references to acpi_idle_driver on aarch64 with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=bd7ac60f8896a647644583f6c181d8b4caa360aa
+curl_am_hikey_clang bd7ac60f8896a647644583f6c181d8b4caa360aa
+
+## Disable the function tracer for now
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=aa24e0e67a651d819eaa5af1493b0405fb7b5f4e
+curl_am_hikey_clang aa24e0e67a651d819eaa5af1493b0405fb7b5f4e
+
+## ANDROID: HACK: firmware, LLVMLinux: fix EFI libstub with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=58f8c4540f073221b9041df8ea11f248bae4d70b
+curl_am_hikey_clang 58f8c4540f073221b9041df8ea11f248bae4d70b
+
+## x86: Fix build with clang, mul needs to be qualified as mulq
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=2b9b83550b8950358b0f23f1063deabc288ce904
+curl_am_hikey_clang 2b9b83550b8950358b0f23f1063deabc288ce904
+
+## Add -meabi gnu to the clang parameters
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=4f49e49f8fee16e11514e19810a1c7e0247e4c33
+curl_am_hikey_clang 4f49e49f8fee16e11514e19810a1c7e0247e4c33
+
+## Make inline asm code clang compatible
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=1f38038a25e98fdd7813febf6d4dedf826498a44
+curl_am_hikey_clang 1f38038a25e98fdd7813febf6d4dedf826498a44
+
+## Use -fno-integrated-as for clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=06dddc023f2a3d3d84588ef3694b3de8bf9b85fa
+curl_am_hikey_clang 06dddc023f2a3d3d84588ef3694b3de8bf9b85fa
+
+## clang: Fix sha2-ce-glue inline assembly for clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=7c9e7dfb44074cdc474ca0abf067998261a1a7ff
+curl_am_hikey_clang 7c9e7dfb44074cdc474ca0abf067998261a1a7ff
+
+## clang: Make spin_lock_prefetch asm code compilable with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=eeb71d374bb7c59b9e272686949d5088e280d588
+curl_am_hikey_clang eeb71d374bb7c59b9e272686949d5088e280d588
+
+## Don't use attribute externally_visible when building with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=49e3259c73c76ac714edfc16160fd888d75f5a5b
+curl_am_hikey_clang 49e3259c73c76ac714edfc16160fd888d75f5a5b
+
+## Disable AES crypto on HiKey (workaround for clang bug)
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=997858ebf3446f2f9b95d699f780ed8aacfc478a
+curl_am_hikey_clang 997858ebf3446f2f9b95d699f780ed8aacfc478a
+
+## Fix building x86_64 AES extensions with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=80ab29a3ae2b6f4aee64bbd49578bc22e2aaf2ca
+curl_am_hikey_clang 80ab29a3ae2b6f4aee64bbd49578bc22e2aaf2ca
+
+## Qualify mul as mulq to make clang happy
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=4f73e80e8d11ce625e50f258cf687afe2bd32d77
+curl_am_hikey_clang 4f73e80e8d11ce625e50f258cf687afe2bd32d77
+
+## Fix for compilation with clang
+## https://android-git.linaro.org/kernel/hikey-clang.git/patch/?id=4f3c3c1e7b153e333603be74d786d79bb872e8ff
+curl_am_hikey_clang 4f3c3c1e7b153e333603be74d786d79bb872e8ff

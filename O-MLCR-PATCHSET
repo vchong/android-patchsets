@@ -1,0 +1,34 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Non-upstreamable ################
+##################################################
+
+##################################################
+################ Backport ########################
+##################################################
+## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
+## http://android-review.linaro.org/17547
+apply --linaro system/netd 17547/1
+
+## Workaround for wallpaper not shown correctly problem
+apply --linaro frameworks/base 17696/1
+
+## Bootchart parse command
+## http://android-review.linaro.org/17827
+apply --linaro system/core 17827/1

@@ -23,8 +23,20 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 ##################################################
-###### OP-TEE patches on kernel 4.9           ####
+###### OP-TEE support on device config        ####
 ##################################################
-## hikey_defconfig & hi6220-hikey.dts: enable OP-TEE
-## http://android-review.linaro.org/17583
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/4
+## Integrate OP-TEE components
+## https://dev-private-review.linaro.org/1620
+apply --server ssh://git@dev-private-review.linaro.org/android-pdk/ device/linaro/hikey 1620/2
+
+## OP-TEE selinux
+## https://android-review.linaro.org/#/c/17177/
+apply --linaro device/linaro/hikey 17177/10
+
+## Enable OP-TEE in the bootloader
+## https://android-review.linaro.org/#/c/17488/
+apply --linaro device/linaro/hikey 17488/7
+
+## build fip.bin automatically
+## https://android-review.linaro.org/#/c/17728/
+apply --linaro device/linaro/hikey 17728/5
