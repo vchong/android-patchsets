@@ -26,8 +26,9 @@ fi
 ###### OP-TEE support on device config        ####
 ##################################################
 ## Integrate OP-TEE components
-## https://dev-private-review.linaro.org/1620
-apply --server ssh://git@dev-private-review.linaro.org/android-pdk/ device/linaro/hikey 1620/2
+## optee: integrate for optee components
+##http://android-review.linaro.org/17833
+apply --linaro device/linaro/hikey 17833/1
 
 ## OP-TEE selinux
 ## https://android-review.linaro.org/#/c/17177/
