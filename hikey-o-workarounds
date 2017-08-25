@@ -15,32 +15,6 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
-curl_am_hikey_usb_jstultz(){
-    local patch_id=$1
-    local patch_url="https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${patch_id}"
-    local patch_project="kernel/linaro/hisilicon"
-    curl_am ${patch_url} ${patch_project}
-}
-
-#######################################################
-## workaround for enabled adb over usb by default with 4.9 kernel
-#######################################################
-## arm64: dts: hi6220: improve g-tx-fifo-size setting for usb device
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=aosp/4.9-fixups&id=f839d57e4120fe9673a4d0af5476e6282f2da6c0
-curl_am_hikey_usb_jstultz f839d57e4120fe9673a4d0af5476e6282f2da6c0
-
-## usb: dwc2: Improve gadget state disconnection handling
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=aosp/4.9-fixups&id=d2400fd56bc46898418f44d6b8060cbd0314c8fb
-curl_am_hikey_usb_jstultz d2400fd56bc46898418f44d6b8060cbd0314c8fb
-
-## usb: dwc2: Fix UDC state tracking
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=aosp/4.9-fixups&id=c66d3a4d9dbf6a405c394e08cf07d2b7fa65712c
-curl_am_hikey_usb_jstultz c66d3a4d9dbf6a405c394e08cf07d2b7fa65712c
-
-## usb: dwc2: Error out of dwc2_hsotg_ep_disable() if we're in host mode
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=aosp/4.9-fixups&id=39b9a8b226492ff81591c46cb79312bcc4023344
-curl_am_hikey_usb_jstultz 39b9a8b226492ff81591c46cb79312bcc4023344
-
 #######################################################
 ##  workaround for linaro work                   ######
 #######################################################
@@ -56,3 +30,6 @@ apply --linaro device/linaro/hikey 16834/10
 ## Switch over to using the serdev bluetooth implementation.
 ## revert for bt working with O-PDK
 revert kernel/linaro/hisilicon 3e08cd937ab1a22f144a870b95a32dfe6fe44d17
+
+## grub.cfg: set serialno for boot_fat.uefi.img
+cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
