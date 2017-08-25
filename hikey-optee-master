@@ -1,0 +1,42 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+curl_am_hikey_optee(){
+    local patch_id=$1
+    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+###### OP-TEE support on device config        ####
+##################################################
+## Integrate OP-TEE components
+## http://android-review.linaro.org/16991
+apply --linaro device/linaro/hikey 16991/14
+
+## OP-TEE selinux
+## https://android-review.linaro.org/#/c/17177/
+apply --linaro device/linaro/hikey 17177/10
+
+## Enable OP-TEE in the bootloader
+## https://android-review.linaro.org/#/c/17488/
+apply --linaro device/linaro/hikey 17488/7
+
+## build fip.bin automatically
+## https://android-review.linaro.org/#/c/17728/
+apply --linaro device/linaro/hikey 17728/5

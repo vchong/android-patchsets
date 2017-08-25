@@ -22,8 +22,13 @@ fi
 ##################################################
 ################ Backport ########################
 ##################################################
-## fix android build error and xtest failures on optee-test projec
-## based on the tag 2.4.0
-if [ -d "${AOSP}/external/optee_client" ]; then
-    :
-fi
+## Workaround for wallpaper not shown correctly problem
+apply --linaro frameworks/base 17696/1
+
+## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
+## http://android-review.linaro.org/17547
+apply --linaro system/netd 17547/1
+
+## Bootchart parse command
+## https://android-review.linaro.org/#/c/17731/
+apply --linaro system/core 17731/1
