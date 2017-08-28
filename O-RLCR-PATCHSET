@@ -22,6 +22,14 @@ fi
 ##################################################
 ################ Backport ########################
 ##################################################
+## Don't crash when displaying the " key
+## https://android-review.googlesource.com/#/c/platform/packages/inputmethods/LatinIME/+/469478/
+apply packages/inputmethods/LatinIME 469478/1
+
+## DeviceInfoUtils.java: support to show kernel version compiled with clang
+## https://android-review.googlesource.com/#/c/411340/
+apply frameworks/base 411340/5
+
 ## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
 ## http://android-review.linaro.org/17547
 apply --linaro system/netd 17547/1
