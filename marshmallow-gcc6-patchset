@@ -1,0 +1,89 @@
+#!/bin/sh
+# Please apply marshmallow-gcc5-patchset first.
+# gcc 6.x needs all the patches for gcc 5.x and then some.
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+# Add -Wno-error to get around new warnings added in gcc 6+
+# Not upstreamed yet, current version breaks building with older gcc.
+# https://android-review.linaro.org/#/c/16850/
+apply --linaro art 16850/1
+
+# Add -Wno-error to get around new warnings added in gcc 6+
+# https://android-review.linaro.org/#/c/16851/
+apply --linaro bionic 16851/1
+
+# Fix misleading indentation that causes warnings with gcc 6+
+# https://android-review.linaro.org/#/c/16852/
+apply --linaro bionic 16852/1
+
+# Mark gcc 6.x -Wno-error additions as not for clang
+# https://android-review.linaro.org/#/c/16853/
+apply --linaro build 16853/1
+
+# Fix misleading indentation that causes warnings with gcc 6+
+# https://android-review.linaro.org/#/c/16854/
+apply --linaro frameworks/av 16854/1
+
+# Fix misleading indentation that causes warnings with gcc 6+
+# https://android-review.linaro.org/#/c/16855/
+apply --linaro external/ipsec-tools 16855/1
+
+# Cosmetic cleanups related to, but not required for 16855/1
+# https://android-review.linaro.org/#/c/16856/
+apply --linaro external/ipsec-tools 16856/1
+
+# Add compiler flags for gcc 6+
+# https://android-review.linaro.org/#/c/16857/
+apply --linaro frameworks/base 16857/1
+
+# Fix misleading indentation gcc 6+ warns about
+# https://android-review.linaro.org/#/c/16858/
+apply --linaro system/core 16858/1
+
+# Don't terminate compilation on a false positive array out of bounds warning
+# https://android-review.linaro.org/#/c/16859/
+apply --linaro system/security 16859/1
+
+# Add compiler flag -fno-strict-aliasing for gcc 6+
+# http://android-review.linaro.org/17089
+apply --linaro frameworks/base 17089/1
+
+# Add compiler flag -fno-strict-aliasing for gcc 6+
+# http://android-review.linaro.org/17090
+apply --linaro frameworks/webview 17090/1
+
+# Add flag -fno-strict-aliasing for gcc6.1
+# http://android-review.linaro.org/17091
+apply --linaro system/core 17091/1
+
+# Add flag -fno-strict-aliasing for gcc6.1
+# http://android-review.linaro.org/17092
+apply --linaro system/security 17092/1
+
+# Add flag -fno-strict-aliasing for gcc6.1
+# http://android-review.linaro.org/17093
+apply --linaro external/conscrypt 17093/1
+
+# Add flags for gcc6.1
+# http://android-review.linaro.org/17094
+apply --linaro external/elfutils 17094/1
+
+# Optional components --  only available for OP-TEE
+# https://github.com/liuyq/optee_os/commit/74004d15d6ff28fd0adc9f3d5f16b75a0865b100
+if [ -d "$AOSP/optee/optee_os" ]; then
+    cherrypick --url https://github.com/liuyq/optee_os.git --branch branch-2.1.0 optee/optee_os 74004d15d6ff28fd0adc9f3d5f16b75a0865b100
+fi

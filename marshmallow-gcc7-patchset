@@ -1,0 +1,61 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+# Fix bogus checks
+apply --linaro art 17853/1
+
+# Add -Wno-error for some new warnings
+apply --linaro build 17856/1
+
+# Fix incorrectly sized memset
+apply external/ipsec-tools 477297/1
+
+# Fix incorrect check for empty variable name
+apply external/ppp 477299/1
+
+# Fix conflicting compiler options
+apply --linaro external/v8 17857/1
+
+# Fix template code for gcc 7.x
+apply --linaro external/v8 17858/1
+
+# Fix incorrect return types
+apply --linaro hardware/qcom/camera 17859/1
+
+# Fix incorrect number of bytes being copied into a string
+apply hardware/qcom/display 477397/1
+
+# Fix version check
+apply hardware/qcom/display 477398/1
+
+# Make Vector implementation compatible with gcc 7.x
+apply --linaro system/core 17861/1
+
+# Avoid duplicate symbols
+apply --linaro system/media 17862/1
+
+# Don't error out on new warnings
+apply --linaro libcore 17864/1
+
+# Fix conflicting compiler options
+apply --linaro external/chromium-libpac 17865/1
+
+# Fix conflicting compiler options
+apply --linaro external/giflib 17866/1
+
+# Work around erroring out on a new warning
+apply --linaro external/iproute2 17867/1

@@ -31,6 +31,18 @@ apply frameworks/base 175288/1
 apply --linaro external/compiler-rt 16187/1
 apply --linaro external/compiler-rt 16230/1
 
+# make unused-variable and strict-overflow only warning
+# instead of error for benchmarks and linker when compiled with linaro gcc5.2
+apply --linaro bionic 16407/2
+
+#workaround for 32bit libbacktrace with linaro gcc5.3
+#for errors like:
+#/tmp/ccI9OLbI.s:1755: Error: selected processor does not support ARM mode `cbnz r6,.L91'
+apply --linaro system/core 16521/3
+
+# needed for extra warnings in gcc 5.4
+apply --linaro frameworks/av 16992/1
+
 # Optional components -- let's fix them only if they're checked out
 if [ -d "$AOSP/external/powerdebug" ]; then
 	apply --linaro external/powerdebug 16185/1
