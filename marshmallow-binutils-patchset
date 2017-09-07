@@ -15,11 +15,5 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
-# Allow host tools to build with both OpenJDK 7 and OpenJDK 8
-apply --linaro external/guava 16903/1
-
-# Allow frameworks/support/v4 to find its dependencies
-apply --linaro frameworks/support 17863/1
-
-# WORKAROUND: disable apicheck by default
-apply --linaro build 17869/1
+# Allow building with newer host binutils
+apply --linaro build 17868/1

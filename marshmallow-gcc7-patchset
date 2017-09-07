@@ -19,7 +19,7 @@ fi
 apply --linaro art 17853/1
 
 # Add -Wno-error for some new warnings
-apply --linaro build 17856/1
+apply --linaro build 17856/2
 
 # Fix incorrectly sized memset
 apply external/ipsec-tools 477297/1
@@ -59,3 +59,6 @@ apply --linaro external/giflib 17866/1
 
 # Work around erroring out on a new warning
 apply --linaro external/iproute2 17867/1
+
+# Remove -Wno-c++11-extensions to make gcc 7 happy
+apply --linaro frameworks/base 17870/1
