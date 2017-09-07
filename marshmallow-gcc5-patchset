@@ -33,7 +33,7 @@ apply --linaro external/compiler-rt 16230/1
 
 # make unused-variable and strict-overflow only warning
 # instead of error for benchmarks and linker when compiled with linaro gcc5.2
-apply --linaro bionic 16407/2
+apply --linaro bionic 16407/1
 
 #workaround for 32bit libbacktrace with linaro gcc5.3
 #for errors like:
