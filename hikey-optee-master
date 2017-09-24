@@ -27,7 +27,7 @@ fi
 ##################################################
 ## Integrate OP-TEE components
 ## http://android-review.linaro.org/16991
-apply --linaro device/linaro/hikey 16991/14
+apply --linaro device/linaro/hikey 16991/15
 
 ## OP-TEE selinux
 ## https://android-review.linaro.org/#/c/17177/
