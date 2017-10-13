@@ -39,6 +39,10 @@ apply() {
 	elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/'; then
 		# device and kernel have different path on repo to projects under platform
 		REPO="$1"
+	elif [ "$1" = "build/make" ]; then
+		# Special case -- repository location and checkout location
+		# don't match in upstream manifests
+		REPO="platform/build"
 	else
 		REPO="platform/$1"
 	fi
