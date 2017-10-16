@@ -25,3 +25,43 @@ fi
 ##################################################
 ###### OP-TEE patches on kernel 4.9           ####
 ##################################################
+
+#######################################################
+## Patches to enable SDP                          #####
+#######################################################
+## revert hack to use ion driver from android-hikey-linaro-4.4
+## so we can apply swg ion patches based on android-hikey-linaro-4.9
+## below
+revert kernel/linaro/hisilicon 5634cf8762d848b673a0de5259264fb5681d5d00
+
+## hikey_defconfig: enable dummy ION memory
+## http://android-review.linaro.org/17583
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/6
+
+## staging/ion: add Allwinner ION "secure" heap **not for mainline**
+## http://android-review.linaro.org/17712
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17712/3
+
+## ion: "unmapped" heap for secure data path **not for mainline**
+## http://android-review.linaro.org/17713
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17713/3
+
+## ion: unmapped heap support in ion dummy driver **not for mainline**
+## http://android-review.linaro.org/17714
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17714/3
+
+## ion: fix unmapped heap test settings **not for mainline**
+## https://android-review.linaro.org/17889
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17889/1
+
+## staging/ion: CONFIG_ION_UNMAPPED_HEAP conditions unmapped heap
+## https://android-review.linaro.org/17890
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17890/1
+
+## staging/ion: ARM64 supports ION_UNMAPPED_HEAP
+## https://android-review.linaro.org/17891
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17891/1
+
+## staging/ion: fix unmapped heap conditional support
+## https://android-review.linaro.org/17892
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17892/1
