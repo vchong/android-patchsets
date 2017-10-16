@@ -1,0 +1,90 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+###################################################################
+########       optimizations on system server         #############
+###################################################################
+## Delay starting of some Java based services
+## Added delay to some boot time consuming parts in SystemServer.java
+## Change error sleep time in NativeDaemonConnector thread from 5000ms to 1000ms
+## https://android-review.linaro.org/#/c/17643/
+#apply --linaro frameworks/base 17643/8
+
+## Move preloading classes to SystemServer.java and start it in background
+## Add delay to StartEntropyMixer and PrintManagerService in SystemServer.java
+## Move endIcuCachePinning() from ZygoteInit.java to SystemServer.java and start it in background
+## https://android-review.linaro.org/#/c/17644/
+#apply --linaro frameworks/base 17644/5
+
+## Start "com.android.server.wifi.WifiService" in background.
+## Start "com.android.server.wifi.p2p.WifiP2pService" in background.
+## Start "com.android.server.wifi.scanner.WifiScanningService" in background.
+## https://android-review.linaro.org/#/c/17645/
+#apply --linaro frameworks/base 17645/3
+
+## Stop bootanim earlier.
+## https://android-review.linaro.org/#/c/17461/
+#apply --linaro frameworks/base 17461/2
+
+## Change onBootPhase for WifiService and WifiScanningService.
+## This will ensure that services will be added to SystemService
+## before phase for onBootPhase method come.
+## https://android-review.linaro.org/#/c/17517/
+#apply --linaro frameworks/opt/net/wifi 17517/1
+
+## Report systemReady for NetworkManagementService in background.
+## Starting ImageWallpaper service earlier on boot phase = PHASE_ACTIVITY_MANAGER_READY.
+## https://android-review.linaro.org/#/c/17646/
+#apply --linaro frameworks/base 17646/2
+
+## Start launcher2 during Direct Boot mode.
+## https://android-review.linaro.org/#/c/17551/
+#apply --linaro packages/apps/Launcher2 17551/2
+
+## hikey: Call KeyguardServiceDelegate bindService earlier.
+## This will help for showing the screen as soon as "Dispay launcher" message is reported in the log.
+## https://android-review.linaro.org/#/c/17554/
+#apply --linaro frameworks/base 17554/1
+
+###################################################################
+########            optimizations on init             #############
+###################################################################
+## move netd to class core
+## https://android-review.linaro.org/#/c/17404/
+apply --linaro system/netd 17404/1
+
+## Set to start EthernetService after boot completed
+## https://android-review.googlesource.com/#/c/316607/
+apply  frameworks/opt/net/ethernet 316607/1
+###################################################################
+########  set to use performance governor by default for boot  ####
+###################################################################
+## set to boot with performance governor policy
+## arch/arm64/configs/hikey_defconfig: use performance as default cpufreq governor
+## http://android-review.linaro.org/17821
+apply --linaro --local kernel/linaro/hisilicon kernel/hikey-linaro 17821/1
+
+## init.common.rc: set cpuset with sys.boot_completed=1
+## http://android-review.linaro.org/17900
+apply --linaro device/linaro/hikey 17900/1
+## hikey: set governor policy after boot complete
+## http://android-review.linaro.org/17901
+apply --linaro device/linaro/hikey 17901/1
+
+###################################################################
+########            optimizations on other project    #############
+###################################################################
