@@ -35,15 +35,11 @@ apply --linaro  device/ti/am57xevm  17497/1
 
 ## http://android-review.linaro.org/17879
 ## workaround for build kernel from sourced
-apply --linaro  device/ti/am57xevm  17879/1
+apply --linaro  device/ti/am57xevm  17879/4
 
 ## BoardConfig.mk: enable compiling of u-boot
 ## http://android-review.linaro.org/17880
 apply --linaro  device/ti/am57xevm  17880/1
-
-## jacinto6/sgx/Android.mk: workaround for kernel building support
-## http://android-review.linaro.org/17369
-apply --linaro  --local device/ti/proprietary-open  device/ti/proprietary-open-jacinto  17369/1
 
 ## am57xx_evm.h: increase CONFIG_SYS_BOOTM_LEN to 16M
 ## https://android-review.linaro.org/#/c/17528/
