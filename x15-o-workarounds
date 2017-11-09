@@ -35,7 +35,7 @@ apply --linaro  device/ti/am57xevm  17497/1
 
 ## http://android-review.linaro.org/17879
 ## workaround for build kernel from sourced
-apply --linaro  device/ti/am57xevm  17879/5
+apply --linaro  device/ti/am57xevm  17879/6
 
 ## BoardConfig.mk: enable compiling of u-boot
 ## http://android-review.linaro.org/17880
@@ -44,3 +44,7 @@ apply --linaro  device/ti/am57xevm  17880/2
 ## workaround to remove modules that generated as built-in
 ## http://android-review.linaro.org/17923
 apply --linaro  device/ti/am57xevm  17923/1
+
+## device.mk: inherit dalvik heab settings under frameworks/native/build
+## http://android-review.linaro.org/17945
+apply --linaro  device/ti/am57xevm  17945/1
