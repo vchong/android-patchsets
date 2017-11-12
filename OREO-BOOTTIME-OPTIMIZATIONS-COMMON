@@ -1,0 +1,78 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+
+###################################################################
+########       optimizations on system server         #############
+###################################################################
+## Change error sleep time in NativeDaemonConnector thread from 5000ms to 1000ms
+## http://android-review.linaro.org/17958
+apply --linaro frameworks/base 17958/1
+
+## Move preloading classes to SystemServer.java and start it in background
+## Add delay to StartEntropyMixer and PrintManagerService in SystemServer.java
+## Move endIcuCachePinning() from ZygoteInit.java to SystemServer.java and start it in background
+## https://android-review.linaro.org/#/c/17338/
+apply --linaro frameworks/base 17959/1
+
+## Start "com.android.server.wifi.WifiService" in background.
+## Start "com.android.server.wifi.p2p.WifiP2pService" in background.
+## Start "com.android.server.wifi.scanner.WifiScanningService" in background.
+## https://android-review.linaro.org/#/c/17459/
+#apply --linaro frameworks/base 17459/3
+
+## Stop bootanim earlier.
+## http://android-review.linaro.org/17960
+apply --linaro frameworks/base 17960/1
+
+## Register NetlinkTracker observer after IpManager statemachine starting.
+## Related to https://bugs.linaro.org/show_bug.cgi?id=2811
+## https://android-review.linaro.org/#/c/17507/
+## This seems to be obsolete with O, kept just as a reference if we
+## run into bug 2811 again
+#apply --linaro frameworks/base 17507/1
+
+###################################################################
+########            optimizations on init             #############
+###################################################################
+## move netd to class core
+## http://android-review.linaro.org/17961
+## Rejected upstream because if breaks disk-based encryption
+## But can still save us a few milliseconds on systems that use
+## file-based encryption. See also
+## https://android-review.googlesource.com/#/c/platform/system/netd/+/315233/
+apply --linaro system/netd 17961/1
+
+## Set to start EthernetService after boot completed
+## http://android-review.linaro.org/17962
+## Submitted upstream; waiting for response:
+## https://android-review.googlesource.com/#/c/316607/
+apply --linaro frameworks/opt/net/ethernet 17962/1
+
+## start zygote in post-fs-data
+## http://android-review.linaro.org/17963
+## Cherry-picked from https://android-review.googlesource.com/#/c/315199/ (Rejected upstream because of problems with disk-based encryption)
+apply --linaro system/core 17963/1
+
+## set to use all cpus for all cpusets
+## http://android-review.linaro.org/17964
+apply --linaro system/core 17964/1
+
+## Delay starting of some Java based services
+## Added delay to some boot time consuming parts in SystemServer.java
+## http://android-review.linaro.org/17965
+apply --linaro frameworks/base 17965/1
