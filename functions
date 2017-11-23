@@ -36,7 +36,7 @@ apply() {
 		REMOTE_OPT=true
 		shift
 		REPO="$1"
-	elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/'; then
+	elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/' -e '^hardware/'; then
 		# device and kernel have different path on repo to projects under platform
 		REPO="$1"
 	elif [ "$1" = "build/make" ]; then
