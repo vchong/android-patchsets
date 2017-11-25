@@ -22,10 +22,6 @@ fi
 ##################################################
 ################ Backport ########################
 ##################################################
-## Fix build error from diamond merge
-## http://android-review.linaro.org/17947
-apply --linaro frameworks/native  17947/1
-
 ## Don't crash when displaying the " key
 ## https://android-review.googlesource.com/#/c/platform/packages/inputmethods/LatinIME/+/469478/
 apply packages/inputmethods/LatinIME 469478/1
@@ -43,7 +39,7 @@ apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
 ## http://android-review.linaro.org/17827
-apply --linaro system/core 17827/2
+apply --linaro system/core 17827/1
 
 ## allow system_server to write to cameraserver's /proc/<pid>/timerslack_ns
 ## https://android.googlesource.com/platform/system/sepolicy/+/655599a69b8920aecc40c65aedc3b889ba799a5c
