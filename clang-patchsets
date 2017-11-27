@@ -18,7 +18,5 @@ fi
 ####################################################################
 ################ Workaround for using master clang  ################
 ####################################################################
-apply --linaro art 17794/3
-apply --linaro build/soong 17935/1
-apply --linaro hardware/interfaces 17895/1
-apply --linaro build/make 17897/1
+apply --linaro build/soong 17972/1
+apply --linaro system/core 17971/1
