@@ -48,3 +48,7 @@ cherrypick system/sepolicy 655599a69b8920aecc40c65aedc3b889ba799a5c
 ## system_server: allow writing to timerslack_ns
 ## https://android.googlesource.com/platform/system/sepolicy/+/5c41d40ecd3558d44861374c1c490676a224b488
 cherrypick system/sepolicy 5c41d40ecd3558d44861374c1c490676a224b488
+
+## rootdir/etc/hosts: support dns resolution for loopback46.unittest.grpc.io
+## http://android-review.linaro.org/17975
+apply --linaro system/core 17975/2
