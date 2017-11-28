@@ -38,6 +38,10 @@ cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
 ## https://android-review.linaro.org/#/c/17933/
 apply --linaro device/linaro/hikey 17933/1
 
-## hikey/BoardConfig.mk: add support for feature of android.software.cts
+## device-common.mk: add support for feature of android.software.cts
 ## http://android-review.linaro.org/17974
 apply --linaro device/linaro/hikey 17974/2
+
+## device-common.mk: add support for feature android.software.voice_recognizers
+## http://android-review.linaro.org/17977
+apply --linaro device/linaro/hikey 17977/1
