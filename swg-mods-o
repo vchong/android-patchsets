@@ -19,8 +19,8 @@ fi
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
 ## Add optee_examples CA and TA
-## http://android-review.linaro.org/17911
-apply --linaro device/linaro/hikey 17911/1
+## http://android-review.linaro.org/17989
+apply --linaro device/linaro/hikey 17989/2
 
 ## Allow extra flags for optee_os builds
 ## http://android-review.linaro.org/17632
