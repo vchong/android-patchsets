@@ -45,3 +45,7 @@ apply --linaro device/linaro/hikey 17974/2
 ## device-common.mk: add support for feature android.software.voice_recognizers
 ## http://android-review.linaro.org/17977
 apply --linaro device/linaro/hikey 17977/1
+
+## gralloc: add support for HAL_PIXEL_FORMAT_BLOB
+## http://android-review.linaro.org/17992
+apply --linaro device/linaro/hikey 17992/1
