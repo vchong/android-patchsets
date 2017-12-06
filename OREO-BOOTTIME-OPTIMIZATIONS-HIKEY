@@ -78,12 +78,9 @@ apply  frameworks/opt/net/ethernet 316607/1
 ## http://android-review.linaro.org/17821
 apply --linaro --local kernel/linaro/hisilicon kernel/hikey-linaro 17821/1
 
-## init.common.rc: set cpuset with sys.boot_completed=1
-## http://android-review.linaro.org/17900
-apply --linaro device/linaro/hikey 17900/2
 ## hikey: set governor policy after boot complete
 ## http://android-review.linaro.org/17901
-apply --linaro device/linaro/hikey 17901/2
+apply --linaro device/linaro/hikey 17901/3
 
 ###################################################################
 ########            optimizations on other project    #############

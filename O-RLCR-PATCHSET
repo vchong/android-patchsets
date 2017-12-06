@@ -26,10 +26,6 @@ fi
 ## https://android-review.googlesource.com/#/c/platform/packages/inputmethods/LatinIME/+/469478/
 apply packages/inputmethods/LatinIME 469478/1
 
-## DeviceInfoUtils.java: support to show kernel version compiled with clang
-## https://android-review.googlesource.com/#/c/411340/
-apply frameworks/base 411340/5
-
 ## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
 ## http://android-review.linaro.org/17547
 apply --linaro system/netd 17547/1
@@ -39,11 +35,7 @@ apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
 ## http://android-review.linaro.org/17827
-apply --linaro system/core 17827/1
-
-## allow system_server to write to cameraserver's /proc/<pid>/timerslack_ns
-## https://android.googlesource.com/platform/system/sepolicy/+/655599a69b8920aecc40c65aedc3b889ba799a5c
-cherrypick system/sepolicy 655599a69b8920aecc40c65aedc3b889ba799a5c
+apply --linaro system/core 17827/2
 
 ## system_server: allow writing to timerslack_ns
 ## https://android.googlesource.com/platform/system/sepolicy/+/5c41d40ecd3558d44861374c1c490676a224b488
