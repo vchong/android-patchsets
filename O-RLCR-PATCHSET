@@ -44,3 +44,14 @@ cherrypick system/sepolicy 5c41d40ecd3558d44861374c1c490676a224b488
 ## rootdir/etc/hosts: support dns resolution for loopback46.unittest.grpc.io
 ## http://android-review.linaro.org/17975
 apply --linaro system/core 17975/2
+
+## libhwc2onfbadapter: add a new adatper for FB HAL
+## https://android-review.googlesource.com/c/platform/frameworks/native/+/524777
+cherrypick frameworks/native e771093f4bb8b5a77984d741c3bab936f0c9f40c
+
+## graphics: require validateDisplay after onRefresh
+## https://android-review.googlesource.com/c/platform/hardware/interfaces/+/529982
+cherrypick hardware/interfaces 8101b24ca7415c1ddc52b0ce0a0e6b6a4d7eb06a
+## graphics: support FB HAL using HWC2OnFbAdapter
+## https://android-review.googlesource.com/c/platform/hardware/interfaces/+/524895
+cherrypick hardware/interfaces 16e8ed254d11c3a4dd5360e0bebb5b376a3809f8
