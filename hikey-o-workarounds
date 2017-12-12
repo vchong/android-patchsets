@@ -49,7 +49,3 @@ apply --linaro device/linaro/hikey 17977/1
 ## gralloc: add support for HAL_PIXEL_FORMAT_BLOB
 ## http://android-review.linaro.org/17992
 apply --linaro device/linaro/hikey 17992/1
-
-## hikey: enable HIDL HWC
-## https://android-review.googlesource.com/c/device/linaro/hikey/+/524776
-cherrypick device/linaro/hikey 2b61444e954847fda9f3f1d64fb9476fbfe1d85d
