@@ -18,5 +18,5 @@ fi
 ####################################################################
 ################ Workaround for using master clang  ################
 ####################################################################
-apply --linaro build/soong 17972/1
+apply --linaro build/soong 18004/1
 apply --linaro system/core 17971/1
