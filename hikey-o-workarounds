@@ -31,6 +31,10 @@ apply --linaro device/linaro/hikey 16834/10
 ## revert for bt working with O-PDK
 revert kernel/linaro/hisilicon 3e08cd937ab1a22f144a870b95a32dfe6fe44d17
 
+## drm/hisilicon: Ensure LDI regs are properly configured.
+## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
+revert kernel/linaro/hisilicon 44df87e6dfadc423407f2b7a546396b86a37d462
+
 ## grub.cfg: set serialno for boot_fat.uefi.img
 cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
 
