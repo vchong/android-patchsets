@@ -15,4 +15,4 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         exit 1
 fi
 
-apply --linaro device/generic/art 17352/1
+apply --linaro device/generic/art 18022/1
