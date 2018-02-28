@@ -38,6 +38,9 @@ revert kernel/linaro/hisilicon 44df87e6dfadc423407f2b7a546396b86a37d462
 ## grub.cfg: set serialno for boot_fat.uefi.img
 cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
 
+## hikey/hikey960: Add device admin feature
+cherrypick device/linaro/hikey 3396ac0f95d08297054c6431fa29352d23fa2748
+
 ## init.common.rc: enable randomize_va_space
 ## https://android-review.linaro.org/#/c/17933/
 apply --linaro device/linaro/hikey 17933/1
