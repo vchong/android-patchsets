@@ -19,4 +19,4 @@ fi
 ########       LKFT PLAN overlay for CTS              #############
 ###################################################################
 ## https://android-review.linaro.org/#/c/18007/1
-apply --linaro cts 18007/4
+apply --linaro cts 18007/5
