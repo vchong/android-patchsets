@@ -1,0 +1,29 @@
+#!/bin/bash
+
+### HiKey OPTEE "patch" for pull-requests coming from Github
+###
+### This patches the local manifest to adhere to what the SWG
+### recommends as the starting point for OPTEE on HiKey, but
+### changes the Git revision of either OPTEE OS or Client to
+### instead use a pull-request from Github, whichever
+### triggered this build job.
+
+if [ "${ghprbPullId}" ]; then
+    lm=.repo/local_manifests
+    if [ -d ${lm} ]; then
+        # Get SWG's local manifest for OPTEE HiKey
+        wget -O ${lm}/swg.xml \
+            https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey-o/swg.xml
+
+        # Patch SWG's local manifest with pull-request
+        project=${ghprbGhRepository#OP-TEE/*}
+        sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/swg.xml
+
+        # "Patch" OP-TEE to SWG + pull-request
+        repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
+    else
+        exit 1
+    fi
+else
+    echo "WARNING: No Github pull-request was identified."
+fi
