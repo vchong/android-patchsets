@@ -50,3 +50,7 @@ apply --linaro system/core 17975/2
 ## for devices when swithce to use with 8.1.0_r1
 ## https://android-review.googlesource.com/c/platform/frameworks/native/+/519520
 cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
+
+## Fix sanitizer in InputFlinger Reader/Dispatcher.
+## for monkey test
+cherrypick frameworks/native 623c43ade3225901fd6ca8dad51401ae53245b2b
