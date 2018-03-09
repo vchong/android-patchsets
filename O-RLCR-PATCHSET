@@ -54,3 +54,10 @@ cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
 ## Fix sanitizer in InputFlinger Reader/Dispatcher.
 ## for monkey test
 cherrypick frameworks/native 623c43ade3225901fd6ca8dad51401ae53245b2b
+
+## Fix clang static analyzer warning in libcore
+cherrypick libcore 4bdd5651813b17dcd895eaac9bde911126287fa5
+## Add size check in NativeConverter JNI code
+cherrypick libcore fef459ae66f78b180f05942c9f659781c3822d07
+## Avoid duplicate free in CharsetXcoderICU on OOME
+cherrypick libcore 59b140db4c4bd7617792256cd5d52713409137bc

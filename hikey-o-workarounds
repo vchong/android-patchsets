@@ -51,3 +51,16 @@ apply --linaro device/linaro/hikey 17977/1
 ## gralloc: add support for HAL_PIXEL_FORMAT_BLOB
 ## http://android-review.linaro.org/17992
 apply --linaro device/linaro/hikey 17992/1
+
+## hikey: power: Fix unused parameter warning
+cherrypick device/linaro/hikey b4db15e154597613fed2911933a2c536b37855c7
+## hikey: Fix power-hal logcat noise
+cherrypick device/linaro/hikey 5af9bdca62d686dd0554269f1ef4027e9a95b60b
+
+## hikey: hikey960: Make /sys/kernel/debug readable non-root processes
+cherrypick device/linaro/hikey 575681047b62b5a35f87ff95baf953f864636540
+
+## hikey: Add dummy stub libmemtrack module
+cherrypick device/linaro/hikey 660356f45dbff88f1aaee7a1086a80dfe921b4e7
+## hikey: hikey960: Add memtrack HAL
+cherrypick device/linaro/hikey 4cb6c2b774aafbe1a8160129c3e5b29f52b5f836
