@@ -32,6 +32,9 @@ fi
 ## revert hack to use ion driver from android-hikey-linaro-4.4
 ## so we can apply swg ion patches based on android-hikey-linaro-4.9
 ## below
+## ion: Add CMA heap support to dummy ion driver
+revert kernel/linaro/hisilicon bf035e067d747a124da049b17e70b50529966d0f
+## HACK: ion: Revert all ion code back to android-hikey-linaro-4.4
 revert kernel/linaro/hisilicon 5634cf8762d848b673a0de5259264fb5681d5d00
 
 ## hikey_defconfig: enable dummy ION memory
@@ -65,3 +68,7 @@ apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 1789
 ## staging/ion: fix unmapped heap conditional support
 ## https://android-review.linaro.org/17892
 apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17892/1
+
+## tee: new ioctl to a register tee_shm from a dmabuf file descriptor
+## https://android-review.linaro.org/#/c/18028/
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18028/3
