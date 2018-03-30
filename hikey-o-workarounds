@@ -64,3 +64,7 @@ cherrypick device/linaro/hikey 575681047b62b5a35f87ff95baf953f864636540
 cherrypick device/linaro/hikey 660356f45dbff88f1aaee7a1086a80dfe921b4e7
 ## hikey: hikey960: Add memtrack HAL
 cherrypick device/linaro/hikey 4cb6c2b774aafbe1a8160129c3e5b29f52b5f836
+
+## fstab files: update to mount cache with noatime option
+## http://android-review.linaro.org/18158
+apply --linaro device/linaro/hikey 18158/1
