@@ -20,7 +20,7 @@ fi
 #######################################################
 ## Add optee_examples CA and TA
 ## http://android-review.linaro.org/17989
-apply --linaro device/linaro/hikey 17989/2
+apply --linaro device/linaro/hikey 17989/3
 
 ## Allow extra flags for optee_os builds
 ## http://android-review.linaro.org/17632
