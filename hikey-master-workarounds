@@ -23,5 +23,6 @@ fi
 apply --linaro device/linaro/hikey 17155/4
 
 ## enabling kernel compilation, etc
-## https://android-review.linaro.org/#/c/16834/
-apply --linaro device/linaro/hikey 16834/10
+## enable kernel compilation for hikey build
+## http://android-review.linaro.org/18138
+apply --linaro device/linaro/hikey 18138/1
