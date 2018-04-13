@@ -24,11 +24,11 @@ apply --linaro  device/ti/am57xevm  18129/1
 
 ## workaround for build kernel from sourced
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/1
+apply --linaro  device/ti/am57xevm  18130/3
 
 ## BoardConfig.mk: enable compiling of u-boot
-## http://android-review.linaro.org/17880
-apply --linaro  device/ti/am57xevm  18131/1
+## http://android-review.linaro.org/18131
+apply --linaro  device/ti/am57xevm  18131/2
 
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
@@ -61,7 +61,7 @@ curl_am http://git.ti.com/android/external-libdrm/commit/077ac10b8ed77a49353de20
 ########################################################
 ## fix compiling error for p-preview
 ## http://android-review.linaro.org/18151
-apply --linaro device/ti/proprietary-open 18151/1
+apply --linaro device/ti/proprietary-open 18151/2
 
 ## fix compiiling error with p-preview
 ## http://android-review.linaro.org/18152
