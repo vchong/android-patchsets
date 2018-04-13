@@ -72,3 +72,7 @@ apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 1789
 ## tee: new ioctl to a register tee_shm from a dmabuf file descriptor
 ## https://android-review.linaro.org/#/c/18028/
 apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18028/3
+
+## tee: fix unbalanced context refcount in register shm from fd
+## http://android-review.linaro.org/18209
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18209/1
