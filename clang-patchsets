@@ -16,6 +16,6 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 ####################################################################
-################ Workaround for using master clang  ################
+############### Workarounds for using master clang  ################
 ####################################################################
-apply --linaro build/soong 18068/1
+#apply --linaro build/soong 18068/1
