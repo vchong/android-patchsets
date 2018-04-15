@@ -19,3 +19,9 @@ fi
 ############### Workarounds for using master clang  ################
 ####################################################################
 #apply --linaro build/soong 18068/1
+apply art 665201/1
+apply system/libhidl 665202/1
+apply system/libhwbinder 665203/1
+apply system/netd 665204/1
+apply system/tools/hidl 665221/1
+apply system/vold 665205/1
