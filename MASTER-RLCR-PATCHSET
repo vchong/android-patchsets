@@ -27,8 +27,8 @@ apply --linaro frameworks/base 17696/1
 
 ## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
 ## http://android-review.linaro.org/17547
-apply --linaro system/netd 17547/1
+#apply --linaro system/netd 17547/1
 
 ## Bootchart parse command
 ## https://android-review.linaro.org/#/c/17731/
-apply --linaro system/core 17731/1
+#apply --linaro system/core 17731/1

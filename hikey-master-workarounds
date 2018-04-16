@@ -20,7 +20,7 @@ fi
 #######################################################
 ## integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro device/linaro/hikey 17155/4
+apply --linaro device/linaro/hikey 17155/8
 
 ## enabling kernel compilation, etc
 ## enable kernel compilation for hikey build
