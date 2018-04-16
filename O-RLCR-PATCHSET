@@ -61,3 +61,8 @@ cherrypick libcore 4bdd5651813b17dcd895eaac9bde911126287fa5
 cherrypick libcore fef459ae66f78b180f05942c9f659781c3822d07
 ## Avoid duplicate free in CharsetXcoderICU on OOME
 cherrypick libcore 59b140db4c4bd7617792256cd5d52713409137bc
+
+## libion: add 4.12+ kernel headers for forward compatibility
+cherrypick system/core 89b8de2994d8bb809b2e2749154b9456ed096a8d
+## libion: Adapt to new ION interface
+cherrypick system/core 30313f8bc08b60c32c1ee0cbca20186b11bb4c0a
