@@ -1,0 +1,31 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Non-upstreamable ################
+##################################################
+
+##################################################
+################ Backport ########################
+##################################################
+## fix android build error and xtest failures on optee-test projec
+## based on the tag 3.1.0
+if [ -d "${AOSP}/optee/optee_os" ]; then
+    ## hikey: register additional dyn shm
+    ## https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0
+    curl_am https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0.patch optee/optee_os
+fi
