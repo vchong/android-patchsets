@@ -41,3 +41,7 @@ apply --linaro device/linaro/hikey 17488/8
 ## build fip.bin automatically
 ## https://android-review.linaro.org/#/c/17728/
 apply --linaro device/linaro/hikey 17728/5
+
+## hikey: register additional dyn shm
+## https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0
+curl_am https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0.patch optee/optee_os
