@@ -23,9 +23,26 @@ fi
 ################ Backport ########################
 ##################################################
 ## fix android build error and xtest failures on optee-test projec
-## based on the tag 3.1.0
+## based on the tag 2.6.0
 if [ -d "${AOSP}/optee/optee_os" ]; then
+    ## mk/aosp_optee.mk: define OPTEE_BIN for path of tee.bin
+    cherrypick optee/optee_os 2ef721a76a1a09ec8ec398aeee64449eb692dd91
+
+    ## compiler.h: Avoid macro redefinition
+    cherrypick optee/optee_os decd9df74653f63131ae57fee191b91274f35d4e
+
+    ## hikey: fix typo
+    ## https://github.com/OP-TEE/optee_os/commit/9896cd2de525229faace23107557a74a0b48b8a0
+    cherrypick optee/optee_os 9896cd2de525229faace23107557a74a0b48b8a0
+
     ## hikey: register additional dyn shm
     ## https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0
     curl_am https://github.com/liuyq/optee_os/commit/387474992e4d477b3dc053888e1be67caf905ec0.patch optee/optee_os
+fi
+
+if [ -d "${AOSP}/external/optee_test" ]; then
+    ## Android.mk: change to use OPTEE_BIN instead of BUILD_OPTEE_OS
+    cherrypick external/optee_test b31d4a96882bf0036e518c40500b35a788b0c120
+    ## Android.mk: workaround missing-field-initializers error
+    cherrypick external/optee_test ea8378202c56b6163749bea575313c725322b874
 fi

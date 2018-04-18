@@ -34,9 +34,9 @@ apply --linaro device/linaro/hikey 18142/1
 ## https://android-review.linaro.org/#/c/17177/
 apply --linaro device/linaro/hikey 17177/10
 
-## Enable OP-TEE in the bootloader
-## https://android-review.linaro.org/#/c/18144/
-apply --linaro device/linaro/hikey 18144/1
+## optee: Enable opteed in the bootloader
+## http://android-review.linaro.org/18233
+apply --linaro device/linaro/hikey 18233/1
 ## build_uefi.mk: to build uefi files automatically when build android
 ## https://android-review.linaro.org/#/c/18145/
 apply --linaro device/linaro/hikey 18145/1
@@ -45,12 +45,13 @@ apply --linaro device/linaro/hikey 18145/1
 ## https://android-review.linaro.org/#/c/18062/
 apply --linaro device/linaro/hikey 18062/1
 
-## Android.mk: change to use OPTEE_BIN instead of BUILD_OPTEE_OS
-cherrypick external/optee_test b31d4a96882bf0036e518c40500b35a788b0c120
-## Android.mk: workaround missing-field-initializers error
-cherrypick external/optee_test ea8378202c56b6163749bea575313c725322b874
+###############################################
+####      For debug purpose patches    ########
+###############################################
+## uefi-tools: Use debug build and log level
+## http://android-review.linaro.org/18231
+#apply --linaro device/linaro/hikey 18231/3
 
-## mk/aosp_optee.mk: define OPTEE_BIN for path of tee.bin
-cherrypick optee/optee_os 2ef721a76a1a09ec8ec398aeee64449eb692dd91
-## compiler.h: Avoid macro redefinition
-cherrypick optee/optee_os decd9df74653f63131ae57fee191b91274f35d4e
+## Allow extra flags for optee_os builds
+## http://android-review.linaro.org/17632
+#apply --linaro device/linaro/hikey 17632/1
