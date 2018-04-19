@@ -1,0 +1,34 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+curl_am_hikey_optee(){
+    local patch_id=$1
+    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+###### OP-TEE patches on kernel 4.14          ####
+##################################################
+## hikey: Enable OPTEE in defconfig
+cherrypick kernel/linaro/hisilicon 05a8316d2e5b45bd15a9646bf948ffa042f94327
+
+#######################################################
+## Patches to enable SDP                          #####
+#######################################################
+# patches from here: https://github.com/linaro-swg/linux/commits/optee
