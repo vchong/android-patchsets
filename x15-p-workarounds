@@ -24,7 +24,7 @@ apply --linaro  device/ti/am57xevm  18129/1
 
 ## workaround for build kernel from sourced
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/4
+apply --linaro  device/ti/am57xevm  18130/5
 
 ## BoardConfig.mk: enable compiling of u-boot
 ## http://android-review.linaro.org/18131
