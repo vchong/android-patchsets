@@ -66,3 +66,25 @@ cherrypick libcore 59b140db4c4bd7617792256cd5d52713409137bc
 cherrypick system/core 89b8de2994d8bb809b2e2749154b9456ed096a8d
 ## libion: Adapt to new ION interface
 cherrypick system/core 30313f8bc08b60c32c1ee0cbca20186b11bb4c0a
+
+##################################################################
+## required by X15, but are common changes from upstream
+##################################################################
+## wificond.rc: Set CAP_NET_RAW and CAP_NET_ADMIN explicitly rather then implictly via group
+## http://git.ti.com/android/system-connectivity-wificond/commit/309d5db54abc76c53770f3e3307dadeb666e1344
+cherrypick system/connectivity/wificond e823b5b106df057990cbc84255ae52919032221d
+
+## libdrm_platform is now libdrm
+## http://git.ti.com/android/platform-bootable-recovery/commit/2e2211cf5610361fb6923bdee9a86497e3c3d392
+## curl_am http://git.ti.com/android/platform-bootable-recovery/commit/2e2211cf5610361fb6923bdee9a86497e3c3d392?format=patch bootable/recovery
+cherrypick bootable/recovery 2ee9266827ac72bc046995f3d5318643ebc09752
+
+## Use -Werror in external/libdrm
+## http://git.ti.com/android/external-libdrm/commit/5e1df2e20c4ff858ff8eb9e20b2eba88dd8a97db
+## curl_am http://git.ti.com/android/external-libdrm/commit/5e1df2e20c4ff858ff8eb9e20b2eba88dd8a97db?format=patch external/libdrm
+cherrypick external/libdrm 36def26b34cb8d7a133d8eb9bdeea00767dffbb8
+
+## Convert to Android.bp
+## http://git.ti.com/android/external-libdrm/commit/def3eb73c259cba667addec5332c2dd3fa26d340
+## curl_am http://git.ti.com/android/external-libdrm/commit/def3eb73c259cba667addec5332c2dd3fa26d340?format=patch  external/libdrm
+cherrypick external/libdrm fa32e29a1fe81e5472aabc65d3aa25a5af5aec55
