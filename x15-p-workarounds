@@ -33,14 +33,18 @@ apply --linaro  device/ti/am57xevm  18131/2
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
 ## http://android-review.linaro.org/17956
-## http://android-review.linaro.org/17957
 apply --linaro hardware/ti/linuxutils 17955/1
 apply --linaro hardware/ti/ipc 17956/1
-apply --linaro hardware/ti/dce 17957/1
 
+######################################################
+## patches from TI forks
+######################################################
 ## HACK: Run SurfaceFlinger as root to allow access to software sync file
 ## http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f
 curl_am http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f?format=patch frameworks/native
+## gui: GLConsumer: Adjust crop rect as per scaling mode
+## http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add
+curl_am http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add?format=patch frameworks/native
 
 ## DRM patches for TI X15
 ## omap: Add DRM_RDWR flag to dmabuf export
