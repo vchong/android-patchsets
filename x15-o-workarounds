@@ -22,13 +22,9 @@ fi
 ## http://android-review.linaro.org/18129
 apply --linaro  device/ti/am57xevm  18129/1
 
-## workaround for build kernel from sourced
+## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/5
-
-## BoardConfig.mk: enable compiling of u-boot
-## http://android-review.linaro.org/18131
-apply --linaro  device/ti/am57xevm  18131/2
+apply --linaro  device/ti/am57xevm  18130/7
 
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
