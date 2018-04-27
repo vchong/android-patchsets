@@ -26,10 +26,6 @@ apply --linaro  device/ti/am57xevm  18129/1
 ## http://android-review.linaro.org/18130
 apply --linaro  device/ti/am57xevm  18130/7
 
-## BoardConfig.mk: enable compiling of u-boot
-## http://android-review.linaro.org/18131
-apply --linaro  device/ti/am57xevm  18131/2
-
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
 ## http://android-review.linaro.org/17956
