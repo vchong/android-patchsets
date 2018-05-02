@@ -20,3 +20,10 @@ fi
 ##################################################
 ## delay in init for usb device to be detected  ##
 apply --linaro system/core 18180/1
+
+## sf: Initialize DispSync in SurfaceFlinger_hwc1
+## which fixed the problem of "W SurfaceFlinger: Timed out waiting for hw vsync; faking it"
+## for devices when swithce to use with 8.1.0_r1
+## https://android-review.googlesource.com/c/platform/frameworks/native/+/519520
+cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
+
