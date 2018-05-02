@@ -35,27 +35,29 @@ fi
 ## ion: Add CMA heap support to dummy ion driver
 revert kernel/linaro/hisilicon bf035e067d747a124da049b17e70b50529966d0f
 ## HACK: ion: Revert all ion code back to android-hikey-linaro-4.4
-revert kernel/linaro/hisilicon 5634cf8762d848b673a0de5259264fb5681d5d00
+## revert kernel/linaro/hisilicon 5634cf8762d848b673a0de5259264fb5681d5d00
+## http://android-review.linaro.org/18281
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18281/2
 
 ## hikey_defconfig: enable dummy ION memory
 ## http://android-review.linaro.org/17583
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/6
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/10
 
 ## staging/ion: add Allwinner ION "secure" heap **not for mainline**
 ## http://android-review.linaro.org/17712
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17712/3
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17712/7
 
 ## ion: "unmapped" heap for secure data path **not for mainline**
 ## http://android-review.linaro.org/17713
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17713/3
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17713/6
 
 ## ion: unmapped heap support in ion dummy driver **not for mainline**
 ## http://android-review.linaro.org/17714
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17714/3
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17714/5
 
 ## ion: fix unmapped heap test settings **not for mainline**
 ## https://android-review.linaro.org/17889
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17889/1
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17889/3
 
 ## staging/ion: CONFIG_ION_UNMAPPED_HEAP conditions unmapped heap
 ## https://android-review.linaro.org/17890
