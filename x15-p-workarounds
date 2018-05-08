@@ -52,9 +52,6 @@ curl_am http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280
 ## omap: install library in vendor partition
 ## http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45
 curl_am http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45?format=patch external/libdrm
-## omap: Convert Android.mk to Android.bp
-## http://git.ti.com/android/external-libdrm/commit/077ac10b8ed77a49353de20aaae1cb52cb42c4f1
-curl_am http://git.ti.com/android/external-libdrm/commit/077ac10b8ed77a49353de20aaae1cb52cb42c4f1?format=patch external/libdrm
 
 ########################################################
 ## Patches for fixing p-preview compiling error
@@ -73,7 +70,7 @@ apply --linaro hardware/ti/dce 18153/1
 
 ## workaround for compiling errors with p-preview
 ## http://android-review.linaro.org/18154
-apply --linaro hardware/ti/dra7xx 18154/1
+apply --linaro hardware/ti/dra7xx 18154/2
 
 ## Android.mk: workaround for compiling error for p-preview
 ## http://android-review.linaro.org/18155

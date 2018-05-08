@@ -36,3 +36,6 @@ apply --linaro system/core 18203/1
 ## rootdir/etc/hosts: support dns resolution for loopback46.unittest.grpc.io
 ## http://android-review.linaro.org/17975
 apply --linaro system/core 17975/2
+
+## libdrm: Switch to Android.bp for omap driver
+cherrypick external/libdrm 898243f460089111e1942b56bf0b0cee367d893e
