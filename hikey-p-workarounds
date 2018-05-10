@@ -19,9 +19,8 @@ fi
 ##  workaround for linaro work                   ######
 #######################################################
 ## integrated tests
-## http://android-review.linaro.org/18137
-apply --linaro device/linaro/hikey 18137/1
-
+## http://android-review.linaro.org/17155
+apply --linaro device/linaro/hikey 17155/8
 
 ## enabling kernel compilation, etc
 ## enable kernel compilation for hikey build
@@ -31,29 +30,3 @@ apply --linaro device/linaro/hikey 18138/1
 ## drm/hisilicon: Ensure LDI regs are properly configured.
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon 44df87e6dfadc423407f2b7a546396b86a37d462
-
-## hikey/hikey960: Add formattable flag to ext4 userdata partition
-cherrypick device/linaro/hikey 596531d15ecfeddb7a9d772de30d77fc33db74cd
-## fstab files: update to mount cache with noatime option
-## http://android-review.linaro.org/18158
-## apply --linaro device/linaro/hikey 18158/1
-cherrypick device/linaro/hikey d7f6db8ac03faa11b69eec163503c5cb01d3b3d6
-
-## gralloc: Import utgard r8p1 gralloc update
-cherrypick device/linaro/hikey e5c5bb3a9332db9a0bf8385aaa06171cc1e03bc9
-## gralloc: Fixup r8p1 gralloc to build for hikey
-cherrypick device/linaro/hikey 21ad5be341701a645b69bf3292bcc7835673bc29
-## gralloc: add support for HAL_PIXEL_FORMAT_BLOB
-## http://android-review.linaro.org/17992
-## apply --linaro device/linaro/hikey 17992/1
-cherrypick device/linaro/hikey 6e403d08fb9f10f09c4f635988d4af09ca8431b1
-## hikey: gralloc Update for new ION interface
-cherrypick device/linaro/hikey 311955b81a982e4dfdf302782a2721e37e5b93b3
-## Workaround: copy ion_4.12.h from libion
-cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
-
-## MALI: bifrost: Add mali r9p0 bifrost blobs to device directory
-cherrypick device/linaro/hikey 79230409c40a238037b471766d3231ba7b574940
-## MALI: utgard: Add mali r8p1 utgard blobs to device directory
-## cherrypick device/linaro/hikey 787c58d03aadaaca712aade71bdca4f593e3beab
-cherrypick device/linaro/hikey 787c58d03aadaaca712aade71bdca4f593e3beab

@@ -23,8 +23,8 @@ fi
 ################ Backport ########################
 ##################################################
 ## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
-## http://android-review.linaro.org/17547
-apply --linaro system/netd 17547/1
+## http://android-review.linaro.org/18295
+apply --linaro system/netd 18295/2
 
 ## Workaround for wallpaper not shown correctly problem
 apply --linaro frameworks/base 17696/1
@@ -37,5 +37,8 @@ apply --linaro system/core 18203/1
 ## http://android-review.linaro.org/17975
 apply --linaro system/core 17975/2
 
-## libdrm: Switch to Android.bp for omap driver
-cherrypick external/libdrm 898243f460089111e1942b56bf0b0cee367d893e
+## Track the libsparse API change.
+cherrypick external/f2fs-tools 876beb2e0d312a9de2901fb0d52e2ffa06e8ea87
+
+## libext2fs: Track the libsparse API change.
+cherrypick external/e2fsprogs 019bed178935585d28cf702a8090a5598415312b
