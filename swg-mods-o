@@ -27,5 +27,5 @@ apply --linaro device/linaro/hikey 17989/3
 apply --linaro device/linaro/hikey 17632/1
 
 ## uefi-tools: Use debug build and log level
-## http://android-review.linaro.org/18193
-apply --linaro device/linaro/hikey 18193/1
+## http://android-review.linaro.org/18328
+apply --linaro device/linaro/hikey 18328/1
