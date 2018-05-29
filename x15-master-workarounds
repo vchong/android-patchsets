@@ -1,0 +1,74 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+
+## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
+## http://android-review.linaro.org/17955
+## http://android-review.linaro.org/17956
+apply --linaro hardware/ti/linuxutils 17955/1
+apply --linaro hardware/ti/ipc 17956/1
+
+## Build with AOSP master
+apply --linaro device/ti/am57xevm 18349/1
+
+######################################################
+## patches from TI forks
+######################################################
+## HACK: Run SurfaceFlinger as root to allow access to software sync file
+## http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f
+curl_am http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f?format=patch frameworks/native
+## gui: GLConsumer: Adjust crop rect as per scaling mode
+## http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add
+curl_am http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add?format=patch frameworks/native
+
+## DRM patches for TI X15
+## omap: Add DRM_RDWR flag to dmabuf export
+## http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e
+curl_am http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e?format=patch external/libdrm
+## omap: build file for android
+## http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345
+curl_am http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345?format=patch external/libdrm
+
+########################################################
+## Patches for fixing p-preview compiling error
+########################################################
+## fix compiling error for p-preview
+## http://android-review.linaro.org/18151
+apply --linaro device/ti/proprietary-open 18350/1
+
+## fix compiiling error with p-preview
+## http://android-review.linaro.org/18152
+apply --linaro external/kmsxx 18152/1
+
+## Android.mk: workaround for compiling problem with p-preview
+## http://android-review.linaro.org/18153
+apply --linaro hardware/ti/dce 18153/1
+
+## workaround for compiling errors with p-preview
+## http://android-review.linaro.org/18154
+apply --linaro hardware/ti/dra7xx 18154/2
+
+## Android.mk: workaround for compiling error for p-preview
+## http://android-review.linaro.org/18155
+apply --linaro hardware/ti/ipc 18155/1
+
+## mac80211/wpa_supplicant_lib/Android.mk: workaround for compiling with p-preview
+## http://android-review.linaro.org/18156
+apply --linaro hardware/ti/wlan 18156/1
