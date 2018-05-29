@@ -26,6 +26,10 @@ apply --linaro  device/ti/am57xevm  18129/1
 ## http://android-review.linaro.org/18130
 apply --linaro  device/ti/am57xevm  18130/8
 
+## device.mk: add vndk_package and libunwind to make it work for master
+## http://android-review.linaro.org/18352
+apply --linaro  device/ti/am57xevm  18352/1
+
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
 ## http://android-review.linaro.org/17956
@@ -58,7 +62,7 @@ curl_am http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4ada
 ########################################################
 ## fix compiling error for p-preview
 ## http://android-review.linaro.org/18151
-apply --linaro device/ti/proprietary-open 18151/2
+apply --linaro device/ti/proprietary-open 18151/3
 
 ## fix compiiling error with p-preview
 ## http://android-review.linaro.org/18152
