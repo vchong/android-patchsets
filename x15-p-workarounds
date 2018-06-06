@@ -30,6 +30,10 @@ apply --linaro  device/ti/am57xevm  18130/8
 ## http://android-review.linaro.org/18352
 apply --linaro  device/ti/am57xevm  18352/1
 
+## set right permission on sw_sync
+## https://android-review.linaro.org/#/c/18357/
+apply --linaro  device/ti/am57xevm  18357/1
+
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
 ## http://android-review.linaro.org/17956
@@ -39,9 +43,6 @@ apply --linaro hardware/ti/ipc 17956/1
 ######################################################
 ## patches from TI forks
 ######################################################
-## HACK: Run SurfaceFlinger as root to allow access to software sync file
-## http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f
-curl_am http://git.ti.com/android/frameworks-native/commit/5232c48f850d7dd5b68f138a25023d7cfd72826f?format=patch frameworks/native
 ## gui: GLConsumer: Adjust crop rect as per scaling mode
 ## http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add
 curl_am http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add?format=patch frameworks/native
@@ -62,7 +63,7 @@ curl_am http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4ada
 ########################################################
 ## fix compiling error for p-preview
 ## http://android-review.linaro.org/18151
-apply --linaro device/ti/proprietary-open 18151/3
+apply --linaro device/ti/proprietary-open 18151/4
 
 ## fix compiiling error with p-preview
 ## http://android-review.linaro.org/18152
@@ -83,3 +84,7 @@ apply --linaro hardware/ti/ipc 18155/1
 ## mac80211/wpa_supplicant_lib/Android.mk: workaround for compiling with p-preview
 ## http://android-review.linaro.org/18156
 apply --linaro hardware/ti/wlan 18156/1
+
+## kernel mailing list https://www.spinics.net/lists/linux-usb/msg163049.html
+## for problem reported here: https://bugs.linaro.org/show_bug.cgi?id=3866
+curl_am http://people.linaro.org/~yongqin.liu/patches/adb-root.patch kernel/ti/x15
