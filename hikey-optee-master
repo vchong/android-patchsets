@@ -36,10 +36,10 @@ apply --linaro device/linaro/hikey 17177/10
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18233
-apply --linaro device/linaro/hikey 18233/1
+apply --linaro device/linaro/hikey 18233/2
 ## build_uefi.mk: to build uefi files automatically when build android
 ## https://android-review.linaro.org/#/c/18145/
-apply --linaro device/linaro/hikey 18145/4
+apply --linaro device/linaro/hikey 18145/5
 
 ## fix selinux policy for optee
 ## https://android-review.linaro.org/#/c/18062/
