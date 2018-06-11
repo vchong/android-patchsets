@@ -30,10 +30,6 @@ apply --linaro  device/ti/am57xevm  18130/8
 ## http://android-review.linaro.org/18352
 apply --linaro  device/ti/am57xevm  18352/1
 
-## set right permission on sw_sync
-## https://android-review.linaro.org/#/c/18357/
-apply --linaro  device/ti/am57xevm  18357/1
-
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
 ## http://android-review.linaro.org/17956
