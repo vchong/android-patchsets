@@ -21,3 +21,4 @@ fi
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/526099
 apply --linaro device/linaro/hikey 18066/1
 cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
+cherrypick system/sepolicy 5c41d40ecd3558d44861374c1c490676a224b488
