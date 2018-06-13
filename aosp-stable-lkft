@@ -22,3 +22,22 @@ fi
 apply --linaro device/linaro/hikey 18066/1
 cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
 cherrypick system/sepolicy 5c41d40ecd3558d44861374c1c490676a224b488
+cherrypick device/linaro/hikey b4db15e154597613fed2911933a2c536b37855c7
+cherrypick device/linaro/hikey 5af9bdca62d686dd0554269f1ef4027e9a95b60b
+cherrypick device/linaro/hikey 575681047b62b5a35f87ff95baf953f864636540
+cherrypick device/linaro/hikey 660356f45dbff88f1aaee7a1086a80dfe921b4e7
+cherrypick device/linaro/hikey 4cb6c2b774aafbe1a8160129c3e5b29f52b5f836
+cherrypick device/linaro/hikey 5f59b7a9d702bc740dc2cd04776a4d169d391cec
+cherrypick device/linaro/hikey d6127320d1d5e5db69f60265fa93049f809bcb3f
+cherrypick device/linaro/hikey 6ed00bc72616015cca7621430da3745cab9166fc
+cherrypick device/linaro/hikey e5c5bb3a9332db9a0bf8385aaa06171cc1e03bc9
+cherrypick device/linaro/hikey 21ad5be341701a645b69bf3292bcc7835673bc29
+apply --linaro device/linaro/hikey 18163/2
+cherrypick device/linaro/hikey 6e403d08fb9f10f09c4f635988d4af09ca8431b1
+cherrypick device/linaro/hikey 311955b81a982e4dfdf302782a2721e37e5b93b3
+cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
+
+## libion: add 4.12+ kernel headers for forward compatibility
+cherrypick system/core 89b8de2994d8bb809b2e2749154b9456ed096a8d
+## libion: Adapt to new ION interface
+cherrypick system/core 30313f8bc08b60c32c1ee0cbca20186b11bb4c0a
