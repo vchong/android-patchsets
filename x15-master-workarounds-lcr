@@ -19,16 +19,16 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 ## device.mk: patch for lava test support
-## http://android-review.linaro.org/18129
-apply --linaro  device/ti/am57xevm  18129/1
+## http://android-review.linaro.org/18392
+apply --linaro  device/ti/am57xevm  18392/1
 
 ## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
 apply --linaro  device/ti/am57xevm  18130/8
 
-## device.mk: add vndk_package and libunwind to make it work for master
-## http://android-review.linaro.org/18352
-apply --linaro  device/ti/am57xevm  18352/1
+## sepolicy: workarounds for sepolicy compiling errors
+## http://android-review.linaro.org/18396
+apply --linaro  device/ti/am57xevm  18396/1
 
 ## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
 ## http://android-review.linaro.org/17955
@@ -70,7 +70,7 @@ apply --linaro hardware/ti/dce 18153/1
 
 ## workaround for compiling errors with p-preview
 ## http://android-review.linaro.org/18154
-apply --linaro hardware/ti/dra7xx 18154/2
+apply --linaro hardware/ti/dra7xx 18154/3
 
 ## Android.mk: workaround for compiling error for p-preview
 ## http://android-review.linaro.org/18155
@@ -80,6 +80,14 @@ apply --linaro hardware/ti/ipc 18155/1
 ## http://android-review.linaro.org/18156
 apply --linaro hardware/ti/wlan 18156/1
 
+######################## KERNEL WORKAROUNDS#####################################
+################################################################################
+## workaround for PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable.
+## http://git.ti.com/cgit/cgit.cgi/ti-linux-kernel/ti-linux-kernel.git/commit/?h=ti-android-linux-4.14.y&id=16d7ceb04b554207aa68dd27c1bc11f8933813fd
+#revert kernel/ti/x15 16d7ceb04b554207aa68dd27c1bc11f8933813fd
+curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/0001-Revert-mmap-introduce-sane-default-mmap-limits.patch kernel/ti/x15
 ## kernel mailing list https://www.spinics.net/lists/linux-usb/msg163049.html
 ## for problem reported here: https://bugs.linaro.org/show_bug.cgi?id=3866
-curl_am http://people.linaro.org/~yongqin.liu/patches/adb-root.patch kernel/ti/x15
+curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/EXTERNAL-tiL4.14-AND-usb-gadget-ffs-Fix-BUG-when-userland-exits-with-submitted-AIO-transfers.patch kernel/ti/x15
+curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/tiL4.14-AND-ARM-dts-am57xx-beagle-x15-common-Add-CMA-pool.patch kernel/ti/x15
+curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/x15-vmalloc.patch kernel/ti/x15
