@@ -28,11 +28,11 @@ fi
 ## Integrate OP-TEE components
 ## optee: integrate for optee components
 ## http://android-review.linaro.org/17988
-apply --linaro device/linaro/hikey 17988/1
+apply --linaro device/linaro/hikey 17988/4
 
 ## OP-TEE selinux
 ## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/10
+apply --linaro device/linaro/hikey 17177/13
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18233
@@ -43,4 +43,8 @@ apply --linaro device/linaro/hikey 18145/5
 
 ## fix selinux policy for optee
 ## https://android-review.linaro.org/#/c/18062/
-apply --linaro device/linaro/hikey 18062/1
+apply --linaro device/linaro/hikey 18062/3
+
+## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
+## http://android-review.linaro.org/18404
+apply --linaro device/linaro/hikey 18404/1
