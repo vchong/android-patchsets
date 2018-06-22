@@ -9,6 +9,12 @@ curl_am_hikey_optee(){
     curl_am ${patch_url} ${patch_project}
 }
 
+curl_am_hikey_optee_sdp_github(){
+    local patch_id=$1
+    local patch_url="https://github.com/linaro-swg/linux/commit/${patch_id}.patch"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
 PATCHES=0
 if [ -n "$1" ]; then
         AOSP="$1"
@@ -30,5 +36,63 @@ cherrypick kernel/linaro/hisilicon 05a8316d2e5b45bd15a9646bf948ffa042f94327
 
 #######################################################
 ## Patches to enable SDP                          #####
+## patches from here: https://github.com/linaro-swg/linux/commits/optee
 #######################################################
-# patches from here: https://github.com/linaro-swg/linux/commits/optee
+## hikey_defconfig: enable dummy ION memory in kernel config
+## http://android-review.linaro.org/18415
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18415/1
+
+#######################################################
+## patches for cherry-pick problem or compiling problem
+#######################################################
+## [v4.16] tee: flexible shared memory pool creation
+## https://github.com/linaro-swg/linux/commit/fabaadfddf7a3ca34769ec1814ea931d5e326ab0
+## http://android-review.linaro.org/18412
+curl_am_hikey_optee_sdp_github fabaadfddf7a3ca34769ec1814ea931d5e326ab0
+## [v4.16] tee: add register user memory
+## https://github.com/linaro-swg/linux/commit/1ee91892b73e64640c3c65e3a0eeadf0cdc91b38
+## curl_am_hikey_optee_sdp_github 1ee91892b73e64640c3c65e3a0eeadf0cdc91b38
+## http://android-review.linaro.org/18413
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18413/1
+## [v4.16] tee: use reference counting for tee_context
+## https://github.com/linaro-swg/linux/commit/0987f080c0bb427354d8f0c95940d8912ab40707
+curl_am_hikey_optee_sdp_github 0987f080c0bb427354d8f0c95940d8912ab40707
+## tee: new ioctl to a register tee_shm from a dmabuf file descriptor
+## https://github.com/linaro-swg/linux/commit/28f2ad9c42306663c01a479cd23fa87668c890cb
+curl_am_hikey_optee_sdp_github 28f2ad9c42306663c01a479cd23fa87668c890cb
+## [v4.16] tee: optee: Update protocol definitions
+## https://github.com/linaro-swg/linux/commit/229153c92b8fe18a8e12b473a0ff66e317755dfa
+curl_am_hikey_optee_sdp_github 229153c92b8fe18a8e12b473a0ff66e317755dfa
+## [v4.16] tee: optee: store OP-TEE capabilities in private data
+## https://github.com/linaro-swg/linux/commit/a2f3da632988d38c1e5355a28336fe1115afb288
+curl_am_hikey_optee_sdp_github a2f3da632988d38c1e5355a28336fe1115afb288
+
+#######################################################
+## patches for SDP enabling support
+#######################################################
+## staging/ion: add Allwinner ION "secure" heap
+## https://github.com/linaro-swg/linux/commit/1af7f7907fd43456de448d115711561c3ad5cbbf
+curl_am_hikey_optee_sdp_github 1af7f7907fd43456de448d115711561c3ad5cbbf
+## ion: "unmapped" heap for secure data path
+## https://github.com/linaro-swg/linux/commit/ffcd4cc22e27b81f1ebae6f2bf8e29664e723e21
+curl_am_hikey_optee_sdp_github ffcd4cc22e27b81f1ebae6f2bf8e29664e723e21
+## staging/ion: condition unmapped heap to supported architectures
+## https://github.com/linaro-swg/linux/commit/ee589e6a4688add86cd34cadd23267cbccf3f3c0
+curl_am_hikey_optee_sdp_github ee589e6a4688add86cd34cadd23267cbccf3f3c0
+## staging/ion: ARM64 supports ION_UNMAPPED_HEAP
+## https://github.com/linaro-swg/linux/commit/16843e5f398a40e085a8cd20770af825b100fb1a
+curl_am_hikey_optee_sdp_github 16843e5f398a40e085a8cd20770af825b100fb1a
+## staging:ion: add a no-map property to ion dmabuf attachment
+## https://github.com/linaro-swg/linux/commit/0b488c9833c8fc6b044001ceb0ea5eca65cc5b81
+#curl_am_hikey_optee_sdp_github 0b488c9833c8fc6b044001ceb0ea5eca65cc5b81
+## http://android-review.linaro.org/18405
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 18405/1
+## tee: optee: log message if dynamic shm is enabled
+## https://github.com/linaro-swg/linux/commit/3ed4ce4c37ef0800b5da18893212e6769e1dbd3e
+curl_am_hikey_optee_sdp_github 3ed4ce4c37ef0800b5da18893212e6769e1dbd3e
+## tee: fix unbalanced context refcount in register shm from fd
+## https://github.com/linaro-swg/linux/commit/94c2f2e1cb08073cd688bd51638920b1cc6ad166
+curl_am_hikey_optee_sdp_github 94c2f2e1cb08073cd688bd51638920b1cc6ad166
+## optee: check shm reference are consistent in offset/size
+## https://github.com/linaro-swg/linux/commit/f5d5641b90b3c6fb96db7a1e5dfe8129de13b524
+curl_am_hikey_optee_sdp_github f5d5641b90b3c6fb96db7a1e5dfe8129de13b524
