@@ -18,9 +18,14 @@ fi
 #######################################################
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
+## add on to what's already on linaro-nougat branch
+## optee: integrate for optee components
+## http://android-review.linaro.org/18184
+apply --linaro device/linaro/hikey 18184/3
+
 ## Add optee_examples CA and TA
 ## http://android-review.linaro.org/17911
-apply --linaro device/linaro/hikey 17911/3
+apply --linaro device/linaro/hikey 17911/5
 
 ## Allow extra flags for optee_os builds
 ## http://android-review.linaro.org/17632
