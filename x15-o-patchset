@@ -32,3 +32,17 @@ cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
 ## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
 apply --linaro  device/ti/am57xevm  18130/8
+
+## DRM patches for TI X15
+## omap: Add DRM_RDWR flag to dmabuf export
+## http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e
+curl_am http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e?format=patch external/libdrm
+## omap: build file for android
+## http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345
+curl_am http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345?format=patch external/libdrm
+## omap: install library in vendor partition
+## http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45
+curl_am http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45?format=patch external/libdrm
+## omap: Convert Android.mk to Android.bp
+## http://git.ti.com/android/external-libdrm/commit/077ac10b8ed77a49353de20aaae1cb52cb42c4f1
+curl_am http://git.ti.com/android/external-libdrm/commit/077ac10b8ed77a49353de20aaae1cb52cb42c4f1?format=patch external/libdrm
