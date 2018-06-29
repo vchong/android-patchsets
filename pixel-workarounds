@@ -20,4 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 # get adb working at bootup
-apply --linaro device/google/marlin 17316/1
+apply --linaro device/google/marlin 18437/1
