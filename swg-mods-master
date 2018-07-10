@@ -1,0 +1,51 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+curl_am_optee_vchong(){
+    local repository=$1
+    local patch_id=$2
+    local patch_project="$3"
+    local patch_url="https://github.com/vchong/${repository}/commit/${patch_id}.patch"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+#######################################################
+## Patches for SWG use cases different than r-lcr #####
+#######################################################
+## Add optee_examples CA and TA
+## http://android-review.linaro.org/17912
+apply --linaro device/linaro/hikey 17912/4
+
+## Allow extra flags for optee_os builds
+## http://android-review.linaro.org/17632
+apply --linaro device/linaro/hikey 17632/1
+
+## uefi-tools: Use debug build and log level
+## http://android-review.linaro.org/18457
+apply --linaro device/linaro/hikey 18457/1
+
+##################################################
+################ Backport ########################
+##################################################
+## fix android build errors for Treble
+if [ -d "${AOSP}/external/optee_examples" ]; then
+    :
+    ## hotp: Android.mk: fix module name
+    curl_am_optee_vchong optee_examples 177c8ff21b465f5afa7124f250509320dd062cca external/optee_examples
+    ## Android.mk: make xtest installed in the vendor partition
+    curl_am_optee_vchong optee_examples b6742a30cf9e748cd460f32c44d3ad33db172430 external/optee_examples
+fi
