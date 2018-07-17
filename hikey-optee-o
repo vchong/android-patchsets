@@ -28,16 +28,16 @@ fi
 ## Integrate OP-TEE components
 ## optee: integrate for optee components
 ## http://android-review.linaro.org/18321
-apply --linaro device/linaro/hikey 18321/2
+#apply --linaro device/linaro/hikey 18321/2
 
 ## OP-TEE selinux
 ## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/10
+#apply --linaro device/linaro/hikey 17177/10
 
 ## Enable OP-TEE in the bootloader
 ## https://android-review.linaro.org/#/c/17488/
-apply --linaro device/linaro/hikey 17488/8
+#apply --linaro device/linaro/hikey 17488/8
 
 ## build fip.bin automatically
 ## https://android-review.linaro.org/#/c/17728/
-apply --linaro device/linaro/hikey 17728/5
+#apply --linaro device/linaro/hikey 17728/5

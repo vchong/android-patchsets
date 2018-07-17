@@ -20,72 +20,72 @@ fi
 #######################################################
 ## integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro device/linaro/hikey 17155/4
+#apply --linaro device/linaro/hikey 17155/4
 
 ## enabling kernel compilation, etc
 ## https://android-review.linaro.org/#/c/16834/
-apply --linaro device/linaro/hikey 16834/10
+#apply --linaro device/linaro/hikey 16834/10
 
 ## drm/hisilicon: Ensure LDI regs are properly configured.
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon 44df87e6dfadc423407f2b7a546396b86a37d462
 
 ## grub.cfg: set serialno for boot_fat.uefi.img
-cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
+#cherrypick device/linaro/hikey 1b85c5d479562abd2e55c5b2e73f75aecdda25d2
 
 ## hikey/hikey960: Add device admin feature
-cherrypick device/linaro/hikey 3396ac0f95d08297054c6431fa29352d23fa2748
+#cherrypick device/linaro/hikey 3396ac0f95d08297054c6431fa29352d23fa2748
 
 ## init.common.rc: enable randomize_va_space
 ## https://android-review.linaro.org/#/c/17933/
-apply --linaro device/linaro/hikey 17933/1
+#apply --linaro device/linaro/hikey 17933/1
 
 ## device-common.mk: add support for feature of android.software.cts
 ## http://android-review.linaro.org/17974
-apply --linaro device/linaro/hikey 17974/2
+#apply --linaro device/linaro/hikey 17974/2
 
 ## device-common.mk: add support for feature android.software.voice_recognizers
 ## http://android-review.linaro.org/17977
-apply --linaro device/linaro/hikey 17977/1
+#apply --linaro device/linaro/hikey 17977/1
 
 ## hikey: power: Fix unused parameter warning
-cherrypick device/linaro/hikey b4db15e154597613fed2911933a2c536b37855c7
+#cherrypick device/linaro/hikey b4db15e154597613fed2911933a2c536b37855c7
 ## hikey: Fix power-hal logcat noise
-cherrypick device/linaro/hikey 5af9bdca62d686dd0554269f1ef4027e9a95b60b
+#cherrypick device/linaro/hikey 5af9bdca62d686dd0554269f1ef4027e9a95b60b
 
 ## hikey: hikey960: Make /sys/kernel/debug readable non-root processes
-cherrypick device/linaro/hikey 575681047b62b5a35f87ff95baf953f864636540
+#cherrypick device/linaro/hikey 575681047b62b5a35f87ff95baf953f864636540
 
 ## hikey: Add dummy stub libmemtrack module
-cherrypick device/linaro/hikey 660356f45dbff88f1aaee7a1086a80dfe921b4e7
+#cherrypick device/linaro/hikey 660356f45dbff88f1aaee7a1086a80dfe921b4e7
 ## hikey: hikey960: Add memtrack HAL
-cherrypick device/linaro/hikey 4cb6c2b774aafbe1a8160129c3e5b29f52b5f836
+#cherrypick device/linaro/hikey 4cb6c2b774aafbe1a8160129c3e5b29f52b5f836
 
 ## fstab files: update to mount cache with noatime option
 ## http://android-review.linaro.org/18158
-apply --linaro device/linaro/hikey 18158/1
+#apply --linaro device/linaro/hikey 18158/1
 
 ## hikey: Add hikey32 target for arm32
-cherrypick device/linaro/hikey 5f59b7a9d702bc740dc2cd04776a4d169d391cec
+#cherrypick device/linaro/hikey 5f59b7a9d702bc740dc2cd04776a4d169d391cec
 ## Include what we use.
-cherrypick device/linaro/hikey d6127320d1d5e5db69f60265fa93049f809bcb3f
+#cherrypick device/linaro/hikey d6127320d1d5e5db69f60265fa93049f809bcb3f
 ## hikey: gralloc Update for new ION interface
-cherrypick device/linaro/hikey 6ed00bc72616015cca7621430da3745cab9166fc
+#cherrypick device/linaro/hikey 6ed00bc72616015cca7621430da3745cab9166fc
 ## gralloc: Import utgard r8p1 gralloc update
-cherrypick device/linaro/hikey e5c5bb3a9332db9a0bf8385aaa06171cc1e03bc9
+#cherrypick device/linaro/hikey e5c5bb3a9332db9a0bf8385aaa06171cc1e03bc9
 ## gralloc: Fixup r8p1 gralloc to build for hikey
-cherrypick device/linaro/hikey 21ad5be341701a645b69bf3292bcc7835673bc29
+#cherrypick device/linaro/hikey 21ad5be341701a645b69bf3292bcc7835673bc29
 ## MALI: utgard: Add mali r8p1 utgard blobs to device directory
 ## cherrypick device/linaro/hikey 787c58d03aadaaca712aade71bdca4f593e3beab
 ## http://android-review.linaro.org/18163
-apply --linaro device/linaro/hikey 18163/2
+#apply --linaro device/linaro/hikey 18163/2
 
 ## gralloc: add support for HAL_PIXEL_FORMAT_BLOB
 ## http://android-review.linaro.org/17992
 ## apply --linaro device/linaro/hikey 17992/1
-cherrypick device/linaro/hikey 6e403d08fb9f10f09c4f635988d4af09ca8431b1
+#cherrypick device/linaro/hikey 6e403d08fb9f10f09c4f635988d4af09ca8431b1
 
 ## hikey: gralloc Update for new ION interface
-cherrypick device/linaro/hikey 311955b81a982e4dfdf302782a2721e37e5b93b3
+#cherrypick device/linaro/hikey 311955b81a982e4dfdf302782a2721e37e5b93b3
 ## Workaround: copy ion_4.12.h from libion
-cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
+#cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
