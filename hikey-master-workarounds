@@ -26,3 +26,7 @@ apply --linaro device/linaro/hikey 17155/8
 ## enable kernel compilation for hikey build
 ## http://android-review.linaro.org/18395
 apply --linaro device/linaro/hikey 18395/4
+
+## BoardConfigCommon.mk: update to build based on kernel hisilicon-4.14 path
+## http://android-review.linaro.org/18465
+apply --linaro device/linaro/hikey 18465/1
