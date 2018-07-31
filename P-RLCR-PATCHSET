@@ -24,7 +24,7 @@ fi
 ##################################################
 ## CommandListener.cpp:  ensures to sort interfaces in alphabetical order
 ## http://android-review.linaro.org/18295
-apply --linaro system/netd 18295/2
+#apply --linaro system/netd 18295/2
 
 ## Workaround for wallpaper not shown correctly problem
 apply --linaro frameworks/base 17696/1
@@ -42,3 +42,13 @@ cherrypick external/f2fs-tools 876beb2e0d312a9de2901fb0d52e2ffa06e8ea87
 
 ## libext2fs: Track the libsparse API change.
 cherrypick external/e2fsprogs 019bed178935585d28cf702a8090a5598415312b
+
+## https://android-review.googlesource.com/c/platform/external/selinux/+/674177
+## Mark as recovery_available: true
+cherrypick external/selinux b6ef6eb45c134d51c7b99c3f07832d8ef20b493a
+
+## https://android-review.googlesource.com/c/platform/external/fec/+/692987
+## Mark as recovery_available:true
+cherrypick external/fec 9ebca52566ee5b414f6cc74dd7be46610e49286f
+## Mark as recovery_available:true
+cherrypick external/e2fsprogs 4a9d5f4211818c70a1b2414e3774197386b7f245
