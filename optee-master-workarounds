@@ -34,18 +34,10 @@ fi
 ## based on the tag 2.4.0
 if [ -d "${AOSP}/external/optee_client" ]; then
     :
-    ## Android.mk & config.mk: move teec.log/teesupp.log under /data/tee
-    curl_am_optee_liuyq optee_client 4357c07c52c9503b9089c77f633e6f331db3fb91 external/optee_client
-    ## Android related files: changes to work with Treble enabled build
-    curl_am_optee_liuyq optee_client d2896b8d746047910fadf0d204a9c1e61671babb external/optee_client
 fi
 if [ -d "${AOSP}/external/optee_test" ]; then
     :
-    ## Android.mk: make xtest installed in the vendor partition
-    curl_am_optee_liuyq optee_test be4023ba2eb5b9a3eb4f7c354ccb876803609ae6 external/optee_test
 fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
     :
-    ## mk/aosp_optee.mk: move ta files to vendor partition
-    curl_am_optee_liuyq optee_os 255d48f9116bb63394ddec44b4c39ce9e9626b4c optee/optee_os
 fi
