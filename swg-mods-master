@@ -44,10 +44,4 @@ apply --linaro device/linaro/hikey 18457/1
 ## fix android build errors for Treble
 if [ -d "${AOSP}/external/optee_examples" ]; then
     :
-    ## hotp: Android.mk: fix module name
-    curl_am_optee_vchong optee_examples 177c8ff21b465f5afa7124f250509320dd062cca external/optee_examples
-    ## Android.mk: make xtest installed in the vendor partition
-    curl_am_optee_vchong optee_examples b6742a30cf9e748cd460f32c44d3ad33db172430 external/optee_examples
-    ## main.c: avoid unused parameter warning or error
-    curl_am_optee_vchong optee_examples 32c461ac001ed37ed59989c6e0ec456d7b4730db external/optee_examples
 fi
