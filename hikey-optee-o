@@ -41,3 +41,7 @@ apply --linaro device/linaro/hikey 17488/8
 ## build fip.bin automatically
 ## https://android-review.linaro.org/#/c/17728/
 apply --linaro device/linaro/hikey 17728/5
+
+## edk2
+## VfrCompile: fix invalid comparison between pointer and integer
+cherrypick device/linaro/bootloader/edk2 ca976c3efb1b9c7bcd75339abb3d554abe6b9179
