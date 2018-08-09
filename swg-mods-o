@@ -31,9 +31,9 @@ apply --linaro device/linaro/hikey 17632/1
 apply --linaro device/linaro/hikey 18328/1
 
 ## fix selinux policy for optee
-## https://android-review.linaro.org/#/c/19507/
-apply --linaro device/linaro/hikey 19507/1
+## https://android-review.linaro.org/#/c/19579
+apply --linaro device/linaro/hikey 19579/1
 
 ## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
 ## http://android-review.linaro.org/19518
-apply --linaro device/linaro/hikey 19518/1
+apply --linaro device/linaro/hikey 19518/2
