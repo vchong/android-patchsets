@@ -18,9 +18,9 @@ fi
 #######################################################
 ##  workaround for linaro work                   ######
 #######################################################
-pushd device/linaro/hikey
+cd device/linaro/hikey
 git pull https://android.googlesource.com/device/linaro/hikey refs/changes/59/727159/2
-popd
+cd -
 
 ## domain.te: Add map permissions to vendor_config_files
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19582
