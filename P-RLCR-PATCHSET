@@ -35,4 +35,4 @@ apply --linaro system/core 18203/1
 
 ## vendor_libs: Allow btlinux service to run from vendor or system/vendor
 ## https://android-review.googlesource.com/c/platform/system/bt/+/657589
-apply system/sepolicy 657589/1
+apply system/bt 657589/1
