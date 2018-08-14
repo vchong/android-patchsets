@@ -32,3 +32,7 @@ apply --linaro frameworks/base 17696/1
 ## Bootchart parse command
 ## http://android-review.linaro.org/18203
 apply --linaro system/core 18203/1
+
+## vendor_libs: Allow btlinux service to run from vendor or system/vendor
+## https://android-review.googlesource.com/c/platform/system/bt/+/657589
+apply system/sepolicy 657589/1
