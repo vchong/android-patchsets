@@ -36,7 +36,7 @@ apply --linaro device/linaro/hikey 17632/1
 
 ## uefi-tools: Use debug build and log level
 ## http://android-review.linaro.org/18457
-apply --linaro device/linaro/hikey 18457/1
+apply --linaro device/linaro/hikey 18457/2
 
 ##################################################
 ################ Backport ########################
