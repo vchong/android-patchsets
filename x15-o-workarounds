@@ -24,7 +24,7 @@ apply --linaro  device/ti/am57xevm  18392/1
 
 ## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/10
+apply --linaro  device/ti/am57xevm  18130/11
 
 ###################################################
 ## DRM patches for TI X15
