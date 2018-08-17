@@ -1,0 +1,80 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+curl_am_hikey_optee(){
+    local patch_id=$1
+    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon-4.9"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+###### OP-TEE patches on kernel 4.9           ####
+##################################################
+
+#######################################################
+## Patches to enable SDP                          #####
+#######################################################
+## revert hack to use ion driver from android-hikey-linaro-4.4
+## so we can apply swg ion patches based on android-hikey-linaro-4.9
+## below
+## ion: Add CMA heap support to dummy ion driver
+revert kernel/linaro/hisilicon-4.9 bf035e067d747a124da049b17e70b50529966d0f
+## HACK: ion: Revert all ion code back to android-hikey-linaro-4.4
+## revert kernel/linaro/hisilicon-4.9 5634cf8762d848b673a0de5259264fb5681d5d00
+## http://android-review.linaro.org/18281
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 18281/3
+
+## hikey_defconfig: enable dummy ION memory
+## http://android-review.linaro.org/17583
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17583/10
+
+## staging/ion: add Allwinner ION "secure" heap **not for mainline**
+## http://android-review.linaro.org/17712
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17712/7
+
+## ion: "unmapped" heap for secure data path **not for mainline**
+## http://android-review.linaro.org/17713
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17713/6
+
+## ion: unmapped heap support in ion dummy driver **not for mainline**
+## http://android-review.linaro.org/17714
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17714/5
+
+## ion: fix unmapped heap test settings **not for mainline**
+## https://android-review.linaro.org/17889
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17889/3
+
+## staging/ion: CONFIG_ION_UNMAPPED_HEAP conditions unmapped heap
+## https://android-review.linaro.org/17890
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17890/1
+
+## staging/ion: ARM64 supports ION_UNMAPPED_HEAP
+## https://android-review.linaro.org/17891
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17891/1
+
+## staging/ion: fix unmapped heap conditional support
+## https://android-review.linaro.org/17892
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17892/1
+
+## tee: new ioctl to a register tee_shm from a dmabuf file descriptor
+## https://android-review.linaro.org/#/c/18028/
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 18028/3
+
+## tee: fix unbalanced context refcount in register shm from fd
+## http://android-review.linaro.org/18209
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 18209/1
