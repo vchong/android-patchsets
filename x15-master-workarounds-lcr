@@ -18,10 +18,33 @@ fi
 ##################################################
 ################ Linaro hack for LCR##############
 ##################################################
+## beagle-x15: Initial device support
+## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/719998
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 719998/6
+## beagle-x15: Turn on FULL_TREBLE support
+## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/732586
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 732586/1
+## beagle-x15: sepolicy: Adjust SELinux policies
+## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/733135
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 733135/2
+
+## libhwcomposer: Add initial support
+## https://android-review.googlesource.com/c/platform/hardware/ti/am57x/+/721068
+apply --local hardware/ti/am57x  --remote platform/hardware/ti/am57x 721068/4
+
+## libkmsxx: Add initial project
+## https://android-review.googlesource.com/c/platform/hardware/ti/am57x/+/722621
+apply --local hardware/ti/am57x  --remote platform/hardware/ti/am57x 722621/2
+
+#############################################
+#############################################
+curl_am http://people.linaro.org/~yongqin.liu/images/x15/patches/0001-beagle_x15-aosp-temp-change-from-Sam.patch device/ti/beagle_x15
+
 ## device.mk: patch for lava test support
 ## http://android-review.linaro.org/18392
-apply --linaro  device/ti/am57xevm  18392/1
+apply --linaro --local device/ti/beagle_x15 --remote device/ti/am57xevm 18392/1
 
 ## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/8
+#apply --linaro  device/ti/am57xevm  18130/8
+curl_am http://people.linaro.org/~yongqin.liu/images/x15/patches/0001-workaround-for-build-4.14-kernel-and-ti-uboot-from-s.patch device/ti/beagle_x15
