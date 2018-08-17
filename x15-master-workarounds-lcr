@@ -28,6 +28,10 @@ apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 732586/1
 ## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/733135
 apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 733135/2
 
+## beagle-x15-kernel: Update Android Kernel to 4.14.54
+## https://android-review.googlesource.com/c/device/ti/beagle-x15-kernel/+/720012
+apply --local device/ti/beagle_x15-kernel --remote device/ti/beagle-x15-kernel 720012/1
+
 ## libhwcomposer: Add initial support
 ## https://android-review.googlesource.com/c/platform/hardware/ti/am57x/+/721068
 apply --local hardware/ti/am57x  --remote platform/hardware/ti/am57x 721068/4
