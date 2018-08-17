@@ -18,5 +18,5 @@ fi
 ###################################################################
 ########       LKFT PLAN overlay for CTS              #############
 ###################################################################
-## https://android-review.linaro.org/#/c/18007/1
-apply --linaro cts 18007/5
+## https://android-review.linaro.org/#/c/platform/test/suite_harness/+/19623/
+apply --linaro test/suite_harness 19623/1
