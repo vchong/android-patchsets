@@ -31,7 +31,7 @@ cherrypick frameworks/native c9d2db18d8154ef527dbf4d34c7bb3317bbdc98c
 
 ## workaround for build 4.14 kernel and ti-uboot from source
 ## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/8
+apply --linaro  device/ti/am57xevm  18130/11
 
 ## DRM patches for TI X15
 ## omap: Add DRM_RDWR flag to dmabuf export
