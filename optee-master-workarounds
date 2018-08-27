@@ -33,7 +33,7 @@ fi
 ## fix android build error and xtest failures on optee-test projec
 ## based on the tag 2.4.0
 if [ -d "${AOSP}/external/optee_client" ]; then
-    curl_am_optee_liuyq optee_client c2d9153e51a519b6f85ccbe02f4ac6abff0a45bd external/optee_client
+    :
 fi
 if [ -d "${AOSP}/external/optee_test" ]; then
     :
