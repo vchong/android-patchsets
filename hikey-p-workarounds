@@ -30,6 +30,14 @@ apply --linaro device/linaro/hikey 19582/1
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19596
 apply --linaro device/linaro/hikey 19596/1
 
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19677
+## sepolicy/system_server.te: Explicitly allow system_server to (m)map data files
+apply --linaro device/linaro/hikey 19677/1
+
+## Relax some neverallow rules
+## bd3e300a1309323e02c7144202acb48f40f11946
+#cherrypick system/sepolicy bd3e300a1309323e02c7144202acb48f40f11946
+
 ## integrated tests
 ## http://android-review.linaro.org/17155
 apply --linaro device/linaro/hikey 17155/8
