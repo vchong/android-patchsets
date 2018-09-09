@@ -70,11 +70,5 @@ cherrypick device/linaro/hikey 30941517aac192a55dc358479e27dc6a6b3bc04e
 ## hikey: gralloc: Allow use of CMA heap instead of fbdev
 cherrypick device/linaro/hikey f3d868dcbd74d43b754bf168fd5f63bf4c8c4385
 
-## Merge remote-tracking branch 'aosp/upstream-master' into aosp-fdo-merge
-## https://android-review.googlesource.com/c/platform/external/drm_hwcomposer/+/743902
-cd external/drm_hwcomposer
-git pull https://android.googlesource.com/platform/external/drm_hwcomposer refs/changes/02/743902/1
-cd -
-
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
