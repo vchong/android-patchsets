@@ -54,3 +54,17 @@ apply --linaro device/linaro/hikey 18465/1
 ## drm/hisilicon: Ensure LDI regs are properly configured.
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon-4.14 44df87e6dfadc423407f2b7a546396b86a37d462
+
+## For using drm_hwcomposer introduced by kernel change here:
+## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/743922
+## hikey/hikey960: Enable drm_hwcomposer for 4.14+ kernels
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/737121
+cherrypick device/linaro/hikey 6dc5ce5dbcd79e6fb6abb157e24b381d4f09d04a
+## hikey: Enable drm_hwcomposer on 4.9 kernels
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/748113
+cherrypick device/linaro/hikey 890bbe447ca065bd9d325d1fc14ceebd040b50a4
+## Merge remote-tracking branch 'aosp/upstream-master' into aosp-fdo-merge
+## https://android-review.googlesource.com/c/platform/external/drm_hwcomposer/+/743902
+cd external/drm_hwcomposer
+git pull https://android.googlesource.com/platform/external/drm_hwcomposer refs/changes/02/743902/1
+cd -
