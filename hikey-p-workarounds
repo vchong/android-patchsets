@@ -63,8 +63,18 @@ cherrypick device/linaro/hikey 6dc5ce5dbcd79e6fb6abb157e24b381d4f09d04a
 ## hikey: Enable drm_hwcomposer on 4.9 kernels
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/748113
 cherrypick device/linaro/hikey 890bbe447ca065bd9d325d1fc14ceebd040b50a4
+## hikey: gralloc: Change to allow gralloc_priv.h to be shared
+cherrypick device/linaro/hikey 25d6129aed2ffa8a7d502c3703f82500ecc3a2ad
+## hikey: gralloc: Add union alias and additional fields to improve interop w/ hikey960 gralloc
+cherrypick device/linaro/hikey 30941517aac192a55dc358479e27dc6a6b3bc04e
+## hikey: gralloc: Allow use of CMA heap instead of fbdev
+cherrypick device/linaro/hikey f3d868dcbd74d43b754bf168fd5f63bf4c8c4385
+
 ## Merge remote-tracking branch 'aosp/upstream-master' into aosp-fdo-merge
 ## https://android-review.googlesource.com/c/platform/external/drm_hwcomposer/+/743902
 cd external/drm_hwcomposer
 git pull https://android.googlesource.com/platform/external/drm_hwcomposer refs/changes/02/743902/1
 cd -
+
+## revert change of "Make libdrm recovery_available" from master branch
+revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
