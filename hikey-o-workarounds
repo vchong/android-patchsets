@@ -89,3 +89,8 @@ cherrypick device/linaro/hikey 6e403d08fb9f10f09c4f635988d4af09ca8431b1
 cherrypick device/linaro/hikey 311955b81a982e4dfdf302782a2721e37e5b93b3
 ## Workaround: copy ion_4.12.h from libion
 cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
+
+## revert the change of removing FBDEV_EMULATION
+## hikey_defconfig: Remove FBDEV_EMULATION support for drm_hwcomposer
+## https://android.googlesource.com/kernel/hikey-linaro/+/bbab5cb8a5bd598af247d9eaf5a3033e7d12104e
+revert kernel/linaro/hisilicon bbab5cb8a5bd598af247d9eaf5a3033e7d12104e
