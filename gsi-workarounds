@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+# get adb working at bootup
+apply --linaro build/ 19717/1
