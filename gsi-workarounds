@@ -20,4 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 # get adb working at bootup
-apply --linaro build/ 19717/1
+apply --linaro build/make 19717/1
