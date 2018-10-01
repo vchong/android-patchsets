@@ -20,4 +20,4 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 # get adb working at bootup
-apply --linaro device/google/muskie 18264/2
+apply --linaro device/google/wahoo 19723/1
