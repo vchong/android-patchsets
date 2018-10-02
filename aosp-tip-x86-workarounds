@@ -14,3 +14,6 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         echo "or with the AOSP source directory as its first parameter."
         exit 1
 fi
+
+apply --linaro device/generic/art 18446/1
+apply --linaro platform/frameworks/base 19725/1
