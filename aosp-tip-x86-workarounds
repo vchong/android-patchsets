@@ -16,4 +16,4 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 apply --linaro device/generic/art 18446/1
-apply --linaro platform/frameworks/base 19725/1
+apply --linaro frameworks/base 19725/1
