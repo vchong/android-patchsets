@@ -15,7 +15,7 @@ if [ "${ghprbPullId}" ]; then
     if [ -d ${lm} ]; then
         # Get SWG's local manifest for OPTEE HiKey
         wget -O ${lm}/swg.xml \
-            https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey-o/swg.xml
+            https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-o.xml
 
         # Patch SWG's local manifest with pull-request
         project=${ghprbGhRepository#OP-TEE/*}
