@@ -18,8 +18,9 @@ if [ "${ghprbPullId}" ]; then
             https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-o.xml
 
         # Patch SWG's local manifest with pull-request
-        project=${ghprbGhRepository#OP-TEE/*}
-        sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/swg.xml
+        # Disable this for now since we've moved to daily/weekly builds
+        #project=${ghprbGhRepository#OP-TEE/*}
+        #sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/swg.xml
 
         # "Patch" OP-TEE to SWG + pull-request
         repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
