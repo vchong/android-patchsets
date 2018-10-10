@@ -30,19 +30,15 @@ fi
 ## Patches to enable SDP                          #####
 #######################################################
 ## revert hack to use ion driver from android-hikey-linaro-4.4
-## so we can apply swg ion patches based on android-hikey-linaro-4.9
-## below
-## ion: Add CMA heap support to dummy ion driver
-revert kernel/linaro/hisilicon-4.9 bf035e067d747a124da049b17e70b50529966d0f
+## so we can apply swg ion patches based on android-hikey-linaro-4.9 below
 ## HACK: ion: Revert all ion code back to android-hikey-linaro-4.4
 ## revert kernel/linaro/hisilicon-4.9 5634cf8762d848b673a0de5259264fb5681d5d00
 ## http://android-review.linaro.org/18281
-apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 18281/3
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 18281/5
 
 ## hikey_defconfig: enable dummy ION memory
 ## http://android-review.linaro.org/17583
 apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17583/10
-
 ## staging/ion: add Allwinner ION "secure" heap **not for mainline**
 ## http://android-review.linaro.org/17712
 apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17712/7
@@ -53,11 +49,11 @@ apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 
 
 ## ion: unmapped heap support in ion dummy driver **not for mainline**
 ## http://android-review.linaro.org/17714
-apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17714/5
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17714/6
 
 ## ion: fix unmapped heap test settings **not for mainline**
 ## https://android-review.linaro.org/17889
-apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17889/3
+apply --linaro --local kernel/linaro/hisilicon-4.9 --remote kernel/hikey-linaro 17889/4
 
 ## staging/ion: CONFIG_ION_UNMAPPED_HEAP conditions unmapped heap
 ## https://android-review.linaro.org/17890
