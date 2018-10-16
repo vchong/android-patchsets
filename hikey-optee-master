@@ -34,7 +34,7 @@ apply --linaro device/linaro/hikey 17988/5
 apply --linaro device/linaro/hikey 17177/13
 ## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
 ## http://android-review.linaro.org/18404
-apply --linaro device/linaro/hikey 18404/2
+apply --linaro device/linaro/hikey 18404/3
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18233
