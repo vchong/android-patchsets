@@ -26,5 +26,5 @@ fi
 apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
-## http://android-review.linaro.org/18203
-apply --linaro system/core 18203/1
+## http://android-review.linaro.org/17731
+apply --linaro system/core 17731/2
