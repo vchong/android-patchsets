@@ -8,12 +8,12 @@
 ### instead use a pull-request from Github, whichever
 ### triggered this build job.
 
-if [ "${ghprbPullId}" ]; then
-    echo "Applying Github pull-request #${ghprbPullId} from ${ghprbGhRepository}"
+#if [ "${ghprbPullId}" ]; then
+    #echo "Applying Github pull-request #${ghprbPullId} from ${ghprbGhRepository}"
 
     lm=.repo/local_manifests
     if [ -d ${lm} ]; then
-        # Get SWG's local manifest for OPTEE HiKey
+        echo "Get SWG's local manifest for OPTEE HiKey AOSP master"
         wget -O ${lm}/swg.xml \
             https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-master.xml
 
@@ -23,13 +23,14 @@ if [ "${ghprbPullId}" ]; then
         #sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/swg.xml
 
         # "Patch" OP-TEE to SWG + pull-request
+        echo "Resync optee_* repos to master"
         repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
 
-        # Regenerate manifest
+        echo "Regenerate manifest"
         repo manifest -r -o pinned-manifest.xml
     else
         exit 1
     fi
-else
-    echo "WARNING: No Github pull-request was identified."
-fi
+#else
+    #echo "WARNING: No Github pull-request was identified."
+#fi
