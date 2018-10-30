@@ -1,0 +1,72 @@
+#!/bin/sh
+
+. $(dirname $0)/functions
+
+curl_am_hikey_optee(){
+    local patch_id=$1
+    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_project="kernel/linaro/hisilicon"
+    curl_am ${patch_url} ${patch_project}
+}
+
+curl_am_optee_vchong(){
+    local repository=$1
+    local patch_id=$2
+    local patch_project="$3"
+    local patch_url="https://github.com/vchong/${repository}/commit/${patch_id}.patch"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+###### OP-TEE support on device config        ####
+##################################################
+## Integrate OP-TEE components
+## optee: integrate for optee components
+## http://android-review.linaro.org/17988
+apply --linaro device/linaro/hikey 17988/5
+
+## OP-TEE selinux
+## https://android-review.linaro.org/#/c/17177/
+apply --linaro device/linaro/hikey 17177/13
+
+## optee: Enable opteed in the bootloader
+## http://android-review.linaro.org/18450
+apply --linaro device/linaro/hikey 18450/3
+## build_uefi.mk: to build uefi files automatically when build android
+## https://android-review.linaro.org/#/c/17728/
+apply --linaro device/linaro/hikey 17728/8
+
+## fix selinux policy for optee
+## https://android-review.linaro.org/#/c/18062/
+apply --linaro device/linaro/hikey 18062/3
+
+## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
+## http://android-review.linaro.org/18404
+apply --linaro device/linaro/hikey 18404/1
+
+## optee: Enable opteed in the bootloader (uefi-tools master)
+curl_am_optee_vchong uefi-tools 446dd102defa0c1ee3041d646c03ef2df8be246d optee/uefi-tools
+
+###############################################
+####      For debug purpose patches    ########
+###############################################
+## uefi-tools: Use debug build and log level
+## http://android-review.linaro.org/18231
+#apply --linaro device/linaro/hikey 18231/3
+
+## Allow extra flags for optee_os builds
+## http://android-review.linaro.org/17632
+#apply --linaro device/linaro/hikey 17632/1
