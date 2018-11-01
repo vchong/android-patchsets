@@ -44,4 +44,4 @@ apply --linaro device/linaro/hikey 18233/2
 apply --linaro device/linaro/hikey 18470/1
 ## build_uefi.mk: to build uefi files automatically when build android
 ## https://android-review.linaro.org/#/c/17728/
-apply --linaro device/linaro/hikey 17728/6
+apply --linaro device/linaro/hikey 17728/7

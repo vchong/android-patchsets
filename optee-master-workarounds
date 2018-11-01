@@ -41,7 +41,7 @@ if [ -d "${AOSP}/external/optee_test" ]; then
 fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
     ## mk/aosp_optee.mk: workaround for PHONY target limitation for AOSP master
-    curl_am_optee_liuyq optee_os 20eac8396c526b81fadbaf96e4ec08d98990529a optee/optee_os
+    curl_am_optee_liuyq optee_os 5ae41ad76c690e260cebb31ec6b7d5d0461f1cb9 optee/optee_os
     ## use prebuilt make command
-    curl_am_optee_liuyq optee_os a490df6af1b11f19c21f6f6cd9d19ea8ed8587c5 optee/optee_os
+    curl_am_optee_liuyq optee_os d1de0dd12914b8d4c951dd20250237892a9fb02d optee/optee_os
 fi
