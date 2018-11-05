@@ -88,3 +88,14 @@ cherrypick external/libdrm 36def26b34cb8d7a133d8eb9bdeea00767dffbb8
 ## http://git.ti.com/android/external-libdrm/commit/def3eb73c259cba667addec5332c2dd3fa26d340
 ## curl_am http://git.ti.com/android/external-libdrm/commit/def3eb73c259cba667addec5332c2dd3fa26d340?format=patch  external/libdrm
 cherrypick external/libdrm fa32e29a1fe81e5472aabc65d3aa25a5af5aec55
+
+## temp: oreo-mr1: Add kernel 4.14 info
+curl_am http://git.ti.com/cgit/cgit.cgi/android/platform-hardware-interfaces.git/patch/?id=ce354ad4fd8c76cc96b32de66cddc86e096e47ab hardware/interfaces
+## assemble_vintf: allow <kernel> entries from source files.
+cherrypick system/libvintf 8bda9c5ad4dfaa37c9de9bc144fa059d304434e6
+## Compat if POLICYVERS <= security_policyvers()
+cherrypick system/libvintf 9893552f4395296e509ce0d006b32593cb748d69
+## ueventd: Add dynamic kernel module loading
+## https://android.googlesource.com/platform/system/core/+/9963847419f41c76ca008cf0c09e986c79f04e4c%5E%21/
+## http://git.ti.com/cgit/cgit.cgi/android/platform-system-core.git/patch/?id=2c31e666eef96d1dd9b093e160f1213eadad1845
+curl_am http://git.ti.com/cgit/cgit.cgi/android/platform-system-core.git/patch/?id=2c31e666eef96d1dd9b093e160f1213eadad1845 system/core
