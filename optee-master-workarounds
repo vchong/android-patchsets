@@ -36,12 +36,8 @@ if [ -d "${AOSP}/external/optee_client" ]; then
     :
 fi
 if [ -d "${AOSP}/external/optee_test" ]; then
-    ## Android.mk: add required header files to LOCAL_ADDITIONAL_DEPENDENCIES
-    curl_am_optee_liuyq optee_test de94b5164053e687c8fb1cf99311570f8536857c external/optee_test
+    :
 fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
-    ## mk/aosp_optee.mk: workaround for PHONY target limitation for AOSP master
-    curl_am_optee_liuyq optee_os 5ae41ad76c690e260cebb31ec6b7d5d0461f1cb9 optee/optee_os
-    ## use prebuilt make command
-    curl_am_optee_liuyq optee_os d1de0dd12914b8d4c951dd20250237892a9fb02d optee/optee_os
+    :
 fi
