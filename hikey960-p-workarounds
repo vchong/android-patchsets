@@ -51,6 +51,19 @@ apply --linaro device/linaro/hikey 19846/1
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b 
 
+## hikey960: Add version check on the hisi vdec package
+cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
+## hikey960: gralloc960: Add usage field to map to older code
+cherrypick device/linaro/hikey 6b14a3306bb3c760c63fe48467f4e57b06616d82
+## hikey960: gralloc960: Add support for building w/  drm_hwcomposer
+cherrypick device/linaro/hikey b644c34ee96bbd432d653402a802b9743492877e
+## hikey960: gralloc960: Tweak allocation so every HWC allocation doesn't come out of cma
+cherrypick device/linaro/hikey a88fbc333e9d7c9723edba45a19dd643d87d1c36
+## hikey960: Fix image sizes to match ptable
+cherrypick device/linaro/hikey 1786ee2ac091fea9ab9424a721772ec46afd3def
+## HiKey960: Add sys.usb.controller override for newer kernels
+cherrypick device/linaro/hikey 0c244e86dcced923c1ac4e9fe137e1ae55064b48
+
 ## For using drm_hwcomposer introduced by kernel change here:
 ## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/743922
 ## hikey/hikey960: Enable drm_hwcomposer for 4.14+ kernels
@@ -59,12 +72,20 @@ cherrypick device/linaro/hikey 6dc5ce5dbcd79e6fb6abb157e24b381d4f09d04a
 ## hikey: Enable drm_hwcomposer on 4.9 kernels
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/748113
 cherrypick device/linaro/hikey 890bbe447ca065bd9d325d1fc14ceebd040b50a4
+
 ## hikey: gralloc: Change to allow gralloc_priv.h to be shared
 cherrypick device/linaro/hikey 25d6129aed2ffa8a7d502c3703f82500ecc3a2ad
 ## hikey: gralloc: Add union alias and additional fields to improve interop w/ hikey960 gralloc
 cherrypick device/linaro/hikey 30941517aac192a55dc358479e27dc6a6b3bc04e
 ## hikey: gralloc: Allow use of CMA heap instead of fbdev
 cherrypick device/linaro/hikey f3d868dcbd74d43b754bf168fd5f63bf4c8c4385
+
+## hikey960: bifrost: Update mali bifrost blobs to r10p0
+cherrypick device/linaro/hikey 6cd25833e0d164313ffd94958905940f4a196963
+## hikey960: bifrost: Add renderscript binary dependencies
+cherrypick device/linaro/hikey be064a22950781778b0079d6a2db06c0fc4180de
+## hikey960: bifrost: Enable renderscript binaries
+cherrypick device/linaro/hikey a6764b2e0dcd63745b6abd12928bdab15d48494c
 
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
