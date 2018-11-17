@@ -19,14 +19,28 @@ SRC_AARCH64_GCC="https://developer.arm.com/-/media/Files/downloads/gnu-a/8.2-201
 # ${1} is $AARCH.._PATH		: i.e., path to the destination
 # ${2} is $SRC_AARCH.._GCC	: is the downloaded tar.gz file
 # ${3} is $.._GCC_VERSION	: the name of the file to download
-function dltc(){
-	if [ ! -d "${1}" ]; then \
-		mkdir -p ${1}; \
-		echo "Downloading ${3} ..."; \
-		curl -s -L ${2} -o ${TOOLCHAIN_ROOT}/${3}.tar.xz; \
-		tar xf ${TOOLCHAIN_ROOT}/${3}.tar.xz -C ${1} --strip-components=1; \
-	fi
-}
+#function dltc(){
+#	if [ ! -d "${1}" ]; then \
+#		mkdir -p ${1}; \
+#		echo "Downloading ${3} ..."; \
+#		curl -s -L ${2} -o ${TOOLCHAIN_ROOT}/${3}.tar.xz; \
+#		tar xf ${TOOLCHAIN_ROOT}/${3}.tar.xz -C ${1} --strip-components=1; \
+#	fi
+#}
 
-dltc ${AARCH32_PATH} ${SRC_AARCH32_GCC} ${AARCH32_GCC_VERSION}
-dltc ${AARCH64_PATH} ${SRC_AARCH64_GCC} ${AARCH64_GCC_VERSION}
+#dltc ${AARCH32_PATH} ${SRC_AARCH32_GCC} ${AARCH32_GCC_VERSION}
+#dltc ${AARCH64_PATH} ${SRC_AARCH64_GCC} ${AARCH64_GCC_VERSION}
+
+if [ ! -d "${AARCH32_PATH}" ]; then \
+	mkdir -p ${AARCH32_PATH}; \
+	echo "Downloading ${AARCH32_GCC_VERSION} ..."; \
+	curl -s -L ${SRC_AARCH32_GCC} -o ${TOOLCHAIN_ROOT}/${AARCH32_GCC_VERSION}.tar.xz; \
+	tar xf ${TOOLCHAIN_ROOT}/${AARCH32_GCC_VERSION}.tar.xz -C ${AARCH32_PATH} --strip-components=1; \
+fi
+
+if [ ! -d "${AARCH64_PATH}" ]; then \
+	mkdir -p ${AARCH64_PATH}; \
+	echo "Downloading ${AARCH64_GCC_VERSION} ..."; \
+	curl -s -L ${SRC_AARCH64_GCC} -o ${TOOLCHAIN_ROOT}/${AARCH64_GCC_VERSION}.tar.xz; \
+	tar xf ${TOOLCHAIN_ROOT}/${AARCH64_GCC_VERSION}.tar.xz -C ${AARCH64_PATH} --strip-components=1; \
+fi
