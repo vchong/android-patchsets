@@ -58,7 +58,7 @@ apply --linaro device/linaro/hikey 18062/3
 apply --linaro device/linaro/hikey 18404/1
 
 ## optee: Enable opteed in the bootloader (uefi-tools master)
-curl_am_optee_vchong uefi-tools 446dd102defa0c1ee3041d646c03ef2df8be246d optee/uefi-tools
+curl_am_optee_vchong uefi-tools fc90bea69a58ade14e60241742cd9b26687d8a90 optee/uefi-tools
 
 ###############################################
 ####      For debug purpose patches    ########
