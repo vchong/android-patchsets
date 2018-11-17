@@ -38,6 +38,11 @@ apply --linaro device/linaro/hikey 19677/1
 ## bd3e300a1309323e02c7144202acb48f40f11946
 #cherrypick system/sepolicy bd3e300a1309323e02c7144202acb48f40f11946
 
+## https://android-review.linaro.org/#/c/platform/system/sepolicy/+/19867/
+## system/sepolicy/*/domain.te
+## Add support for RS vendor executables.
+apply --linaro system/sepolicy 19867/1
+
 ## integrated tests
 ## http://android-review.linaro.org/17155
 apply --linaro device/linaro/hikey 17155/8
