@@ -26,6 +26,9 @@
         echo "Resync optee_* repos to master"
         repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
 
+        echo "Sync bootloader repos"
+        repo sync optee/*
+
         echo "Regenerate manifest"
         repo manifest -r -o pinned-manifest.xml
     else
