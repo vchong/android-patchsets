@@ -27,7 +27,7 @@
         repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
 
         echo "Sync bootloader repos"
-        repo sync optee/arm-trusted-firmware optee/edk2 optee/OpenPlatformPkg optee/l-loader optee/tools-images-hikey960 optee/uefi-tools
+        repo sync optee/arm-trusted-firmware optee/edk2 optee/OpenPlatformPkg optee/l-loader optee/tools-images-hikey960 optee/uefi-tools device/linaro/kmgk
 
         echo "Regenerate manifest"
         repo manifest -r -o pinned-manifest.xml
