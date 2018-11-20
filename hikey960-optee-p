@@ -44,7 +44,7 @@ apply --linaro device/linaro/hikey 17177/13
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18450
-apply --linaro device/linaro/hikey 18450/4
+apply --linaro device/linaro/hikey 18450/3
 ## build_uefi.mk: to build uefi files automatically when build android
 ## https://android-review.linaro.org/#/c/17728/
 apply --linaro device/linaro/hikey 17728/8
@@ -63,9 +63,6 @@ apply --linaro device/linaro/hikey 19852/1
 
 ## optee: Enable opteed in the bootloader (uefi-tools master)
 curl_am_optee_vchong uefi-tools fc90bea69a58ade14e60241742cd9b26687d8a90 optee/uefi-tools
-
-## OpenPlatformPkg: add symlink to OPP repo
-curl_am_optee_vchong edk2 6f850cab444c9eb7ade60489ac0a5721384fc689 optee/edk2
 
 ###############################################
 ####      For debug purpose patches    ########
