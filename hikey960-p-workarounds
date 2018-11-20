@@ -92,5 +92,8 @@ cherrypick device/linaro/hikey be064a22950781778b0079d6a2db06c0fc4180de
 ## hikey960: bifrost: Enable renderscript binaries
 cherrypick device/linaro/hikey a6764b2e0dcd63745b6abd12928bdab15d48494c
 
+## hikey/hikey960: Fix powerHAL not loading
+cherrypick device/linaro/hikey a0e71f625bfe652fe47791d512487f854d7cf175
+
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
