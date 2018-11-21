@@ -2,11 +2,12 @@
 
 . $(dirname $0)/functions
 
-curl_am_optee_vchong(){
+curl_am_optee(){
     local repository=$1
     local patch_id=$2
     local patch_project="$3"
-    local patch_url="https://github.com/vchong/${repository}/commit/${patch_id}.patch"
+    local user=$4
+    local patch_url="https://github.com/${user}/${repository}/commit/${patch_id}.patch"
     curl_am ${patch_url} ${patch_project}
 }
 
@@ -37,6 +38,18 @@ apply --linaro device/linaro/hikey 17632/1
 ## uefi-tools: Use debug build and log level
 ## http://android-review.linaro.org/18457
 apply --linaro device/linaro/hikey 18457/2
+
+## KM mods - keymaster/gatekeeper patches
+curl_am_optee device-linaro-hikey 1fbbbbfc95c98075750cb73e02e380cf35f29e42 device/linaro/hikey vchong
+
+## print version_str on not_match
+curl_am_optee system_keymaster 2afb818c88fe7fd0efb41ff89aa73a1904580df2 system/keymaster vchong
+
+## convert alphabetic version to number
+curl_am_optee system_keymaster d0cdd9ea97cf125ff62fb41d124bca531594fe7e system/keymaster vchong
+
+## config.mk: do NOT obsolete export
+curl_am_optee platform_build 1861236194183e7d843f1f66ba632bd331a8f97c build/make vchong
 
 ##################################################
 ################ Backport ########################

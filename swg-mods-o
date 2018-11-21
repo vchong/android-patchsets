@@ -2,6 +2,15 @@
 
 . $(dirname $0)/functions
 
+curl_am_optee(){
+    local repository=$1
+    local patch_id=$2
+    local patch_project="$3"
+    local user=$4
+    local patch_url="https://github.com/${user}/${repository}/commit/${patch_id}.patch"
+    curl_am ${patch_url} ${patch_project}
+}
+
 PATCHES=0
 if [ -n "$1" ]; then
         AOSP="$1"
@@ -37,3 +46,6 @@ apply --linaro device/linaro/hikey 19579/1
 ## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
 ## http://android-review.linaro.org/19518
 apply --linaro device/linaro/hikey 19518/2
+
+## KM mods - keymaster/gatekeeper patches
+curl_am_optee device-linaro-hikey 33ba1801504fa2eebd1e8e8533f6ea36c70c2259 device/linaro/hikey vchong
