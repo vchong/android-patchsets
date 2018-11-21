@@ -56,6 +56,12 @@ apply --linaro device/linaro/hikey 19846/1
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b 
 
+# mm: hide incomplete nr_indirectly_reclaimable in /proc/zoneinfo
+# https://lore.kernel.org/patchwork/patch/1004601/mbox/
+pushd kernel/linaro/hisilicon-4.14
+curl https://lore.kernel.org/patchwork/patch/1004601/mbox/ |git am
+popd
+
 ## hikey960: Add version check on the hisi vdec package
 cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
 ## hikey960: gralloc960: Add usage field to map to older code
@@ -64,6 +70,12 @@ cherrypick device/linaro/hikey 6b14a3306bb3c760c63fe48467f4e57b06616d82
 cherrypick device/linaro/hikey b644c34ee96bbd432d653402a802b9743492877e
 ## hikey960: gralloc960: Tweak allocation so every HWC allocation doesn't come out of cma
 cherrypick device/linaro/hikey a88fbc333e9d7c9723edba45a19dd643d87d1c36
+
+## hikey960: Enable verity for hikey960
+cherrypick device/linaro/hikey a2106d17f7423fbcee88063e478945269f59ad67
+## hikey{,960}: Enable system-as-root and verity.
+cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
+
 ## hikey960: Fix image sizes to match ptable
 cherrypick device/linaro/hikey 1786ee2ac091fea9ab9424a721772ec46afd3def
 ## HiKey960: Add sys.usb.controller override for newer kernels
@@ -77,7 +89,6 @@ cherrypick device/linaro/hikey 6dc5ce5dbcd79e6fb6abb157e24b381d4f09d04a
 ## hikey: Enable drm_hwcomposer on 4.9 kernels
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/748113
 cherrypick device/linaro/hikey 890bbe447ca065bd9d325d1fc14ceebd040b50a4
-
 ## hikey: gralloc: Change to allow gralloc_priv.h to be shared
 cherrypick device/linaro/hikey 25d6129aed2ffa8a7d502c3703f82500ecc3a2ad
 ## hikey: gralloc: Add union alias and additional fields to improve interop w/ hikey960 gralloc
@@ -97,3 +108,11 @@ cherrypick device/linaro/hikey a0e71f625bfe652fe47791d512487f854d7cf175
 
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
+
+## device-common.mk: set PRODUCT_SHIPPING_API_LEVEL
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
+apply device/linaro/hikey 833021/1
+
+## public/netd.te: allow netd to operate icmp_socket that passed to it
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
+apply --linaro device/linaro/hikey 19889/1
