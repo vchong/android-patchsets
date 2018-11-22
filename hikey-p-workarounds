@@ -53,7 +53,7 @@ apply --linaro device/linaro/hikey 18465/1
 
 ## drm/hisilicon: Ensure LDI regs are properly configured.
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
-revert kernel/linaro/hisilicon-4.14 44df87e6dfadc423407f2b7a546396b86a37d462
+revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b
 
 # mm: hide incomplete nr_indirectly_reclaimable in /proc/zoneinfo
 # https://lore.kernel.org/patchwork/patch/1004601/mbox/
