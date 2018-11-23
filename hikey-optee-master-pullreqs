@@ -8,29 +8,30 @@
 ### instead use a pull-request from Github, whichever
 ### triggered this build job.
 
-#if [ "${ghprbPullId}" ]; then
-    #echo "Applying Github pull-request #${ghprbPullId} from ${ghprbGhRepository}"
+if [ "${ghprbPullId}" ]; then
+    echo "Applying Github pull-request #${ghprbPullId} from ${ghprbGhRepository}"
 
     lm=.repo/local_manifests
     if [ -d ${lm} ]; then
-        echo "Get SWG's local manifest for OPTEE HiKey AOSP master"
-        wget -O ${lm}/swg.xml \
-            https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-master.xml
+        #Disable this since we've moved swg-master.xml to manifest.git/optee.xml
+        #echo "Get SWG's local manifest for OPTEE HiKey AOSP master"
+        #wget -O ${lm}/swg.xml \
+        #    https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-master.xml
 
         # Patch SWG's local manifest with pull-request
-        # Disable this for now since we've moved to daily/weekly builds
-        #project=${ghprbGhRepository#OP-TEE/*}
-        #sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/swg.xml
+        project=${ghprbGhRepository#OP-TEE/*}
+        sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/optee.xml
 
         # "Patch" OP-TEE to SWG + pull-request
         echo "Resync optee related repos to master"
-        repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test device/linaro/kmgk
+        repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
+        #repo sync device/linaro/kmgk
 
         echo "Regenerate manifest"
         repo manifest -r -o pinned-manifest.xml
     else
         exit 1
     fi
-#else
-    #echo "WARNING: No Github pull-request was identified."
-#fi
+else
+    echo "WARNING: No Github pull-request was identified."
+fi
