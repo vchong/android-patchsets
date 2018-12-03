@@ -36,3 +36,7 @@ apply --linaro system/core 18203/1
 ## vendor_libs: Allow btlinux service to run from vendor or system/vendor
 ## https://android-review.googlesource.com/c/platform/system/bt/+/657589
 apply system/bt 657589/1
+
+# Update PageTypeInfoParser to be less restrictive.
+# https://android-review.googlesource.com/c/platform/frameworks/base/+/740602
+cherrypick frameworks/base 93ca85a1724806c30b0fbc04837a7e869ba1c165
