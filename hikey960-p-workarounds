@@ -106,12 +106,15 @@ cherrypick device/linaro/hikey a6764b2e0dcd63745b6abd12928bdab15d48494c
 ## hikey/hikey960: Fix powerHAL not loading
 cherrypick device/linaro/hikey a0e71f625bfe652fe47791d512487f854d7cf175
 
-## revert change of "Make libdrm recovery_available" from master branch
-revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
+## HiKey/HiKey960: Rework HiKey PowerHAL to use power@1.1 interface
+cherrypick device/linaro/hikey c1875b5a3364f679a4ae482dfe5bdc4f3538e207
 
 ## device-common.mk: set PRODUCT_SHIPPING_API_LEVEL
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
-apply device/linaro/hikey 833021/1
+cherrypick device/linaro/hikey 7271d39376570033a45b77eb1593be51d36db36b
+
+## revert change of "Make libdrm recovery_available" from master branch
+revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
 
 ## public/netd.te: allow netd to operate icmp_socket that passed to it
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
