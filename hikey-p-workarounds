@@ -84,7 +84,7 @@ cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
 
 ## device-common.mk: set PRODUCT_SHIPPING_API_LEVEL
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
-apply device/linaro/hikey 833021/1
+cherrypick device/linaro/hikey 7271d39376570033a45b77eb1593be51d36db36b
 
 ## public/netd.te: allow netd to operate icmp_socket that passed to it
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
