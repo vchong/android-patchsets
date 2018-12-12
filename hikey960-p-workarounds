@@ -58,9 +58,9 @@ revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b
 
 # mm: hide incomplete nr_indirectly_reclaimable in /proc/zoneinfo
 # https://lore.kernel.org/patchwork/patch/1004601/mbox/
-pushd kernel/linaro/hisilicon-4.14
+cd kernel/linaro/hisilicon-4.14
 curl https://lore.kernel.org/patchwork/patch/1004601/mbox/ |git am
-popd
+cd -
 
 ## hikey960: Add version check on the hisi vdec package
 cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
