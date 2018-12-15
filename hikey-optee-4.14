@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 . $(dirname $0)/functions
 
@@ -40,7 +40,7 @@ cherrypick kernel/linaro/hisilicon-4.14 05a8316d2e5b45bd15a9646bf948ffa042f94327
 #######################################################
 ## hikey_defconfig: enable dummy ION memory in kernel config
 ## http://android-review.linaro.org/18415
-apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 18415/1
+apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 18415/3
 
 #######################################################
 ## patches for cherry-pick problem or compiling problem

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 . $(dirname $0)/functions
 
@@ -38,7 +38,7 @@ apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 1828
 
 ## hikey_defconfig: enable dummy ION memory
 ## http://android-review.linaro.org/17583
-apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/10
+apply --linaro --local kernel/linaro/hisilicon --remote kernel/hikey-linaro 17583/11
 
 ## staging/ion: add Allwinner ION "secure" heap **not for mainline**
 ## http://android-review.linaro.org/17712
