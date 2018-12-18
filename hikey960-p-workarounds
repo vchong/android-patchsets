@@ -113,6 +113,14 @@ cherrypick device/linaro/hikey c1875b5a3364f679a4ae482dfe5bdc4f3538e207
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
 cherrypick device/linaro/hikey 7271d39376570033a45b77eb1593be51d36db36b
 
+## hikey: Totally remove FIQ console
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19971
+apply --linaro device/linaro/hikey 19971/1
+
+## hikey/hikey960: Remove use of FIQ0 console
+## https://android-review.linaro.org/#/c/device/linaro/hikey/+/19972
+apply --linaro device/linaro/hikey 19972/1
+
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
 
