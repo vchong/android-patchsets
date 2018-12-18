@@ -41,7 +41,7 @@ fi
 #curl_am_optee_vchong device-linaro-hikey 29723107072a56a70d48c840037660a3b6693223 device/linaro/hikey
 
 # kmgk: add dbg prints
-curl_am_optee_vchong kmgk 36780a94 device/linaro/kmgk
+#curl_am_optee_vchong kmgk 36780a94 device/linaro/kmgk
 
 # ltc: asn1: der: add support of additional types
 curl_am_optee_optee optee_os 394c2d4e optee/optee_os
