@@ -56,12 +56,6 @@ apply --linaro device/linaro/hikey 19846/1
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b 
 
-# mm: hide incomplete nr_indirectly_reclaimable in /proc/zoneinfo
-# https://lore.kernel.org/patchwork/patch/1004601/mbox/
-cd kernel/linaro/hisilicon-4.14
-curl https://lore.kernel.org/patchwork/patch/1004601/mbox/ |git am
-cd -
-
 ## hikey960: Add version check on the hisi vdec package
 cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
 ## hikey960: gralloc960: Add usage field to map to older code
