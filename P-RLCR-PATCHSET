@@ -40,3 +40,8 @@ apply system/bt 657589/1
 # Update PageTypeInfoParser to be less restrictive.
 # https://android-review.googlesource.com/c/platform/frameworks/base/+/740602
 cherrypick frameworks/base 93ca85a1724806c30b0fbc04837a7e869ba1c165
+
+## Update prebuilt Clang to r346389b.
+## https://android-review.googlesource.com/c/platform/prebuilts/clang/host/linux-x86/+/843536
+## apply prebuilts/clang/host/linux-x86 843536/1
+cherrypick prebuilts/clang/host/linux-x86 34db0c778839e40656fc78905a7da5d626fc82a2
