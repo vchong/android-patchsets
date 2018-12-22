@@ -2,6 +2,7 @@
 #from https://android.googlesource.com/device/linaro/hikey/+/master/hikey960/README
 #wget --no-check-certificate https://dl.google.com/dl/android/aosp/hisilicon-hikey960-OPR-cf4e0c80.tgz
 #from https://android.googlesource.com/device/linaro/hikey/+/221be176e245ec9deb22d6cba799777b4e9c8e3e%5E%21/#F0
+#from https://android.googlesource.com/device/linaro/hikey/+/master/hikey960/device-hikey960.mk#87
 wget --no-check-certificate https://dl.google.com/dl/android/aosp/hisilicon-hikey960-OPR-3c243263.tgz
 
 for i in hisilicon-hikey960-*.tgz; do
