@@ -120,4 +120,8 @@ revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
 
 ## public/netd.te: allow netd to operate icmp_socket that passed to it
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
-apply --linaro device/linaro/hikey 19889/1
+apply --linaro device/linaro/hikey 19889/2
+
+## enable basic system services features
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/857903
+apply device/linaro/hikey 857903/2
