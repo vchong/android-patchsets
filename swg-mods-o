@@ -49,3 +49,6 @@ apply --linaro device/linaro/hikey 19518/2
 
 ## KM mods - keymaster/gatekeeper patches
 curl_am_optee device-linaro-hikey 33ba1801504fa2eebd1e8e8533f6ea36c70c2259 device/linaro/hikey vchong
+
+## add hal_keymaster_gatekeeper_optee.te
+curl_am_optee device-linaro-hikey 10dc2cf114d7295e1c768b8a7ebc156bcefd49a6 device/linaro/hikey vchong
