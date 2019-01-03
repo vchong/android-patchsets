@@ -95,3 +95,11 @@ apply device/linaro/hikey 857903/2
 ## HiKey/HiKey960: Rework HiKey PowerHAL to use power@1.1 interface
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/20049
 apply --linaro device/linaro/hikey 20049/1
+
+## enable drm hal feature
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860444
+apply device/linaro/hikey 860444/2
+
+## mediacodec.te: allow dir read of system_file
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860443
+apply device/linaro/hikey 860443/1
