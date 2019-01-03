@@ -51,4 +51,4 @@ apply --linaro device/linaro/hikey 19518/2
 curl_am_optee device-linaro-hikey 33ba1801504fa2eebd1e8e8533f6ea36c70c2259 device/linaro/hikey vchong
 
 ## sepolicy/file_contexts: add entry for keymaster..
-curl_am_optee device-linaro-hikey 75063fb3d92c9f585479de3ef59d4e7baff5595f device/linaro/hikey vchong
+apply --linaro device/linaro/hikey 20057/1
