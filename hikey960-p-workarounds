@@ -125,3 +125,11 @@ apply --linaro device/linaro/hikey 19889/2
 ## enable basic system services features
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/857903
 apply device/linaro/hikey 857903/2
+
+## enable drm hal feature
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860444
+apply device/linaro/hikey 860444/2
+
+## mediacodec.te: allow dir read of system_file
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860443
+apply device/linaro/hikey 860443/1
