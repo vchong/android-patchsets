@@ -98,7 +98,7 @@ apply --linaro device/linaro/hikey 20049/1
 
 ## enable drm hal feature
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/860444
-apply device/linaro/hikey 860444/2
+apply device/linaro/hikey 860444/4
 
 ## mediacodec.te: allow dir read of system_file
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/860443
