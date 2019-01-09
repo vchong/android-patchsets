@@ -103,3 +103,7 @@ apply device/linaro/hikey 860444/4
 ## mediacodec.te: allow dir read of system_file
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/860443
 apply device/linaro/hikey 860443/1
+
+## fstab.hikey: mount data with nosuid and nodev
+## https://android-review.linaro.org/#/c/device/linaro/hikey/+/20067/
+apply --linaro device/linaro/hikey 20067/1
