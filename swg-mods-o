@@ -39,16 +39,10 @@ apply --linaro device/linaro/hikey 17912/4
 ## http://android-review.linaro.org/18328
 #apply --linaro device/linaro/hikey 18328/1
 
-## fix selinux policy for optee
-## https://android-review.linaro.org/#/c/19579
-apply --linaro device/linaro/hikey 19579/1
-
-## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
-## http://android-review.linaro.org/19518
-apply --linaro device/linaro/hikey 19518/2
-
 ## KM mods - keymaster/gatekeeper patches
-curl_am_optee device-linaro-hikey 33ba1801504fa2eebd1e8e8533f6ea36c70c2259 device/linaro/hikey vchong
+## http://android-review.linaro.org/20121
+apply --linaro device/linaro/hikey 20121/1
 
 ## sepolicy/file_contexts: add entry for keymaster..
-apply --linaro device/linaro/hikey 20057/1
+## http://android-review.linaro.org/20057
+apply --linaro device/linaro/hikey 20057/10
