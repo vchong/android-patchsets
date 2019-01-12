@@ -47,6 +47,10 @@ apply --linaro device/linaro/hikey 20099/1
 ## http://android-review.linaro.org/20100
 apply --linaro device/linaro/hikey 20100/7
 
+## add configs and settings to support rpmb in tee
+## http://android-review.linaro.org/20119
+apply --linaro device/linaro/hikey 20119/1
+
 ## print version_str on not_match
 curl_am_optee system_keymaster 2afb818c88fe7fd0efb41ff89aa73a1904580df2 system/keymaster vchong
 
