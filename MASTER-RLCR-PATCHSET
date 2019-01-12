@@ -27,4 +27,4 @@ apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
 ## http://android-review.linaro.org/17731
-apply --linaro system/core 17731/2
+apply --linaro system/core 17731/3
