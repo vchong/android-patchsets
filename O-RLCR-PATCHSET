@@ -99,3 +99,8 @@ cherrypick system/libvintf 9893552f4395296e509ce0d006b32593cb748d69
 ## https://android.googlesource.com/platform/system/core/+/9963847419f41c76ca008cf0c09e986c79f04e4c%5E%21/
 ## http://git.ti.com/cgit/cgit.cgi/android/platform-system-core.git/patch/?id=2c31e666eef96d1dd9b093e160f1213eadad1845
 curl_am http://git.ti.com/cgit/cgit.cgi/android/platform-system-core.git/patch/?id=2c31e666eef96d1dd9b093e160f1213eadad1845 system/core
+
+## Update prebuilt Clang to r346389b.
+## https://android-review.googlesource.com/c/platform/prebuilts/clang/host/linux-x86/+/843536
+## apply prebuilts/clang/host/linux-x86 843536/1
+cherrypick prebuilts/clang/host/linux-x86 34db0c778839e40656fc78905a7da5d626fc82a2
