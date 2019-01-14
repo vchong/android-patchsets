@@ -94,3 +94,7 @@ cherrypick device/linaro/hikey de9dedb9a4631274391f0b574227eb97c45f849b
 ## hikey_defconfig: Remove FBDEV_EMULATION support for drm_hwcomposer
 ## https://android.googlesource.com/kernel/hikey-linaro/+/bbab5cb8a5bd598af247d9eaf5a3033e7d12104e
 revert kernel/linaro/hisilicon bbab5cb8a5bd598af247d9eaf5a3033e7d12104e
+
+## hikey/BoardConfig.mk: drop use of ttyFIQ
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/20134
+apply --linaro device/linaro/hikey 20134/1
