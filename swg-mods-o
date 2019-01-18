@@ -46,3 +46,7 @@ apply --linaro device/linaro/hikey 20121/1
 ## sepolicy/file_contexts: add entry for keymaster..
 ## http://android-review.linaro.org/20057
 apply --linaro device/linaro/hikey 20057/10
+
+## add configs and settings to support rpmb in tee
+## http://android-review.linaro.org/20122
+apply --linaro device/linaro/hikey 20122/2

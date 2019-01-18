@@ -51,6 +51,10 @@ apply --linaro device/linaro/hikey 20099/1
 ## http://android-review.linaro.org/20100
 apply --linaro device/linaro/hikey 20100/7
 
+## add configs and settings to support rpmb in tee
+## http://android-review.linaro.org/20119
+apply --linaro device/linaro/hikey 20119/1
+
 ##################################################
 ################ Backport ########################
 ##################################################
