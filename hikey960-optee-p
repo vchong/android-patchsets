@@ -35,12 +35,8 @@ fi
 ##################################################
 ## Integrate OP-TEE components
 ## optee: integrate for optee components
-## http://android-review.linaro.org/17988
-apply --linaro device/linaro/hikey 17988/9
-
-## OP-TEE selinux
-## https://android-review.linaro.org/#/c/17177/
-apply --linaro device/linaro/hikey 17177/13
+## http://android-review.linaro.org/20090
+apply --linaro device/linaro/hikey 20090/8
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18450
@@ -48,14 +44,6 @@ apply --linaro device/linaro/hikey 18450/3
 ## build_uefi.mk: to build uefi files automatically when build android
 ## https://android-review.linaro.org/#/c/17728/
 apply --linaro device/linaro/hikey 17728/8
-
-## fix selinux policy for optee
-## https://android-review.linaro.org/#/c/18062/
-apply --linaro device/linaro/hikey 18062/3
-
-## init.common.rc & sepolicy: move OPTEE related file to vendor paritition
-## http://android-review.linaro.org/18404
-apply --linaro device/linaro/hikey 18404/1
 
 ## hikey960: add recovery stuffs
 ## https://android-review.linaro.org/20115/
@@ -67,10 +55,6 @@ curl_am_optee_vchong uefi-tools fc90bea69a58ade14e60241742cd9b26687d8a90 optee/u
 ###############################################
 ####      For debug purpose patches    ########
 ###############################################
-## uefi-tools: Use debug build and log level
-## http://android-review.linaro.org/18231
-#apply --linaro device/linaro/hikey 18231/3
-
-## Allow extra flags for optee_os builds
-## http://android-review.linaro.org/17632
-#apply --linaro device/linaro/hikey 17632/1
+## git commit subject
+## http://android-review.linaro.org/12345
+#apply --linaro device/linaro/hikey 12345/1
