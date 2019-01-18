@@ -69,6 +69,8 @@ cherrypick device/linaro/hikey a88fbc333e9d7c9723edba45a19dd643d87d1c36
 cherrypick device/linaro/hikey a2106d17f7423fbcee88063e478945269f59ad67
 ## hikey{,960}: Enable system-as-root and verity.
 cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
+## hikey: Enable verity/system-as-root by default
+cherrypick device/linaro/hikey e0bf197ee97b29af2ff5bb0396d65914776f2671
 
 ## hikey960: Fix image sizes to match ptable
 cherrypick device/linaro/hikey 1786ee2ac091fea9ab9424a721772ec46afd3def
