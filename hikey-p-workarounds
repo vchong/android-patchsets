@@ -78,8 +78,6 @@ revert external/libdrm 93a3ae4bab125e183b105adf981bd6044dbbf03b
 
 ## hikey{,960}: Enable system-as-root and verity.
 cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
-## hikey: Enable verity/system-as-root by default
-cherrypick device/linaro/hikey e0bf197ee97b29af2ff5bb0396d65914776f2671
 
 ## device-common.mk: set PRODUCT_SHIPPING_API_LEVEL
 ## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
