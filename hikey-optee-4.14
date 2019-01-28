@@ -86,7 +86,7 @@ curl_am_hikey_optee_sdp_github 16843e5f398a40e085a8cd20770af825b100fb1a
 ## https://github.com/linaro-swg/linux/commit/0b488c9833c8fc6b044001ceb0ea5eca65cc5b81
 #curl_am_hikey_optee_sdp_github 0b488c9833c8fc6b044001ceb0ea5eca65cc5b81
 ## http://android-review.linaro.org/18405
-apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 18405/1
+apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 18405/2
 ## tee: optee: log message if dynamic shm is enabled
 ## https://github.com/linaro-swg/linux/commit/3ed4ce4c37ef0800b5da18893212e6769e1dbd3e
 curl_am_hikey_optee_sdp_github 3ed4ce4c37ef0800b5da18893212e6769e1dbd3e
