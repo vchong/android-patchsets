@@ -54,7 +54,11 @@ apply --linaro device/linaro/hikey 19846/1
 
 ## drm/hisilicon: Ensure LDI regs are properly configured.
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
-revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b 
+revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b
+
+## adv7511: Add more modes to HiKey whitelist
+## https://android-review.linaro.org/?#/c/kernel/hikey-linaro/+/20165/
+apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 20165/1
 
 ## hikey960: Add version check on the hisi vdec package
 cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
