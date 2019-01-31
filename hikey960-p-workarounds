@@ -62,7 +62,7 @@ apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889696/2
 
 ## HACK: drm: kirin960: Add DSI mode_valid hooks
 ## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889697
-apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889697/2
+apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889697/3
 
 ## Revert adv7511 mode whitelisting hack
 ## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889698
