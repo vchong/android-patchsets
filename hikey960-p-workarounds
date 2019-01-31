@@ -56,9 +56,17 @@ apply --linaro device/linaro/hikey 19846/1
 ## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
 revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b
 
-## adv7511: Add more modes to HiKey whitelist
-## https://android-review.linaro.org/?#/c/kernel/hikey-linaro/+/20165/
-apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 20165/1
+## drm: kirin960: Revert change that broke a number of modes
+## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889696
+apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889696/2
+
+## HACK: drm: kirin960: Add DSI mode_valid hooks
+## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889697
+apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889697/2
+
+## Revert adv7511 mode whitelisting hack
+## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889698
+apply --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 889698/2
 
 ## hikey960: Add version check on the hisi vdec package
 cherrypick device/linaro/hikey 221be176e245ec9deb22d6cba799777b4e9c8e3e
