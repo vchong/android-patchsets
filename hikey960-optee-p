@@ -36,7 +36,7 @@ fi
 ## Integrate OP-TEE components
 ## optee: integrate for optee components
 ## http://android-review.linaro.org/20090
-apply --linaro device/linaro/hikey 20090/8
+apply --linaro device/linaro/hikey 20090/15
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18450
