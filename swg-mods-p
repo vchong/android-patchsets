@@ -55,6 +55,10 @@ apply --linaro device/linaro/hikey 20100/7
 ## http://android-review.linaro.org/20119
 apply --linaro device/linaro/hikey 20119/1
 
+# add wv components
+# https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
+apply --linaro device/linaro/hikey 20212/5
+
 ##################################################
 ################ Backport ########################
 ##################################################

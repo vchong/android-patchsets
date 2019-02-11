@@ -69,7 +69,3 @@ curl_am_optee_vchong optee_os 2228380b optee/optee_os
 
 # core: pta: introduce pTA to access LTC ASN.1 parser
 curl_am_optee_vchong optee_os e2e0d277 optee/optee_os
-
-# add wv components
-# https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
-apply --linaro device/linaro/hikey 20212/5
