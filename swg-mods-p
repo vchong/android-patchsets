@@ -27,6 +27,10 @@ fi
 #######################################################
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
+## init.rc: add inet group to console service
+## https://android-review.linaro.org/#/c/platform/system/core/+/20241
+apply --linaro system/core 20241/1
+
 ## Add optee_examples CA and TA
 ## http://android-review.linaro.org/17912
 apply --linaro device/linaro/hikey 17912/4
