@@ -63,11 +63,6 @@ apply --linaro device/linaro/hikey 20119/1
 # https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
 apply --linaro device/linaro/hikey 20212/5
 
-# optee-vw.mk: add initial version
-if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
-    apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3414/2
-fi
-
 ##################################################
 ################ Backport ########################
 ##################################################
