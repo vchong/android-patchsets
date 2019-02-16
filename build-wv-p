@@ -2,6 +2,9 @@
 
 # this file should be placed last in the PATCHSETS list of
 # android-build-configs
-if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
+if [ -d "vendor/widevine" ]; then
+	mmma vendor/widevine
+fi
+if [ -d "external/optee-widevine-ref" ]; then
 	external/optee-widevine-ref/build-exo.sh
 fi
