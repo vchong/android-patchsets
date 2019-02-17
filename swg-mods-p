@@ -67,7 +67,7 @@ if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# README.md: Misc updates
 	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3463/1
 	# Support building ExoPlayer by script
-	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3464/2
+	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3464/4
 fi
 
 ##################################################
