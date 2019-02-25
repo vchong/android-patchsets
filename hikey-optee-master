@@ -32,7 +32,7 @@ apply --linaro device/linaro/hikey 20090/22
 
 ## optee: Enable opteed in the bootloader
 ## http://android-review.linaro.org/18233
-apply --linaro device/linaro/hikey 18233/2
+apply --linaro device/linaro/hikey 18233/3
 ## bootloader/Makefile: use TOP_ROOT_ABS instead of ANDROID_BUILD_TOP
 ## https://android-review.linaro.org/#/c/18470/
 apply --linaro device/linaro/hikey 18470/1

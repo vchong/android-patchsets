@@ -39,5 +39,7 @@ if [ -d "${AOSP}/external/optee_test" ]; then
     :
 fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
-    :
+    ## use host python command
+    ## https://github.com/liuyq/optee_os/commit/f61316c1f92b64dcd7e861726a5812bb1d5cce74
+    curl_am_optee_liuyq optee_os f61316c1f92b64dcd7e861726a5812bb1d5cce74 optee/optee_os
 fi
