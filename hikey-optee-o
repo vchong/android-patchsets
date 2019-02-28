@@ -32,7 +32,7 @@ apply --linaro device/linaro/hikey 19516/12
 
 ## Enable OP-TEE in the bootloader
 ## https://android-review.linaro.org/#/c/17488/
-apply --linaro device/linaro/hikey 17488/8
+apply --linaro device/linaro/hikey 17488/9
 
 ## build fip.bin automatically
 ## https://android-review.linaro.org/#/c/17728/
