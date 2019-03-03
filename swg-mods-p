@@ -64,8 +64,6 @@ apply --linaro device/linaro/hikey 20119/1
 apply --linaro device/linaro/hikey 20212/7
 
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
-	# README.md: Misc updates
-	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3463/2
 	# Support building ExoPlayer by script
 	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3464/6
 fi
