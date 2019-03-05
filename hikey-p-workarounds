@@ -114,3 +114,7 @@ apply --linaro device/linaro/hikey 20067/1
 ## Revert adv7511 mode whitelisting hack
 ## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/889698
 revert kernel/linaro/hisilicon-4.14 758837f46cb40e3c604bd3f8e609ef7e9f861370
+
+## hikey: gralloc: Add element to allow upstream drm_hwc to build w/ HiKey
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/915654
+cherrypick device/linaro/hikey 91d8213c9233c8c37bd8a0e2259d4aebd4618512
