@@ -27,6 +27,14 @@ fi
 #######################################################
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
+## aarch64-linux-android-g{++,cc}: supress deprecation warning
+## https://android-review.linaro.org/c/20304
+apply --linaro prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 20304/1
+
+## arm-linux-androideabi-g{++,cc}: supress deprecation warning
+## https://android-review.linaro.org/c/20305
+apply --linaro prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 20305/1
+
 ## init.rc: add inet group to console service
 ## https://android-review.linaro.org/#/c/platform/system/core/+/20241
 apply --linaro system/core 20241/1
