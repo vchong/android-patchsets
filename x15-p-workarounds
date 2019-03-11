@@ -18,76 +18,17 @@ fi
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## device.mk: patch for lava test support
-## http://android-review.linaro.org/18392
-apply --linaro  device/ti/am57xevm  18392/1
+## workaround to include linaro tests
+## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20295
+apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20295/2
 
-## workaround for build 4.14 kernel and ti-uboot from source
-## http://android-review.linaro.org/18130
-apply --linaro  device/ti/am57xevm  18130/8
-
-## workaround for x15 build errors
-revert device/ti/am57xevm c9981037c95dfcfaeedc2b20445545291754bef0
-
-## Android.mk: use LOCAL_VENDOR_MODULE instead of LOCAL_MODULE_PATH
-## http://android-review.linaro.org/17955
-## http://android-review.linaro.org/17956
-apply --linaro hardware/ti/linuxutils 17955/1
-apply --linaro hardware/ti/ipc 17956/1
+## workaround to build kernel and pvrsvrkm
+## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20314
+apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/2
 
 ######################################################
 ## patches from TI forks
 ######################################################
-## gui: GLConsumer: Adjust crop rect as per scaling mode
-## http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add
-curl_am http://git.ti.com/android/frameworks-native/commit/ee5a5656bfa604fc14db7f36ddc6b6f02c5f4add?format=patch frameworks/native
-
-## DRM patches for TI X15
-## omap: Add DRM_RDWR flag to dmabuf export
-## http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e
-curl_am http://git.ti.com/android/external-libdrm/commit/18a9dd97e977625b985a51475eef4a91cf49550e?format=patch external/libdrm
-## omap: build file for android
-## http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345
-curl_am http://git.ti.com/android/external-libdrm/commit/0cb63a7bd7d95084eb9d280d47c02de04ee41345?format=patch external/libdrm
-## omap: install library in vendor partition
-## http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45
-curl_am http://git.ti.com/android/external-libdrm/commit/ea1497baa7a0462fa9a4adab8ecf1b2bf93f5d45?format=patch external/libdrm
-
-########################################################
-## Patches for fixing p-preview compiling error
-########################################################
-## fix compiling error for p-preview
-## http://android-review.linaro.org/18151
-apply --linaro device/ti/proprietary-open 18151/4
-
-## fix compiiling error with p-preview
-## http://android-review.linaro.org/18152
-apply --linaro external/kmsxx 18152/1
-
-## Android.mk: workaround for compiling problem with p-preview
-## http://android-review.linaro.org/18153
-apply --linaro hardware/ti/dce 18153/1
-
-## workaround for compiling errors with p-preview
-## http://android-review.linaro.org/18154
-apply --linaro hardware/ti/dra7xx 18154/3
-
-## Android.mk: workaround for compiling error for p-preview
-## http://android-review.linaro.org/18155
-apply --linaro hardware/ti/ipc 18155/1
-
-## mac80211/wpa_supplicant_lib/Android.mk: workaround for compiling with p-preview
-## http://android-review.linaro.org/18156
-apply --linaro hardware/ti/wlan 18156/1
-
-######################## KERNEL WORKAROUNDS#####################################
-################################################################################
-## workaround for PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable.
-## http://git.ti.com/cgit/cgit.cgi/ti-linux-kernel/ti-linux-kernel.git/commit/?h=ti-android-linux-4.14.y&id=16d7ceb04b554207aa68dd27c1bc11f8933813fd
-#revert kernel/ti/x15 16d7ceb04b554207aa68dd27c1bc11f8933813fd
-curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/0001-Revert-mmap-introduce-sane-default-mmap-limits.patch kernel/ti/x15
-## kernel mailing list https://www.spinics.net/lists/linux-usb/msg163049.html
-## for problem reported here: https://bugs.linaro.org/show_bug.cgi?id=3866
-curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/EXTERNAL-tiL4.14-AND-usb-gadget-ffs-Fix-BUG-when-userland-exits-with-submitted-AIO-transfers.patch kernel/ti/x15
-curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/tiL4.14-AND-ARM-dts-am57xx-beagle-x15-common-Add-CMA-pool.patch kernel/ti/x15
-curl_am http://people.linaro.org/~yongqin.liu/patches/TI-X15-master/x15-vmalloc.patch kernel/ti/x15
+## temp: compatibility_matrices: added 4.19 kernel support
+## http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2
+curl_am http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2?format=patch hardware/interfaces

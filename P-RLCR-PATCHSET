@@ -45,3 +45,12 @@ cherrypick frameworks/base 93ca85a1724806c30b0fbc04837a7e869ba1c165
 ## https://android-review.googlesource.com/c/platform/prebuilts/clang/host/linux-x86/+/843536
 ## apply prebuilts/clang/host/linux-x86 843536/1
 cherrypick prebuilts/clang/host/linux-x86 34db0c778839e40656fc78905a7da5d626fc82a2
+
+########## FOR X15/AM6X   #####
+## Start moving add_lunch_combo to Make
+cherrypick build/make af2e1f84870525c64e6071ded0903c721e43a232
+
+## ueventd: Add dynamic kernel module loading
+## cherrypick system/core 9963847419f41c76ca008cf0c09e986c79f04e4c
+## http://git.ti.com/android/platform-system-core/commit/949450945115165cf76f47c69b3f107a4db022f1
+curl_am http://git.ti.com/android/platform-system-core/commit/949450945115165cf76f47c69b3f107a4db022f1?format=patch system/core
