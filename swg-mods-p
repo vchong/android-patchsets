@@ -59,13 +59,16 @@ apply --linaro device/linaro/hikey 20100/7
 ## http://android-review.linaro.org/20119
 apply --linaro device/linaro/hikey 20119/1
 
-# add wv components
-# https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
-apply --linaro device/linaro/hikey 20212/9
-
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
+	# add wv components
+	# https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
+	apply --linaro device/linaro/hikey 20212/10
+
+	# optee-wv.mk: add service script to build target
+	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3543/3
+
 	# Support building ExoPlayer by script
-	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3464/6
+	apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 3464/11
 fi
 
 ##################################################
