@@ -61,7 +61,7 @@ apply --linaro device/linaro/hikey 20119/1
 
 # add wv components
 # https://android-review.linaro.org/?#/c/device/linaro/hikey/+/20212
-apply --linaro device/linaro/hikey 20212/8
+apply --linaro device/linaro/hikey 20212/9
 
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# Support building ExoPlayer by script
