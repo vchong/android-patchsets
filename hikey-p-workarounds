@@ -70,12 +70,6 @@ cherrypick device/linaro/hikey 30941517aac192a55dc358479e27dc6a6b3bc04e
 ## hikey: gralloc: Allow use of CMA heap instead of fbdev
 cherrypick device/linaro/hikey f3d868dcbd74d43b754bf168fd5f63bf4c8c4385
 
-## revert change of "Make libdrm recovery_available" from master branch
-revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
-
-## revert change of ""Convert Android.mk file to Android.bp" from master branch
-revert external/libdrm 93a3ae4bab125e183b105adf981bd6044dbbf03b
-
 ## hikey{,960}: Enable system-as-root and verity.
 cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
 
