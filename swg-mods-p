@@ -49,7 +49,7 @@ apply --linaro device/linaro/hikey 20012/1
 
 ## KM mods - keymaster/gatekeeper patches
 ## http://android-review.linaro.org/20099
-apply --linaro device/linaro/hikey 20099/1
+apply --linaro device/linaro/hikey 20099/9
 
 ## sepolicy/file_contexts: add entry for keymaster..
 ## http://android-review.linaro.org/20100
