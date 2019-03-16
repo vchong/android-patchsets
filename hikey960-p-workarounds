@@ -119,12 +119,6 @@ apply --linaro device/linaro/hikey 19971/1
 ## https://android-review.linaro.org/#/c/device/linaro/hikey/+/19972
 apply --linaro device/linaro/hikey 19972/1
 
-## revert change of "Make libdrm recovery_available" from master branch
-revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
-
-## revert change of ""Convert Android.mk file to Android.bp" from master branch
-revert external/libdrm 93a3ae4bab125e183b105adf981bd6044dbbf03b
-
 ## public/netd.te: allow netd to operate icmp_socket that passed to it
 ## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
 apply --linaro device/linaro/hikey 19889/2
