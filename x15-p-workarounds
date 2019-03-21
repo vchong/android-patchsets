@@ -32,3 +32,7 @@ apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/
 ## temp: compatibility_matrices: added 4.19 kernel support
 ## http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2
 curl_am http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2?format=patch hardware/interfaces
+
+## Patch from AOSP master for mkimage
+## http://android-review.linaro.org/c/platform/external/u-boot/+/20340
+apply --linaro external/u-boot 20340/1
