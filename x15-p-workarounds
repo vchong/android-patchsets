@@ -25,3 +25,7 @@ apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20334/
 ## workaround to build kernel and pvrsvrkm
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20314
 apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/4
+
+## BoardConfig.mk: set value for TARGET_BOOTLOADER_BOARD_NAME
+## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/890314
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 890314/2
