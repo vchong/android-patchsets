@@ -61,6 +61,9 @@ revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
 ## revert change of ""Convert Android.mk file to Android.bp" from master branch
 revert external/libdrm 93a3ae4bab125e183b105adf981bd6044dbbf03b
 
+## revert "Convert external/drm_hwcomposer to Android.bp"
+revert external/drm_hwcomposer 57f97357b5283f6cc74849b09a46c3aa2ee79463
+
 ## temp: compatibility_matrices: added 4.19 kernel support
 ## http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2
 curl_am http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2?format=patch hardware/interfaces
