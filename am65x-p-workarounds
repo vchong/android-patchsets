@@ -18,6 +18,10 @@ fi
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## workaround to include linaro tests
+## http://android-review.linaro.org/c/device/ti/am65xevm/+/20366
+apply --linaro device/ti/am65xevm 20366/1
+
 ## workaround for compiling kernel
 ## http://android-review.linaro.org/c/device/ti/am65xevm/+/20344
-apply --linaro device/ti/am65xevm 20344/2
+apply --linaro device/ti/am65xevm 20344/4

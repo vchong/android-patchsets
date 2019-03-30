@@ -20,8 +20,8 @@ fi
 ##################################################
 ## workaround to include linaro tests
 ## https://android-review.linaro.org/#/c/device/ti/beagle-x15/+/20334/
-apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20334/1
+apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20334/2
 
 ## workaround to build kernel and pvrsvrkm
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20314
-apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/4
+apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/5
