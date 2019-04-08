@@ -25,3 +25,7 @@ apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20334/
 ## workaround to build kernel and pvrsvrkm
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20314
 apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/5
+
+## revert the change of Revert "usb: gadget: ffs: Fix BUG when userland exits with submitted AIO transfers"
+## http://git.ti.com/ti-linux-kernel/ti-linux-kernel/commit/8b87305f816cf58b7a4c840b2bedfd37a8c06254
+revert kernel/ti/4.19 8b87305f816cf58b7a4c840b2bedfd37a8c06254
