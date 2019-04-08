@@ -28,4 +28,4 @@ apply --linaro device/ti/am65xevm 20344/4
 
 ## bootloaders.mk: workaround to build firmwares for am65x
 ## http://android-review.linaro.org/c/device/ti/am65xevm/+/20376
-apply --linaro device/ti/am65xevm 20376/1
+apply --linaro device/ti/am65xevm 20376/2
