@@ -2,20 +2,23 @@
 
 # this file should be placed last in the PATCHSETS list of
 # android-build-configs
+if [ -d "external/optee-widevine-ref" ]; then
+	external/optee-widevine-ref/build-exo.sh
+	RESULT=$?
+	if [ $RESULT -eq 0 ]; then
+		if [ -d "optee/tools-images-hikey960" ]; then
+			mkdir -p out/target/product/hikey960/system/priv-app/
+			cp $(find ../ExoPlayer -name \*.apk) out/target/product/hikey960/system/priv-app/
+		else
+			mkdir -p out/target/product/hikey/system/priv-app/
+			cp $(find ../ExoPlayer -name \*.apk) out/target/product/hikey/system/priv-app/
+		fi
+	fi
+fi
 if [ -d "vendor/widevine" ]; then
 	if [ -d "optee/tools-images-hikey960" ]; then
 		. build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
 	else
 		. build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
-	fi
-fi
-if [ -d "external/optee-widevine-ref" ]; then
-	external/optee-widevine-ref/build-exo.sh
-	if [ -d "optee/tools-images-hikey960" ]; then
-		mkdir -p out/target/product/hikey960/system/priv-app/
-		cp $(find ../ExoPlayer -name \*.apk) out/target/product/hikey960/system/priv-app/
-	else
-		mkdir -p out/target/product/hikey/system/priv-app/
-		cp $(find ../ExoPlayer -name \*.apk) out/target/product/hikey/system/priv-app/
 	fi
 fi
