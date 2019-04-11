@@ -1,0 +1,121 @@
+#!/bin/bash -e
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+#######################################################
+##  workaround for linaro work                   ######
+#######################################################
+cd device/linaro/hikey
+git pull https://android.googlesource.com/device/linaro/hikey refs/changes/73/803573/1
+cd -
+
+## domain.te: Add map permissions to vendor_config_files
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19582
+apply --linaro device/linaro/hikey 19582/1
+
+## sepolicy/vendor_init.te: Allow mmap for vendor_init
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19596
+apply --linaro device/linaro/hikey 19596/1
+
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19677
+## sepolicy/system_server.te: Explicitly allow system_server to (m)map data files
+apply --linaro device/linaro/hikey 19677/1
+
+## Relax some neverallow rules
+## bd3e300a1309323e02c7144202acb48f40f11946
+#cherrypick system/sepolicy bd3e300a1309323e02c7144202acb48f40f11946
+
+## integrated tests
+## http://android-review.linaro.org/17155
+apply --linaro device/linaro/hikey 17155/8
+
+## For using drm_hwcomposer introduced by kernel change here:
+## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/743922
+## hikey/hikey960: Enable drm_hwcomposer for 4.14+ kernels
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/737121
+cherrypick device/linaro/hikey 6dc5ce5dbcd79e6fb6abb157e24b381d4f09d04a
+## hikey: Enable drm_hwcomposer on 4.9 kernels
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/748113
+cherrypick device/linaro/hikey 890bbe447ca065bd9d325d1fc14ceebd040b50a4
+## hikey: gralloc: Change to allow gralloc_priv.h to be shared
+cherrypick device/linaro/hikey 25d6129aed2ffa8a7d502c3703f82500ecc3a2ad
+## hikey: gralloc: Add union alias and additional fields to improve interop w/ hikey960 gralloc
+cherrypick device/linaro/hikey 30941517aac192a55dc358479e27dc6a6b3bc04e
+## hikey: gralloc: Allow use of CMA heap instead of fbdev
+cherrypick device/linaro/hikey f3d868dcbd74d43b754bf168fd5f63bf4c8c4385
+
+## hikey960: Enable verity for hikey960
+cherrypick device/linaro/hikey a2106d17f7423fbcee88063e478945269f59ad67
+## hikey{,960}: Enable system-as-root and verity.
+cherrypick device/linaro/hikey 11c5e3e98827c301fc6a5364ae8b7dab93a22de4
+
+## device-common.mk: set PRODUCT_SHIPPING_API_LEVEL
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/833021
+cherrypick device/linaro/hikey 7271d39376570033a45b77eb1593be51d36db36b
+
+## netd.te & net.te workaround for icmp_socket support
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19889
+apply --linaro device/linaro/hikey 19889/2
+
+## hikey: Totally remove FIQ console
+## http://android-review.linaro.org/#/c/device/linaro/hikey/+/19971
+apply --linaro device/linaro/hikey 19971/1
+
+## hikey/hikey960: Remove use of FIQ0 console
+## https://android-review.linaro.org/#/c/device/linaro/hikey/+/19972
+apply --linaro device/linaro/hikey 19972/1
+
+## enable basic system services features
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/857903
+apply device/linaro/hikey 857903/2
+
+## hikey960: bifrost: Update mali bifrost blobs to r10p0
+cherrypick device/linaro/hikey 6cd25833e0d164313ffd94958905940f4a196963
+## hikey960: bifrost: Add renderscript binary dependencies
+cherrypick device/linaro/hikey be064a22950781778b0079d6a2db06c0fc4180de
+## hikey960: bifrost: Enable renderscript binaries
+cherrypick device/linaro/hikey a6764b2e0dcd63745b6abd12928bdab15d48494c
+
+## hikey/hikey960: Fix powerHAL not loading
+cherrypick device/linaro/hikey a0e71f625bfe652fe47791d512487f854d7cf175
+## HiKey/HiKey960: Rework HiKey PowerHAL to use power@1.1 interface
+cherrypick device/linaro/hikey c1875b5a3364f679a4ae482dfe5bdc4f3538e207
+
+## enable drm hal feature
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860444
+apply device/linaro/hikey 860444/4
+
+## mediacodec.te: allow dir read of system_file
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/860443
+apply device/linaro/hikey 860443/1
+
+## fstab.hikey: mount data with nosuid and nodev
+## https://android-review.linaro.org/#/c/device/linaro/hikey/+/20067/
+apply --linaro device/linaro/hikey 20067/1
+
+## drm/hisilicon: Ensure LDI regs are properly configured.
+## commit a2f042430784d86eb2b7a6d2a869f552da30edba upstream.
+revert kernel/linaro/hisilicon-4.14 f5e69000aa80880491ca4a613679bd21c60b048b
+
+## drm_hwcomposer: platformhisi: Conditionalize some of the AFBC support
+revert external/drm_hwcomposer 65c988de054ffa494ffcfebc71c41044ed7a2a25
+## drm_hwcomposer: Add support for Arm Framebuffer Compression (AFBC) modifiers.
+revert external/drm_hwcomposer cc5fca4f9410b39c64900ea627841dfd9ea0dedb
+
+## https://android-review.linaro.org/#/c/platform/system/sepolicy/+/19867/
+## system/sepolicy/*/domain.te
+## Add support for RS vendor executables.
+apply --linaro system/sepolicy 19867/1
