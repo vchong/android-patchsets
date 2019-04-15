@@ -20,5 +20,5 @@ fi
 #######################################################
 ## enabling kernel compilation, etc
 ## enable kernel compilation for hikey960 build
-## http://android-review.linaro.org/c/device/linaro/hikey/+/20383
-apply --linaro device/linaro/hikey 20383/3
+## http://android-review.linaro.org/c/device/linaro/hikey/+/20398
+apply --linaro device/linaro/hikey 20398/1
