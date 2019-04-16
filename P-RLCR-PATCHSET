@@ -73,3 +73,7 @@ if [ -d external/u-boot ]; then
 ## http://android-review.linaro.org/c/platform/external/u-boot/+/20340
 apply --linaro external/u-boot 20340/1
 fi
+
+## update arm64 webview.apk to tag of 73.0.3683.90
+## http://android-review.linaro.org/c/platform/external/chromium-webview/+/20402
+apply --linaro external/chromium-webview 20402/1
