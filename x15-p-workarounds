@@ -33,6 +33,3 @@ revert kernel/ti/4.19 8b87305f816cf58b7a4c840b2bedfd37a8c06254
 ## tablet_core_hardware_beagle_x15.xml: add more basic system services
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20395
 apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20395/1
-
-## patch enabled build with -C and O= options specified
-curl_am http://people.linaro.org/~yongqin.liu/patches/x15-pie/0001-pvr-module-workaround-for-compiling-problem.patch kernel/ti/4.19
