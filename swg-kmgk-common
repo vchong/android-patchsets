@@ -49,5 +49,5 @@ fi
 cd optee/optee_os
 #git fetch https://github.com/vchong/optee_os pull/1/head && git merge --no-edit FETCH_HEAD
 # cherry pick instead of merge so that patches stay on top
-git fetch https://github.com/vchong/optee_os kmgk_pta_rebase && git cherry-pick d66bb40a5ac74507d0257b7743ab09cd102b8343^..8c24dd6dc862415f73955f08bc7b13df222a594e
+git fetch https://github.com/vchong/optee_os kmgk_pta_rebase && git cherry-pick db2994a3e69c132acea5db21411d85ceac022b9e^..2aaeb59f1a4ade78028f01b56dcb08d820e4e1da
 cd -
