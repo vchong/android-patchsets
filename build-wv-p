@@ -2,6 +2,8 @@
 
 # this file should be placed last in the PATCHSETS list of
 # android-build-configs
+
+echo "Building ExoPlayer.."
 if [ -d "external/optee-widevine-ref" ]; then
 	external/optee-widevine-ref/build-exo.sh
 	RESULT=$?
@@ -15,6 +17,13 @@ if [ -d "external/optee-widevine-ref" ]; then
 		fi
 	fi
 fi
+
+# print newline for readability
+echo
+
+echo "Building liboemcrypto and related packages by calling"
+echo "'lunch' and 'mmma vendor/widevine'"
+echo
 if [ -d "vendor/widevine" ]; then
 	if [ -d "optee/tools-images-hikey960" ]; then
 		. build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
