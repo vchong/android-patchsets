@@ -119,3 +119,9 @@ revert external/drm_hwcomposer cc5fca4f9410b39c64900ea627841dfd9ea0dedb
 ## system/sepolicy/*/domain.te
 ## Add support for RS vendor executables.
 apply --linaro system/sepolicy 19867/1
+
+## Revert "ANDROID: Remove xt_qtaguid module from new kernels."
+## to workaround the crash problem during test of CtsContentTestCases
+if [ -d kernel/linaro/hisilicon-4.14 ]; then
+    revert kernel/linaro/hisilicon-4.14 a03a54702175cef5dc1a1a1f98c2afb19b7c4056
+fi
