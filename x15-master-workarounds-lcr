@@ -25,6 +25,3 @@ apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20295/
 ## workaround to build kernel and pvrsvrkm
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20294
 apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20294/2
-
-## workaround for adb root/adb reboot problem
-revert kernel/ti/x15-4.14 65d9e9821b86155dc810ff08c12cc29c7fabbca9
