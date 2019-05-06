@@ -31,3 +31,14 @@ if [ -d kernel/ti/4.19 ]; then
 ## http://git.ti.com/ti-linux-kernel/ti-linux-kernel/commit/8b87305f816cf58b7a4c840b2bedfd37a8c06254
 revert kernel/ti/4.19 8b87305f816cf58b7a4c840b2bedfd37a8c06254
 fi
+
+if [ -d kernel/ti/4.19 ]; then
+    ## remove Android.mk in kernel to workaround android building problem
+    ## http://android-review.linaro.org/c/kernel/omap/+/20430
+    apply --linaro --local kernel/ti/4.19 --remote kernel/omap 20430/1
+fi
+if [ -d kernel/ti/4.14 ]; then
+    ## remove Android.mk in kernel to workaround android building problem
+    ## http://android-review.linaro.org/c/kernel/omap/+/20430
+    apply --linaro --local kernel/ti/4.14 --remote kernel/omap 20430/1
+fi
