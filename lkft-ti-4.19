@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## revert the change of Revert "usb: gadget: ffs: Fix BUG when userland exits with submitted AIO transfers"
+## http://git.ti.com/ti-linux-kernel/ti-linux-kernel/commit/8b87305f816cf58b7a4c840b2bedfd37a8c06254
+revert kernel/ti/4.19 8b87305f816cf58b7a4c840b2bedfd37a8c06254
