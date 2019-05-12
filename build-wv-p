@@ -3,6 +3,21 @@
 # this file should be placed last in the PATCHSETS list of
 # android-build-configs
 
+function export_config(){
+	file=$1-optee-p-widevine
+	echo "Exporting configs from android-build-configs/${file}"
+
+	while read line; do
+		if echo "${line}"|tr -d '[:blank:]'|grep -q '^$'; then
+			continue
+		fi
+		if ! echo ${line} |grep -q '^#'; then
+			echo "export ${line}"
+			eval "export ${line}"
+		fi
+	done < android-build-configs/${file}
+}
+
 echo "Building ExoPlayer.."
 if [ -d "external/optee-widevine-ref" ]; then
 	external/optee-widevine-ref/build-exo.sh
@@ -26,8 +41,8 @@ echo "'lunch' and 'mmma vendor/widevine'"
 echo
 if [ -d "vendor/widevine" ]; then
 	if [ -d "optee/tools-images-hikey960" ]; then
-		. build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
+		. build/envsetup.sh && export_config hikey960 && lunch hikey960-userdebug && mmma vendor/widevine
 	else
-		. build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
+		. build/envsetup.sh && export_config hikey && lunch hikey-userdebug && mmma vendor/widevine
 	fi
 fi
