@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 . $(dirname $0)/functions
 
@@ -19,5 +19,16 @@ fi
 ################ Linaro hack   ###################
 ##################################################
 ## merge from the common lts 4.19 branch for new changes
-cd kernel/ti/4.19
+common_url=""
+cd common
+common_url=$(git config --get remote.aosp.url)
 cd -
+if [ -n "${common_url}" ]; then
+    cd kernel/ti/4.19
+        remote_name=lkft-common-mirror
+        git remote remove ${remote_name}
+        git remote add -t android-4.19 ${remote_name} ${common_url}
+        git fetch ${remote_name}
+        git merge --no-edit remotes/${remote_name}/android-4.19
+    cd -
+fi
