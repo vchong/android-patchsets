@@ -1,127 +1,129 @@
 # vim:syn=sh
 
 init() {
-	# AOSP's gerrit doesn't like anonymous checkouts
-	git config --global user.email &>/dev/null || git config --global user.email buildbot@linaro.org
-	git config --global user.name &>/dev/null || git config --global user.name "Linaro Build Bot"
+    # AOSP's gerrit doesn't like anonymous checkouts
+    git config --global user.email &>/dev/null || git config --global user.email buildbot@linaro.org
+    git config --global user.name &>/dev/null || git config --global user.name "Linaro Build Bot"
 }
 
 apply() {
-	local REPO
-	local DIR
-	local SERVER
-	local LOCAL_DIR
-	if [ "$1" = "--linaro" ]; then
-		SERVER="git://android-review.linaro.org/"
-		shift
-	elif [ "$1" = "--server" ]; then
-		shift
-		SERVER="$1"
-		shift
-	else
-		SERVER="https://android.googlesource.com/"
-	fi
+    local REPO
+    local DIR
+    local SERVER
+    local LOCAL_DIR
+    if [ "$1" = "--linaro" ]; then
+        SERVER="git://android-review.linaro.org/"
+        shift
+    elif [ "$1" = "--server" ]; then
+        shift
+        SERVER="$1"
+        shift
+    else
+        SERVER="https://android.googlesource.com/"
+    fi
 
-	# Make specifying local path possible
-	if [ "$1" = "--local" ]; then
-		shift
-		LOCAL_DIR="$1"
-		shift
-	else
-		LOCAL_DIR="$1"
-	fi
+    # Make specifying local path possible
+    if [ "$1" = "--local" ]; then
+        shift
+        LOCAL_DIR="$1"
+        shift
+    else
+        LOCAL_DIR="$1"
+    fi
 
-	if [ "$1" = "--remote" ]; then
-		## when --remote specified, use the next argument as remote project path directly
-		REMOTE_OPT=true
-		shift
-		REPO="$1"
-	elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/' -e '^hardware/'; then
-		# device and kernel have different path on repo to projects under platform
-		REPO="$1"
-	elif [ "$1" = "build/make" ]; then
-		# Special case -- repository location and checkout location
-		# don't match in upstream manifests
-		REPO="platform/build"
-	else
-		REPO="platform/$1"
-	fi
-	DIR=$(echo "$2" |cut -d/ -f1 |rev |cut -b1-2 |rev)
+    if [ "$1" = "--remote" ]; then
+        ## when --remote specified, use the next argument as remote project path directly
+        REMOTE_OPT=true
+        shift
+        REPO="$1"
+    elif echo "$1" |grep -q -e '^device/' -e '^kernel/' -e '^android/' -e '^landing-teams/' -e '^hardware/'; then
+        # device and kernel have different path on repo to projects under platform
+        REPO="$1"
+    elif [ "$1" = "build/make" ]; then
+        # Special case -- repository location and checkout location
+        # don't match in upstream manifests
+        REPO="platform/build"
+    else
+        REPO="platform/$1"
+    fi
+    DIR=$(echo "$2" |cut -d/ -f1 |rev |cut -b1-2 |rev)
 
-	cd "$AOSP"/"${LOCAL_DIR}"
-	echo "=== Applying $2 ==="
-	if ! git fetch "$SERVER$REPO" "refs/changes/$DIR/$2"; then
-		echo "Failed to fetch $2, typo in script?"
-		exit 1
-	fi
-	if ! git cherry-pick FETCH_HEAD; then
-		echo "$2 failed to apply, please fix"
-		git reset --hard
-		exit 1
-	fi
-	PATCHES=$((PATCHES+1))
-	cd "$AOSP"
+    cd "$AOSP"/"${LOCAL_DIR}"
+    echo "=== Applying $2 ==="
+    if ! git fetch "$SERVER$REPO" "refs/changes/$DIR/$2"; then
+        echo "Failed to fetch $2, typo in script?"
+        echo "Failed command: git fetch $SERVER$REPO refs/changes/$DIR/$2"
+        exit 1
+    fi
+    if ! git cherry-pick FETCH_HEAD; then
+        echo "$2 failed to apply, please fix"
+        echo "Failed command: git cherry-pick FETCH_HEAD"
+        git reset --hard
+        exit 1
+    fi
+    PATCHES=$((PATCHES+1))
+    cd "$AOSP"
 }
 
 cherrypick() {
-	local URL=""
-	local BRANCH=""
-	if [ "$1" = "--url" ]; then
-		shift
-		URL="$1"
-		shift
-	fi
-	if [ "$1" = "--branch" ]; then
-		shift
-		BRANCH="$1"
-		shift
-	fi
-	cd "$AOSP"/"$1"
-	if [ -n "${URL}" ]; then
-		local remote_name=$(mktemp -u cherrypick-server-XXXX)
-		if ! git remote add "${remote_name}" "${URL}"; then
-			echo "Failed to add remote ${remote_name} for ${URL}"
-			exit 1
-		fi
-		if ! git fetch "${remote_name}" "${BRANCH}"; then
-		echo "Failed to fetch from ${remote_name} for branch ${BRANCH}"
-		exit 1
-		fi
-	fi
-	echo "=== Cherry-picking $2 ==="
-	if ! git cherry-pick "$2"; then
-		echo "$2 failed to apply, please fix"
-		git reset --hard
-		exit 1
-	fi
-	PATCHES=$((PATCHES+1))
-	cd "$AOSP"
+    local URL=""
+    local BRANCH=""
+    if [ "$1" = "--url" ]; then
+        shift
+        URL="$1"
+        shift
+    fi
+    if [ "$1" = "--branch" ]; then
+        shift
+        BRANCH="$1"
+        shift
+    fi
+    cd "$AOSP"/"$1"
+    if [ -n "${URL}" ]; then
+        local remote_name=$(mktemp -u cherrypick-server-XXXX)
+        if ! git remote add "${remote_name}" "${URL}"; then
+            echo "Failed to add remote ${remote_name} for ${URL}"
+            exit 1
+        fi
+        if ! git fetch "${remote_name}" "${BRANCH}"; then
+        echo "Failed to fetch from ${remote_name} for branch ${BRANCH}"
+        exit 1
+        fi
+    fi
+    echo "=== Cherry-picking $2 ==="
+    if ! git cherry-pick "$2"; then
+        echo "$2 failed to apply, please fix"
+        git reset --hard
+        exit 1
+    fi
+    PATCHES=$((PATCHES+1))
+    cd "$AOSP"
 }
 
 revert() {
-	local PATCH
-	PATCH=false
-	if [ "$1" = "--patch" ] || [ "$1" = "-p" ]; then
-		PATCH=true
-		shift
-	fi
-	cd "$AOSP"/"$1"
-	echo "=== Reverting $2 ==="
-	if $PATCH; then
-		if ! git show "$2" |patch -p1 -R; then
-			echo "$2 failed to revert by patching, please fix"
-			exit 1
-		fi
-		git commit -am "Revert $2"
-	else
-		if ! git revert --no-edit "$2"; then
-			echo "$2 failed to revert, please fix"
-			git reset --hard
-			exit 1
-		fi
-	fi
-	PATCHES=$((PATCHES+1))
-	cd "$AOSP"
+    local PATCH
+    PATCH=false
+    if [ "$1" = "--patch" ] || [ "$1" = "-p" ]; then
+        PATCH=true
+        shift
+    fi
+    cd "$AOSP"/"$1"
+    echo "=== Reverting $2 ==="
+    if $PATCH; then
+        if ! git show "$2" |patch -p1 -R; then
+            echo "$2 failed to revert by patching, please fix"
+            exit 1
+        fi
+        git commit -am "Revert $2"
+    else
+        if ! git revert --no-edit "$2"; then
+            echo "$2 failed to revert, please fix"
+            git reset --hard
+            exit 1
+        fi
+    fi
+    PATCHES=$((PATCHES+1))
+    cd "$AOSP"
 }
 
 curl_am(){
