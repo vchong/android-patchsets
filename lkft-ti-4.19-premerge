@@ -26,7 +26,7 @@ cd -
 if [ -n "${common_url}" ]; then
     cd kernel/ti/4.19
         remote_name=lkft-common-mirror
-        git remote remove ${remote_name}
+        git remote | grep ${remote_name} && git remote remove ${remote_name}
         git remote add -t android-4.19 ${remote_name} ${common_url}
         git fetch ${remote_name}
         git merge --no-edit remotes/${remote_name}/android-4.19
