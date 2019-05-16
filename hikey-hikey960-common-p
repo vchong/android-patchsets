@@ -125,3 +125,7 @@ apply --linaro system/sepolicy 19867/1
 if [ -d kernel/linaro/hisilicon-4.14 ]; then
     revert kernel/linaro/hisilicon-4.14 a03a54702175cef5dc1a1a1f98c2afb19b7c4056
 fi
+
+## sepolicy/ueventd.te: add rule for kernel modules installation
+## http://android-review.linaro.org/c/device/linaro/hikey/+/20468
+apply --linaro device/linaro/hikey 20468/1
