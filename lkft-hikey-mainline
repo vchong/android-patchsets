@@ -53,3 +53,8 @@ apply_jstultz_mainline_patch 248fc0d31f793c268078e8227310f91677943a03
 
 ## Revert "security: Implement Clang's stack initialization"
 revert kernel/common/mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
+
+## Revert "arm64: Silence gcc warnings about arch ABI drift"
+## To workaround the undefined reference to `__efistub___stack_chk_guard' problem
+## reported here: https://ci.linaro.org/job/lkft-android-9.0-mainline/7/console
+revert kernel/common/mainline ebcc5928c5d925b1c8d968d9c89cdb0d0186db17
