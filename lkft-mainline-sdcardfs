@@ -20,45 +20,6 @@ function apply_jstultz_mainline_patch(){
     curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} kernel/common/mainline
 }
 
-##################################################
-################ Linaro hack   ###################
-##################################################
-## enable overlay manager to boot
-## http://android-review.linaro.org/c/kernel/common/+/20471
-apply --linaro --local kernel/common/mainline --remote kernel/common 20471/2
-
-## mali source to compile it as a kernel module
-## http://android-review.linaro.org/c/kernel/common/+/20472
-apply --linaro --local kernel/common/mainline --remote kernel/common 20472/2
-
-## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=8a9ad8e33b44cec6c209d9894eb665011ed014fb
-apply_jstultz_mainline_patch 8a9ad8e33b44cec6c209d9894eb665011ed014fb
-
-## MALI: 4.20-rc time fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=4f517b3fa9c150e015e2eebfbf68c6c1f02738cc
-apply_jstultz_mainline_patch 4f517b3fa9c150e015e2eebfbf68c6c1f02738cc
-
-## MALI: Build fixup for 5.1-rc on using vm_fault_t
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d824e645c2a64c695cff6ccb4718d03acc14a1d2
-apply_jstultz_mainline_patch d824e645c2a64c695cff6ccb4718d03acc14a1d2
-
-## MALI: access_ok fix for 5.0-rc
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch?id=c9d871991a5d3b9a8a6c66dd97f77a53ca6c80e0
-apply_jstultz_mainline_patch c9d871991a5d3b9a8a6c66dd97f77a53ca6c80e0
-
-## HACK: usb: dwc2: Disable sg_supported on gadget
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=248fc0d31f793c268078e8227310f91677943a03
-apply_jstultz_mainline_patch 248fc0d31f793c268078e8227310f91677943a03
-
-## Revert "security: Implement Clang's stack initialization"
-revert kernel/common/mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
-
-## Revert "arm64: Silence gcc warnings about arch ABI drift"
-## To workaround the undefined reference to `__efistub___stack_chk_guard' problem
-## reported here: https://ci.linaro.org/job/lkft-android-9.0-mainline/7/console
-revert kernel/common/mainline ebcc5928c5d925b1c8d968d9c89cdb0d0186db17
-
 ############### support for sdcardfs ====================================
 ## need for cts test, otherwise "Device must have external storage mounted in order to run CTS" will be reported
 ## ANDROID: sdcardfs: Enable modular sdcardfs
