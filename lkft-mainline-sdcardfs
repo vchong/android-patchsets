@@ -67,4 +67,4 @@ apply --local kernel/common/mainline --remote kernel/common 983027/1
 ## cherrypick kernel/common/mainline 874b34420a3473fabbd3694d2e6c5452886f12a6
 ## http://android-review.linaro.org/c/kernel/common/+/20496
 ## https://android-review.googlesource.com/c/kernel/common/+/983023
-apply --local kernel/common/mainline --remote kernel/common 983023/1
+apply --local kernel/common/mainline --remote kernel/common 983023/3
