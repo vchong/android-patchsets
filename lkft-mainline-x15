@@ -1,0 +1,76 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_sam_mainline_patch(){
+    local commit_id=$1 && shift
+    curl_am https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=${commit_id} kernel/common/mainline
+}
+
+##################################################
+################    ###################
+##################################################
+## Add ti_config_fragments/ from TI Android kernel v4.19
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7388565a8149845ffd128261125e1669eae7e466
+apply_sam_mainline_patch 7388565a8149845ffd128261125e1669eae7e466
+
+## ARM: dts: dra7x-evm: add android early mount partitions
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=4b06880370a7e0c7771a4a9af87aa2672501e724
+apply_sam_mainline_patch 4b06880370a7e0c7771a4a9af87aa2672501e724
+
+## ARM: dts: dra7x, am57x: Fix partitions node names
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=f0e2043ae1332579de91e00f11aa880e07b42876
+apply_sam_mainline_patch f0e2043ae1332579de91e00f11aa880e07b42876
+
+## arch: arm: Enable SGX in device tree
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=8161359590f689d43a62d72cc9dbae404f5cdaa8
+## apply_sam_mainline_patch 8161359590f689d43a62d72cc9dbae404f5cdaa8
+## http://android-review.linaro.org/c/kernel/common/+/20521
+apply --linaro --local kernel/common/mainline --remote kernel/common 20521/1
+
+## drivers: gpu: pvr: Import SGX kernel driver
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=a5272d6d898ea460fc2a449d7a29120ebefa282d
+apply_sam_mainline_patch a5272d6d898ea460fc2a449d7a29120ebefa282d
+
+## drivers: gpu: pvr: Fix build on kernel v5.0+
+## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7244da2f2bbc98071f525bd823c1ef6e3229c8b2
+apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
+
+## revert kbuild: remove 'addtree' and 'flags' magic for header search paths
+## /home/liuyq/data/lkft/kernel/common/mainline/drivers/gpu/pvr/services4/srvkm/bridged/bridged_pvr_bridge.c:48:10: fatal error: img_defs.h: No such file or directory
+## #include "img_defs.h"
+##          ^~~~~~~~~~~~
+## compilation terminated.
+## make[4]: *** [/home/liuyq/data/lkft/kernel/common/mainline/scripts/Makefile.build:279: drivers/gpu/pvr/services4/srvkm/bridged/bridged_pvr_bridge.o] Error 1
+## make[4]: *** Waiting for unfinished jobs....
+## /home/liuyq/data/lkft/kernel/common/mainline/drivers/gpu/pvr/services4/srvkm/bridged/bridged_support.c:45:10: fatal error: img_defs.h: No such file or directory
+## #include "img_defs.h"
+##          ^~~~~~~~~~~~
+## compilation terminated.
+## revert kernel/common/mainline cdd750bfb1f76fe9be8cfb53cbe77b2e811081ab
+## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
+## http://android-review.linaro.org/c/kernel/common/+/20530
+apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
+
+## BFD: arch/arm/vdso/vdso.so: Not enough room for program headers, try linking with -N
+## /home/liuyq/data/lkft/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-7.2-linaro/bin/arm-linux-androideabi-objcopy:arch/arm/vdso/vdso.so[.hash]: Bad value
+## BFD: arch/arm/vdso/vdso.so: Not enough room for program headers, try linking with -N
+## /home/liuyq/data/lkft/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-7.2-linaro/bin/arm-linux-androideabi-objcopy:arch/arm/vdso/vdso.so: Bad value
+## make[2]: *** [/home/liuyq/data/lkft/kernel/common/mainline/arch/arm/vdso/Makefile:49: arch/arm/vdso/vdso.so] Error 1
+## revert "ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO"
+revert kernel/common/mainline fe00e50b2db8c60e4ec90befad1f5bab8ca2c800
+## kbuild: drop support for cc-ldoption
+revert kernel/common/mainline 055efab3120bae7ab1ed841317774f3c953f6e1b
