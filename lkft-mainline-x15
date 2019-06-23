@@ -70,6 +70,8 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
 ## BFD: arch/arm/vdso/vdso.so: Not enough room for program headers, try linking with -N
 ## /home/liuyq/data/lkft/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-7.2-linaro/bin/arm-linux-androideabi-objcopy:arch/arm/vdso/vdso.so: Bad value
 ## make[2]: *** [/home/liuyq/data/lkft/kernel/common/mainline/arch/arm/vdso/Makefile:49: arch/arm/vdso/vdso.so] Error 1
+## revert ARM: 8867/1: vdso: pass --be8 to linker if necessary
+revert kernel/common/mainline c5d0e49e8d8f1a23034fdf8e935afc0c8f7ae27d
 ## revert "ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO"
 revert kernel/common/mainline fe00e50b2db8c60e4ec90befad1f5bab8ca2c800
 ## kbuild: drop support for cc-ldoption
