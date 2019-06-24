@@ -65,18 +65,6 @@ apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
 
-## BFD: arch/arm/vdso/vdso.so: Not enough room for program headers, try linking with -N
-## /home/liuyq/data/lkft/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-7.2-linaro/bin/arm-linux-androideabi-objcopy:arch/arm/vdso/vdso.so[.hash]: Bad value
-## BFD: arch/arm/vdso/vdso.so: Not enough room for program headers, try linking with -N
-## /home/liuyq/data/lkft/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-7.2-linaro/bin/arm-linux-androideabi-objcopy:arch/arm/vdso/vdso.so: Bad value
-## make[2]: *** [/home/liuyq/data/lkft/kernel/common/mainline/arch/arm/vdso/Makefile:49: arch/arm/vdso/vdso.so] Error 1
-## revert ARM: 8867/1: vdso: pass --be8 to linker if necessary
-revert kernel/common/mainline c5d0e49e8d8f1a23034fdf8e935afc0c8f7ae27d
-## revert "ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO"
-revert kernel/common/mainline fe00e50b2db8c60e4ec90befad1f5bab8ca2c800
-## kbuild: drop support for cc-ldoption
-revert kernel/common/mainline 055efab3120bae7ab1ed841317774f3c953f6e1b
-
 ##############FOR ADB STUCK####################
 ## FROMGIT: usb: gadget: f_fs: don't free buffer prematurely
 revert kernel/common/mainline 4b4ee2f983b2653c46dcfb6b9dd227cd61cbd9f0
