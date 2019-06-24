@@ -76,3 +76,9 @@ revert kernel/common/mainline c5d0e49e8d8f1a23034fdf8e935afc0c8f7ae27d
 revert kernel/common/mainline fe00e50b2db8c60e4ec90befad1f5bab8ca2c800
 ## kbuild: drop support for cc-ldoption
 revert kernel/common/mainline 055efab3120bae7ab1ed841317774f3c953f6e1b
+
+##############FOR ADB STUCK####################
+## FROMGIT: usb: gadget: f_fs: don't free buffer prematurely
+revert kernel/common/mainline 4b4ee2f983b2653c46dcfb6b9dd227cd61cbd9f0
+## usb: gadget: f_fs: Allow scatter-gather buffers
+revert kernel/common/mainline 772a7a724f69d258025fedd87dde1aafe4171aef
