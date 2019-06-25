@@ -64,9 +64,3 @@ apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 ## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
-
-##############FOR ADB STUCK####################
-## FROMGIT: usb: gadget: f_fs: don't free buffer prematurely
-revert kernel/common/mainline 4b4ee2f983b2653c46dcfb6b9dd227cd61cbd9f0
-## usb: gadget: f_fs: Allow scatter-gather buffers
-revert kernel/common/mainline 772a7a724f69d258025fedd87dde1aafe4171aef
