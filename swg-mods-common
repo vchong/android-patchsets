@@ -1,0 +1,149 @@
+#!/bin/bash
+
+set -e
+
+. $(dirname $0)/functions
+
+curl_am_optee(){
+    local repository=$1
+    local patch_id=$2
+    local patch_project="$3"
+    local user=$4
+    local patch_url="https://github.com/${user}/${repository}/commit/${patch_id}.patch"
+    curl_am ${patch_url} ${patch_project}
+}
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+#######################################################
+## Patches for SWG use cases different than r-lcr #####
+#######################################################
+if [ X"$MANIFEST_BRANCH" = X"master" ]; then
+	## aarch64-linux-android-g{++,cc}: supress deprecation warning
+	## https://android-review.linaro.org/c/20304
+	apply --linaro prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 20304/1
+
+	## arm-linux-androideabi-g{++,cc}: supress deprecation warning
+	## https://android-review.linaro.org/c/20305
+	apply --linaro prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 20305/1
+
+	## print version_str on not_match
+	curl_am_optee system_keymaster 2afb818c88fe7fd0efb41ff89aa73a1904580df2 system/keymaster vchong
+
+	## convert alphabetic version to number
+	curl_am_optee system_keymaster d0cdd9ea97cf125ff62fb41d124bca531594fe7e system/keymaster vchong
+
+	## config.mk: do NOT obsolete export
+	#curl_am_optee platform_build da608cc3380c5c9a7d2adac0168b0ba05a2345ae build/make vchong
+else
+	# assume pie
+
+	## 'curl' not allowed in master
+	## build/tasks: add makefile to get wifi apk
+	## http://android-review.linaro.org/20098
+	apply --linaro device/linaro/hikey 20098/12
+fi
+
+## used netdomain instead - see below for reference
+## https://github.com/vchong/device-linaro-hikey/commit/f00abbb1250d4651d88509874db68e340aa8bc3d
+## this is done in hikey-hikey960-optee-common as part of
+## "optee: integrate for optee components"
+## init.rc: add inet group to console service
+## https://android-review.linaro.org/#/c/platform/system/core/+/20241
+#apply --linaro system/core 20241/1
+
+## this can be enabled via optee_android_manifest sync scripts
+## optee: set dbg log lvl for core and TA
+## http://android-review.linaro.org/20096
+#apply --linaro device/linaro/hikey 20096/12
+
+## no need to set BUILD_{ATF_TOS}=debug to get debug logs
+## uefi-tools: disable debug build for now
+#curl_am_optee device-linaro-hikey 060bcd1a959189013c66081cf43d4c97fcbbd888 device/linaro/hikey vchong
+
+#######################################################
+## Common patches for SWG KMGK                    #####
+#######################################################
+## KM mods - keymaster/gatekeeper patches
+if [ X"$MANIFEST_BRANCH" = X"master" ]; then
+	## http://android-review.linaro.org/20604
+	apply --linaro device/linaro/hikey 20604/2
+else
+	## assume pie
+	## http://android-review.linaro.org/20099
+	apply --linaro device/linaro/hikey 20099/15
+fi
+
+## build default kmgk svc too
+#curl_am_optee device-linaro-hikey 29723107072a56a70d48c840037660a3b6693223 device/linaro/hikey vchong
+
+# kmgk: add dbg prints
+#curl_am_optee kmgk 36780a94 device/linaro/kmgk vchong
+
+# set log levels to 4
+# https://github.com/vchong/optee_client/commit/93912d872850d6b66c599e4c495b92fe561719da
+curl_am_optee optee_client 93912d872850d6b66c599e4c495b92fe561719da external/optee_client vchong
+
+# use /persist/tee as secure storage path
+# https://github.com/vchong/optee_client/commit/6aa126b5f48403aa9e35c2fa5d9c8d96ad26d833
+curl_am_optee optee_client 6aa126b5f48403aa9e35c2fa5d9c8d96ad26d833 external/optee_client vchong
+
+if [ X"$TEE_USE_RPMB" = X"true" ]; then
+	# tee-supplicant: disable RPMB emu
+	# https://github.com/vchong/optee_client/commit/9cb7a69a969aec887ae1d13f2b2d639785e602fc
+	curl_am_optee optee_client 9cb7a69a969aec887ae1d13f2b2d639785e602fc external/optee_client vchong
+
+	# copy files over from buildroot
+	# https://github.com/vchong/mmc-utils/commit/b504192fd136a111160a15fb7504d2d856b4a12d
+	curl_am_optee mmc-utils b504192fd136a111160a15fb7504d2d856b4a12d external/mmc-utils vchong
+
+	# fix build errors
+	# https://github.com/vchong/mmc-utils/commit/92eeb06bf177e8933748764cfbb9a007dde6917a
+	curl_am_optee mmc-utils 92eeb06bf177e8933748764cfbb9a007dde6917a external/mmc-utils vchong
+
+	# mk/config.mk: enable RPMB
+	# https://github.com/vchong/optee_os/commit/3f40517861a15121870871bd28363c2ec6c430bd
+	curl_am_optee optee_os 3f40517861a15121870871bd28363c2ec6c430bd optee/optee_os vchong
+
+	# merge conflict, ignore for now
+	# rpmb: print rpmb op result from ioctl
+	# https://github.com/vchong/optee_os/commit/ef8ad4886a5c713dc135de01079a772bed1b93af
+	#curl_am_optee optee_os ef8ad4886a5c713dc135de01079a772bed1b93af optee/optee_os vchong
+fi
+
+cd optee/optee_os
+#git fetch https://github.com/vchong/optee_os pull/1/head && git merge --no-edit FETCH_HEAD
+# cherry pick instead of merge so that patches stay on top
+git fetch https://github.com/vchong/optee_os kmgk_pta_rebase && git cherry-pick db2994a3e69c132acea5db21411d85ceac022b9e^..9a12c5d7370e4b3307e5f98b5031f64c9a19cf72
+cd -
+
+#######################################################
+## Common patches for Widevine                    #####
+#######################################################
+if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
+	# add wv components
+	# https://android-review.linaro.org/20212
+	apply --linaro device/linaro/hikey 20212/17
+
+	# placeholder for internal wv patches
+	#apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 1234/5
+fi
+
+##################################################
+################ Backport ########################
+##################################################
+## fix android build errors for Treble
+if [ -d "${AOSP}/external/optee_examples" ]; then
+    :
+fi
