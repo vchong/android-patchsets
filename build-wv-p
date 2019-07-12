@@ -41,8 +41,8 @@ echo "'lunch' and 'mmma vendor/widevine'"
 echo
 if [ -d "vendor/widevine" ]; then
 	if [ -d "optee/tools-images-hikey960" ]; then
-		. build/envsetup.sh && export_config hikey960 && lunch hikey960-userdebug && mmma vendor/widevine
+		export_config hikey960 && . build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
 	else
-		. build/envsetup.sh && export_config hikey && lunch hikey-userdebug && mmma vendor/widevine
+		export_config hikey && . build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
 	fi
 fi
