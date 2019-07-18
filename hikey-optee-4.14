@@ -2,9 +2,9 @@
 
 . $(dirname $0)/functions
 
-curl_am_hikey_optee(){
+curl_am_hikey_optee_vchong_github(){
     local patch_id=$1
-    local patch_url="https://git.linaro.org/kernel/linux-linaro-stable.git/patch/?id=${patch_id}"
+    local patch_url="https://github.com/vchong/linux/commit/${patch_id}.patch"
     local patch_project="kernel/linaro/hisilicon-4.14"
     curl_am ${patch_url} ${patch_project}
 }
@@ -15,6 +15,7 @@ curl_am_hikey_optee_sdp_github(){
     local patch_project="kernel/linaro/hisilicon-4.14"
     curl_am ${patch_url} ${patch_project}
 }
+
 PATCHES=0
 if [ -n "$1" ]; then
         AOSP="$1"
@@ -27,6 +28,29 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
         echo "or with the AOSP source directory as its first parameter."
         exit 1
 fi
+
+##################################################
+###### patches to fix RPMB ops on kernel 4.14 ####
+##################################################
+## hikey*_defconfig: decrease CONFIG_MMC_BLOCK_MINORS
+## https://github.com/vchong/linux/commit/8d616e6da87b69bf7f391d39dd9da7b448350048
+curl_am_hikey_optee_vchong_github 8d616e6da87b69bf7f391d39dd9da7b448350048
+
+## mmc: block: Convert RPMB to a character device
+## https://github.com/vchong/linux/commit/284f192ebe782e5eda5a2644d7ee046285e88793
+curl_am_hikey_optee_vchong_github 284f192ebe782e5eda5a2644d7ee046285e88793
+
+## mmc: block: Fix bug when removing RPMB chardev
+## https://github.com/vchong/linux/commit/1a7f1613691f0200101a476f664322d84da9d836
+curl_am_hikey_optee_vchong_github 1a7f1613691f0200101a476f664322d84da9d836
+
+## mmc: core: Prevent bus reference leak in mmc_blk_init()
+## https://github.com/vchong/linux/commit/09d176cb0060ca3201f6ca8ba8cb4110560bcb7a
+curl_am_hikey_optee_vchong_github 09d176cb0060ca3201f6ca8ba8cb4110560bcb7a
+
+## mmc: block: propagate correct returned value in mmc_rpmb_ioctl
+## https://github.com/vchong/linux/commit/90b83a78d9184eb5cad9abc2910b542641df32dd
+curl_am_hikey_optee_vchong_github 90b83a78d9184eb5cad9abc2910b542641df32dd
 
 ##################################################
 ###### OP-TEE patches on kernel 4.14          ####
