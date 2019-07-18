@@ -27,7 +27,7 @@ apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
 ## http://android-review.linaro.org/17731
-apply --linaro system/core 17731/5
+apply --linaro system/core 17731/6
 
 ## add cts-lkft plan
 ## https://android-review.linaro.org/#/c/platform/test/suite_harness/+/19623/
