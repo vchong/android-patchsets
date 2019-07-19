@@ -39,6 +39,9 @@ else
 fi
 
 if [ X"$TARGET_PRODUCT" = X"hikey960" ] && [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ]; then
+	## revert "Delete outdated uefi-build.sh"
+	revert optee/uefi-tools 0407bb1a30ece4a305486535df5d4835c8241882
+
 	## optee: Enable opteed in the bootloader (uefi-tools master)
 	curl_am_optee uefi-tools fc90bea69a58ade14e60241742cd9b26687d8a90 optee/uefi-tools vchong
 fi
