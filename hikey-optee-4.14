@@ -66,6 +66,10 @@ cherrypick kernel/linaro/hisilicon-4.14 05a8316d2e5b45bd15a9646bf948ffa042f94327
 ## http://android-review.linaro.org/18415
 apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 18415/3
 
+## hikey960_defconfig: enable dummy ION memory in kernel config
+## http://android-review.linaro.org/20638
+apply --linaro --local kernel/linaro/hisilicon-4.14 --remote kernel/hikey-linaro 20638/1
+
 #######################################################
 ## patches for cherry-pick problem or compiling problem
 #######################################################
