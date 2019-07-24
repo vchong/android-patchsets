@@ -31,34 +31,18 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20519/1
 ## http://android-review.linaro.org/c/kernel/common/+/20512
 apply --linaro --local kernel/common/mainline --remote kernel/common 20512/4
 
-## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=8a9ad8e33b44cec6c209d9894eb665011ed014fb
-apply_jstultz_mainline_patch 8a9ad8e33b44cec6c209d9894eb665011ed014fb
-
-## MALI: 4.20-rc time fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=4f517b3fa9c150e015e2eebfbf68c6c1f02738cc
-apply_jstultz_mainline_patch 4f517b3fa9c150e015e2eebfbf68c6c1f02738cc
-
 ## MALI: Build fixup for 5.1-rc on using vm_fault_t
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d824e645c2a64c695cff6ccb4718d03acc14a1d2
-apply_jstultz_mainline_patch d824e645c2a64c695cff6ccb4718d03acc14a1d2
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=273d12dded2e87066e734157cc5175839292076f
+apply_jstultz_mainline_patch 273d12dded2e87066e734157cc5175839292076f
 
 ## MALI: access_ok fix for 5.0-rc
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch?id=c9d871991a5d3b9a8a6c66dd97f77a53ca6c80e0
-apply_jstultz_mainline_patch c9d871991a5d3b9a8a6c66dd97f77a53ca6c80e0
-
-## MALI: build warning fixes
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/arm_gpu/mali_kbase_fence.c?h=dev/hikey960-mainline-WIP&id=1569f81544fb3410645c702c58ba2e0c4b250395
-apply_jstultz_mainline_patch 1569f81544fb3410645c702c58ba2e0c4b250395
-
-## MALI: v4.21/5.0 build fixes
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/arm_gpu/mali_kbase_gpuprops.c?h=dev/hikey960-mainline-WIP&id=c3af69ccabe9b6ba714048a2358005699902bbbc
-apply_jstultz_mainline_patch c3af69ccabe9b6ba714048a2358005699902bbbc
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch?id=ddaee3a9cf6f8d8941bee86a2fbd0672eff9028e
+apply_jstultz_mainline_patch ddaee3a9cf6f8d8941bee86a2fbd0672eff9028e
 
 ## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/arm_gpu/mali_kbase_mem_linux.c?h=dev/hikey960-mainline-WIP&id=af2ae3d6220d4208288942e26b85851fa8307a1f
-apply_jstultz_mainline_patch af2ae3d6220d4208288942e26b85851fa8307a1f
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=e1e52da25ed4700e03c57def1586109a85cb4770
+apply_jstultz_mainline_patch e1e52da25ed4700e03c57def1586109a85cb4770
 
-## MALI: bifrost: Bulid fixup for 5.1-rc
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/arm_gpu?h=dev/hikey960-mainline-WIP&id=71cdf3bd2fcafc525253e789d543ddb0c985e294
-apply_jstultz_mainline_patch 71cdf3bd2fcafc525253e789d543ddb0c985e294
+## MALI: 4.20-rc time fixup
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=91ff4c3253b360fe2eba4d99bacdaf2e3c2de7cf
+apply_jstultz_mainline_patch 91ff4c3253b360fe2eba4d99bacdaf2e3c2de7cf
