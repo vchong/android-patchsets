@@ -32,3 +32,11 @@ apply --linaro system/core 17731/6
 ## add cts-lkft plan
 ## https://android-review.linaro.org/#/c/platform/test/suite_harness/+/19623/
 apply --linaro test/suite_harness 19623/1
+
+## https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1090935
+## PhoneSwitcher.java: add check for mPreferredDataPhoneId
+apply frameworks/opt/telephony 1090935/1
+
+## PhoneSwitcher.java: create a common function for getting phoneId with subId
+## https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1090936
+apply frameworks/opt/telephony 1090936/1
