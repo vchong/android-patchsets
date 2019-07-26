@@ -28,21 +28,6 @@ function apply_jstultz_mainline_patch(){
 apply --linaro --local kernel/common/mainline --remote kernel/common 20519/1
 
 ## mali source to compile it as a kernel module
-## http://android-review.linaro.org/c/kernel/common/+/20512
-apply --linaro --local kernel/common/mainline --remote kernel/common 20512/4
-
-## MALI: Build fixup for 5.1-rc on using vm_fault_t
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=273d12dded2e87066e734157cc5175839292076f
-apply_jstultz_mainline_patch 273d12dded2e87066e734157cc5175839292076f
-
-## MALI: access_ok fix for 5.0-rc
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch?id=ddaee3a9cf6f8d8941bee86a2fbd0672eff9028e
-apply_jstultz_mainline_patch ddaee3a9cf6f8d8941bee86a2fbd0672eff9028e
-
-## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=e1e52da25ed4700e03c57def1586109a85cb4770
-apply_jstultz_mainline_patch e1e52da25ed4700e03c57def1586109a85cb4770
-
-## MALI: 4.20-rc time fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=91ff4c3253b360fe2eba4d99bacdaf2e3c2de7cf
-apply_jstultz_mainline_patch 91ff4c3253b360fe2eba4d99bacdaf2e3c2de7cf
+## Merge of mali related changes for mainline for hikey
+## https://android-review.linaro.org/c/kernel/common/+/20652
+apply --linaro --local kernel/common/mainline --remote kernel/common 20652/2
