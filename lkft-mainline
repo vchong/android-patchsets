@@ -40,18 +40,3 @@ revert kernel/common/mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
 if [ -d kernel/jstultz/hikey-mainline ]; then
     revert kernel/jstultz/hikey-mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
 fi
-
-######## Patches for 5.3-rc1 ###############################
-## Revert "nl80211: require and validate vendor command policy"
-revert kernel/common/mainline 901bb9891855164fdcfcfdd9c3d25bcc800d3f5b
-
-## Fix the kernel could not boot from uefi problem
-## Maybe caused when only have the vdso fix following
-## arm64/sve: fix genksyms generation
-## http://android-review.linaro.org/c/kernel/common/+/20656
-apply --linaro --local kernel/common/mainline --remote kernel/common 20656/1
-
-## Fix android service always restarted problem
-## arm64: vdso: Fix ABI regression in compat vdso
-## http://android-review.linaro.org/c/kernel/common/+/20657
-apply --linaro --local kernel/common/mainline --remote kernel/common 20657/1

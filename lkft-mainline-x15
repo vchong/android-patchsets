@@ -25,8 +25,7 @@ function apply_sam_mainline_patch(){
 ##################################################
 ## Add ti_config_fragments/ from TI Android kernel v4.19
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7388565a8149845ffd128261125e1669eae7e466
-## http://android-review.linaro.org/c/kernel/common/+/20659
-apply --linaro --local kernel/common/mainline --remote kernel/common 20659/2
+apply_sam_mainline_patch 7388565a8149845ffd128261125e1669eae7e466
 
 ## ARM: dts: dra7x-evm: add android early mount partitions
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=4b06880370a7e0c7771a4a9af87aa2672501e724
@@ -44,8 +43,7 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20521/1
 
 ## drivers: gpu: pvr: Import SGX kernel driver
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=a5272d6d898ea460fc2a449d7a29120ebefa282d
-## http://android-review.linaro.org/c/kernel/common/+/20660
-apply --linaro --local kernel/common/mainline --remote kernel/common 20660/2
+apply_sam_mainline_patch a5272d6d898ea460fc2a449d7a29120ebefa282d
 
 ## drivers: gpu: pvr: Fix build on kernel v5.0+
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7244da2f2bbc98071f525bd823c1ef6e3229c8b2
