@@ -1,0 +1,70 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_jstultz_mainline_patch(){
+    local commit_id=$1 && shift
+    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} kernel/common/mainline
+}
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## DTS/hikey960_defconfig for hikey960 for android-mainline
+## https://android-review.linaro.org/c/kernel/common/+/20669
+apply --linaro --local kernel/common/mainline --remote kernel/common 20669/2
+
+## Changes on DRM for hikey960 with android-mainline
+## https://android-review.linaro.org/c/kernel/common/+/20668
+apply --linaro --local kernel/common/mainline --remote kernel/common 20668/3
+
+## Mali Source for HiKey960 for android-mainline
+## https://android-review.linaro.org/c/kernel/common/+/20670
+apply --linaro --local kernel/common/mainline --remote kernel/common 20670/5
+
+## hikey960: Support usb functionality of Hikey960
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc?h=dev/hikey960-mainline-WIP&id=1c13c7737bbd61c67a7531d5c2db6e037e37a133
+## http://android-review.linaro.org/c/kernel/common/+/20671
+apply --linaro --local kernel/common/mainline --remote kernel/common 20671/1
+## usb: dwc3: dwc3-of-simple: Add support for dwc3 of Hisilicon Soc Platform
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3/dwc3-of-simple.c?h=dev/hikey960-mainline-WIP&id=e7f71d8361d7b2e05e686f2a3767f557e3a342e7
+apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
+## usb: dwc3: Add splitdisable quirk for Hisilicon Kirin Soc
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/hikey960-mainline-WIP&id=209c87841ea7bc201c427efcdaeed6b9b0cd2ccc
+apply_jstultz_mainline_patch 209c87841ea7bc201c427efcdaeed6b9b0cd2ccc
+## usb: dwc3: Execute GCTL Core Soft Reset while switch mdoe for Hisilicon Kirin Soc
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/hikey960-mainline-WIP&id=4c97c536fca4fce55aea4923d4898db1eb18df8c
+apply_jstultz_mainline_patch 4c97c536fca4fce55aea4923d4898db1eb18df8c
+## usb: dwc3: Increase timeout for CmdAct cleared by device controller
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/hikey960-mainline-WIP&id=14bc27467fb3564d4cf40f847c4f935df0c455af
+apply_jstultz_mainline_patch 14bc27467fb3564d4cf40f847c4f935df0c455af
+## usb: dwc3: Registering a role switch in the DRD code.
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=2d9ac7718ceade14df3ff775e71682883e212e0f
+apply_jstultz_mainline_patch 2d9ac7718ceade14df3ff775e71682883e212e0f
+## usb: roles: Introduce stubs for the exiting functions in role.h.
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux/usb?h=dev/hikey960-mainline-WIP&id=1430354d036b6a2470a41e009b279f0bd034eb40
+apply_jstultz_mainline_patch 1430354d036b6a2470a41e009b279f0bd034eb40
+## usb: roles: Add usb role switch notifier.
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux/usb?h=dev/hikey960-mainline-WIP&id=184fb435233887de2ab1c062141f291354861155
+apply_jstultz_mainline_patch 184fb435233887de2ab1c062141f291354861155
+
+## reset: hisi-reboot: adb reboot bootloader
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=fe671288fa7ad845e525149d6e4686b692926ff8
+apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
+
+## sound: Add hikey960 i2s audio driver
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a7fdb4f7ad80b082a26a889fe70807b216450e58
+apply_jstultz_mainline_patch a7fdb4f7ad80b082a26a889fe70807b216450e58
