@@ -34,9 +34,3 @@ revert kernel/common/mainline 4833a94eb383f5b22775077ff92ddaae90440921
 revert kernel/common/mainline 4b4ee2f983b2653c46dcfb6b9dd227cd61cbd9f0
 ## usb: gadget: f_fs: Allow scatter-gather buffers
 revert kernel/common/mainline 772a7a724f69d258025fedd87dde1aafe4171aef
-
-## Revert "security: Implement Clang's stack initialization"
-revert kernel/common/mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
-if [ -d kernel/jstultz/hikey-mainline ]; then
-    revert kernel/jstultz/hikey-mainline 709a972efb01efaeb97cad1adc87fe400119c8ab
-fi
