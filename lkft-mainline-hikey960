@@ -25,7 +25,7 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20669
-apply --linaro --local kernel/common/mainline --remote kernel/common 20669/2
+apply --linaro --local kernel/common/mainline --remote kernel/common 20669/3
 
 ## Changes on DRM for hikey960 with android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20668
