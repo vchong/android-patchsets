@@ -129,3 +129,7 @@ fi
 ## sepolicy/ueventd.te: add rule for kernel modules installation
 ## http://android-review.linaro.org/c/device/linaro/hikey/+/20468
 apply --linaro device/linaro/hikey 20468/1
+
+## hikey/hikey960: add automotive products
+## http://android-review.linaro.org/c/device/linaro/hikey/+/20695
+apply --linaro device/linaro/hikey 20695/3
