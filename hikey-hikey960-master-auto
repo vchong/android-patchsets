@@ -16,8 +16,7 @@ if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
 fi
 
 #######################################################
-##  workaround for linaro work                   ######
-#######################################################
-## Add support for hikey960_car build
+## Add support for hikey960_auto and hikey_auto products
 ## http://android-review.linaro.org/c/device/linaro/hikey/+/20614
-apply --linaro device/linaro/hikey 20614/1
+## https://android-review.googlesource.com/c/device/linaro/hikey/+/1095112
+apply device/linaro/hikey 1095112/2
