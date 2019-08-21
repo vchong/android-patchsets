@@ -18,6 +18,3 @@ fi
 #######################################################
 ##  workaround for linaro work                   ######
 #######################################################
-## HiKey960/HiKey: Enable kernel module loading
-## https://android-review.googlesource.com/c/device/linaro/hikey/+/989223
-apply device/linaro/hikey 989223/4
