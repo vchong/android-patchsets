@@ -66,6 +66,10 @@ apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
 
 ## https://lkft.validation.linaro.org/scheduler/job/858010#L1570
+## revert arm: select the dma-noncoherent symbols for all swiotlb builds
+revert kernel/common/mainline 936376f88ff1845b384b3a82b9cd167e53039229
+## revert dma-mapping: fix page attributes for dma_mmap_*
+revert kernel/common/mainline 33dcb37cef741294b481f4d889a465b8091f11bf
 ## revert arm: use swiotlb for bounce buffering on LPAE configs
 ## https://android.googlesource.com/kernel/common/+/ad3c7b18c5b362be5dbd0f2c0bcf1fd5fd659315
 revert kernel/common/mainline ad3c7b18c5b362be5dbd0f2c0bcf1fd5fd659315
