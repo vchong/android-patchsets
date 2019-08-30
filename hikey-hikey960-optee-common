@@ -38,7 +38,7 @@ else
 	apply --linaro device/linaro/hikey 20090/28
 fi
 
-if [ X"$TARGET_PRODUCT" = X"hikey960" ] && [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ]; then
+if [ X"$TARGET_PRODUCT" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
 	## revert "Delete outdated uefi-build.sh"
 	revert optee/uefi-tools 0407bb1a30ece4a305486535df5d4835c8241882
 
