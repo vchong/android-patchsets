@@ -31,14 +31,14 @@ fi
 ## optee: integrate for optee components
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/17988
-	apply --linaro device/linaro/hikey 17988/16
+	apply --linaro device/linaro/hikey 17988/17
 else
 	## assume pie
 	## http://android-review.linaro.org/20090
-	apply --linaro device/linaro/hikey 20090/29
+	apply --linaro device/linaro/hikey 20090/30
 fi
 
-if [ X"$TARGET_PRODUCT" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
+if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
 	## revert "Delete outdated uefi-build.sh"
 	revert optee/uefi-tools 0407bb1a30ece4a305486535df5d4835c8241882
 
