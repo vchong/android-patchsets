@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_jstultz_mainline_patch(){
+    local commit_id=$1 && shift
+    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} kernel/common/mainline
+}
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## https://android-review.linaro.org/c/kernel/common/+/20784/
+apply --linaro --local common --remote kernel/common 20784/3
+apply --linaro --local kernel/common/mainline --remote kernel/common 20784/3
