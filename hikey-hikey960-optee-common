@@ -31,11 +31,11 @@ fi
 ## optee: integrate for optee components
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/17988
-	apply --linaro device/linaro/hikey 17988/18
+	apply --linaro device/linaro/hikey 17988/19
 else
 	## assume pie
 	## http://android-review.linaro.org/20090
-	apply --linaro device/linaro/hikey 20090/31
+	apply --linaro device/linaro/hikey 20090/32
 fi
 
 if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
