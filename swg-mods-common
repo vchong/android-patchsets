@@ -63,10 +63,13 @@ fi
 ## https://android-review.linaro.org/#/c/platform/system/core/+/20241
 #apply --linaro system/core 20241/1
 
-## this can be enabled via optee_android_manifest sync scripts
+## these can be enabled via optee_android_manifest sync scripts
 ## optee: set dbg log lvl for core and TA
 ## http://android-review.linaro.org/20096
 #apply --linaro device/linaro/hikey 20096/12
+if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
+	#curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
+fi
 
 ## no need to set BUILD_{ATF_TOS}=debug to get debug logs
 ## uefi-tools: disable debug build for now
