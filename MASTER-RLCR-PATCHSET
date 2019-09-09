@@ -23,7 +23,8 @@ fi
 ################ Backport ########################
 ##################################################
 ## Workaround for wallpaper not shown correctly problem
-apply --linaro frameworks/base 17696/1
+## https://android-review.linaro.org/c/platform/frameworks/base/+/17696
+## apply --linaro frameworks/base 17696/1
 
 ## Bootchart parse command
 ## http://android-review.linaro.org/17731
