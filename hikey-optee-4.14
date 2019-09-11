@@ -36,6 +36,7 @@ fi
 ## https://github.com/vchong/linux/commit/8d616e6da87b69bf7f391d39dd9da7b448350048
 curl_am_hikey_optee_vchong_github 8d616e6da87b69bf7f391d39dd9da7b448350048
 
+# Below 4 mmc patches are cherry-picked from 4.19
 ## mmc: block: Convert RPMB to a character device
 ## https://github.com/vchong/linux/commit/284f192ebe782e5eda5a2644d7ee046285e88793
 curl_am_hikey_optee_vchong_github 284f192ebe782e5eda5a2644d7ee046285e88793
