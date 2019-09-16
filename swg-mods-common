@@ -66,9 +66,10 @@ fi
 ## these can be enabled via optee_android_manifest sync scripts
 ## optee: set dbg log lvl for core and TA
 ## http://android-review.linaro.org/20096
-#apply --linaro device/linaro/hikey 20096/12
+#apply --linaro device/linaro/hikey 20096/13
 if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
 	true
+	# https://github.com/vchong/uefi-tools/commit/a581c9bbf8118ee5b20b7121e9a2bd24612a6c70
 	#curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
 fi
 
