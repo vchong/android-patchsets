@@ -17,16 +17,22 @@ fi
 
 function apply_jstultz_mainline_patch(){
     local commit_id=$1 && shift
-    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} common
+    local local_dir=$1 && shift
+    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} ${local_dir}
 }
 
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## https://android-review.linaro.org/c/kernel/common/+/20784/
-apply --linaro --local common --remote kernel/common 20784/6
-apply --linaro --local kernel/common/mainline --remote kernel/common 20784/6
+## Revert "CONFIG_MMC=m"
+revert common e22a61b471b9f9e9676c2a71950102418ae39116
+revert kernel/common/mainline e22a61b471b9f9e9676c2a71950102418ae39116
 
 ## gki: Kconfig: regmap: Add REGMAP_DUMMY_MODULE option
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d02c6fa9357c5ef1a0f38d7c48261b6b6511a037
-apply_jstultz_mainline_patch d02c6fa9357c5ef1a0f38d7c48261b6b6511a037
+apply_jstultz_mainline_patch d02c6fa9357c5ef1a0f38d7c48261b6b6511a037 common
+## apply_jstultz_mainline_patch d02c6fa9357c5ef1a0f38d7c48261b6b6511a037 kernel/common/mainline
+
+## https://android-review.linaro.org/c/kernel/common/+/20784/
+apply --linaro --local common --remote kernel/common 20784/7
+apply --linaro --local kernel/common/mainline --remote kernel/common 20784/7
