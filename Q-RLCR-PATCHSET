@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+##################################################
+## create libmodprobe, integrate into first_stage_init
+## https://android.googlesource.com/platform/system/core/+/18b981ea7c5f0964941931a71fa55d880bec0c16
+## http://android-review.linaro.org/c/platform/system/core/+/20837
+apply --linaro system/core 20837/1
