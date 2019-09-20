@@ -24,14 +24,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## revert ANDROID: gki_defconfig: CONFIG_MMC_BLOCK=m
-revert common 8b2a1e44ccd79d207fce89e09ad9982157e8fa93
-revert kernel/common/mainline 8b2a1e44ccd79d207fce89e09ad9982157e8fa93
-
-## Revert "CONFIG_MMC=m"
-revert common e22a61b471b9f9e9676c2a71950102418ae39116
-revert kernel/common/mainline e22a61b471b9f9e9676c2a71950102418ae39116
-
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
 apply --linaro --local common --remote kernel/common 20784/9
 apply --linaro --local kernel/common/mainline --remote kernel/common 20784/9
