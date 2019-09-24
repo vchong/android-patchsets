@@ -133,6 +133,11 @@ cd optee/optee_os
 git fetch https://github.com/vchong/optee_os kmgk_pta_rebase2 && git cherry-pick 783473795674a7916f2e24af4a5d54e09e3f69a6^..8fb4d2c214d62ae498b780be50428e95e4292060
 cd -
 
+# temp kmgk patches to test refactoring
+cd device/linaro/kmgk
+git fetch https://github.com/vchong/kmgk refactoring2 && git cherry-pick b9598ff9babc51906c288dbb1f8e11a17f97bedd^..3918a162efd5e278b6e24987a66c15136348abd5
+cd -
+
 #######################################################
 ## Common patches for Widevine                    #####
 #######################################################
