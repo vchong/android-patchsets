@@ -49,6 +49,10 @@ apply_sam_mainline_patch a5272d6d898ea460fc2a449d7a29120ebefa282d
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 
+## drivers: gpu: pvr: dma-buf: rename reservation_object to dma_resv
+## http://android-review.linaro.org/c/kernel/common/+/20868
+apply --linaro --local kernel/common/mainline --remote kernel/common 20868/1
+
 ## revert kbuild: remove 'addtree' and 'flags' magic for header search paths
 ## /home/liuyq/data/lkft/kernel/common/mainline/drivers/gpu/pvr/services4/srvkm/bridged/bridged_pvr_bridge.c:48:10: fatal error: img_defs.h: No such file or directory
 ## #include "img_defs.h"
@@ -64,12 +68,3 @@ apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
 ## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
-
-## https://lkft.validation.linaro.org/scheduler/job/858010#L1570
-## revert arm: select the dma-noncoherent symbols for all swiotlb builds
-revert kernel/common/mainline 936376f88ff1845b384b3a82b9cd167e53039229
-## revert dma-mapping: fix page attributes for dma_mmap_*
-revert kernel/common/mainline 33dcb37cef741294b481f4d889a465b8091f11bf
-## revert arm: use swiotlb for bounce buffering on LPAE configs
-## https://android.googlesource.com/kernel/common/+/ad3c7b18c5b362be5dbd0f2c0bcf1fd5fd659315
-revert kernel/common/mainline ad3c7b18c5b362be5dbd0f2c0bcf1fd5fd659315
