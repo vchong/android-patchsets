@@ -55,6 +55,12 @@ apply_jstultz_mainline_patch f0dfa639697278b247251c1d63a2e2ec53307bba
 # kirin_dpe build fix (fold down)
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=cdea042f94fddf97f015565adb7a99746502333b
 apply_jstultz_mainline_patch cdea042f94fddf97f015565adb7a99746502333b
+# HACK: Revert "drm/bridge: adv7511: Attach to DSI host at probe time"
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=354a8949a1c9fbb5daee5cfc2651b4e3ae4cf79c
+apply_jstultz_mainline_patch 354a8949a1c9fbb5daee5cfc2651b4e3ae4cf79c
+# HACK: adv7511: Add poweron delay to allow for EDID probing to work
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=a636ba59e5714fb7dedb8f06b8d86c2fce1f4aca
+apply_jstultz_mainline_patch a636ba59e5714fb7dedb8f06b8d86c2fce1f4aca
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
