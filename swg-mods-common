@@ -135,7 +135,7 @@ cd -
 
 # temp kmgk patches to test refactoring
 cd device/linaro/kmgk
-git fetch https://github.com/vchong/kmgk refactoring2 && git cherry-pick b9598ff9babc51906c288dbb1f8e11a17f97bedd^..2ad6aa96ee0b3c132893e45fde2aeb6baaec551f
+git fetch https://github.com/vchong/kmgk refactoring2 && git cherry-pick aea1bb393b48f138484897caf487810f946505da^..8664e8cb9812efca051595170f57e89883072dd4
 cd -
 
 #######################################################
