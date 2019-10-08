@@ -23,14 +23,9 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## HACK: usb: dwc2: Disable sg_supported on gadget
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=248fc0d31f793c268078e8227310f91677943a03
-#apply_jstultz_mainline_patch 248fc0d31f793c268078e8227310f91677943a03
-
 ##############FOR ADB STUCK####################
-## usb: gadget: f_fs: data_len used before properly set
-revert kernel/common/mainline 4833a94eb383f5b22775077ff92ddaae90440921
-## usb: gadget: f_fs: don't free buffer prematurely
-revert kernel/common/mainline 4b4ee2f983b2653c46dcfb6b9dd227cd61cbd9f0
 ## usb: gadget: f_fs: Allow scatter-gather buffers
-revert kernel/common/mainline 772a7a724f69d258025fedd87dde1aafe4171aef
+## caused by commit 772a7a724f69d258025fedd87dde1aafe4171aef
+## usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3?id=1c89b8ad8cd2be2737096c155ed4bbead803ac3a
+apply_jstultz_mainline_patch 1c89b8ad8cd2be2737096c155ed4bbead803ac3a
