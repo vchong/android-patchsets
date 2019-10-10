@@ -24,10 +24,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-# revert ANDROID: update arm64 gki_defconfig to enable CONFIG_TMPFS_POSIX_ACL=y again
-revert common f1aa35a164021c6213541492f420e926b2a01c73
-revert kernel/common/mainline f1aa35a164021c6213541492f420e926b2a01c73
-
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
-apply --linaro --local common --remote kernel/common 20784/11
-apply --linaro --local kernel/common/mainline --remote kernel/common 20784/11
+apply --linaro --local common --remote kernel/common 20784/14
+apply --linaro --local kernel/common/mainline --remote kernel/common 20784/14
