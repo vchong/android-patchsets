@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## Integrate ramdisk fstab to boot with the init in ramdisk.img
+## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/1144009
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/6
