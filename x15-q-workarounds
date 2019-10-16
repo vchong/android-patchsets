@@ -20,4 +20,4 @@ fi
 ##################################################
 ## Integrate ramdisk fstab to boot with the init in ramdisk.img
 ## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/1144009
-apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20314/6
+apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 1144009/1
