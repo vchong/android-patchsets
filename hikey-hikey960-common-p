@@ -40,7 +40,7 @@ apply --linaro device/linaro/hikey 19677/1
 
 ## integrated tests
 ## http://android-review.linaro.org/17155
-apply --linaro device/linaro/hikey 17155/8
+apply --linaro device/linaro/hikey 17155/16
 
 ## For using drm_hwcomposer introduced by kernel change here:
 ## https://android-review.googlesource.com/c/kernel/hikey-linaro/+/743922
