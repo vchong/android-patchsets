@@ -161,7 +161,7 @@ cd -
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# add wv components
 	# https://android-review.linaro.org/20212
-	apply --linaro device/linaro/hikey 20212/17
+	apply --linaro device/linaro/hikey 20212/21
 
 	# placeholder for internal wv patches
 	#apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 1234/5
