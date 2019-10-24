@@ -1,0 +1,80 @@
+#!/bin/bash
+
+### HiKey{,960} OPTEE "patch" for pull-requests coming from Github
+###
+### This patches the local manifest to adhere to what the SWG
+### recommends as the starting point for OPTEE on HiKey{,960}, but
+### changes the Git revision of either OPTEE OS or Client to
+### instead use a pull-request from Github, whichever
+### triggered this build job.
+###
+### If a pull-request doesn't exist, and OPTEE_VER is set to a
+### value that's not 'master, this changes the revision of optee_*
+### repos in the local manifest from master (default value) to
+### a tagged version defined by OPTEE_VER. OPTEE_VER is a string
+### param in configs.git which can be changed prior to starting a
+### Jenkins build manually. This is used for testing releases.
+
+function sync_regen_man(){
+        repo sync optee/optee_os external/optee_client external/optee_test
+        repo sync external/optee_examples
+        #repo sync device/linaro/kmgk
+
+        #echo "Sync HiKey960 bootloader repos"
+        #repo sync optee/arm-trusted-firmware optee/edk2 optee/OpenPlatformPkg optee/l-loader optee/tools-images-hikey960 optee/uefi-tools
+
+        echo "Regenerate manifest"
+        repo manifest -r -o pinned-manifest.xml
+}
+
+if [ "${ghprbPullId}" ]; then
+    echo "Applying Github pull-request #${ghprbPullId} from ${ghprbGhRepository}"
+
+    lm=.repo/local_manifests
+    if [ -d ${lm} ]; then
+        # Disable this since we've moved swg-<ver>-hikey{,960.xml} to manifest.git/optee.xml
+        #echo "Get SWG's local manifest for OPTEE HiKey{,960} AOSP <ver>"
+        #wget -O ${lm}/swg.xml \
+        #    https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-<ver>-hikey{,960}.xml
+
+        # Patch SWG's local manifest with pull-request
+        project=${ghprbGhRepository#linaro-swg/*}
+        if [ "${project}" = "optee_examples" ]; then
+            sed -i -e "s|name=\"linaro-swg/${project}\".*revision=\"master\"|name=\"linaro-swg/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/optee.xml
+         else
+            project=${ghprbGhRepository#OP-TEE/*}
+            sed -i -e "s|name=\"OP-TEE/${project}\".*revision=\"master\"|name=\"OP-TEE/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/optee.xml
+	fi
+
+        # "Patch" OP-TEE to SWG + pull-request
+        echo "Resync ${project} to PR ${ghprbPullId}"
+        # Should really only sync ${project} rather than optee_*
+        # but that will require more messy if-else's
+        sync_regen_man
+    else
+        exit 1
+    fi
+else if [ "${OPTEE_VER}" != "master" ]; then
+    echo "Changing revision for optee_* repos to refs/tags/${OPTEE_VER} for release testing"
+
+    lm=.repo/local_manifests
+    if [ -d ${lm} ]; then
+        # Change SWG's local manifest with release tag
+        for i in optee_test optee_client optee_os
+        do
+            sed -i -e "s|name=\"OP-TEE/${i}\".*revision=\"master\"|name=\"OP-TEE/${i}\" revision=\"refs/tags/${OPTEE_VER}\"|" ${lm}/optee.xml
+        done
+        for i in optee_examples
+        do
+            sed -i -e "s|name=\"linaro-swg/${i}\".*revision=\"master\"|name=\"linaro-swg/${i}\" revision=\"refs/tags/${OPTEE_VER}\"|" ${lm}/optee.xml
+        done
+
+        # Change OP-TEE to release tag
+        echo "Resync optee_* repos to ${OPTEE_VER}"
+        sync_regen_man
+    else
+        exit 1
+    fi
+else
+    echo "WARNING: No Github pull-request or version change request was identified."
+fi
