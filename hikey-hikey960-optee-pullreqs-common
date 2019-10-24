@@ -1,9 +1,9 @@
 #!/bin/bash
 
-### HiKey OPTEE "patch" for pull-requests coming from Github
+### HiKey{,960} OPTEE "patch" for pull-requests coming from Github
 ###
 ### This patches the local manifest to adhere to what the SWG
-### recommends as the starting point for OPTEE on HiKey, but
+### recommends as the starting point for OPTEE on HiKey{,960}, but
 ### changes the Git revision of either OPTEE OS or Client to
 ### instead use a pull-request from Github, whichever
 ### triggered this build job.
@@ -13,10 +13,10 @@ if [ "${ghprbPullId}" ]; then
 
     lm=.repo/local_manifests
     if [ -d ${lm} ]; then
-        #Disable this since we've moved swg-master.xml to manifest.git/optee.xml
-        #echo "Get SWG's local manifest for OPTEE HiKey AOSP master"
+        # Disable this since we've moved swg-<ver>-hikey{,960.xml} to manifest.git/optee.xml
+        #echo "Get SWG's local manifest for OPTEE HiKey{,960} AOSP <ver>"
         #wget -O ${lm}/swg.xml \
-        #    https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-master.xml
+        #    https://raw.githubusercontent.com/linaro-swg/optee_android_manifest/lcr-ref-hikey/swg-<ver>-hikey{,960}.xml
 
         # Patch SWG's local manifest with pull-request
         project=${ghprbGhRepository#OP-TEE/*}
@@ -26,6 +26,9 @@ if [ "${ghprbPullId}" ]; then
         echo "Resync optee related repos to master"
         repo sync OP-TEE/optee_os OP-TEE/optee_client OP-TEE/optee_test
         #repo sync device/linaro/kmgk
+
+        #echo "Sync HiKey960 bootloader repos"
+        #repo sync optee/arm-trusted-firmware optee/edk2 optee/OpenPlatformPkg optee/l-loader optee/tools-images-hikey960 optee/uefi-tools
 
         echo "Regenerate manifest"
         repo manifest -r -o pinned-manifest.xml
