@@ -54,11 +54,16 @@ if [ "${ghprbPullId}" ]; then
     else
         exit 1
     fi
-else if [ "${OPTEE_VER}" != "master" ]; then
+elif [ "${OPTEE_VER}" != "master" ]; then
     echo "Changing revision for optee_* repos to refs/tags/${OPTEE_VER} for release testing"
 
     lm=.repo/local_manifests
     if [ -d ${lm} ]; then
+        echo "First clean ${lm} up of previous changes if any"
+        echo ""
+        cd ${lm} && git status && echo "" && git checkout -- optee.xml && git status && echo -n "cd " && cd -
+        echo ""
+
         # Change SWG's local manifest with release tag
         for i in optee_test optee_client optee_os
         do
