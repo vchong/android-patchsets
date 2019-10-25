@@ -15,9 +15,9 @@
 ### param in configs.git which can be changed prior to starting a
 ### Jenkins build manually. This is used for testing releases.
 
-function sync_regen_man(){
-        repo sync optee/optee_os external/optee_client external/optee_test
-        repo sync external/optee_examples
+sync_regen_man() {
+        #repo sync optee/optee_os external/optee_client external/optee_test
+        #repo sync external/optee_examples
         #repo sync device/linaro/kmgk
 
         #echo "Sync HiKey960 bootloader repos"
