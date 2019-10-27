@@ -81,7 +81,10 @@ if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"lin
 
 	# fastboot: mark nvme partition as ext4
 	# https://github.com/vchong/OpenPlatformPkg/commit/162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48
-	git fetch https://github.com/vchong/OpenPlatformPkg refact_960 && git cherry-pick 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48
+        cd optee/OpenPlatformPkg && \
+        git fetch https://github.com/vchong/OpenPlatformPkg refact_960 && \
+        git cherry-pick 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48 && \
+        cd -
 	# Below uses "curl <url>.patch|git am" (see file named functions) but
 	# fails. For details see
 	# https://ci.linaro.org/job/android-hikey960-optee-p/255/consoleText
