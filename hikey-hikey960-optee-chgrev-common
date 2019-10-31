@@ -16,9 +16,9 @@
 ### Jenkins build manually. This is used for testing releases.
 
 sync_regen_man() {
-        #repo sync optee/optee_os external/optee_client external/optee_test
-        #repo sync external/optee_examples
-        #repo sync device/linaro/kmgk
+        repo sync optee/optee_os external/optee_client external/optee_test
+        repo sync external/optee_examples
+        repo sync device/linaro/kmgk
 
         #echo "Sync HiKey960 bootloader repos"
         #repo sync optee/arm-trusted-firmware optee/edk2 optee/OpenPlatformPkg optee/l-loader optee/tools-images-hikey960 optee/uefi-tools
