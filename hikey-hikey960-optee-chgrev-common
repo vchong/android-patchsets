@@ -39,7 +39,7 @@ if [ "${ghprbPullId}" ]; then
 
         # Patch SWG's local manifest with pull-request
         project=${ghprbGhRepository#linaro-swg/*}
-        if [ "${project}" = "optee_examples" ]; then
+        if [ "${project}" = "optee_examples" ] || [ "${project}" = "kmgk" ]; then
             sed -i -e "s|name=\"linaro-swg/${project}\".*revision=\"master\"|name=\"linaro-swg/${project}\" revision=\"refs/pull/${ghprbPullId}/head\"|" ${lm}/optee.xml
          else
             project=${ghprbGhRepository#OP-TEE/*}
@@ -69,7 +69,7 @@ elif [ "${OPTEE_VER}" != "master" ]; then
         do
             sed -i -e "s|name=\"OP-TEE/${i}\".*revision=\"master\"|name=\"OP-TEE/${i}\" revision=\"refs/tags/${OPTEE_VER}\"|" ${lm}/optee.xml
         done
-        for i in optee_examples
+        for i in optee_examples kmgk
         do
             sed -i -e "s|name=\"linaro-swg/${i}\".*revision=\"master\"|name=\"linaro-swg/${i}\" revision=\"refs/tags/${OPTEE_VER}\"|" ${lm}/optee.xml
         done
