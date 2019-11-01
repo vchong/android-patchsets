@@ -21,3 +21,7 @@ fi
 ## am57xx-beagle-x15-common.dtsi: disable android-fstab in DT
 ## https://android-review.googlesource.com/c/kernel/omap/+/1144210
 apply --local kernel/ti/4.19  --remote kernel/omap 1144210/1
+
+## android.cfg: set value for androidboot.verifiedbootstate and androidboot.bootdevices
+## https://android-review.googlesource.com/c/kernel/omap/+/1157125
+apply --local kernel/ti/4.19  --remote kernel/omap 1157125/1
