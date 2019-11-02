@@ -71,7 +71,10 @@ apply --linaro device/linaro/bootloader/OpenPlatformPkg 20452/1
 ## these can be enabled via optee_android_manifest sync scripts
 ## optee: set dbg log lvl for core and TA
 ## http://android-review.linaro.org/20096
-apply --linaro device/linaro/hikey 20096/13
+if [ "${OPTEE_OS_DBG}" = "y" ]; then
+	echo "Set dbg log lvl for optee_os core and TA"
+	apply --linaro device/linaro/hikey 20096/13
+fi
 
 #######################################################
 ## Patches for hikey960                           #####
@@ -93,7 +96,10 @@ if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"lin
 	# these can be enabled via optee_android_manifest sync scripts
 	# optee: set dbg log lvl for core and TA
 	# https://github.com/vchong/uefi-tools/commit/a581c9bbf8118ee5b20b7121e9a2bd24612a6c70
-	curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
+	if [ "${OPTEE_OS_DBG}" = "y" ]; then
+		echo "Set dbg log lvl for hikey960 optee_os core and TA"
+		curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
+	fi
 fi
 
 
@@ -122,7 +128,10 @@ fi
 
 # set log levels to 4
 # https://github.com/vchong/optee_client/commit/cf7c607f6bf2f4f637f69eac2764d79011694f7c
-#curl_am_optee optee_client cf7c607f6bf2f4f637f69eac2764d79011694f7c external/optee_client vchong
+if [ "${OPTEE_CLN_DBG}" = "y" ]; then
+	echo "Set optee_client log levels to 4"
+	curl_am_optee optee_client cf7c607f6bf2f4f637f69eac2764d79011694f7c external/optee_client vchong
+fi
 
 # use /persist/tee as secure storage path
 # https://github.com/vchong/optee_client/commit/68e907e6c6a05c2e5c8603079dfae5927fce4430
