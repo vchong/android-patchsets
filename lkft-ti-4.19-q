@@ -38,4 +38,6 @@ if [ -d kernel/ti/4.19 ]; then
         # for lcr projects
         apply --local kernel/ti/4.19  --remote kernel/omap 1157323/1
     fi
+elif [ -d kernel/omap/4.19 ]; then
+    apply --local kernel/omap/4.19  --remote kernel/omap 1157323/1
 fi
