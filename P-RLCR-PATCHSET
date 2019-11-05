@@ -69,7 +69,7 @@ apply --linaro external/drm_hwcomposer 20694/1
 
 ## temp: compatibility_matrices: added 4.19 kernel support
 ## http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2
-curl_am http://git.ti.com/android/platform-hardware-interfaces/commit/4b03e692d337eafd0b1254bd30fa235f103409a2?format=patch hardware/interfaces
+curl_am https://git.ti.com/cgit/android/platform-hardware-interfaces/patch/?id=4b03e692d337eafd0b1254bd30fa235f103409a2 hardware/interfaces
 
 if [ -d external/u-boot ]; then
 ## Patch from AOSP master for mkimage
