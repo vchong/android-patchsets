@@ -56,9 +56,14 @@ curl_am https://git.ti.com/cgit/android/platform-system-core/patch/?id=949450945
 
 ## revert change of "Make libdrm recovery_available" from master branch
 revert external/libdrm d9aac04d6cd8fb78ad600fe4d252b94877ba39bf
-
 ## revert change of ""Convert Android.mk file to Android.bp" from master branch
 revert external/libdrm 93a3ae4bab125e183b105adf981bd6044dbbf03b
+## modetest: add the ability to specify fill patterns on the commandline
+revert external/libdrm 5d0e9dec3fb3eb019bb9fd4b1e3d32484198917f
+## Revert "util: add fp16 format support"
+revert external/libdrm b59d14e7fce6b7597511be190f4202bb4bec7919
+## Revert "util: add gradient pattern"
+revert external/libdrm e5442195fbe01df92658d7df7030507e3dc6c89e
 
 ## revert "Convert external/drm_hwcomposer to Android.bp"
 revert external/drm_hwcomposer 57f97357b5283f6cc74849b09a46c3aa2ee79463
