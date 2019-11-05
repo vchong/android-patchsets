@@ -29,15 +29,14 @@ fi
 ## android.cfg: set value for androidboot.verifiedbootstate and androidboot.bootdevices
 ## https://android-review.googlesource.com/c/kernel/omap/+/1157125
 ## https://android-review.googlesource.com/c/kernel/omap/+/1157323
-if [ -d kernel/ti/4.19 ]; then
-    if [ -d kernel/omap/4.19 ]; then
-        # for lkft projects
-        apply --local kernel/ti/4.19  --remote kernel/omap 1157125/1
-        apply --local kernel/omap/4.19  --remote kernel/omap 1157323/1
-    else
-        # for lcr projects
-        apply --local kernel/ti/4.19  --remote kernel/omap 1157323/1
-    fi
-elif [ -d kernel/omap/4.19 ]; then
+if [ -f kernel/ti/4.19/arch/arm/configs/ti_sdk_am57x_android_release_defconfig ]; then
+    # for omap kernel in lcr build
+    apply --local kernel/ti/4.19  --remote kernel/omap 1157323/1
+else
+    # for ti kernel in lkft tree
+    apply --local kernel/ti/4.19  --remote kernel/omap 1157125/1
+fi
+if [ -d kernel/omap/4.19 ]; then
+    # for omap kernel in lkft tree
     apply --local kernel/omap/4.19  --remote kernel/omap 1157323/1
 fi
