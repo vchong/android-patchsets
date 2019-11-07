@@ -38,32 +38,32 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20669/4
 
 ## Changes on DRM for hikey960 with android-mainline
 # drm: kirin: Introduce kirin960
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=9cb92a86151c6085a8f2d8f720471795fc0e13c0
-apply_jstultz_mainline_patch 9cb92a86151c6085a8f2d8f720471795fc0e13c0
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b21aad84e427c5555d8ef49fffec143a3704572f
+apply_jstultz_mainline_patch b21aad84e427c5555d8ef49fffec143a3704572f
 # drm: kirin: Add kirin960 dpe driver support
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=1edf9816f379bacc19da60fbbb0c954eb15a539c
-apply_jstultz_mainline_patch 1edf9816f379bacc19da60fbbb0c954eb15a539c
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=e37c6258e72753eac0704ddc02f33c67fca06241
+apply_jstultz_mainline_patch e37c6258e72753eac0704ddc02f33c67fca06241
 # drm: kirin: Remove LDI enable
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=fecebab09cdb06add9a1a428d43f71ecedce3020
-apply_jstultz_mainline_patch fecebab09cdb06add9a1a428d43f71ecedce3020
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a541817594f58835b96d76b824dbfe857e0c8837
+apply_jstultz_mainline_patch a541817594f58835b96d76b824dbfe857e0c8837
 # drm: kirin: remove wait for VACTIVE IRQ
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=0e55d4060fd1ae8a0f442975db857e04f02a624c
-apply_jstultz_mainline_patch 0e55d4060fd1ae8a0f442975db857e04f02a624c
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a91dd9cc49801a03a5d9dae03cecf9a5b65ba5b5
+apply_jstultz_mainline_patch a91dd9cc49801a03a5d9dae03cecf9a5b65ba5b5
 # drm: kirin_drm_dpe: Fix rdma_stride calculation
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=e936bdd50a22c21c73a224ef10e2b4de1f7288d7
-apply_jstultz_mainline_patch e936bdd50a22c21c73a224ef10e2b4de1f7288d7
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=8214e11bee8341829ecdc8381d9b13a7b423995d
+apply_jstultz_mainline_patch 8214e11bee8341829ecdc8381d9b13a7b423995d
 # drm: kirin960: Remove one mode-line that seems to be causing trouble
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=eadfb09b70c7c7c0a2b61cf0a109a822abfa77c3
-apply_jstultz_mainline_patch eadfb09b70c7c7c0a2b61cf0a109a822abfa77c3
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=978c517fb6cb1b44819ab1950361c5c956e546e2
+apply_jstultz_mainline_patch 978c517fb6cb1b44819ab1950361c5c956e546e2
 # drm: kirin960: Fix issue seen with HDMI hotplug
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=e094474c58ce512d150127a4f5f0740ccf6783bc
-apply_jstultz_mainline_patch e094474c58ce512d150127a4f5f0740ccf6783bc
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=42a4a52a683d0413ef4fd063fc3596c855ce16ec
+apply_jstultz_mainline_patch 42a4a52a683d0413ef4fd063fc3596c855ce16ec
 # drm: kirin: Fix Makefile to correct for module builds
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=f0dfa639697278b247251c1d63a2e2ec53307bba
-apply_jstultz_mainline_patch f0dfa639697278b247251c1d63a2e2ec53307bba
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=322874c075719fb9d43c7e9eca594389fba0e393
+apply_jstultz_mainline_patch 322874c075719fb9d43c7e9eca594389fba0e393
 # kirin_dpe build fix (fold down)
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=cdea042f94fddf97f015565adb7a99746502333b
-apply_jstultz_mainline_patch cdea042f94fddf97f015565adb7a99746502333b
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b538300faabfd9ef87bbf6e2fa4916b2810dffae
+apply_jstultz_mainline_patch b538300faabfd9ef87bbf6e2fa4916b2810dffae
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
@@ -80,12 +80,6 @@ apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/gki-hikey960-android-mainline&id=8c8c937e33739704d49f75a63416d105e25a6040
 ## http://android-review.linaro.org/c/kernel/common/+/20862
 apply --linaro --local kernel/common/mainline --remote kernel/common 20862/1
-## usb: dwc3: Execute GCTL Core Soft Reset while switch mdoe for Hisilicon Kirin Soc
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3?id=b57dc9511a8c0e1d303ed8311234331a184fdcb1
-apply_jstultz_mainline_patch b57dc9511a8c0e1d303ed8311234331a184fdcb1
-## usb: dwc3: Increase timeout for CmdAct cleared by device controller
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/hikey960-mainline-WIP&id=14bc27467fb3564d4cf40f847c4f935df0c455af
-apply_jstultz_mainline_patch 14bc27467fb3564d4cf40f847c4f935df0c455af
 ## usb: dwc3: Registering a role switch in the DRD code.
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=2d9ac7718ceade14df3ff775e71682883e212e0f
 apply_jstultz_mainline_patch 2d9ac7718ceade14df3ff775e71682883e212e0f
@@ -98,11 +92,5 @@ apply_jstultz_mainline_patch 184fb435233887de2ab1c062141f291354861155
 apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
 
 ## sound: Add hikey960 i2s audio driver
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a7fdb4f7ad80b082a26a889fe70807b216450e58
-apply_jstultz_mainline_patch a7fdb4f7ad80b082a26a889fe70807b216450e58
-
-## Workaround to display homescreen on hdmi monitor
-## Revert "ANDROID: staging: ion: add support for consistent heap ids"
-## http://android-review.linaro.org/c/kernel/common/+/20882
-## https://android-review.googlesource.com/c/kernel/common/+/1108639
-apply --linaro --local kernel/common/mainline --remote kernel/common 20882/1
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=858060689add935ddafdeee857244da05e7954fe
+apply_jstultz_mainline_patch 858060689add935ddafdeee857244da05e7954fe
