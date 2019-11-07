@@ -33,3 +33,7 @@ apply_jstultz_mainline_patch 2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
 ## arm64: Fix copy-on-write referencing in HugeTLB
 revert kernel/common/mainline 747a70e60b7234e8fd9c35dd2f2db10ac1db231d
 revert common 747a70e60b7234e8fd9c35dd2f2db10ac1db231d
+
+## Revert "ANDROID: gki_defconfig: enable inline encryption"
+revert kernel/common/mainline 3b6c31f9c08d9ea03f3a24e6a311cec8b2a76988.
+revert common 3b6c31f9c08d9ea03f3a24e6a311cec8b2a76988.
