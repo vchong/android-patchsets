@@ -28,9 +28,3 @@ function apply_jstultz_mainline_patch(){
 ## http://android-review.linaro.org/c/kernel/common/+/20887
 apply --linaro --local common --remote kernel/common 20887/5
 apply --linaro --local kernel/common/mainline --remote kernel/common 20887/5
-
-## Workaround to display homescreen on hdmi monitor
-## Revert "ANDROID: staging: ion: add support for consistent heap ids"
-## http://android-review.linaro.org/c/kernel/common/+/20882
-## https://android-review.googlesource.com/c/kernel/common/+/1108639
-apply --linaro --local common --remote kernel/common 20882/1
