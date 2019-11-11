@@ -29,7 +29,3 @@ function apply_jstultz_mainline_patch(){
 ## usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
 apply_jstultz_mainline_patch 2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
-
-## arm64: Fix copy-on-write referencing in HugeTLB
-revert kernel/common/mainline 747a70e60b7234e8fd9c35dd2f2db10ac1db231d
-revert common 747a70e60b7234e8fd9c35dd2f2db10ac1db231d
