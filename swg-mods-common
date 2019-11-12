@@ -163,7 +163,7 @@ fi
 cd optee/optee_os
 #git fetch https://github.com/vchong/optee_os pull/1/head && git merge --no-edit FETCH_HEAD
 # cherry pick instead of merge so that patches stay on top
-git fetch https://github.com/vchong/optee_os kmgk_pta_rebase2 && git cherry-pick e4e4d9d6cc9a98865571ab1769e5dfbe9b450e1e^..97e12970b6eefc642a9008464955676174aacb35
+git fetch https://github.com/vchong/optee_os kmgk_pta_rebase2 && git cherry-pick c8ec3d05eeaf92a0605f1410075c51ec59f7319c^..87c99db5dee5f209d15c401786ce854d1770d080
 cd -
 
 # temp kmgk patches to test refactoring
