@@ -143,3 +143,7 @@ apply_amit_mainline_patch 5b2307b358573cd2834f947438b42e3d0468c979
 ## db845c: Update build config
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/build.config.db845c?h=dragonboard-android-mainline-tracking&id=b35c74fca800d82486b94583714767d1e5e764af
 apply_amit_mainline_patch b35c74fca800d82486b94583714767d1e5e764af
+
+## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
+apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
