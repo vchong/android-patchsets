@@ -25,8 +25,7 @@ function apply_jstultz_mainline_patch(){
 ################ Linaro hack   ###################
 ##################################################
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
-apply --linaro --local common --remote kernel/common 20784/17
-apply --linaro --local kernel/common/mainline --remote kernel/common 20784/17
+apply --linaro --local kernel/common/mainline --remote kernel/common 20784/18
 
 ## Revert "ANDROID: gki_defconfig: enable inline encryption"
 revert kernel/common/mainline 3b6c31f9c08d9ea03f3a24e6a311cec8b2a76988
