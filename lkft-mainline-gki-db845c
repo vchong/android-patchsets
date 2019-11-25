@@ -17,7 +17,7 @@ fi
 
 function apply_amit_mainline_patch(){
     local commit_id=$1 && shift
-    local target_dir="kernel/common/mainline"
+    local target_dir="common"
     if [ -n "$1" ]; then
         target_dir=$1 && shift
     fi
@@ -28,7 +28,7 @@ function apply_amit_mainline_patch(){
 
 function apply_jstultz_mainline_patch(){
     local commit_id=$1 && shift
-    local target_dir="kernel/common/mainline"
+    local target_dir="common"
     if [ -n "$1" ]; then
         target_dir=$1 && shift
     fi
@@ -160,8 +160,13 @@ apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
 
 ## ANDROID: firmware: qcom_scm-64: Add atomic version of qcom_scm_call
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/firmware?h=dev/db845c-v5.4-gki&id=da93315695cc7f79d25d2e15480badb0b90b3715
-apply_jstultz_mainline_patch da93315695cc7f79d25d2e15480badb0b90b3715 kernel/common/mainline
+apply_jstultz_mainline_patch da93315695cc7f79d25d2e15480badb0b90b3715
 
 ## ANDROID: firmware/qcom_scm: Add scm call to handle smmu errata
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/firmware?h=dev/db845c-v5.4-gki&id=250ff3bda120d43b8b5081dbc0d49389596303cf
-apply_jstultz_mainline_patch 250ff3bda120d43b8b5081dbc0d49389596303cf kernel/common/mainline
+apply_jstultz_mainline_patch 250ff3bda120d43b8b5081dbc0d49389596303cf
+
+## gki_defconfig & db845c_gki.fragment: initial commit
+## http://android-review.linaro.org/c/kernel/common/+/21016
+apply --linaro --local common --remote kernel/common 21016/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21016/1
