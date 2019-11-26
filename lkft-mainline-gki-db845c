@@ -41,13 +41,16 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## arm64: dts/sdm845: Enable FW implemented safe sequence handler on MTP
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=e6da023586fb35290b2fedfb14fc9ea0a13365d7
-apply_amit_mainline_patch e6da023586fb35290b2fedfb14fc9ea0a13365d7
+## http://android-review.linaro.org/c/kernel/common/+/21026
+apply --linaro --local common --remote kernel/common 21026/1
 ## arm64: dts: qcom: sdm845: Add first PCIe controller and PHY
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=bcf7783b1bc95a39f66f287f4a5d6720f08df421
-apply_amit_mainline_patch bcf7783b1bc95a39f66f287f4a5d6720f08df421
+## http://android-review.linaro.org/c/kernel/common/+/21027
+apply --linaro --local common --remote kernel/common 21027/1
 ## arm64: dts: qcom: sdm845: Add second PCIe PHY and controller
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=ae2dd32777ec214ff53dbba726de42f9e0385e1e
-apply_amit_mainline_patch ae2dd32777ec214ff53dbba726de42f9e0385e1e
+## http://android-review.linaro.org/c/kernel/common/+/21025
+apply --linaro --local common --remote kernel/common 21025/2
 ## arm64: dts: qcom: sdm845: Add APSS watchdog node
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=0792ff529eff387f4cfd7fd0804860353d183e9b
 apply_amit_mainline_patch 0792ff529eff387f4cfd7fd0804860353d183e9b
@@ -116,10 +119,12 @@ apply_jstultz_mainline_patch d04dc51ef04f3bc26d5d1f64c30f0b710a9b7481
 
 ## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
-apply_jstultz_mainline_patch 0c3385706d1b6714aafbe4590730001e0917977e
+## http://android-review.linaro.org/c/kernel/common/+/21028
+apply --linaro --local common --remote kernel/common 21028/1
 ## ANDROID: iommu: arm-smmu: Handoff SMR registers and context banks
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=df98d3dfce3c26896361c2aad7a88ba46c7e36a6
-apply_jstultz_mainline_patch df98d3dfce3c26896361c2aad7a88ba46c7e36a6
+## http://android-review.linaro.org/c/kernel/common/+/21029
+apply --linaro --local common --remote kernel/common 21029/1
 
 ## usb: xhci: add firmware loader for uPD720201 and uPD720202 w/o ROM
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=8b67a5c0e83d685bd3024d90c7baf3f352dcc0e6
