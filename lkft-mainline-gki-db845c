@@ -172,6 +172,6 @@ apply_jstultz_mainline_patch da93315695cc7f79d25d2e15480badb0b90b3715
 apply_jstultz_mainline_patch 250ff3bda120d43b8b5081dbc0d49389596303cf
 
 ## gki_defconfig & db845c_gki.fragment: initial commit
-## http://android-review.linaro.org/c/kernel/common/+/21016
-apply --linaro --local common --remote kernel/common 21016/1
-apply --linaro --local kernel/common/mainline --remote kernel/common 21016/1
+## http://android-review.linaro.org/c/kernel/common/+/21034
+apply --linaro --local common --remote kernel/common 21034/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21034/1
