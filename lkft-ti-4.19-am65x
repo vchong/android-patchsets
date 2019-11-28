@@ -1,0 +1,54 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+### workaround for adb reboot stall problem with am65x pie build
+if [ -d kernel/ti/4.19 ]; then
+    # FROMGIT: of/platform: Pause/resume sync state during init and of_platform_populate()
+    revert kernel/ti/4.19 7787133cd6d1ee0e2afbeac9c149394dc72e7f39
+
+
+    # ANDROID: driver core: Allow fwnode_operations.add_links to differentiate errors
+    revert kernel/ti/4.19 82c1ffc6a8a79977e84d7cb2e0783ef49b66c5d4
+    # ANDROID: driver core: Allow a device to wait on optional suppliers
+    revert kernel/ti/4.19 5cbee8cf4c5382a0e5b1aeb0969c66d65a186bbe
+    # BACKPORT: FROMGIT: driver core: Add sync_state driver/bus callback
+    revert kernel/ti/4.19 e9cf9946a15af3186d538a4b97b192199010ef24
+    # FROMGIT: driver: core: Improve documentation for fwnode_operations.add_links()
+    revert kernel/ti/4.19 d6feec4718e647cfc9dcd6eb386c708100c93510
+    # FROMGIT: driver core: Add support for linking devices during device addition
+    revert kernel/ti/4.19 712b3a0b220bc01c789914461d6bb3e7fc837779
+
+
+    # FROMGIT: of: property: Skip adding device links to suppliers that aren't devices
+    revert kernel/ti/4.19 9851ce46a465
+    # ANDROID: of: property: Enable of_devlink by default
+    revert kernel/ti/4.19 ba3aa33b8f23
+
+    # ANDROID: of: property: Make sure child dependencies don't block probing of parent
+    revert kernel/ti/4.19 5e64fb898677
+    # FROMGIT: of: property: Minor code formatting/style clean ups
+    revert kernel/ti/4.19 7e4bb835100a
+    # ANDROID: of/property: Add device link support for iommus
+    revert kernel/ti/4.19 56af6fc5e857
+    # FROMGIT: of: property: Create device links for all child-supplier depencencies
+    revert kernel/ti/4.19 aa15e957cef4
+    # BACKPORT: FROMGIT: of: property: Add functional dependency link from DT bindings
+    revert kernel/ti/4.19 4dd6b00466a5
+fi
