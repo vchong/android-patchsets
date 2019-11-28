@@ -39,34 +39,10 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## arm64: dts/sdm845: Enable FW implemented safe sequence handler on MTP
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=e6da023586fb35290b2fedfb14fc9ea0a13365d7
-## http://android-review.linaro.org/c/kernel/common/+/21026
-apply --linaro --local common --remote kernel/common 21026/1
-## arm64: dts: qcom: sdm845: Add first PCIe controller and PHY
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=bcf7783b1bc95a39f66f287f4a5d6720f08df421
-## http://android-review.linaro.org/c/kernel/common/+/21027
-apply --linaro --local common --remote kernel/common 21027/1
-## arm64: dts: qcom: sdm845: Add second PCIe PHY and controller
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=ae2dd32777ec214ff53dbba726de42f9e0385e1e
-## http://android-review.linaro.org/c/kernel/common/+/21025
-apply --linaro --local common --remote kernel/common 21025/2
-## arm64: dts: qcom: sdm845: Add APSS watchdog node
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845.dtsi?h=dragonboard-android-mainline-tracking&id=0792ff529eff387f4cfd7fd0804860353d183e9b
-apply_amit_mainline_patch 0792ff529eff387f4cfd7fd0804860353d183e9b
-
-## arm64: dts: qcom: db845c: Enable PCIe controllers
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845-db845c.dts?h=dragonboard-android-mainline-tracking&id=8857c881f9fe2087d59f67261dc1d844f7888093
-apply_amit_mainline_patch 8857c881f9fe2087d59f67261dc1d844f7888093
-## arm64: dts: qcom: db845c: Enable LVS 1 and 2
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845-db845c.dts?h=dragonboard-android-mainline-tracking&id=6fd992b0ea9ade778bad6c4dd29cefaa562bef90
-apply_amit_mainline_patch 6fd992b0ea9ade778bad6c4dd29cefaa562bef90
-## arm64: dts: qcom: sdm845-db845c: Bring in LT9611
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845-db845c.dts?h=dragonboard-android-mainline-tracking&id=44599f11ca9709771c224277fa2eefdbcbcc2b45
-apply_amit_mainline_patch 44599f11ca9709771c224277fa2eefdbcbcc2b45
-## arm64: dts: db845c: add Low speed expansion i2c and spi nodes
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845-db845c.dts?h=dragonboard-android-mainline-tracking&id=f9f9dd1eb74be5c176471d67865f946d2a6862b7
-apply_amit_mainline_patch f9f9dd1eb74be5c176471d67865f946d2a6862b7
+## gki_defconfig & db845c_gki.fragment: initial commit
+## http://android-review.linaro.org/c/kernel/common/+/21034
+apply --linaro --local common --remote kernel/common 21034/2
+apply --linaro --local kernel/common/mainline --remote kernel/common 21034/2
 
 ## drivers: thermal: Initialize thermal core earlier
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/thermal?h=dragonboard-android-mainline-tracking&id=28c6103b23d971f44973f128418317e04d5ab6e8
@@ -145,20 +121,6 @@ apply_jstultz_mainline_patch f7d869b28a61fd1c8a9256dbeb01e9456e1183e5
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=e539422f1a5b64e593629ab3c517e90d35a9906b
 apply_jstultz_mainline_patch e539422f1a5b64e593629ab3c517e90d35a9906b
 
-## db845c: Add db845c_defconfig
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/configs/db845c_defconfig?h=dev/db845c-v5.4-gki&id=dbbe3fa22f7ba583d3cb4b0998aedc564f95db82
-apply_jstultz_mainline_patch dbbe3fa22f7ba583d3cb4b0998aedc564f95db82
-## db845c_defconfig: Add test power supplydev/db845c-v5.4-gki
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/configs/db845c_defconfig?h=dev/db845c-v5.4-gki&id=59db7f3be131cfe1ecf37fa30accb908bc457e4c
-apply_jstultz_mainline_patch 59db7f3be131cfe1ecf37fa30accb908bc457e4c
-
-## db845c: Add build config
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/build.config.db845c?h=dragonboard-android-mainline-tracking&id=5b2307b358573cd2834f947438b42e3d0468c979
-apply_amit_mainline_patch 5b2307b358573cd2834f947438b42e3d0468c979
-## db845c: Update build config
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/build.config.db845c?h=dragonboard-android-mainline-tracking&id=b35c74fca800d82486b94583714767d1e5e764af
-apply_amit_mainline_patch b35c74fca800d82486b94583714767d1e5e764af
-
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
 apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
@@ -170,8 +132,3 @@ apply_jstultz_mainline_patch da93315695cc7f79d25d2e15480badb0b90b3715
 ## ANDROID: firmware/qcom_scm: Add scm call to handle smmu errata
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/firmware?h=dev/db845c-v5.4-gki&id=250ff3bda120d43b8b5081dbc0d49389596303cf
 apply_jstultz_mainline_patch 250ff3bda120d43b8b5081dbc0d49389596303cf
-
-## gki_defconfig & db845c_gki.fragment: initial commit
-## http://android-review.linaro.org/c/kernel/common/+/21034
-apply --linaro --local common --remote kernel/common 21034/1
-apply --linaro --local kernel/common/mainline --remote kernel/common 21034/1
