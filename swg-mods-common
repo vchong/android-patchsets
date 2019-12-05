@@ -129,8 +129,8 @@ fi
 # set log levels to 4
 # https://github.com/vchong/optee_client/commit/cf7c607f6bf2f4f637f69eac2764d79011694f7c
 if [ "${OPTEE_CLN_DBG}" = "y" ]; then
-	echo "Set optee_client log levels to 4"
-	curl_am_optee optee_client cf7c607f6bf2f4f637f69eac2764d79011694f7c external/optee_client vchong
+	#echo "Set optee_client log levels to 4"
+	#curl_am_optee optee_client cf7c607f6bf2f4f637f69eac2764d79011694f7c external/optee_client vchong
 fi
 
 # use /persist/tee as secure storage path
