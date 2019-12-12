@@ -39,10 +39,12 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20669/4
 ## Changes on DRM for hikey960 with android-mainline
 # drm: kirin: Introduce kirin960
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b21aad84e427c5555d8ef49fffec143a3704572f
-apply_jstultz_mainline_patch b21aad84e427c5555d8ef49fffec143a3704572f
+# http://android-review.linaro.org/c/kernel/common/+/21069
+apply --linaro --local kernel/common/mainline --remote kernel/common 21069/1
 # drm: kirin: Add kirin960 dpe driver support
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=e37c6258e72753eac0704ddc02f33c67fca06241
-apply_jstultz_mainline_patch e37c6258e72753eac0704ddc02f33c67fca06241
+# http://android-review.linaro.org/c/kernel/common/+/21071
+apply --linaro --local kernel/common/mainline --remote kernel/common 21071/1
 # drm: kirin: Remove LDI enable
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a541817594f58835b96d76b824dbfe857e0c8837
 apply_jstultz_mainline_patch a541817594f58835b96d76b824dbfe857e0c8837
