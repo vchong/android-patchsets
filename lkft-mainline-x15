@@ -50,7 +50,7 @@ apply_sam_mainline_patch f0e2043ae1332579de91e00f11aa880e07b42876
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=8161359590f689d43a62d72cc9dbae404f5cdaa8
 ## apply_sam_mainline_patch 8161359590f689d43a62d72cc9dbae404f5cdaa8
 ## http://android-review.linaro.org/c/kernel/common/+/20521
-apply --linaro --local kernel/common/mainline --remote kernel/common 20521/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 20521/2
 
 ## drivers: gpu: pvr: Import SGX kernel driver
 ## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=a5272d6d898ea460fc2a449d7a29120ebefa282d
