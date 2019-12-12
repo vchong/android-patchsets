@@ -41,12 +41,8 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## gki_defconfig & db845c_gki.fragment: initial commit
 ## http://android-review.linaro.org/c/kernel/common/+/21034
-apply --linaro --local common --remote kernel/common 21034/2
-apply --linaro --local kernel/common/mainline --remote kernel/common 21034/2
-
-## drivers: thermal: Initialize thermal core earlier
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/thermal?h=dragonboard-android-mainline-tracking&id=28c6103b23d971f44973f128418317e04d5ab6e8
-apply_amit_mainline_patch 28c6103b23d971f44973f128418317e04d5ab6e8
+apply --linaro --local common --remote kernel/common 21034/4
+apply --linaro --local kernel/common/mainline --remote kernel/common 21034/4
 
 ## phy: qcom-qmp: Increase PHY ready timeout
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/phy/qualcomm?h=dragonboard-android-mainline-tracking&id=df78c2a1026c0554cf7c3b9ede7485d214d0290f
@@ -65,26 +61,9 @@ apply_amit_mainline_patch 598e10c27e345f9a6a2e684faba949943c2bc1e4
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/gpu/drm/msm?h=dragonboard-android-mainline-tracking&id=589cb23b09e01d2395bccd3bf328fcce87ad29c4
 apply_amit_mainline_patch 589cb23b09e01d2395bccd3bf328fcce87ad29c4
 
-## drm/bridge: Introduce LT9611 DSI to HDMI bridge
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/gpu/drm/bridge?h=dragonboard-android-mainline-tracking&id=2e689901395bee6ab3e3c9cd4c19477b412cab7a
-apply_amit_mainline_patch 2e689901395bee6ab3e3c9cd4c19477b412cab7a
-## drm/bridge: lt9611: Add i2s initialization
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/gpu/drm/bridge?h=dragonboard-android-mainline-tracking&id=296790cbfb674391d487261cf037dc67efd474d1
-apply_amit_mainline_patch 296790cbfb674391d487261cf037dc67efd474d1
-## HACK: db845c: drm/bridge: lt9611: comment out lt9611_sleep_setup()
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/gpu/drm/bridge?h=dragonboard-android-mainline-tracking&id=721acad5f2b8b0d7693d7b543567fd60919cc65b
-apply_amit_mainline_patch 721acad5f2b8b0d7693d7b543567fd60919cc65b
-
 ## DONTMERGE: clk: inherit clocks enabled by bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=8a68a12e0db9b2c65bf084965ae7ad289a77c623
 apply_jstultz_mainline_patch 8a68a12e0db9b2c65bf084965ae7ad289a77c623
-
-## drivers: cpufreq: Initialize governors earlier
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/cpufreq?h=dev/db845c-v5.4-gki&id=16ae39e4635d71f6fd168734e1ef4a0bb491e594
-apply_jstultz_mainline_patch 16ae39e4635d71f6fd168734e1ef4a0bb491e594
-## drivers: cpufreq: Initialize platform drivers earlier
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/cpufreq?h=dev/db845c-v5.4-gki&id=6fbce2070e76da918c214d538f8e471126e8bfc6
-apply_jstultz_mainline_patch 6fbce2070e76da918c214d538f8e471126e8bfc6
 
 ## ANDROID: PCI: qcom: Fix the fixup of PCI_VENDOR_ID_QCOM
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux?h=dev/db845c-v5.4-gki&id=be9286ef61dc41da161b82bebf866c829bd41c16
@@ -124,11 +103,3 @@ apply_jstultz_mainline_patch e539422f1a5b64e593629ab3c517e90d35a9906b
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
 apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
-
-## ANDROID: firmware: qcom_scm-64: Add atomic version of qcom_scm_call
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/firmware?h=dev/db845c-v5.4-gki&id=da93315695cc7f79d25d2e15480badb0b90b3715
-apply_jstultz_mainline_patch da93315695cc7f79d25d2e15480badb0b90b3715
-
-## ANDROID: firmware/qcom_scm: Add scm call to handle smmu errata
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/firmware?h=dev/db845c-v5.4-gki&id=250ff3bda120d43b8b5081dbc0d49389596303cf
-apply_jstultz_mainline_patch 250ff3bda120d43b8b5081dbc0d49389596303cf
