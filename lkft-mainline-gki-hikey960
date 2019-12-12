@@ -31,5 +31,5 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20887/5
 
 ## mm/memory.c: export mm_trace_rss_stat
 ## https://android-review.googlesource.com/c/kernel/common/+/1186617
-apply --local kernel/common/mainline --remote kernel/common 21079/1
-apply --local common --remote kernel/common 21079/1
+apply --local kernel/common/mainline --remote kernel/common 1186617/1
+apply --local common --remote kernel/common 1186617/1
