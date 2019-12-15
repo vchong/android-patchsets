@@ -26,3 +26,14 @@ function apply_jstultz_mainline_patch(){
 ## enable overlay manager to boot
 ## http://android-review.linaro.org/c/kernel/common/+/20511
 apply --linaro --local kernel/common/mainline --remote kernel/common 20511/4
+
+## revert clk: hi6220: use CLK_OF_DECLARE_DRIVER
+revert kernel/common/mainline f1edb498bd9f25936ae3540a8dbd86e6019fdb95
+revert common f1edb498bd9f25936ae3540a8dbd86e6019fdb95
+
+## drm: kirin: Tweak the LDI handling
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=561a6023c9670a67dc459a4893446fb7a0a4dab3
+apply_jstultz_mainline_patch 561a6023c9670a67dc459a4893446fb7a0a4dab3
+## another try at LDI fix
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=9330b636078082a91f6f0f92a9bc25f0f648b470
+apply_jstultz_mainline_patch 9330b636078082a91f6f0f92a9bc25f0f648b470
