@@ -27,11 +27,11 @@ function apply_jstultz_mainline_patch(){
 ## http://android-review.linaro.org/c/kernel/common/+/20519
 apply --linaro --local kernel/common/mainline --remote kernel/common 20519/2
 
-## hi6220.dtsi: temporary workaround for old mali source work
-## http://android-review.linaro.org/c/kernel/common/+/21089
-apply --linaro --local kernel/common/mainline --remote kernel/common 21089/1
+## hi6220.dts: itemporary workaround for new mali source work
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=093c800506e048a0302f1b96299daffba81f4079
+apply_jstultz_mainline_patch 093c800506e048a0302f1b96299daffba81f4079
 
 ## mali source to compile it as a kernel module
 ## Merge of mali related changes for mainline for hikey
 ## https://android-review.linaro.org/c/kernel/common/+/20652
-apply --linaro --local kernel/common/mainline --remote kernel/common 20652/2
+apply --linaro --local kernel/common/mainline --remote kernel/common 20652/3
