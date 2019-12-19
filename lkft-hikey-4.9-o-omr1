@@ -1,0 +1,24 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## enable FBDEV_EMULATION support to work with O-MR1
+## Revert "hikey_defconfig: Remove FBDEV_EMULATION support for drm_hwcomposer"
+## http://android-review.linaro.org/c/kernel/hikey-linaro/+/21100
+apply --linaro --local kernel/linaro/hisilicon-4.9-o --remote kernel/hikey-linaro 21100/1
