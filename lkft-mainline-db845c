@@ -62,19 +62,6 @@ apply_amit_mainline_patch 44599f11ca9709771c224277fa2eefdbcbcc2b45
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/arch/arm64/boot/dts/qcom/sdm845-db845c.dts?h=dragonboard-android-mainline-tracking&id=f9f9dd1eb74be5c176471d67865f946d2a6862b7
 apply_amit_mainline_patch f9f9dd1eb74be5c176471d67865f946d2a6862b7
 
-## phy: qcom-qmp: Increase PHY ready timeout
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/phy/qualcomm?h=dragonboard-android-mainline-tracking&id=df78c2a1026c0554cf7c3b9ede7485d214d0290f
-apply_amit_mainline_patch df78c2a1026c0554cf7c3b9ede7485d214d0290f
-## phy: qcom: qmp: Use power_on/off ops for PCIe
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/phy/qualcomm?h=dragonboard-android-mainline-tracking&id=1bceb86fca505b8e94654ac941ac408209d668b8
-apply_amit_mainline_patch 1bceb86fca505b8e94654ac941ac408209d668b8
-## phy: qcom: qmp: Add SDM845 PCIe QMP PHY support
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/phy/qualcomm?h=dragonboard-android-mainline-tracking&id=0102c668ff9605a2c56311ddb4709a51fdae4d63
-apply_amit_mainline_patch 0102c668ff9605a2c56311ddb4709a51fdae4d63
-## phy: qcom: qmp: Add SDM845 QHP PCIe PHY
-## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/phy/qualcomm?h=dragonboard-android-mainline-tracking&id=598e10c27e345f9a6a2e684faba949943c2bc1e4
-apply_amit_mainline_patch 598e10c27e345f9a6a2e684faba949943c2bc1e4
-
 ## HACK: drm: msm: quiet down plane errors
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/drivers/gpu/drm/msm?h=dragonboard-android-mainline-tracking&id=589cb23b09e01d2395bccd3bf328fcce87ad29c4
 apply_amit_mainline_patch 589cb23b09e01d2395bccd3bf328fcce87ad29c4
@@ -96,13 +83,6 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21083/1
 ## DONTMERGE: clk: inherit clocks enabled by bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=8a68a12e0db9b2c65bf084965ae7ad289a77c623
 apply_jstultz_mainline_patch 8a68a12e0db9b2c65bf084965ae7ad289a77c623
-
-## ANDROID: PCI: qcom: Fix the fixup of PCI_VENDOR_ID_QCOM
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux?h=dev/db845c-v5.4-gki&id=be9286ef61dc41da161b82bebf866c829bd41c16
-apply_jstultz_mainline_patch be9286ef61dc41da161b82bebf866c829bd41c16
-## ANDROID: PCI: qcom: Add support for SDM845 PCIe controller
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/pci/controller/dwc/pcie-qcom.c?h=dev/db845c-v5.4-gki&id=d04dc51ef04f3bc26d5d1f64c30f0b710a9b7481
-apply_jstultz_mainline_patch d04dc51ef04f3bc26d5d1f64c30f0b710a9b7481
 
 ## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
