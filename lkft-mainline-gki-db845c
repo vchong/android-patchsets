@@ -41,8 +41,8 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## gki_defconfig & db845c_gki.fragment: initial commit
 ## http://android-review.linaro.org/c/kernel/common/+/21034
-apply --linaro --local common --remote kernel/common 21034/4
-apply --linaro --local kernel/common/mainline --remote kernel/common 21034/4
+apply --linaro --local common --remote kernel/common 21034/5
+apply --linaro --local kernel/common/mainline --remote kernel/common 21034/5
 
 ## DONTMERGE: clk: inherit clocks enabled by bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=8a68a12e0db9b2c65bf084965ae7ad289a77c623
