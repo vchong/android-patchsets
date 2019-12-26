@@ -27,6 +27,5 @@ function apply_jstultz_mainline_patch(){
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
 apply --linaro --local kernel/common/mainline --remote kernel/common 20784/18
 
-## Revert "ANDROID: gki_defconfig: enable inline encryption"
-revert kernel/common/mainline 3b6c31f9c08d9ea03f3a24e6a311cec8b2a76988
-revert common 3b6c31f9c08d9ea03f3a24e6a311cec8b2a76988
+## revert ANDROID: serdev: add platform device support
+revert common c550a54f23026e92633c5145e8b919cf590a5624

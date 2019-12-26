@@ -29,3 +29,6 @@ function apply_jstultz_mainline_patch(){
 ## usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
 apply_jstultz_mainline_patch 2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
+
+## revert ANDROID: serdev: add platform device support
+revert kernel/common/mainline c550a54f23026e92633c5145e8b919cf590a5624

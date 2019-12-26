@@ -129,6 +129,3 @@ apply_amit_mainline_patch b35c74fca800d82486b94583714767d1e5e764af
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
 apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
-
-## revert ANDROID: serdev: add platform device support
-revert kernel/common/mainline c550a54f23026e92633c5145e8b919cf590a5624
