@@ -32,3 +32,6 @@ apply_jstultz_mainline_patch 2a8dc8cf7b0b209c0d96ed27d79964b97dcf64c2
 
 ## revert ANDROID: serdev: add platform device support
 revert kernel/common/mainline c550a54f23026e92633c5145e8b919cf590a5624
+
+## revert usb: dwc3: gadget: Fix logical condition
+revert kernel/common/mainline 8c7d4b7b3d43c54c0b8c1e4adb917a151c754196
