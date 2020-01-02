@@ -1,0 +1,27 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_jstultz_mainline_patch(){
+    local commit_id=$1 && shift
+    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} kernel/linaro/hisilicon-5.4
+}
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## revert ANDROID: serdev: add platform device support
+revert kernel/common/android-5.4 4070d32e750d5b7ddf97e8b02522eb560f6d2e2b
