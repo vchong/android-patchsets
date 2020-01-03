@@ -23,5 +23,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## revert ANDROID: serdev: add platform device support
-revert kernel/common/android-5.4 4070d32e750d5b7ddf97e8b02522eb560f6d2e2b
