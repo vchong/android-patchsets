@@ -44,8 +44,8 @@ function apply_jstultz_mainline_patch(){
 apply --linaro --local common --remote kernel/common 21034/5
 
 ## DONTMERGE: clk: inherit clocks enabled by bootloader
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=8a68a12e0db9b2c65bf084965ae7ad289a77c623
-apply_jstultz_mainline_patch 8a68a12e0db9b2c65bf084965ae7ad289a77c623
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=724a264cda7816a9bc75fac36e5e7f75954fc2c2
+apply_jstultz_mainline_patch 724a264cda7816a9bc75fac36e5e7f75954fc2c2
 
 ## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
@@ -57,5 +57,5 @@ apply --linaro --local common --remote kernel/common 21028/1
 apply --linaro --local common --remote kernel/common 21029/1
 
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
-apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=409ccd61f19a8b90c74d2c6d4a81fc33921080d2
+apply_jstultz_mainline_patch 409ccd61f19a8b90c74d2c6d4a81fc33921080d2

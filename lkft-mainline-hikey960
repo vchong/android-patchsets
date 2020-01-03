@@ -50,26 +50,26 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21069/1
 # http://android-review.linaro.org/c/kernel/common/+/21071
 apply --linaro --local kernel/common/mainline --remote kernel/common 21071/1
 # drm: kirin: Remove LDI enable
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a541817594f58835b96d76b824dbfe857e0c8837
-apply_jstultz_mainline_patch a541817594f58835b96d76b824dbfe857e0c8837
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=559d18b4a55610bc68b43b76f816365e16d7d5ea
+apply_jstultz_mainline_patch 559d18b4a55610bc68b43b76f816365e16d7d5ea
 # drm: kirin: remove wait for VACTIVE IRQ
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=a91dd9cc49801a03a5d9dae03cecf9a5b65ba5b5
-apply_jstultz_mainline_patch a91dd9cc49801a03a5d9dae03cecf9a5b65ba5b5
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=9dc3d350ef25c9f1e21963599d905050ad4e7214
+apply_jstultz_mainline_patch 9dc3d350ef25c9f1e21963599d905050ad4e7214
 # drm: kirin_drm_dpe: Fix rdma_stride calculation
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=8214e11bee8341829ecdc8381d9b13a7b423995d
-apply_jstultz_mainline_patch 8214e11bee8341829ecdc8381d9b13a7b423995d
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=bf3acc5a5d82896ca38def1c37f505b3f6fe034d
+apply_jstultz_mainline_patch bf3acc5a5d82896ca38def1c37f505b3f6fe034d
 # drm: kirin960: Remove one mode-line that seems to be causing trouble
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=978c517fb6cb1b44819ab1950361c5c956e546e2
-apply_jstultz_mainline_patch 978c517fb6cb1b44819ab1950361c5c956e546e2
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=8fa57fda3d9389df3a5a319c7b7e4527e45f7352
+apply_jstultz_mainline_patch 8fa57fda3d9389df3a5a319c7b7e4527e45f7352
 # drm: kirin960: Fix issue seen with HDMI hotplug
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=42a4a52a683d0413ef4fd063fc3596c855ce16ec
-apply_jstultz_mainline_patch 42a4a52a683d0413ef4fd063fc3596c855ce16ec
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=cd7e4b9a4b2d36e5be910df9f9c5f5e413467d09
+apply_jstultz_mainline_patch cd7e4b9a4b2d36e5be910df9f9c5f5e413467d09
 # drm: kirin: Fix Makefile to correct for module builds
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=322874c075719fb9d43c7e9eca594389fba0e393
-apply_jstultz_mainline_patch 322874c075719fb9d43c7e9eca594389fba0e393
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=c434e9009e2cdb0cb16916d636e3f0f5a0bdb67a
+apply_jstultz_mainline_patch c434e9009e2cdb0cb16916d636e3f0f5a0bdb67a
 # kirin_dpe build fix (fold down)
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b538300faabfd9ef87bbf6e2fa4916b2810dffae
-apply_jstultz_mainline_patch b538300faabfd9ef87bbf6e2fa4916b2810dffae
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=c002fc2bd41c90c173532cefdd02b2f7d35b34f3
+apply_jstultz_mainline_patch c002fc2bd41c90c173532cefdd02b2f7d35b34f3
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
@@ -98,5 +98,5 @@ apply_jstultz_mainline_patch 184fb435233887de2ab1c062141f291354861155
 apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
 
 ## sound: Add hikey960 i2s audio driver
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=858060689add935ddafdeee857244da05e7954fe
-apply_jstultz_mainline_patch 858060689add935ddafdeee857244da05e7954fe
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=6c6b0dc021299303751dc930d9ec1c8abf2c641f
+apply_jstultz_mainline_patch 6c6b0dc021299303751dc930d9ec1c8abf2c641f

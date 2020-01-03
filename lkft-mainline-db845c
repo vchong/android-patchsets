@@ -85,8 +85,8 @@ apply_amit_mainline_patch 721acad5f2b8b0d7693d7b543567fd60919cc65b
 apply --linaro --local kernel/common/mainline --remote kernel/common 21083/1
 
 ## DONTMERGE: clk: inherit clocks enabled by bootloader
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=8a68a12e0db9b2c65bf084965ae7ad289a77c623
-apply_jstultz_mainline_patch 8a68a12e0db9b2c65bf084965ae7ad289a77c623
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=724a264cda7816a9bc75fac36e5e7f75954fc2c2
+apply_jstultz_mainline_patch 724a264cda7816a9bc75fac36e5e7f75954fc2c2
 
 ## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
@@ -98,23 +98,23 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21028/1
 apply --linaro --local kernel/common/mainline --remote kernel/common 21029/1
 
 ## usb: xhci: add firmware loader for uPD720201 and uPD720202 w/o ROM
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=8b67a5c0e83d685bd3024d90c7baf3f352dcc0e6
-apply_jstultz_mainline_patch 8b67a5c0e83d685bd3024d90c7baf3f352dcc0e6
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=d76d7882108b7690ea24d7e805e431c6a23f377b
+apply_jstultz_mainline_patch d76d7882108b7690ea24d7e805e431c6a23f377b
 ## usb: xhci: handle uPD720201 and uPD720202 w/o ROM
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=1e1db38cbd64d26bc8d7d784ada8b7de325d03eb
-apply_jstultz_mainline_patch 1e1db38cbd64d26bc8d7d784ada8b7de325d03eb
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=bf7a37a8cef1c48ca837ad10829eff70a0d645dc
+apply_jstultz_mainline_patch bf7a37a8cef1c48ca837ad10829eff70a0d645dc
 ## usb: xhci: Use register defined and field names
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=2ecb6c881ba10e99ca315466889b73688021f7c7
-apply_jstultz_mainline_patch 2ecb6c881ba10e99ca315466889b73688021f7c7
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=934c3b0fd3c09b8d26b28210149e0cdf85d26b81
+apply_jstultz_mainline_patch 934c3b0fd3c09b8d26b28210149e0cdf85d26b81
 ## usb: xhci: Add ROM loader for uPD720201
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=55be4d14fe483d935dfa1b17309fe87a1375c43d
-apply_jstultz_mainline_patch 55be4d14fe483d935dfa1b17309fe87a1375c43d
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=bc17ada1518c545025a72b49941d41518ff3ca3c
+apply_jstultz_mainline_patch bc17ada1518c545025a72b49941d41518ff3ca3c
 ## usb: xhci: allow multiple firmware versions
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=f7d869b28a61fd1c8a9256dbeb01e9456e1183e5
-apply_jstultz_mainline_patch f7d869b28a61fd1c8a9256dbeb01e9456e1183e5
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=834d686f33475781da3257c173065f47e9b00b44
+apply_jstultz_mainline_patch 834d686f33475781da3257c173065f47e9b00b44
 ## usb: xhci: provide a debugfs hook for erasing rom
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=e539422f1a5b64e593629ab3c517e90d35a9906b
-apply_jstultz_mainline_patch e539422f1a5b64e593629ab3c517e90d35a9906b
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=a6828bf973da17e6a35ac47e735a748b85eee62c
+apply_jstultz_mainline_patch a6828bf973da17e6a35ac47e735a748b85eee62c
 
 ## db845c: Add build config
 ## https://git.linaro.org/people/amit.pundir/linux.git/commit/build.config.db845c?h=dragonboard-android-mainline-tracking&id=5b2307b358573cd2834f947438b42e3d0468c979
@@ -124,5 +124,5 @@ apply_amit_mainline_patch 5b2307b358573cd2834f947438b42e3d0468c979
 apply_amit_mainline_patch b35c74fca800d82486b94583714767d1e5e764af
 
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
-apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=409ccd61f19a8b90c74d2c6d4a81fc33921080d2
+apply_jstultz_mainline_patch 409ccd61f19a8b90c74d2c6d4a81fc33921080d2
