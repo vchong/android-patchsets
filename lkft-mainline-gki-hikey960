@@ -24,6 +24,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## gki: add hikey960_gki.fragment and udpate gki_defconfig for hikey960 [NEW]
-## http://android-review.linaro.org/c/kernel/common/+/20887
-apply --linaro --local common --remote kernel/common 20887/7
