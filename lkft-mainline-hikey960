@@ -116,10 +116,6 @@ apply_jstultz_mainline_patch 6c6b0dc021299303751dc930d9ec1c8abf2c641f
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/bluetooth/hci_ll.c?id=1f1a6cc78f0a4c17033fec3d6582f8d6ba0781cb
 apply_jstultz_mainline_patch 1f1a6cc78f0a4c17033fec3d6582f8d6ba0781cb
 
-## k3dma: Avoid null pointer traversal
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/dma/k3dma.c?id=86e7f6a6843a2576d2635bc337d630a6a576196f
-apply_jstultz_mainline_patch 86e7f6a6843a2576d2635bc337d630a6a576196f
-
 ## hisi_hikey_usb: Fix of_match_table referecne to fix module loading
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/misc/hisi_hikey_usb.c?id=fe2bd836fbe11e0e23b997e1f5a61ec5077e6da3
 apply_jstultz_mainline_patch fe2bd836fbe11e0e23b997e1f5a61ec5077e6da3
