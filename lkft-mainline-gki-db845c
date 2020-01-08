@@ -43,10 +43,6 @@ function apply_jstultz_mainline_patch(){
 ## http://android-review.linaro.org/c/kernel/common/+/21034
 apply --linaro --local common --remote kernel/common 21034/5
 
-## DONTMERGE: clk: inherit clocks enabled by bootloader
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/clk?h=dev/db845c-v5.4-gki&id=724a264cda7816a9bc75fac36e5e7f75954fc2c2
-apply_jstultz_mainline_patch 724a264cda7816a9bc75fac36e5e7f75954fc2c2
-
 ## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
 ## http://android-review.linaro.org/c/kernel/common/+/21028
