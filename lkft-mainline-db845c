@@ -84,15 +84,6 @@ apply_amit_mainline_patch 721acad5f2b8b0d7693d7b543567fd60919cc65b
 ## http://android-review.linaro.org/c/kernel/common/+/21083
 apply --linaro --local kernel/common/mainline --remote kernel/common 21083/1
 
-## ANDORID: iommu: arm-smmu: Don't blindly use first SMR to calculate mask
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=0c3385706d1b6714aafbe4590730001e0917977e
-## http://android-review.linaro.org/c/kernel/common/+/21028
-apply --linaro --local kernel/common/mainline --remote kernel/common 21028/1
-## ANDROID: iommu: arm-smmu: Handoff SMR registers and context banks
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/iommu/arm-smmu.c?h=dev/db845c-v5.4-gki&id=df98d3dfce3c26896361c2aad7a88ba46c7e36a6
-## http://android-review.linaro.org/c/kernel/common/+/21029
-apply --linaro --local kernel/common/mainline --remote kernel/common 21029/1
-
 ## usb: xhci: add firmware loader for uPD720201 and uPD720202 w/o ROM
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/host/xhci-pci.c?h=dev/db845c-v5.4-gki&id=d76d7882108b7690ea24d7e805e431c6a23f377b
 apply_jstultz_mainline_patch d76d7882108b7690ea24d7e805e431c6a23f377b
