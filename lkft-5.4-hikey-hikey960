@@ -1,0 +1,213 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_hikey_hikey960_patch(){
+    local commit_id=$1 && shift
+    local dir_target="kernel/common/android-5.4-vendor"
+
+    # https://android-git.linaro.org/kernel/common.git/patch/?id=c44b728c78d1c2474bd3afcf4c075593df5080c3
+    curl_am https://android-git.linaro.org/kernel/common.git/patch/?id=${commit_id} ${dir_target}
+}
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## ANDROID: reset: hisi-reboot: adb reboot bootloader
+apply_hikey_hikey960_patch c44b728c78d1c2474bd3afcf4c075593df5080c3
+
+## FROMLIST: k3dma: Avoid null pointer traversal
+apply_hikey_hikey960_patch 636ba4262cd7dc8fe9003cb6e6765642334e511d
+
+## FROMLIST: usb: dwc3: Registering a role switch in the DRD code.
+apply_hikey_hikey960_patch 5cacf3dfb90647c00646a95effd2eb184a8deb0f
+
+## FROMLIST: dt-bindings: usb: generic: Add role-switch-default-mode binding
+apply_hikey_hikey960_patch 104538d0b939fc6445a5356551e9fb70864ba2ee
+
+## FROMLIST: usb: dwc3: Add support for role-switch-default-mode binding
+apply_hikey_hikey960_patch 2a4bbd2ad868728c5868a35a8b72679f3fec0680
+
+## FROMLIST: dt-bindings: usb: dwc3: Allow clock list & resets to be more flexible
+apply_hikey_hikey960_patch 3f1a286dfaec1474476b9d56a402be208f6e26c0
+
+## FROMLIST: usb: dwc3: Rework clock initialization to be more flexible
+apply_hikey_hikey960_patch e1f1e6480a47cc1549bf03e72a4257cf6993bd42
+
+## FROMLIST: usb: dwc3: Rework resets initialization to be more flexible
+apply_hikey_hikey960_patch 7ca55940ed353666ef375a26de00879cd8341ab8
+
+## FROMLIST: dt-bindings: misc: Add bindings for HiSilicon usb hub and data role switch functionality on HiKey960
+apply_hikey_hikey960_patch 8f1bfe9fc0d8c8cd010243b1f3b64a71c8009418
+
+## FROMLIST: misc: hisi_hikey_usb: Driver to support usb functionality of Hikey960
+apply_hikey_hikey960_patch cc17fc1eb5ce6313f3e3054c2421ff54e93e44b1
+
+## FROMLIST: usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
+apply_hikey_hikey960_patch c8c60b8f2ac117dbbaf91a1d73d2a7622d38047f
+
+## ANDROID: config: hikey960_defconfig: Initial hikey960_defconfig
+apply_hikey_hikey960_patch c28e843610110fb40f9f70c21ff74752762c5517
+
+## ANDROID: config: Add hikey960_gki fragment
+apply_hikey_hikey960_patch 30dc75fc56cea352381ece8061d246911dd38b07
+
+## HACK: ion: Set dma_buf_ops.cache_sgt_mapping = true
+apply_hikey_hikey960_patch 61a25f0b2588c675f57b598dc9406df4536a5755
+
+## MALI: r10p0 code drop
+apply_hikey_hikey960_patch 42c9c276303c591403e611ba2acd9366e7025a49
+
+## MALI hikey960 enablement
+apply_hikey_hikey960_patch 4bf4b9640b27867d92cbbe2a8b9d5802e82d45b2
+
+## MALI: Fix make clean issue with missing tests dir
+apply_hikey_hikey960_patch 774f06857c0793c15d1c6d12afcbbe35588819f6
+
+## HACK: MALI: Fixup ACCESS_ONCE removal issues
+apply_hikey_hikey960_patch e5036b7a9c69ce399ba4a533f9255d7155248926
+
+## MALI: Build fixups for 4.15
+apply_hikey_hikey960_patch 323b26dfcae6231c6a64487cf3bd7d0663274ff7
+
+## MALI: fix platform_no_drv_owner.cocci warnings
+apply_hikey_hikey960_patch 2545fff7b84e196ec6eb6dff0063bb712ea1d220
+
+## MALI: fix vma_pages.cocci warnings
+apply_hikey_hikey960_patch a109a10a9b636f5a6119d0a7dbd00f770d73babb
+
+## MALI: fix debugfs_simple_attr.cocci warnings
+apply_hikey_hikey960_patch 8308ee9832ad4e0b3e6239ce381d3a1d7cbd3d0e
+
+## MALI: fix semicolon.cocci warnings
+apply_hikey_hikey960_patch 165c296a543650fd97eb73079c57df9783bb5d8d
+
+## MALI: 4.19-rc build fixup
+apply_hikey_hikey960_patch 68279c213a86aca8cb16ce5b3ffa53d7aadabb1a
+
+## MALI: Build fixup when using O= w/ kernel builds
+apply_hikey_hikey960_patch 6b2f01a47b68ad8568d45460cbb70bd6b9a6b93e
+
+## MALI: mali_kbase_smc.c: define __asmeq for this file only
+apply_hikey_hikey960_patch 680df585729918b8d8be1e5a08477e2ed84a009a
+
+## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
+apply_hikey_hikey960_patch 6d0dcefbdcff55e8ccdd8a828f0dd71a3aa2d19e
+
+## MALI: v4.21/5.0 build fixes
+apply_hikey_hikey960_patch db105c1dda32b8b29fb8ab38b92e7b7075990a17
+
+## MALI: bifrost: Bulid fixup for 5.1-rc
+apply_hikey_hikey960_patch a46d9a8518b536a0f47ff148771491ad71d58436
+
+## MALI: build warning fixes
+apply_hikey_hikey960_patch eae4c5142ba8ce2bbf27cba8d840239649f37390
+
+## MALI: Kbuild: add $(srctree) for -I ccflags
+apply_hikey_hikey960_patch 126bc69068c3a07f851e4544d3364af2e4bf859a
+
+## HACK: Allow hisi-reboot to be a module
+apply_hikey_hikey960_patch 426164d911ebd34b5cd1e4162dccdde8a5a806c2
+
+## ANDROID: fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
+apply_hikey_hikey960_patch 8c674cb08511b109ef9aed6e3c8dbee7375094f2
+
+## config: Introduce generated hikey960_gki_defconfig
+apply_hikey_hikey960_patch 0c93921f8b2d71b25419a3fb35f12d8d3e885146
+
+## hikey_defconfig
+apply_hikey_hikey960_patch 244b399e3f876d56a8d3ea884eb60bc67d08139f
+
+## config: Add hikey_gki fragment
+apply_hikey_hikey960_patch 1116fb300cde79602e1785485a3e9a187a23c0b3
+
+## config: Introduce generated hikey_gki_defconfig
+apply_hikey_hikey960_patch 6df6dd51cb6c884a65785170c6a979cb31a31ed1
+
+## reset: hi6220: Add support for AO reset controller
+apply_hikey_hikey960_patch cdd3149bab950edd852d8070c6e34cbfbd3b4203
+
+## clk: hi6220: use CLK_OF_DECLARE_DRIVER
+apply_hikey_hikey960_patch 8e892102d6b8e77594e20d44b117dd945df19f6f
+
+## arm64: dts: hisilicon: Add Mali-450 MP4 GPU DT entry
+apply_hikey_hikey960_patch b2625f770938069906994a1084f12bf74442832a
+
+## HACK: adv7511: Drop hotplug event to avoid initialization races
+apply_hikey_hikey960_patch 88c692073900ad18783a67916c17c85a30e33934
+
+## Revert "drm: kirin: Fix for hikey620 display offset problem"
+apply_hikey_hikey960_patch 514486866b40a6857c7c33bb3bfdf687d5b2c1da
+
+## HACK: dts: hi6220: Add special mali utgard driver dts properties
+apply_hikey_hikey960_patch 9c33c2f791091eace309625249986b43ab7fa57a
+
+## MALI: drivers/gpu/arm/utgard: Add ARM Mali Utgard r8p1 driver
+apply_hikey_hikey960_patch a7bd42d29e6926a107f65745658cc6eb23092339
+
+## MALI: drivers/gpu/arm/utgard: Fix build issue.
+apply_hikey_hikey960_patch 3652b3c34861f4aa4bc8414702ab6059ca28322c
+
+## MALI: drivers/gpu/arm/utgard: Disable fbdev physical address check
+apply_hikey_hikey960_patch 1c695498f9271d28757ea2bd9e1269c98b684d17
+
+## MALI: drivers/gpu/arm/utgard: add option for custom device tree
+apply_hikey_hikey960_patch e421eddad26c07c31856b68e0ddf759e0fb34c4e
+
+## MALI: mali_hikey: Add hi6220 register definitions and HiKey platform files
+apply_hikey_hikey960_patch 1439813a4de4515d7585328fdcd11fcdf227f6e7
+
+## MALI: mali_ukk_core: Fix potential kernel stack info leak
+apply_hikey_hikey960_patch b7f613790b00e5a003e0704a1a82415df7efacf3
+
+## MALI: Waitqueue API fixups for 4.13-rc
+apply_hikey_hikey960_patch 27a579246ab330dbfb7760474ec020f7d540478e
+
+## MALI: Switch to global_zone_page_state from global_page_state
+apply_hikey_hikey960_patch 0ad23450bde533232da3ae898ff32907a8c85db6
+
+## MALI: Timer api fixups for 4.15-rc
+apply_hikey_hikey960_patch 454b96217e72ceaa3d1468ec0f5b3b0abdefd60f
+
+## MALI: Fixups for 4.16-rc
+apply_hikey_hikey960_patch e613df8d219e70eb46b76c75b0198e0812779cbc
+
+## MALI: Allocation flag fixups
+apply_hikey_hikey960_patch fbe9b0c470dbb8c24cb663d6581035d87647ae1d
+
+## MALI: utgard: Fixup mali_internal_sync_fence to match sync_file
+apply_hikey_hikey960_patch 9d6eef7fc216f7a4c94f376a5b14f375225c0cea
+
+## MALI: utgard build warning fix
+apply_hikey_hikey960_patch 5210fe0bc7eeffdcde3fbe6ff5a8a18eb05a860c
+
+## MALI: 4.20-rc time fixup
+apply_hikey_hikey960_patch dfc883eb686384b20161060e56648e5a3d405256
+
+## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
+apply_hikey_hikey960_patch a83e129b70a4d50ae9c6b2df6a79d24346737d62
+
+## MALI: access_ok fix for 5.0-rc
+apply_hikey_hikey960_patch 811f5bb290a657a9d880b984b25c976131ceed35
+
+## MALI: Build fixup for 5.1-rc
+apply_hikey_hikey960_patch ac08f1943275e6d7b0edeac0a3128a46e135b437
+
+## drivers/gpu/arm/utgard/Kbuild: add srctree for paths to support build out of the kernel tree
+apply_hikey_hikey960_patch d3b3b8cf56186bf78eeae042e5d000ead514171b
+
+## Revert "usb: dwc3: gadget: Fix logical condition"
+apply_hikey_hikey960_patch 56028ef04c48aedf8606030bdf5ff2fd378a40cd
