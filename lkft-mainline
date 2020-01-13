@@ -30,9 +30,5 @@ function apply_jstultz_mainline_patch(){
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=ce028e81b53aec1af97c53153594eae0445ea369
 apply_jstultz_mainline_patch ce028e81b53aec1af97c53153594eae0445ea369
 
-## revert ANDROID: serdev: add platform device support
-revert kernel/common/mainline 9b460a068c2b441d8a8dfb04740004b8b747f10f
-revert kernel/common/mainline c550a54f23026e92633c5145e8b919cf590a5624
-
 ## revert usb: dwc3: gadget: Fix logical condition
 revert kernel/common/mainline 8c7d4b7b3d43c54c0b8c1e4adb917a151c754196
