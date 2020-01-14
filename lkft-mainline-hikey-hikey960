@@ -36,8 +36,8 @@ revert kernel/common/mainline f1edb498bd9f25936ae3540a8dbd86e6019fdb95
 revert common f1edb498bd9f25936ae3540a8dbd86e6019fdb95
 
 ## drm: kirin: Tweak the LDI handling
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=561a6023c9670a67dc459a4893446fb7a0a4dab3
-apply_jstultz_mainline_patch 561a6023c9670a67dc459a4893446fb7a0a4dab3
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=f8b62fd328606c51e4f96edf517f02af889bc7ed
+apply_jstultz_mainline_patch f8b62fd328606c51e4f96edf517f02af889bc7ed
 ## another try at LDI fix
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=9330b636078082a91f6f0f92a9bc25f0f648b470
-apply_jstultz_mainline_patch 9330b636078082a91f6f0f92a9bc25f0f648b470
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=daabc8301e90f1b4ec4ebbd8b36cda7838918a02
+apply_jstultz_mainline_patch daabc8301e90f1b4ec4ebbd8b36cda7838918a02
