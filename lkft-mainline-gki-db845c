@@ -39,10 +39,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## gki_defconfig & db845c_gki.fragment: initial commit
-## http://android-review.linaro.org/c/kernel/common/+/21034
-apply --linaro --local common --remote kernel/common 21034/5
-
-## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=409ccd61f19a8b90c74d2c6d4a81fc33921080d2
-apply_jstultz_mainline_patch 409ccd61f19a8b90c74d2c6d4a81fc33921080d2
