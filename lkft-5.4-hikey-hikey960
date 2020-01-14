@@ -26,9 +26,6 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## ANDROID: reset: hisi-reboot: adb reboot bootloader
-apply_hikey_hikey960_patch c44b728c78d1c2474bd3afcf4c075593df5080c3
-
 ## FROMLIST: k3dma: Avoid null pointer traversal
 apply_hikey_hikey960_patch 636ba4262cd7dc8fe9003cb6e6765642334e511d
 
@@ -118,9 +115,6 @@ apply_hikey_hikey960_patch eae4c5142ba8ce2bbf27cba8d840239649f37390
 
 ## MALI: Kbuild: add $(srctree) for -I ccflags
 apply_hikey_hikey960_patch 126bc69068c3a07f851e4544d3364af2e4bf859a
-
-## HACK: Allow hisi-reboot to be a module
-apply_hikey_hikey960_patch 426164d911ebd34b5cd1e4162dccdde8a5a806c2
 
 ## ANDROID: fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
 apply_hikey_hikey960_patch 8c674cb08511b109ef9aed6e3c8dbee7375094f2
