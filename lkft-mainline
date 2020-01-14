@@ -29,6 +29,3 @@ function apply_jstultz_mainline_patch(){
 ## usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=ce028e81b53aec1af97c53153594eae0445ea369
 apply_jstultz_mainline_patch ce028e81b53aec1af97c53153594eae0445ea369
-
-## revert usb: dwc3: gadget: Fix logical condition
-revert kernel/common/mainline 8c7d4b7b3d43c54c0b8c1e4adb917a151c754196

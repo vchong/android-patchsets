@@ -202,6 +202,3 @@ apply_hikey_hikey960_patch ac08f1943275e6d7b0edeac0a3128a46e135b437
 
 ## drivers/gpu/arm/utgard/Kbuild: add srctree for paths to support build out of the kernel tree
 apply_hikey_hikey960_patch d3b3b8cf56186bf78eeae042e5d000ead514171b
-
-## Revert "usb: dwc3: gadget: Fix logical condition"
-apply_hikey_hikey960_patch 56028ef04c48aedf8606030bdf5ff2fd378a40cd

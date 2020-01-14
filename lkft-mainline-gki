@@ -24,5 +24,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## revert usb: dwc3: gadget: Fix logical condition
-revert common 8c7d4b7b3d43c54c0b8c1e4adb917a151c754196
