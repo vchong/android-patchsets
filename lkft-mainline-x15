@@ -26,41 +26,42 @@ function apply_jstultz_mainline_patch(){
     fi
 }
 
-function apply_sam_mainline_patch(){
+function apply_x15_mainline_patch(){
     local commit_id=$1 && shift
-    curl_am https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=${commit_id} kernel/common/mainline
+    # https://android-git.linaro.org/kernel/common.git/patch/?id=29c3a9780ac275750a8ae664f31c3434b30ddc02
+    curl_am https://android-git.linaro.org/kernel/common.git/patch/?id=${commit_id} kernel/common/mainline
 }
 
 ##################################################
 ################    ###################
 ##################################################
 ## Add ti_config_fragments/ from TI Android kernel v4.19
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7388565a8149845ffd128261125e1669eae7e466
-apply_sam_mainline_patch 7388565a8149845ffd128261125e1669eae7e466
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=29c3a9780ac275750a8ae664f31c3434b30ddc02
+apply_x15_mainline_patch 29c3a9780ac275750a8ae664f31c3434b30ddc02
 
 ## ARM: dts: dra7x-evm: add android early mount partitions
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=4b06880370a7e0c7771a4a9af87aa2672501e724
-apply_sam_mainline_patch 4b06880370a7e0c7771a4a9af87aa2672501e724
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=479c0c5746c57da7782d26e52ca55a5ed1f4d60b
+apply_x15_mainline_patch 479c0c5746c57da7782d26e52ca55a5ed1f4d60b
 
 ## ARM: dts: dra7x, am57x: Fix partitions node names
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=f0e2043ae1332579de91e00f11aa880e07b42876
-apply_sam_mainline_patch f0e2043ae1332579de91e00f11aa880e07b42876
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=53ffa928a25be378d14491513573029ad9406526
+apply_x15_mainline_patch 53ffa928a25be378d14491513573029ad9406526
 
 ## arch: arm: Enable SGX in device tree
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=8161359590f689d43a62d72cc9dbae404f5cdaa8
-## apply_sam_mainline_patch 8161359590f689d43a62d72cc9dbae404f5cdaa8
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
 ## http://android-review.linaro.org/c/kernel/common/+/20521
 apply --linaro --local kernel/common/mainline --remote kernel/common 20521/2
 
 ## drivers: gpu: pvr: Import SGX kernel driver
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=a5272d6d898ea460fc2a449d7a29120ebefa282d
-apply_sam_mainline_patch a5272d6d898ea460fc2a449d7a29120ebefa282d
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=a63b14aea9828d23d63c95f9b6d34c94a3d6d90e
+apply_x15_mainline_patch a63b14aea9828d23d63c95f9b6d34c94a3d6d90e
 
 ## drivers: gpu: pvr: Fix build on kernel v5.0+
-## https://git.linaro.org/people/semen.protsenko/linux-mainline.git/patch/?id=7244da2f2bbc98071f525bd823c1ef6e3229c8b2
-apply_sam_mainline_patch 7244da2f2bbc98071f525bd823c1ef6e3229c8b2
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
+apply_x15_mainline_patch eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
 
 ## drivers: gpu: pvr: dma-buf: rename reservation_object to dma_resv
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=498df5c8c578cd24531aed0937c5c4ab13cdf503
 ## http://android-review.linaro.org/c/kernel/common/+/20868
 apply --linaro --local kernel/common/mainline --remote kernel/common 20868/1
 
@@ -81,5 +82,5 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20868/1
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
 
 ## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/db845c-v5.4-gki&id=935277fc30c043c58fbe174cbbe208758d54c774
-apply_jstultz_mainline_patch 935277fc30c043c58fbe174cbbe208758d54c774 kernel/common/mainline
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=7444beab0a28bbcf9b374b503125a21748d8098e
+apply_x15_mainline_patch 7444beab0a28bbcf9b374b503125a21748d8098e
