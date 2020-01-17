@@ -26,9 +26,6 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## FROMLIST: k3dma: Avoid null pointer traversal
-apply_hikey_hikey960_patch 636ba4262cd7dc8fe9003cb6e6765642334e511d
-
 ## FROMLIST: usb: dwc3: Registering a role switch in the DRD code.
 apply_hikey_hikey960_patch 5cacf3dfb90647c00646a95effd2eb184a8deb0f
 
