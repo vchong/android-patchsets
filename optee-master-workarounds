@@ -40,6 +40,6 @@ if [ -d "${AOSP}/external/optee_test" ]; then
 fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
     ## use host python command
-    ## https://github.com/vchong/optee_os/commit/f000edf35b1076b9aba3321c3490cff9920addab
-    curl_am_optee_vchong optee_os f000edf35b1076b9aba3321c3490cff9920addab optee/optee_os
+    ## https://github.com/vchong/optee_os/commit/34ac4922e11bfe7d6721f35c348606b2f8912081
+    curl_am_optee_vchong optee_os 34ac4922e11bfe7d6721f35c348606b2f8912081 optee/optee_os
 fi
