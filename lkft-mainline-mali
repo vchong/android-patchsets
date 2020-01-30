@@ -34,4 +34,4 @@ apply_jstultz_mainline_patch 6df17351c943d3bfde90a918f318a80931fcee12
 ## mali source to compile it as a kernel module
 ## Merge of mali related changes for mainline for hikey
 ## https://android-review.linaro.org/c/kernel/common/+/20652
-apply --linaro --local kernel/common/mainline --remote kernel/common 20652/3
+apply --linaro --local kernel/common/mainline --remote kernel/common 20652/4
