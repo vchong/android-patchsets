@@ -54,7 +54,12 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20521/2
 
 ## drivers: gpu: pvr: Import SGX kernel driver
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=a63b14aea9828d23d63c95f9b6d34c94a3d6d90e
-apply_x15_mainline_patch a63b14aea9828d23d63c95f9b6d34c94a3d6d90e
+## http://android-review.linaro.org/c/kernel/common/+/20529
+apply --linaro --local kernel/common/mainline --remote kernel/common 20529/3
+
+## PVR: fix the broken problem because of the drop of ioremap_nocahe
+## http://android-review.linaro.org/c/kernel/common/+/21201
+apply --linaro --local kernel/common/mainline --remote kernel/common 21201/1
 
 ## drivers: gpu: pvr: Fix build on kernel v5.0+
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
