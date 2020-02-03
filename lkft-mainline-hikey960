@@ -103,7 +103,8 @@ apply_jstultz_mainline_patch 34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
 apply_jstultz_mainline_patch daeea2e203a38e1c9f67f506cdafb643cd977f8d
 ## usb: gadget: Add configfs attribuite for controling match_existing_only
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/gadget/configfs.c?id=729fd81cf8fdf097861b58f73dd3e8110204bffd
-apply_jstultz_mainline_patch 729fd81cf8fdf097861b58f73dd3e8110204bffd
+## http://android-review.linaro.org/c/kernel/common/+/21215
+apply --linaro --local kernel/common/mainline --remote kernel/common 21215/1
 ## reset: hisi-reboot: adb reboot bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=fe671288fa7ad845e525149d6e4686b692926ff8
 apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
