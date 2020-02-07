@@ -44,7 +44,7 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20669/4
 # drm: kirin: Introduce kirin960
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b21aad84e427c5555d8ef49fffec143a3704572f
 # http://android-review.linaro.org/c/kernel/common/+/21069
-apply --linaro --local kernel/common/mainline --remote kernel/common 21069/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21069/3
 # drm: kirin: Add kirin960 dpe driver support
 # https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=e37c6258e72753eac0704ddc02f33c67fca06241
 # http://android-review.linaro.org/c/kernel/common/+/21071
@@ -73,7 +73,7 @@ apply_jstultz_mainline_patch c002fc2bd41c90c173532cefdd02b2f7d35b34f3
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
-apply --linaro --local kernel/common/mainline --remote kernel/common 20670/5
+apply --linaro --local kernel/common/mainline --remote kernel/common 20670/6
 
 ## hikey960: Support usb functionality of Hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc?h=dev/hikey960-mainline-WIP&id=1c13c7737bbd61c67a7531d5c2db6e037e37a133
@@ -128,3 +128,17 @@ apply_jstultz_mainline_patch c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
 ## reset: hi6220: Add support for AO reset controller
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon/hi6220_reset.c?id=3c2129f92e239d98326608951e815fd413f3ebc6
 apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
+
+
+## drm/exynos: dsi: Fix bridge chain handling
+revert kernel/common/mainline f66ff55a9bd06855f9c6b8f29d8760f77bfe43c2
+## drm/vc4: dsi: Fix bridge chain handling
+revert kernel/common/mainline 033bfe7538a1523f36dd434eaff7c754a555c458
+## drm/bridge: Clarify the atomic enable/disable hooks semantics
+revert kernel/common/mainline f3fdbc721b8bc99c692716cf9a3cf061b5a49a18
+## drm/bridge: Make the bridge chain a double-linked list
+revert kernel/common/mainline 05193dc38197021894b17239fafbd2eb1afe5a45
+## drm/bridge: Add the drm_bridge_get_prev_bridge() helper
+revert kernel/common/mainline ac877c64c87aff5d228cf53e40d8f68899afa815
+##  drm/bridge: Add the drm_for_each_bridge_in_chain() helper
+revert kernel/common/mainline 4ec5c9050a496a984ffdaaf2307aef353634dc87
