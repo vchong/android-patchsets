@@ -129,16 +129,7 @@ apply_jstultz_mainline_patch c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon/hi6220_reset.c?id=3c2129f92e239d98326608951e815fd413f3ebc6
 apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
 
-
-## drm/exynos: dsi: Fix bridge chain handling
-revert kernel/common/mainline f66ff55a9bd06855f9c6b8f29d8760f77bfe43c2
-## drm/vc4: dsi: Fix bridge chain handling
-revert kernel/common/mainline 033bfe7538a1523f36dd434eaff7c754a555c458
-## drm/bridge: Clarify the atomic enable/disable hooks semantics
-revert kernel/common/mainline f3fdbc721b8bc99c692716cf9a3cf061b5a49a18
-## drm/bridge: Make the bridge chain a double-linked list
-revert kernel/common/mainline 05193dc38197021894b17239fafbd2eb1afe5a45
-## drm/bridge: Add the drm_bridge_get_prev_bridge() helper
-revert kernel/common/mainline ac877c64c87aff5d228cf53e40d8f68899afa815
-##  drm/bridge: Add the drm_for_each_bridge_in_chain() helper
-revert kernel/common/mainline 4ec5c9050a496a984ffdaaf2307aef353634dc87
+## hack: get dsi working again
+## As We don't really support anything but HDMI out on HiKey960.. the DSI panel output has never been tested
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=6e7e0741c5e33fee0239f522fe8b4b99240249bc
+apply_jstultz_mainline_patch 6e7e0741c5e33fee0239f522fe8b4b99240249bc
