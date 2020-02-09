@@ -39,3 +39,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## a6xx_gpu.c: hack workaround to db845c build
+## http://android-review.linaro.org/c/kernel/common/+/21232
+apply --linaro --local kernel/common/mainline --remote kernel/common 21232/1
