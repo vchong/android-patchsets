@@ -163,12 +163,7 @@ fi
 cd optee/optee_os
 #git fetch https://github.com/vchong/optee_os pull/1/head && git merge --no-edit FETCH_HEAD
 # cherry pick instead of merge so that patches stay on top
-git fetch https://github.com/vchong/optee_os kmgk_pta_rebase2 && git cherry-pick 16f7cf7562dc0fea7e4329100ca3a5f483fda793^..96b3fad0f2a48e04633c82b7c1b6c8a7105797cd
-cd -
-
-# temp kmgk patches to test refactoring
-cd device/linaro/kmgk
-git fetch https://github.com/vchong/kmgk refactoring2 && git cherry-pick 5faa8b92afa9c3e581a2c4864427021449474b89^..bd24879d728b3accc6ed0f8e0832ef50eb4ae4c2
+git fetch https://github.com/vchong/optee_os kmgk_rebase_mbedtls && git cherry-pick 772d0e2c86dc2e9e79deb8dc037a5d3ac22d9c73^..0575822df9104ec0c379d0b19d6a6008552f6c29
 cd -
 
 #######################################################
