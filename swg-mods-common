@@ -172,7 +172,7 @@ cd -
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# add wv components
 	# https://android-review.linaro.org/20212
-	apply --linaro device/linaro/hikey 20212/21
+	apply --linaro device/linaro/hikey 20212/22
 
 	# Android build: makefile + source update
 	# https://dev-private-review.linaro.org/4335
