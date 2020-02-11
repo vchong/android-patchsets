@@ -43,9 +43,11 @@ echo "'lunch' and 'mmma vendor/widevine'"
 echo
 if [ -d "vendor/widevine" ]; then
 	if [ -d "optee/tools-images-hikey960" ]; then
-		export_config hikey960 && . build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
+		echo "Skip for now"
+		#export_config hikey960 && . build/envsetup.sh && lunch hikey960-userdebug && mmma vendor/widevine
 	else
-		export_config hikey && . build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
+		echo "Skip for now"
+		#export_config hikey && . build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
 	fi
 else
 	echo "No wvdrmengine dir found!"
