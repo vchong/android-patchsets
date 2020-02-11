@@ -31,12 +31,14 @@ if [ -f "external/optee-widevine-ref/build-exo.sh" ]; then
 			cp $(find ../ExoPlayer -name \*.apk) out/target/product/hikey/system/priv-app/
 		fi
 	fi
+else
+	echo "No ExoPlayer build script found!"
 fi
 
 # print newline for readability
 echo
 
-echo "Building liboemcrypto and related packages by calling"
+echo "Building wvdrmengine and related packages by calling"
 echo "'lunch' and 'mmma vendor/widevine'"
 echo
 if [ -d "vendor/widevine" ]; then
@@ -45,4 +47,6 @@ if [ -d "vendor/widevine" ]; then
 	else
 		export_config hikey && . build/envsetup.sh && lunch hikey-userdebug && mmma vendor/widevine
 	fi
+else
+	echo "No wvdrmengine dir found!"
 fi
