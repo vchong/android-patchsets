@@ -19,7 +19,7 @@ function export_config(){
 }
 
 echo "Building ExoPlayer.."
-if [ -d "external/optee-widevine-ref" ]; then
+if [ -f "external/optee-widevine-ref/build-exo.sh" ]; then
 	external/optee-widevine-ref/build-exo.sh
 	RESULT=$?
 	if [ $RESULT -eq 0 ]; then
