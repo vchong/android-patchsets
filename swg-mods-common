@@ -174,6 +174,10 @@ if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# https://android-review.linaro.org/20212
 	apply --linaro device/linaro/hikey 20212/22
 
+	# oemcrypto_test: fix Makefiles
+	# https://dev-private-review.linaro.org/4510
+	apply --server ssh://git@dev-private-git.linaro.org/ --local vendor/widevine --remote widevine/android 4510/1
+
 	# placeholder for internal wv patches
 	#apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 1234/5
 fi
