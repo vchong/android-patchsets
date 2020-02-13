@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 . $(dirname $0)/functions
 
@@ -43,3 +43,9 @@ if [ -z "${KERNEL_BRANCH_LTS_RC}" ]; then
     exit 1
 fi
 merge_lts_rc "${BUILD_KERNEL_SRC_DIR}" ${KERNEL_BRANCH_LTS_RC}
+
+if [ -n "${BUILD_USE_KERNEL_GKI}" ] && ${BUILD_USE_KERNEL_GKI}; then
+    DIR_GKI_SRC=common
+    [ -n "${BUILD_KERNEL_GKI_SRC_DIR}" ] && DIR_GKI_SRC=${BUILD_KERNEL_GKI_SRC_DIR}
+    merge_lts_rc "${DIR_GKI_SRC}" ${KERNEL_BRANCH_LTS_RC}
+fi
