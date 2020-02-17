@@ -25,7 +25,7 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## add hikey_gki.fragment for gki build
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
-apply --linaro --local kernel/common/mainline --remote kernel/common 20784/20
+apply --linaro --local kernel/common/mainline --remote kernel/common 20784/21
 
 ## revert clk: hi6220: use CLK_OF_DECLARE_DRIVER
 revert kernel/common/mainline f1edb498bd9f25936ae3540a8dbd86e6019fdb95
