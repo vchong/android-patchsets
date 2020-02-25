@@ -41,3 +41,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ## revert ANDROID: gki_defconfig: enable heap and stack initialization.
 revert common ace4db9a40f3576d56192e54004d89a280e3550f
+
+## revert: ANDROID: Kconfig.gki: Remove most of the built in qcom clks
+revert common a9d347b3a53fade9e00a0cba229561e89fd657e1

@@ -39,10 +39,9 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## a6xx_gpu.c: hack workaround to db845c build
-## http://android-review.linaro.org/c/kernel/common/+/21232
-apply --linaro --local kernel/common/mainline --remote kernel/common 21232/1
-
 ## HACK: avoid zap shader path since it is breaking things
 ## https://android-review.googlesource.com/c/kernel/common/+/1231977
 apply --local kernel/common/mainline --remote kernel/common 1231977/1
+
+## revert: ANDROID: Kconfig.gki: Remove most of the built in qcom clks
+revert kernel/common/mainline a9d347b3a53fade9e00a0cba229561e89fd657e1
