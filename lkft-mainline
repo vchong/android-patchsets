@@ -23,9 +23,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-##############FOR ADB STUCK####################
-## usb: gadget: f_fs: Allow scatter-gather buffers
-## caused by commit 772a7a724f69d258025fedd87dde1aafe4171aef
-## usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=ce028e81b53aec1af97c53153594eae0445ea369
-apply_jstultz_mainline_patch ce028e81b53aec1af97c53153594eae0445ea369

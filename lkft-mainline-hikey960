@@ -73,7 +73,10 @@ apply_jstultz_mainline_patch c002fc2bd41c90c173532cefdd02b2f7d35b34f3
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
-apply --linaro --local kernel/common/mainline --remote kernel/common 20670/6
+apply --linaro --local kernel/common/mainline --remote kernel/common 20670/7
+## fix time related APIs for build error with 5.6-rc3
+## http://android-review.linaro.org/c/kernel/common/+/21293
+apply --linaro --local kernel/common/mainline --remote kernel/common 21293/1
 
 ## hikey960: Support usb functionality of Hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc?h=dev/hikey960-mainline-WIP&id=1c13c7737bbd61c67a7531d5c2db6e037e37a133
