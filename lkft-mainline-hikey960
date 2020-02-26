@@ -29,6 +29,19 @@ function apply_jstultz_mainline_patch(){
     fi
 }
 
+function apply_android_review_mainline_patch(){
+    local commit_id=$1 && shift
+    local dst_dir="kernel/common/mainline"
+    if [ -n "$1" ]; then
+        dst_dir="$1"
+    fi
+
+    if [ -d "${dst_dir}" ]; then
+        curl_am https://android-git.linaro.org/kernel/common.git/patch/?id=${commit_id} "${dst_dir}"
+    else
+        echo "${dst_dir} does not exist, skip to apply commit:${commit_id}"
+    fi
+}
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
@@ -50,26 +63,26 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21069/3
 # http://android-review.linaro.org/c/kernel/common/+/21071
 apply --linaro --local kernel/common/mainline --remote kernel/common 21071/1
 # drm: kirin: Remove LDI enable
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=559d18b4a55610bc68b43b76f816365e16d7d5ea
-apply_jstultz_mainline_patch 559d18b4a55610bc68b43b76f816365e16d7d5ea
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=8f0161779567b479684ac511d057232b6f9fbdb0
+apply_android_review_mainline_patch 8f0161779567b479684ac511d057232b6f9fbdb0
 # drm: kirin: remove wait for VACTIVE IRQ
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=9dc3d350ef25c9f1e21963599d905050ad4e7214
-apply_jstultz_mainline_patch 9dc3d350ef25c9f1e21963599d905050ad4e7214
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=c97a3d850af3d9fac6d57d0b80970bcc1ffcf4f3
+apply_android_review_mainline_patch c97a3d850af3d9fac6d57d0b80970bcc1ffcf4f3
 # drm: kirin_drm_dpe: Fix rdma_stride calculation
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=bf3acc5a5d82896ca38def1c37f505b3f6fe034d
-apply_jstultz_mainline_patch bf3acc5a5d82896ca38def1c37f505b3f6fe034d
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=9f32b41bcfeb0f6dfa8ce821bb110eda5a29817d
+apply_android_review_mainline_patch 9f32b41bcfeb0f6dfa8ce821bb110eda5a29817d
 # drm: kirin960: Remove one mode-line that seems to be causing trouble
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=8fa57fda3d9389df3a5a319c7b7e4527e45f7352
-apply_jstultz_mainline_patch 8fa57fda3d9389df3a5a319c7b7e4527e45f7352
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=268f7835298f74f60aa82139582c7cba130a63ae
+apply_android_review_mainline_patch 268f7835298f74f60aa82139582c7cba130a63ae
 # drm: kirin960: Fix issue seen with HDMI hotplug
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=cd7e4b9a4b2d36e5be910df9f9c5f5e413467d09
-apply_jstultz_mainline_patch cd7e4b9a4b2d36e5be910df9f9c5f5e413467d09
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=a6aebb9fb7e8b6be95e1a5b944da5d3f41e440ad
+apply_android_review_mainline_patch a6aebb9fb7e8b6be95e1a5b944da5d3f41e440ad
 # drm: kirin: Fix Makefile to correct for module builds
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=c434e9009e2cdb0cb16916d636e3f0f5a0bdb67a
-apply_jstultz_mainline_patch c434e9009e2cdb0cb16916d636e3f0f5a0bdb67a
+# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=07d83b08167e04722e7f69a4f1164dcf079f55e2
+apply_android_review_mainline_patch 07d83b08167e04722e7f69a4f1164dcf079f55e2
 # kirin_dpe build fix (fold down)
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=c002fc2bd41c90c173532cefdd02b2f7d35b34f3
-apply_jstultz_mainline_patch c002fc2bd41c90c173532cefdd02b2f7d35b34f3
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=bc00a69d75857a2971a5920cceffb649f25769f5
+apply_jstultz_mainline_patch bc00a69d75857a2971a5920cceffb649f25769f5
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
@@ -113,20 +126,21 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21215/1
 apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
 
 ## sound: Add hikey960 i2s audio driver
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=6c6b0dc021299303751dc930d9ec1c8abf2c641f
-apply_jstultz_mainline_patch 6c6b0dc021299303751dc930d9ec1c8abf2c641f
+## https://android-git.linaro.org/kernel/common.git/patch/?id=2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
+apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
 
 ## fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/bluetooth/hci_ll.c?id=1f1a6cc78f0a4c17033fec3d6582f8d6ba0781cb
-apply_jstultz_mainline_patch 1f1a6cc78f0a4c17033fec3d6582f8d6ba0781cb
+## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
+apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
 
 ## hisi_hikey_usb: Fix of_match_table referecne to fix module loading
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/misc/hisi_hikey_usb.c?id=fe2bd836fbe11e0e23b997e1f5a61ec5077e6da3
-apply_jstultz_mainline_patch fe2bd836fbe11e0e23b997e1f5a61ec5077e6da3
+## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=bd608cc863e8d1546924a539870e0227bbd5cc71
+apply_android_review_mainline_patch bd608cc863e8d1546924a539870e0227bbd5cc71
 
 ## HACK: Allow hisi-reboot to be a module
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/power/reset?id=c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
-apply_jstultz_mainline_patch c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
+## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=779ad66c04c1718c9a0a7bb326e3afac7d11aa72
+apply_android_review_mainline_patch 779ad66c04c1718c9a0a7bb326e3afac7d11aa72
 
 ## reset: hi6220: Add support for AO reset controller
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon/hi6220_reset.c?id=3c2129f92e239d98326608951e815fd413f3ebc6
@@ -134,5 +148,5 @@ apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
 
 ## hack: get dsi working again
 ## As We don't really support anything but HDMI out on HiKey960.. the DSI panel output has never been tested
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=6e7e0741c5e33fee0239f522fe8b4b99240249bc
-apply_jstultz_mainline_patch 6e7e0741c5e33fee0239f522fe8b4b99240249bc
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=772c24ba4aec1a30c4c7107a84e9b35365aab1d7
+apply_jstultz_mainline_patch 772c24ba4aec1a30c4c7107a84e9b35365aab1d7
