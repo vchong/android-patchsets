@@ -50,9 +50,6 @@ apply_hikey_hikey960_patch 8f1bfe9fc0d8c8cd010243b1f3b64a71c8009418
 ## FROMLIST: misc: hisi_hikey_usb: Driver to support usb functionality of Hikey960
 apply_hikey_hikey960_patch cc17fc1eb5ce6313f3e3054c2421ff54e93e44b1
 
-## FROMLIST: usb: dwc3: Check for IOC/LST bit in both event->status and TRB->ctrl fields
-apply_hikey_hikey960_patch c8c60b8f2ac117dbbaf91a1d73d2a7622d38047f
-
 ## ANDROID: config: hikey960_defconfig: Initial hikey960_defconfig
 apply_hikey_hikey960_patch c28e843610110fb40f9f70c21ff74752762c5517
 
