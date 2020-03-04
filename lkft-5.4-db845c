@@ -28,9 +28,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## ANDROID: gki_defconfig: enable heap and stack initialization.
-revert kernel/common/android-5.4 ace4db9a40f3576d56192e54004d89a280e3550f
-
-## revert ANDROID: Kconfig.gki: Remove most of the built in qcom clks
-revert kernel/common/android-5.4 649d0cb9d1e409c746eba56311340e03dad733b4
-revert kernel/common/android-5.4-vendor 649d0cb9d1e409c746eba56311340e03dad733b4
