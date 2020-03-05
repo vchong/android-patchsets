@@ -29,7 +29,11 @@ function merge_lts_rc(){
     git remote | grep ${remote_name} && git remote remove ${remote_name}
     git remote add -t ${branch_rc} ${remote_name} ${url_lts_rc} && \
         git fetch ${remote_name} && \
-        git merge --no-edit remotes/${remote_name}/${branch_rc}
+        if ! git merge --no-edit remotes/${remote_name}/${branch_rc};then
+            git status
+            git diff
+            false
+        fi
     cd -
 }
 
