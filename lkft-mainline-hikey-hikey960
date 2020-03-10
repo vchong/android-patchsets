@@ -31,9 +31,11 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20784/21
 revert kernel/common/mainline f1edb498bd9f25936ae3540a8dbd86e6019fdb95
 revert common f1edb498bd9f25936ae3540a8dbd86e6019fdb95
 
+## revert drm: kirin: Revert "Fix for hikey620 display offset problem"
+revert kernel/common/mainline 1b79cfd99ff5127e6a143767b51694a527b3ea38
 ## drm: kirin: Tweak the LDI handling
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=f8b62fd328606c51e4f96edf517f02af889bc7ed
-apply_jstultz_mainline_patch f8b62fd328606c51e4f96edf517f02af889bc7ed
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d378170e0055c8762df038c8b7e5c1561f44e0e8
+apply_jstultz_mainline_patch d378170e0055c8762df038c8b7e5c1561f44e0e8
 ## another try at LDI fix
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=daabc8301e90f1b4ec4ebbd8b36cda7838918a02
-apply_jstultz_mainline_patch daabc8301e90f1b4ec4ebbd8b36cda7838918a02
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=5d066b8fea8bd13ce382210638f8451816f2dfa0
+apply_jstultz_mainline_patch 5d066b8fea8bd13ce382210638f8451816f2dfa0

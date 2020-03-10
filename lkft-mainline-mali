@@ -24,10 +24,14 @@ function apply_jstultz_mainline_patch(){
 ################ Linaro hack   ###################
 ##################################################
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=6df17351c943d3bfde90a918f318a80931fcee12
-apply_jstultz_mainline_patch 6df17351c943d3bfde90a918f318a80931fcee12
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=40e4a63d268f7c21199dacdefd1052c7a5552602
+apply_jstultz_mainline_patch 40e4a63d268f7c21199dacdefd1052c7a5552602
 
 ## mali source to compile it as a kernel module
 ## Merge of mali related changes for mainline for hikey
 ## https://android-review.linaro.org/c/kernel/common/+/20652
 apply --linaro --local kernel/common/mainline --remote kernel/common 20652/4
+
+## MALI: build fixups for internal time API changes
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=34d8a4f2e5e168008bef60c7e5de25623f0c06ea
+apply_jstultz_mainline_patch 34d8a4f2e5e168008bef60c7e5de25623f0c06ea
