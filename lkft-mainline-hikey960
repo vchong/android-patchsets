@@ -47,7 +47,7 @@ function apply_android_review_mainline_patch(){
 ##################################################
 ## gki: add hikey960_gki.fragment and udpate gki_defconfig for hikey960 [NEW]
 ## http://android-review.linaro.org/c/kernel/common/+/20887
-apply --linaro --local kernel/common/mainline --remote kernel/common 20887/9
+apply --linaro --local kernel/common/mainline --remote kernel/common 20887/10
 
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20669
