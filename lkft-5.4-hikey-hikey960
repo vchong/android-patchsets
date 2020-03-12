@@ -199,3 +199,6 @@ apply_hikey_hikey960_patch d3b3b8cf56186bf78eeae042e5d000ead514171b
 
 ## hikey960_gki.fragment/hikey_gki.fragment: enable CONFIG_SDCARD_FS=m
 apply_hikey_hikey960_patch 91e4c9a7d0708b7691f21bb03237454a4be85c1a
+
+## hikey960_gki.fragment: remove CONFIG_TYPEC=m
+apply_hikey_hikey960_patch 0c83b82611ae288f638980b9ae79f783236b4405
