@@ -137,9 +137,6 @@ apply_hikey_hikey960_patch b2625f770938069906994a1084f12bf74442832a
 ## HACK: adv7511: Drop hotplug event to avoid initialization races
 apply_hikey_hikey960_patch 88c692073900ad18783a67916c17c85a30e33934
 
-## Revert "drm: kirin: Fix for hikey620 display offset problem"
-apply_hikey_hikey960_patch 514486866b40a6857c7c33bb3bfdf687d5b2c1da
-
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
 apply_hikey_hikey960_patch 9c33c2f791091eace309625249986b43ab7fa57a
 
