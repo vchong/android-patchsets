@@ -26,36 +26,6 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## FROMLIST: usb: dwc3: Registering a role switch in the DRD code.
-apply_hikey_hikey960_patch 5cacf3dfb90647c00646a95effd2eb184a8deb0f
-
-## FROMLIST: dt-bindings: usb: generic: Add role-switch-default-mode binding
-apply_hikey_hikey960_patch 104538d0b939fc6445a5356551e9fb70864ba2ee
-
-## FROMLIST: usb: dwc3: Add support for role-switch-default-mode binding
-apply_hikey_hikey960_patch 2a4bbd2ad868728c5868a35a8b72679f3fec0680
-
-## FROMLIST: dt-bindings: usb: dwc3: Allow clock list & resets to be more flexible
-apply_hikey_hikey960_patch 3f1a286dfaec1474476b9d56a402be208f6e26c0
-
-## FROMLIST: usb: dwc3: Rework clock initialization to be more flexible
-apply_hikey_hikey960_patch e1f1e6480a47cc1549bf03e72a4257cf6993bd42
-
-## FROMLIST: usb: dwc3: Rework resets initialization to be more flexible
-apply_hikey_hikey960_patch 7ca55940ed353666ef375a26de00879cd8341ab8
-
-## FROMLIST: dt-bindings: misc: Add bindings for HiSilicon usb hub and data role switch functionality on HiKey960
-apply_hikey_hikey960_patch 8f1bfe9fc0d8c8cd010243b1f3b64a71c8009418
-
-## FROMLIST: misc: hisi_hikey_usb: Driver to support usb functionality of Hikey960
-apply_hikey_hikey960_patch cc17fc1eb5ce6313f3e3054c2421ff54e93e44b1
-
-## ANDROID: config: hikey960_defconfig: Initial hikey960_defconfig
-apply_hikey_hikey960_patch c28e843610110fb40f9f70c21ff74752762c5517
-
-## ANDROID: config: Add hikey960_gki fragment
-apply_hikey_hikey960_patch 30dc75fc56cea352381ece8061d246911dd38b07
-
 ## HACK: ion: Set dma_buf_ops.cache_sgt_mapping = true
 apply_hikey_hikey960_patch 61a25f0b2588c675f57b598dc9406df4536a5755
 
@@ -110,20 +80,17 @@ apply_hikey_hikey960_patch eae4c5142ba8ce2bbf27cba8d840239649f37390
 ## MALI: Kbuild: add $(srctree) for -I ccflags
 apply_hikey_hikey960_patch 126bc69068c3a07f851e4544d3364af2e4bf859a
 
-## ANDROID: fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
-apply_hikey_hikey960_patch 8c674cb08511b109ef9aed6e3c8dbee7375094f2
-
-## config: Introduce generated hikey960_gki_defconfig
-apply_hikey_hikey960_patch 0c93921f8b2d71b25419a3fb35f12d8d3e885146
-
-## hikey_defconfig
-apply_hikey_hikey960_patch 244b399e3f876d56a8d3ea884eb60bc67d08139f
-
+###################################################################
+######## For HIKEY ######################
+###################################################################
 ## config: Add hikey_gki fragment
 apply_hikey_hikey960_patch 1116fb300cde79602e1785485a3e9a187a23c0b3
 
-## config: Introduce generated hikey_gki_defconfig
-apply_hikey_hikey960_patch 6df6dd51cb6c884a65785170c6a979cb31a31ed1
+## HACK: adv7511: Drop hotplug event to avoid initialization races
+apply_hikey_hikey960_patch 88c692073900ad18783a67916c17c85a30e33934
+
+## ANDROID: fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
+apply_hikey_hikey960_patch 8c674cb08511b109ef9aed6e3c8dbee7375094f2
 
 ## reset: hi6220: Add support for AO reset controller
 apply_hikey_hikey960_patch cdd3149bab950edd852d8070c6e34cbfbd3b4203
@@ -134,68 +101,45 @@ apply_hikey_hikey960_patch 8e892102d6b8e77594e20d44b117dd945df19f6f
 ## arm64: dts: hisilicon: Add Mali-450 MP4 GPU DT entry
 apply_hikey_hikey960_patch b2625f770938069906994a1084f12bf74442832a
 
-## HACK: adv7511: Drop hotplug event to avoid initialization races
-apply_hikey_hikey960_patch 88c692073900ad18783a67916c17c85a30e33934
-
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
 apply_hikey_hikey960_patch 9c33c2f791091eace309625249986b43ab7fa57a
 
 ## MALI: drivers/gpu/arm/utgard: Add ARM Mali Utgard r8p1 driver
 apply_hikey_hikey960_patch a7bd42d29e6926a107f65745658cc6eb23092339
-
 ## MALI: drivers/gpu/arm/utgard: Fix build issue.
 apply_hikey_hikey960_patch 3652b3c34861f4aa4bc8414702ab6059ca28322c
-
 ## MALI: drivers/gpu/arm/utgard: Disable fbdev physical address check
 apply_hikey_hikey960_patch 1c695498f9271d28757ea2bd9e1269c98b684d17
-
 ## MALI: drivers/gpu/arm/utgard: add option for custom device tree
 apply_hikey_hikey960_patch e421eddad26c07c31856b68e0ddf759e0fb34c4e
-
 ## MALI: mali_hikey: Add hi6220 register definitions and HiKey platform files
 apply_hikey_hikey960_patch 1439813a4de4515d7585328fdcd11fcdf227f6e7
-
 ## MALI: mali_ukk_core: Fix potential kernel stack info leak
 apply_hikey_hikey960_patch b7f613790b00e5a003e0704a1a82415df7efacf3
-
 ## MALI: Waitqueue API fixups for 4.13-rc
 apply_hikey_hikey960_patch 27a579246ab330dbfb7760474ec020f7d540478e
-
 ## MALI: Switch to global_zone_page_state from global_page_state
 apply_hikey_hikey960_patch 0ad23450bde533232da3ae898ff32907a8c85db6
-
 ## MALI: Timer api fixups for 4.15-rc
 apply_hikey_hikey960_patch 454b96217e72ceaa3d1468ec0f5b3b0abdefd60f
-
 ## MALI: Fixups for 4.16-rc
 apply_hikey_hikey960_patch e613df8d219e70eb46b76c75b0198e0812779cbc
-
 ## MALI: Allocation flag fixups
 apply_hikey_hikey960_patch fbe9b0c470dbb8c24cb663d6581035d87647ae1d
-
 ## MALI: utgard: Fixup mali_internal_sync_fence to match sync_file
 apply_hikey_hikey960_patch 9d6eef7fc216f7a4c94f376a5b14f375225c0cea
-
 ## MALI: utgard build warning fix
 apply_hikey_hikey960_patch 5210fe0bc7eeffdcde3fbe6ff5a8a18eb05a860c
-
 ## MALI: 4.20-rc time fixup
 apply_hikey_hikey960_patch dfc883eb686384b20161060e56648e5a3d405256
-
 ## HACK: MALI: 4.20-rc fix to use vmf_insert_pfn
 apply_hikey_hikey960_patch a83e129b70a4d50ae9c6b2df6a79d24346737d62
-
 ## MALI: access_ok fix for 5.0-rc
 apply_hikey_hikey960_patch 811f5bb290a657a9d880b984b25c976131ceed35
-
 ## MALI: Build fixup for 5.1-rc
 apply_hikey_hikey960_patch ac08f1943275e6d7b0edeac0a3128a46e135b437
-
 ## drivers/gpu/arm/utgard/Kbuild: add srctree for paths to support build out of the kernel tree
 apply_hikey_hikey960_patch d3b3b8cf56186bf78eeae042e5d000ead514171b
 
 ## hikey960_gki.fragment/hikey_gki.fragment: enable CONFIG_SDCARD_FS=m
 apply_hikey_hikey960_patch 91e4c9a7d0708b7691f21bb03237454a4be85c1a
-
-## hikey960_gki.fragment: remove CONFIG_TYPEC=m
-apply_hikey_hikey960_patch 0c83b82611ae288f638980b9ae79f783236b4405
