@@ -102,15 +102,10 @@ apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/gki-hikey960-android-mainline&id=8c8c937e33739704d49f75a63416d105e25a6040
 ## http://android-review.linaro.org/c/kernel/common/+/20862
 apply --linaro --local kernel/common/mainline --remote kernel/common 20862/1
-## usb: dwc3: Registering a role switch in the DRD code.
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=2d9ac7718ceade14df3ff775e71682883e212e0f
-apply_jstultz_mainline_patch 2d9ac7718ceade14df3ff775e71682883e212e0f
 ## usb: roles: Add usb role switch notifier.
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux/usb?h=dev/hikey960-mainline-WIP&id=184fb435233887de2ab1c062141f291354861155
-apply_jstultz_mainline_patch 184fb435233887de2ab1c062141f291354861155
-## usb: dwc3: Kconfig: Don't force USB_ROLE_SWITCH from non-modular USB_DWC3_DUAL_ROLE
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3/Kconfig?id=db3b6eaef3b3974108032d8c3ca577f38e4dcd61
-apply_jstultz_mainline_patch db3b6eaef3b3974108032d8c3ca577f38e4dcd61
+## http://android-review.linaro.org/c/kernel/common/+/21375
+apply --linaro --local kernel/common/mainline --remote kernel/common 21375/3
 ## usb: dwc3: Execute GCTL Core Soft Reset while switch mdoe for Hisilicon Kirin Soc
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3/core.c?id=34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
 apply_jstultz_mainline_patch 34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
