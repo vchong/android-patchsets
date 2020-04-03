@@ -91,10 +91,10 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20670/7
 ## http://android-review.linaro.org/c/kernel/common/+/21293
 apply --linaro --local kernel/common/mainline --remote kernel/common 21293/1
 
-## hikey960: Support usb functionality of Hikey960
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc?h=dev/hikey960-mainline-WIP&id=1c13c7737bbd61c67a7531d5c2db6e037e37a133
-## http://android-review.linaro.org/c/kernel/common/+/20671
-apply --linaro --local kernel/common/mainline --remote kernel/common 20671/1
+## misc: hisi_hikey_usb: Driver to support onboard USB gpio hub on Hikey960
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d369b15e4f0485de1e4b3fd50e66696bd5b407bf
+## http://android-review.linaro.org/c/kernel/common/+/21381
+apply --linaro --local kernel/common/mainline --remote kernel/common 21381/1
 ## usb: dwc3: dwc3-of-simple: Add support for dwc3 of Hisilicon Soc Platform
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3/dwc3-of-simple.c?h=dev/hikey960-mainline-WIP&id=e7f71d8361d7b2e05e686f2a3767f557e3a342e7
 apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
@@ -102,10 +102,6 @@ apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/gki-hikey960-android-mainline&id=8c8c937e33739704d49f75a63416d105e25a6040
 ## http://android-review.linaro.org/c/kernel/common/+/20862
 apply --linaro --local kernel/common/mainline --remote kernel/common 20862/1
-## usb: roles: Add usb role switch notifier.
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/include/linux/usb?h=dev/hikey960-mainline-WIP&id=184fb435233887de2ab1c062141f291354861155
-## http://android-review.linaro.org/c/kernel/common/+/21375
-apply --linaro --local kernel/common/mainline --remote kernel/common 21375/3
 ## usb: dwc3: Execute GCTL Core Soft Reset while switch mdoe for Hisilicon Kirin Soc
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3/core.c?id=34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
 apply_jstultz_mainline_patch 34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
@@ -127,10 +123,6 @@ apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
 ## fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
 apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
-
-## hisi_hikey_usb: Fix of_match_table referecne to fix module loading
-## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=bd608cc863e8d1546924a539870e0227bbd5cc71
-apply_android_review_mainline_patch bd608cc863e8d1546924a539870e0227bbd5cc71
 
 ## HACK: Allow hisi-reboot to be a module
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/power/reset?id=c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
