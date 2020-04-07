@@ -86,10 +86,7 @@ apply_jstultz_mainline_patch bc00a69d75857a2971a5920cceffb649f25769f5
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
-apply --linaro --local kernel/common/mainline --remote kernel/common 20670/7
-## fix time related APIs for build error with 5.6-rc3
-## http://android-review.linaro.org/c/kernel/common/+/21293
-apply --linaro --local kernel/common/mainline --remote kernel/common 21293/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 20670/9
 
 ## misc: hisi_hikey_usb: Driver to support onboard USB gpio hub on Hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d369b15e4f0485de1e4b3fd50e66696bd5b407bf
