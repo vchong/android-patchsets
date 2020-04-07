@@ -36,6 +36,31 @@ function apply_jstultz_mainline_patch(){
         curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} ${target_dir}
     fi
 }
+
+function apply_patchwork(){
+    local patch_id=$1 && shift
+    local target_dir="common"
+    if [ -n "$1" ]; then
+        target_dir=$1 && shift
+    fi
+    if [ -d ${target_dir} ]; then
+        curl_am https://lore.kernel.org/patchwork/patch/${patch_id}/mbox/ ${target_dir}
+    fi
+}
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## FROMLIST: phy: qcom-qusb2: Re add "qcom,sdm845-qusb2-phy" compat string
+## https://android-review.googlesource.com/c/kernel/common/+/1278668/1
+## https://lkml.org/lkml/2020/4/2/1181
+apply --local kernel/common/mainline --remote kernel/common 1278668/1
+
+## FROMLIST: remoteproc: fix a bug in rproc_alloc()
+## https://android-review.googlesource.com/c/kernel/common/+/1278669/1
+apply --local kernel/common/mainline --remote kernel/common 1278669/1
+## FROMLIST: remoteproc: qcom_q6v5_mss: fix a bug in q6v5_probe()
+## https://android-review.googlesource.com/c/kernel/common/+/1278670
+apply --local kernel/common/mainline --remote kernel/common 1278670/1
+## FROMLIST: remoteproc: qcom_q6v5_mss: fix q6v5_probe() error paths
+## https://android-review.googlesource.com/c/kernel/common/+/1278671
+apply --local kernel/common/mainline --remote kernel/common 1278671/1
