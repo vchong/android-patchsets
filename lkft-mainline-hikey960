@@ -137,3 +137,7 @@ apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
 ## As We don't really support anything but HDMI out on HiKey960.. the DSI panel output has never been tested
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=772c24ba4aec1a30c4c7107a84e9b35365aab1d7
 apply_jstultz_mainline_patch 772c24ba4aec1a30c4c7107a84e9b35365aab1d7
+
+## kirin_drm_dsi fixup
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=904811cdbbcd895dc78521794eb67919f9330144
+apply_jstultz_mainline_patch 904811cdbbcd895dc78521794eb67919f9330144
