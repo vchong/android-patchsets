@@ -26,9 +26,6 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## HACK: ion: Set dma_buf_ops.cache_sgt_mapping = true
-apply_hikey_hikey960_patch 61a25f0b2588c675f57b598dc9406df4536a5755
-
 ## config: Add hikey_gki fragment
 apply_hikey_hikey960_patch 1116fb300cde79602e1785485a3e9a187a23c0b3
 ## hikey960_gki.fragment/hikey_gki.fragment: enable CONFIG_SDCARD_FS=m
