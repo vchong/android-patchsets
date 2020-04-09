@@ -27,10 +27,6 @@ function apply_jstultz_mainline_patch(){
 ## https://android-review.linaro.org/c/kernel/common/+/20784/
 apply --linaro --local kernel/common/mainline --remote kernel/common 20784/21
 
-## revert clk: hi6220: use CLK_OF_DECLARE_DRIVER
-revert kernel/common/mainline f1edb498bd9f25936ae3540a8dbd86e6019fdb95
-revert common f1edb498bd9f25936ae3540a8dbd86e6019fdb95
-
 ## revert drm: kirin: Revert "Fix for hikey620 display offset problem"
 revert kernel/common/mainline 1b79cfd99ff5127e6a143767b51694a527b3ea38
 ## drm: kirin: Tweak the LDI handling
@@ -39,3 +35,13 @@ apply_jstultz_mainline_patch d378170e0055c8762df038c8b7e5c1561f44e0e8
 ## another try at LDI fix
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=5d066b8fea8bd13ce382210638f8451816f2dfa0
 apply_jstultz_mainline_patch 5d066b8fea8bd13ce382210638f8451816f2dfa0
+
+## Workaround to use MALI for hikey
+## http://android-review.linaro.org/c/kernel/common/+/21395
+apply --linaro --local kernel/common/mainline --remote kernel/common 21395/1
+## reset: hi6220: Add support for AO reset controller
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon?id=0c74d79b2faee49e89488398f9a15d0f850fbeed
+apply_jstultz_mainline_patch  0c74d79b2faee49e89488398f9a15d0f850fbeed
+## HACK: dts: hi6220: Add special mali utgard driver dts properties
+## https://git.linaro.org/people/john.stultz/android-dev.git/patch/arch/arm64/boot/dts?id=24392841a5aad963db8c8f572ed820e2fe67b130
+apply_jstultz_mainline_patch 24392841a5aad963db8c8f572ed820e2fe67b130
