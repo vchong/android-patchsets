@@ -64,3 +64,7 @@ apply --local kernel/common/mainline --remote kernel/common 1278670/1
 ## FROMLIST: remoteproc: qcom_q6v5_mss: fix q6v5_probe() error paths
 ## https://android-review.googlesource.com/c/kernel/common/+/1278671
 apply --local kernel/common/mainline --remote kernel/common 1278671/1
+
+## FROMLIST: iommu/arm-smmu: Allow inherting stream mapping from bootloader
+## https://android-review.googlesource.com/c/kernel/common/+/1284525
+apply --local kernel/common/mainline --remote kernel/common 1284525/1
