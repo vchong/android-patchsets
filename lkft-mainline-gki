@@ -24,3 +24,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## FROMLIST: iommu/arm-smmu: Allow inherting stream mapping from bootloader
+## https://android-review.googlesource.com/c/kernel/common/+/1284525
+apply --local common --remote kernel/common 1284525/1
