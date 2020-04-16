@@ -53,18 +53,18 @@ function apply_patchwork(){
 ## FROMLIST: phy: qcom-qusb2: Re add "qcom,sdm845-qusb2-phy" compat string
 ## https://android-review.googlesource.com/c/kernel/common/+/1278668/1
 ## https://lkml.org/lkml/2020/4/2/1181
-apply --local kernel/common/mainline --remote kernel/common 1278668/1
+apply --local common --remote kernel/common 1278668/1
 
 ## FROMLIST: remoteproc: fix a bug in rproc_alloc()
 ## https://android-review.googlesource.com/c/kernel/common/+/1278669/1
-apply --local kernel/common/mainline --remote kernel/common 1278669/1
+apply --local common --remote kernel/common 1278669/1
 ## FROMLIST: remoteproc: qcom_q6v5_mss: fix a bug in q6v5_probe()
 ## https://android-review.googlesource.com/c/kernel/common/+/1278670
-apply --local kernel/common/mainline --remote kernel/common 1278670/1
+apply --local common --remote kernel/common 1278670/1
 ## FROMLIST: remoteproc: qcom_q6v5_mss: fix q6v5_probe() error paths
 ## https://android-review.googlesource.com/c/kernel/common/+/1278671
-apply --local kernel/common/mainline --remote kernel/common 1278671/1
+apply --local common --remote kernel/common 1278671/1
 
 ## FROMLIST: iommu/arm-smmu: Allow inherting stream mapping from bootloader
 ## https://android-review.googlesource.com/c/kernel/common/+/1284525
-apply --local kernel/common/mainline --remote kernel/common 1284525/1
+apply --local common --remote kernel/common 1284525/1
