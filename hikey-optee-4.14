@@ -37,21 +37,23 @@ fi
 curl_am_hikey_optee_vchong_github 8d616e6da87b69bf7f391d39dd9da7b448350048
 
 # Below 4 mmc patches are cherry-picked from 4.19
+# These are now merged in the 4.14 branch via
+# d2905c6a0ed0657c98d754823e709b08ca347f54
 ## mmc: block: Convert RPMB to a character device
 ## https://github.com/vchong/linux/commit/284f192ebe782e5eda5a2644d7ee046285e88793
-curl_am_hikey_optee_vchong_github 284f192ebe782e5eda5a2644d7ee046285e88793
+#curl_am_hikey_optee_vchong_github 284f192ebe782e5eda5a2644d7ee046285e88793
 
 ## mmc: block: Fix bug when removing RPMB chardev
 ## https://github.com/vchong/linux/commit/1a7f1613691f0200101a476f664322d84da9d836
-curl_am_hikey_optee_vchong_github 1a7f1613691f0200101a476f664322d84da9d836
+#curl_am_hikey_optee_vchong_github 1a7f1613691f0200101a476f664322d84da9d836
 
 ## mmc: core: Prevent bus reference leak in mmc_blk_init()
 ## https://github.com/vchong/linux/commit/09d176cb0060ca3201f6ca8ba8cb4110560bcb7a
-curl_am_hikey_optee_vchong_github 09d176cb0060ca3201f6ca8ba8cb4110560bcb7a
+#curl_am_hikey_optee_vchong_github 09d176cb0060ca3201f6ca8ba8cb4110560bcb7a
 
 ## mmc: block: propagate correct returned value in mmc_rpmb_ioctl
 ## https://github.com/vchong/linux/commit/90b83a78d9184eb5cad9abc2910b542641df32dd
-curl_am_hikey_optee_vchong_github 90b83a78d9184eb5cad9abc2910b542641df32dd
+#curl_am_hikey_optee_vchong_github 90b83a78d9184eb5cad9abc2910b542641df32dd
 
 ##################################################
 ###### OP-TEE patches on kernel 4.14          ####
