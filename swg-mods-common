@@ -30,14 +30,6 @@ fi
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
-	## aarch64-linux-android-g{++,cc}: supress deprecation warning
-	## https://android-review.linaro.org/c/20304
-	apply --linaro prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 20304/1
-
-	## arm-linux-androideabi-g{++,cc}: supress deprecation warning
-	## https://android-review.linaro.org/c/20305
-	apply --linaro prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 20305/1
-
 	## print version_str on not_match
 	curl_am_optee system_keymaster 2afb818c88fe7fd0efb41ff89aa73a1904580df2 system/keymaster vchong
 
