@@ -39,7 +39,7 @@ apply_hikey_hikey960_patch 8c674cb08511b109ef9aed6e3c8dbee7375094f2
 
 ## Workaround to use MALI for hikey
 ## http://android-review.linaro.org/c/kernel/common/+/21395
-apply --linaro --local kernel/common/android-5.4-vendor --remote kernel/common 21395/1
+apply --linaro --local kernel/common/android-5.4-vendor --remote kernel/common 21395/2
 ## reset: hi6220: Add support for AO reset controller
 apply_hikey_hikey960_patch cdd3149bab950edd852d8070c6e34cbfbd3b4203
 ## clk: hi6220: use CLK_OF_DECLARE_DRIVER
