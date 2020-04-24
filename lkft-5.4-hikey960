@@ -26,6 +26,3 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## ANDROID: hikey960_gki.fragment enable CONFIG_SDCARD_FS=m
-## https://android-review.googlesource.com/c/kernel/common/+/1270432
-apply --local common --remote kernel/common 1270432/4
