@@ -105,11 +105,11 @@ fi
 ## KM mods - keymaster/gatekeeper patches
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/20604
-	apply --linaro device/linaro/hikey 20604/10
+	apply --linaro device/linaro/hikey 20604/11
 else
 	## assume pie
 	## http://android-review.linaro.org/20099
-	apply --linaro device/linaro/hikey 20099/23
+	apply --linaro device/linaro/hikey 20099/24
 fi
 
 ## build default kmgk svc too
@@ -127,7 +127,7 @@ fi
 
 # use /persist/tee as secure storage path
 # https://github.com/vchong/optee_client/commit/68e907e6c6a05c2e5c8603079dfae5927fce4430
-curl_am_optee optee_client 68e907e6c6a05c2e5c8603079dfae5927fce4430 external/optee_client vchong
+#curl_am_optee optee_client 68e907e6c6a05c2e5c8603079dfae5927fce4430 external/optee_client vchong
 
 if [ X"$TEE_USE_RPMB" = X"true" ]; then
 	# tee-supplicant: disable RPMB emu
