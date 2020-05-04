@@ -108,8 +108,8 @@ if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	apply --linaro device/linaro/hikey 20604/18
 else
 	## assume pie
-	## http://android-review.linaro.org/20099
-	apply --linaro device/linaro/hikey 20099/32
+	## http://android-review.linaro.org/21467
+	apply --linaro device/linaro/hikey 21467/2
 fi
 
 ## build default kmgk svc too
