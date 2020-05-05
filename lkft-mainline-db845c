@@ -50,15 +50,3 @@ function apply_patchwork(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## FROMLIST: phy: qcom-qusb2: Re add "qcom,sdm845-qusb2-phy" compat string
-## https://android-review.googlesource.com/c/kernel/common/+/1278668/1
-## https://lkml.org/lkml/2020/4/2/1181
-apply --local common --remote kernel/common 1278668/1
-
-## FROMLIST: remoteproc: fix a bug in rproc_alloc()
-## https://android-review.googlesource.com/c/kernel/common/+/1278669/1
-apply --local common --remote kernel/common 1278669/1
-
-## FROMLIST: iommu/arm-smmu: Allow inherting stream mapping from bootloader
-## https://android-review.googlesource.com/c/kernel/common/+/1284525
-apply --local common --remote kernel/common 1284525/1
