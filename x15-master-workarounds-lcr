@@ -20,13 +20,7 @@ fi
 ##################################################
 ## workaround to include linaro tests
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20295
-apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20295/2
-
-if [ -d kernel/ti/4.19 ]; then
-## revert the change of Revert "usb: gadget: ffs: Fix BUG when userland exits with submitted AIO transfers"
-## http://git.ti.com/ti-linux-kernel/ti-linux-kernel/commit/8b87305f816cf58b7a4c840b2bedfd37a8c06254
-revert kernel/ti/4.19 8b87305f816cf58b7a4c840b2bedfd37a8c06254
-fi
+## apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20295/2
 
 if [ -d kernel/ti/4.19 ]; then
     ## remove Android.mk in kernel to workaround android building problem
