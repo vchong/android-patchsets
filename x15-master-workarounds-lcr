@@ -22,6 +22,12 @@ fi
 ## http://android-review.linaro.org/c/device/ti/beagle-x15/+/20295
 ## apply --linaro --local device/ti/beagle_x15 --remote device/ti/beagle-x15 20295/2
 
+if [ -d kernel/common/mainline ]; then
+    ## remove Android.mk in kernel to workaround android building problem
+    ## http://android-review.linaro.org/c/kernel/common/+/21475
+    apply --linaro --local kernel/common/mainline --remote kernel/common 21475/1
+fi
+
 if [ -d kernel/ti/4.19 ]; then
     ## remove Android.mk in kernel to workaround android building problem
     ## http://android-review.linaro.org/c/kernel/omap/+/20430
