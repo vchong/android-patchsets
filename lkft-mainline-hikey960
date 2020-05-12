@@ -81,8 +81,8 @@ apply_android_review_mainline_patch a6aebb9fb7e8b6be95e1a5b944da5d3f41e440ad
 # https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=07d83b08167e04722e7f69a4f1164dcf079f55e2
 apply_android_review_mainline_patch 07d83b08167e04722e7f69a4f1164dcf079f55e2
 # kirin_dpe build fix (fold down)
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=bc00a69d75857a2971a5920cceffb649f25769f5
-apply_jstultz_mainline_patch bc00a69d75857a2971a5920cceffb649f25769f5
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=1692546f7abe277eff2c45ed717511d3bb1a31c0
+apply_jstultz_mainline_patch 1692546f7abe277eff2c45ed717511d3bb1a31c0
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
@@ -132,12 +132,12 @@ apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
 
 ## hack: get dsi working again
 ## As We don't really support anything but HDMI out on HiKey960.. the DSI panel output has never been tested
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=772c24ba4aec1a30c4c7107a84e9b35365aab1d7
-apply_jstultz_mainline_patch 772c24ba4aec1a30c4c7107a84e9b35365aab1d7
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=606b328fdd480e1dfe58432666978f8110aa01f7
+apply_jstultz_mainline_patch 606b328fdd480e1dfe58432666978f8110aa01f7
 
 ## kirin_drm_dsi fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=904811cdbbcd895dc78521794eb67919f9330144
-apply_jstultz_mainline_patch 904811cdbbcd895dc78521794eb67919f9330144
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=413897d4d2e62582a86e94378bb27f2676e64c3a
+apply_jstultz_mainline_patch 413897d4d2e62582a86e94378bb27f2676e64c3a
 
 ## dwc3: Remove check for HWO flag in dwc3_gadget_ep_reclaim_trb_sg()
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=d6b9d968ba65df85b2531ace3344ce92f446c6f1
