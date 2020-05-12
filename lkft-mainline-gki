@@ -25,5 +25,6 @@ function apply_jstultz_mainline_patch(){
 ################ Linaro hack   ###################
 ##################################################
 ## dwc3: Remove check for HWO flag in dwc3_gadget_ep_reclaim_trb_sg()
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=0dd7fbbb756ae323bf1c43022a7ca500b353b1e2
-apply_jstultz_mainline_patch 0dd7fbbb756ae323bf1c43022a7ca500b353b1e2 common
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=d6b9d968ba65df85b2531ace3344ce92f446c6f1
+## https://android-review.linaro.org/c/kernel/common/+/21477
+apply --linaro --local common --remote kernel/common 21477/1
