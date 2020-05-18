@@ -138,8 +138,3 @@ apply_jstultz_mainline_patch 606b328fdd480e1dfe58432666978f8110aa01f7
 ## kirin_drm_dsi fixup
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=413897d4d2e62582a86e94378bb27f2676e64c3a
 apply_jstultz_mainline_patch 413897d4d2e62582a86e94378bb27f2676e64c3a
-
-## dwc3: Remove check for HWO flag in dwc3_gadget_ep_reclaim_trb_sg()
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=d6b9d968ba65df85b2531ace3344ce92f446c6f1
-## https://android-review.linaro.org/c/kernel/common/+/21477
-apply --linaro --local kernel/common/mainline --remote kernel/common 21477/1
