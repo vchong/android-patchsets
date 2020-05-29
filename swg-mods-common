@@ -105,11 +105,11 @@ fi
 ## KM mods - keymaster/gatekeeper patches
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/20604
-	apply --linaro device/linaro/hikey 20604/23
+	apply --linaro device/linaro/hikey 20604/24
 else
 	## assume pie
 	## http://android-review.linaro.org/21467
-	apply --linaro device/linaro/hikey 21467/5
+	apply --linaro device/linaro/hikey 21467/6
 fi
 
 ## build default kmgk svc too
