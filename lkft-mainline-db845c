@@ -50,3 +50,14 @@ function apply_patchwork(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+######### temporary workarounds for sdcardfs ##################
+## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
+revert common 584c54745dab64b304485ea16e0dff1811e5598a
+## ANDROID: vfs: Add permission2 for filesystems with per mount permissions
+revert common c3271fe2811ccd13106ac370cf4cef79bb49117e
+## ANDROID: vfs: add d_canonical_path for stacked filesystem support
+revert common 972cde43ff770d43987655d37bc49156c7c6f889
+## ANDROID: fs: Restore vfs_path_lookup() export
+revert common e9aaf35681c274c98a3dda427b086a9782f96d33
+## ANDROID: sdcardfs: remove sdcardfs from system
+revert common a96c98dd7a3087f0c415bb05699f25722f8aef11
