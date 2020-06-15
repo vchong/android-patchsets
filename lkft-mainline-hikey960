@@ -55,34 +55,23 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20669/4
 
 ## Changes on DRM for hikey960 with android-mainline
 # drm: kirin: Introduce kirin960
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=b21aad84e427c5555d8ef49fffec143a3704572f
-# http://android-review.linaro.org/c/kernel/common/+/21069
-apply --linaro --local kernel/common/mainline --remote kernel/common 21069/3
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=ac560df58a729ef5169c6e7bc1e2867f37c6ad71
+apply_jstultz_mainline_patch ac560df58a729ef5169c6e7bc1e2867f37c6ad71
+# ANDROID: drm: kirin: fix export symbol type
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=a06639f8dacb3c583dc3da5b0f4eb41b24e96970
+apply_jstultz_mainline_patch a06639f8dacb3c583dc3da5b0f4eb41b24e96970
 # drm: kirin: Add kirin960 dpe driver support
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=e37c6258e72753eac0704ddc02f33c67fca06241
-# http://android-review.linaro.org/c/kernel/common/+/21071
-apply --linaro --local kernel/common/mainline --remote kernel/common 21071/1
-# drm: kirin: Remove LDI enable
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=8f0161779567b479684ac511d057232b6f9fbdb0
-apply_android_review_mainline_patch 8f0161779567b479684ac511d057232b6f9fbdb0
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=72487cabff3783bc609836da9c2301dff4271fbd
+apply_jstultz_mainline_patch 72487cabff3783bc609836da9c2301dff4271fbd
 # drm: kirin: remove wait for VACTIVE IRQ
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=c97a3d850af3d9fac6d57d0b80970bcc1ffcf4f3
-apply_android_review_mainline_patch c97a3d850af3d9fac6d57d0b80970bcc1ffcf4f3
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=fa1ab50507e116e72b23cfe41d27ef6c62d6f63d
+apply_jstultz_mainline_patch fa1ab50507e116e72b23cfe41d27ef6c62d6f63d
 # drm: kirin_drm_dpe: Fix rdma_stride calculation
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=9f32b41bcfeb0f6dfa8ce821bb110eda5a29817d
-apply_android_review_mainline_patch 9f32b41bcfeb0f6dfa8ce821bb110eda5a29817d
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=64a87050f5f4886e4a21021d85796058bb9b0ee5
+apply_jstultz_mainline_patch 64a87050f5f4886e4a21021d85796058bb9b0ee5
 # drm: kirin960: Remove one mode-line that seems to be causing trouble
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=268f7835298f74f60aa82139582c7cba130a63ae
-apply_android_review_mainline_patch 268f7835298f74f60aa82139582c7cba130a63ae
-# drm: kirin960: Fix issue seen with HDMI hotplug
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=a6aebb9fb7e8b6be95e1a5b944da5d3f41e440ad
-apply_android_review_mainline_patch a6aebb9fb7e8b6be95e1a5b944da5d3f41e440ad
-# drm: kirin: Fix Makefile to correct for module builds
-# https://android-git.linaro.org/kernel/common.git/commit/drivers/gpu?h=android-mainline-gki-hikey960&id=07d83b08167e04722e7f69a4f1164dcf079f55e2
-apply_android_review_mainline_patch 07d83b08167e04722e7f69a4f1164dcf079f55e2
-# kirin_dpe build fix (fold down)
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=1692546f7abe277eff2c45ed717511d3bb1a31c0
-apply_jstultz_mainline_patch 1692546f7abe277eff2c45ed717511d3bb1a31c0
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=15a28b2666c49575f63b022c32d844a0a3fb05dc
+apply_jstultz_mainline_patch 15a28b2666c49575f63b022c32d844a0a3fb05dc
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
@@ -129,15 +118,6 @@ apply_android_review_mainline_patch 779ad66c04c1718c9a0a7bb326e3afac7d11aa72
 ## reset: hi6220: Add support for AO reset controller
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon/hi6220_reset.c?id=3c2129f92e239d98326608951e815fd413f3ebc6
 apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
-
-## hack: get dsi working again
-## As We don't really support anything but HDMI out on HiKey960.. the DSI panel output has never been tested
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=606b328fdd480e1dfe58432666978f8110aa01f7
-apply_jstultz_mainline_patch 606b328fdd480e1dfe58432666978f8110aa01f7
-
-## kirin_drm_dsi fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=413897d4d2e62582a86e94378bb27f2676e64c3a
-apply_jstultz_mainline_patch 413897d4d2e62582a86e94378bb27f2676e64c3a
 
 ######### temporary workarounds for sdcardfs ##################
 ## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
