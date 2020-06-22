@@ -47,6 +47,14 @@ else
 	apply --linaro device/linaro/hikey 20098/12
 fi
 
+## add persistimage target
+## http://android-review.linaro.org/c/platform/build/+/21615
+#apply --linaro build/make 21615/1
+
+## allow writes to vendor partition
+## http://android-review.linaro.org/c/platform/system/sepolicy/+/21614
+#apply --linaro system/sepolicy 21614/1
+
 ## used netdomain instead - see below for reference
 ## https://github.com/vchong/device-linaro-hikey/commit/f00abbb1250d4651d88509874db68e340aa8bc3d
 ## this is done in hikey-hikey960-optee-common as part of
@@ -65,7 +73,8 @@ apply --linaro device/linaro/bootloader/OpenPlatformPkg 20452/1
 ## http://android-review.linaro.org/20096
 if [ "${OPTEE_OS_DBG}" = "y" ]; then
 	echo "Set dbg log lvl for optee_os core and TA"
-	apply --linaro device/linaro/hikey 20096/13
+	echo "Above is skipped"
+	#apply --linaro device/linaro/hikey 20096/13
 fi
 
 #######################################################
@@ -80,8 +89,8 @@ if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"lin
         git fetch https://github.com/vchong/OpenPlatformPkg refact_960 && \
         git cherry-pick 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48 && \
         cd -
-	# Below uses "curl <url>.patch|git am" (see file named functions) but
-	# fails. For details see
+	# Below uses "curl <url>.patch|git am" (see file named 'functions') but
+	# fails due to ^M symbols inserted when editing in Windoze. For details see
 	# https://ci.linaro.org/job/android-hikey960-optee-p/255/consoleText
 	#curl_am_optee OpenPlatformPkg 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48 optee/OpenPlatformPkg vchong
 
@@ -90,7 +99,8 @@ if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"lin
 	# https://github.com/vchong/uefi-tools/commit/a581c9bbf8118ee5b20b7121e9a2bd24612a6c70
 	if [ "${OPTEE_OS_DBG}" = "y" ]; then
 		echo "Set dbg log lvl for hikey960 optee_os core and TA"
-		curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
+		echo "Above is skipped"
+		#curl_am_optee uefi-tools a581c9bbf8118ee5b20b7121e9a2bd24612a6c70 optee/uefi-tools vchong
 	fi
 fi
 
@@ -105,7 +115,8 @@ fi
 ## KM mods - keymaster/gatekeeper patches
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/20604
-	apply --linaro device/linaro/hikey 20604/24
+	#apply --linaro device/linaro/hikey 20604/24
+	echo "Skip KM mods"
 else
 	## assume pie
 	## http://android-review.linaro.org/21467
@@ -152,11 +163,12 @@ if [ X"$TEE_USE_RPMB" = X"true" ]; then
 	#curl_am_optee optee_os ef8ad4886a5c713dc135de01079a772bed1b93af optee/optee_os vchong
 fi
 
-cd optee/optee_os
+#cd optee/optee_os
 #git fetch https://github.com/vchong/optee_os pull/1/head && git merge --no-edit FETCH_HEAD
 # cherry pick instead of merge so that patches stay on top
-git fetch https://github.com/vchong/optee_os kmgk_rebase_mbedtls && git cherry-pick a4097612cde65f24cc9ba22048dd5708dfb3ffbc^..d054b7fad46b14e669e6aa3226c85bb89a92e24c
-cd -
+#git fetch https://github.com/vchong/optee_os kmgk_rebase_mbedtls && git cherry-pick a4097612cde65f24cc9ba22048dd5708dfb3ffbc^..d054b7fad46b14e669e6aa3226c85bb89a92e24c
+#cd -
+echo "Skip kmgk_rebase_mbedtls"
 
 #######################################################
 ## Common patches for Widevine                    #####
