@@ -31,7 +31,8 @@ fi
 ## optee: integrate for optee components
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
 	## http://android-review.linaro.org/17988
-	apply --linaro device/linaro/hikey 17988/23
+	#apply --linaro device/linaro/hikey 17988/23
+	echo "Skip OP-TEE patch"
 else
 	## assume pie
 	## http://android-review.linaro.org/20090
@@ -40,10 +41,12 @@ fi
 
 if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-p-swg" ] || [ X"$LOCAL_MANIFEST_BRANCH" = X"linaro-master-swg" ]; }; then
 	## revert "Delete outdated uefi-build.sh"
-	revert optee/uefi-tools 0407bb1a30ece4a305486535df5d4835c8241882
+	#revert optee/uefi-tools 0407bb1a30ece4a305486535df5d4835c8241882
 
 	## optee: Enable opteed in the bootloader (uefi-tools master)
-	curl_am_optee uefi-tools ce5510f096c7b1fd6a428dcb85c81744288f9a1b optee/uefi-tools vchong
+	#curl_am_optee uefi-tools ce5510f096c7b1fd6a428dcb85c81744288f9a1b optee/uefi-tools vchong
+
+	echo "Skip uefi-build.sh patches"
 fi
 
 ###############################################

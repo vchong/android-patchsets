@@ -41,5 +41,6 @@ fi
 if [ -d "${AOSP}/optee/optee_os" ]; then
     ## use host python command
     ## https://github.com/vchong/optee_os/commit/34ac4922e11bfe7d6721f35c348606b2f8912081
-    curl_am_optee_vchong optee_os 34ac4922e11bfe7d6721f35c348606b2f8912081 optee/optee_os
+    #curl_am_optee_vchong optee_os 34ac4922e11bfe7d6721f35c348606b2f8912081 optee/optee_os
+    echo "Skip OP_TEE use host python patch"
 fi
