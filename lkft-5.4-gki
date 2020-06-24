@@ -24,3 +24,17 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## ANDROID: hikey960_gki.fragment: Remove unused CONFIG_SERIAL_8250_DW
+## https://android-review.googlesource.com/c/kernel/common/+/1347769/1
+apply --local common --remote kernel/common 1347769/1
+
+## ANDROID: ABI updates for hikey960
+## https://android-review.googlesource.com/c/kernel/common/+/1347770/1
+apply --local common --remote kernel/common 1347770/1
+
+## ANDROID: clk: hi3660: Set CLK_IGNORE_UNUSED on HI3660_PCLK_GPIO4
+## https://android-review.googlesource.com/c/kernel/common/+/1347711
+#apply --local common --remote kernel/common 1347711/1
+
+## of: platform: Batch fwnode parsing when adding all top level devices
+revert common 93d2e4322aa74c1ad1e8c2160608eb9a960d69ff
