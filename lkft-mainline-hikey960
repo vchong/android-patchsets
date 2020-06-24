@@ -110,10 +110,6 @@ apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
 apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
 
-## reset: hisi-reboot: adb reboot bootloader
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=0bb49941eead07ab01774a28a317fc3aa53c70f4
-apply_jstultz_mainline_patch 0bb49941eead07ab01774a28a317fc3aa53c70f4
-
 ######### temporary workarounds for sdcardfs ##################
 ## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
 apply --linaro --local kernel/common/mainline --remote kernel/common 21553/2
