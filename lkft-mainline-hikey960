@@ -110,14 +110,9 @@ apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
 apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
 
-## HACK: Allow hisi-reboot to be a module
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/power/reset?id=c23cb6dfc2fd086f6d4cec5ba392dc19a156e3e9
-## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=779ad66c04c1718c9a0a7bb326e3afac7d11aa72
-apply_android_review_mainline_patch 779ad66c04c1718c9a0a7bb326e3afac7d11aa72
-
-## reset: hi6220: Add support for AO reset controller
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon/hi6220_reset.c?id=3c2129f92e239d98326608951e815fd413f3ebc6
-apply_jstultz_mainline_patch 3c2129f92e239d98326608951e815fd413f3ebc6
+## reset: hisi-reboot: adb reboot bootloader
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=0bb49941eead07ab01774a28a317fc3aa53c70f4
+apply_jstultz_mainline_patch 0bb49941eead07ab01774a28a317fc3aa53c70f4
 
 ######### temporary workarounds for sdcardfs ##################
 ## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
