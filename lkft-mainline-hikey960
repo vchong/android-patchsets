@@ -50,8 +50,28 @@ function apply_android_review_mainline_patch(){
 apply --linaro --local kernel/common/mainline --remote kernel/common 20887/12
 
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
-## https://android-review.linaro.org/c/kernel/common/+/20669
-apply --linaro --local kernel/common/mainline --remote kernel/common 20669/4
+## dts: hi3660: Add support for usb on Hikey960
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=488603ce31ef5b954dc75ba9d65169191b889d8a
+apply_jstultz_mainline_patch 488603ce31ef5b954dc75ba9d65169191b889d8a
+## arm64: dts: hikey960: Add CMA entry for ION/framebuffers
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=2242887e0725cea23b37e56f6fc60dc99581ab03
+apply_jstultz_mainline_patch 2242887e0725cea23b37e56f6fc60dc99581ab03
+## arm64: dts: hi3660: add display driver dts
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=08f947950111318d951ea19aa82e605c94ec422f
+apply_jstultz_mainline_patch 08f947950111318d951ea19aa82e605c94ec422f
+## arm64: dts: hi3660-hikey960: Add i2s & sound device
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=5ecf133e3b5380eafc59f3f1be0ae1b4fcd3030e
+apply_jstultz_mainline_patch 5ecf133e3b5380eafc59f3f1be0ae1b4fcd3030e
+## arm64: dts: enable gpu
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=886dd0cd39247f741d1b61b9d37c610a076ba3c6
+apply_jstultz_mainline_patch 886dd0cd39247f741d1b61b9d37c610a076ba3c6
+## arm64: dts: hi3660: adb reboot node
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=cd38cf4abd4881092be3f241f28ded2cbe77c2eb
+apply_jstultz_mainline_patch cd38cf4abd4881092be3f241f28ded2cbe77c2eb
+## dts: hikey960: Fix bootwarning on mapping reboot reason syscon
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=6cc2375c20a80584b0f9da108ba61970802f65b9
+apply_jstultz_mainline_patch 6cc2375c20a80584b0f9da108ba61970802f65b9
+
 
 ## Changes on DRM for hikey960 with android-mainline
 # drm: kirin: Introduce kirin960
@@ -78,7 +98,7 @@ apply_jstultz_mainline_patch 15a28b2666c49575f63b022c32d844a0a3fb05dc
 apply --linaro --local kernel/common/mainline --remote kernel/common 20670/9
 
 ## misc: hisi_hikey_usb: Driver to support onboard USB gpio hub on Hikey960
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d369b15e4f0485de1e4b3fd50e66696bd5b407bf
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc/hisi_hikey_usb.c?h=dev/hikey960-mainline-WIP&id=33bdae00879e78e13897cd50eab92600f2fc737d
 ## http://android-review.linaro.org/c/kernel/common/+/21381
 apply --linaro --local kernel/common/mainline --remote kernel/common 21381/1
 ## reset: hisi-reboot: adb reboot bootloader
