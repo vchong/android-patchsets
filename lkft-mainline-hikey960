@@ -75,23 +75,26 @@ apply_jstultz_mainline_patch 6cc2375c20a80584b0f9da108ba61970802f65b9
 
 ## Changes on DRM for hikey960 with android-mainline
 # drm: kirin: Introduce kirin960
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=ac560df58a729ef5169c6e7bc1e2867f37c6ad71
-apply_jstultz_mainline_patch ac560df58a729ef5169c6e7bc1e2867f37c6ad71
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=8ea426082fda8afbc5fd3dde08d149e8d1ba70c7
+apply_jstultz_mainline_patch 8ea426082fda8afbc5fd3dde08d149e8d1ba70c7
 # ANDROID: drm: kirin: fix export symbol type
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=a06639f8dacb3c583dc3da5b0f4eb41b24e96970
-apply_jstultz_mainline_patch a06639f8dacb3c583dc3da5b0f4eb41b24e96970
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=312b23980205334664ec129f171c2ce0957f6ddf
+apply_jstultz_mainline_patch 312b23980205334664ec129f171c2ce0957f6ddf
 # drm: kirin: Add kirin960 dpe driver support
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=72487cabff3783bc609836da9c2301dff4271fbd
-apply_jstultz_mainline_patch 72487cabff3783bc609836da9c2301dff4271fbd
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=85a6915247219c19ba6122e117b04abcd9aae512
+apply_jstultz_mainline_patch 85a6915247219c19ba6122e117b04abcd9aae512
 # drm: kirin: remove wait for VACTIVE IRQ
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=fa1ab50507e116e72b23cfe41d27ef6c62d6f63d
-apply_jstultz_mainline_patch fa1ab50507e116e72b23cfe41d27ef6c62d6f63d
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=741d0e8d560994b4da1bbb71f35c22af2a00f728
+apply_jstultz_mainline_patch 741d0e8d560994b4da1bbb71f35c22af2a00f728
 # drm: kirin_drm_dpe: Fix rdma_stride calculation
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=64a87050f5f4886e4a21021d85796058bb9b0ee5
-apply_jstultz_mainline_patch 64a87050f5f4886e4a21021d85796058bb9b0ee5
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=9315b641681672130bc563850f4a5f2e33bcdde4
+apply_jstultz_mainline_patch 9315b641681672130bc563850f4a5f2e33bcdde4
 # drm: kirin960: Remove one mode-line that seems to be causing trouble
-# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon?h=dev/hikey960-mainline-WIP&id=15a28b2666c49575f63b022c32d844a0a3fb05dc
-apply_jstultz_mainline_patch 15a28b2666c49575f63b022c32d844a0a3fb05dc
+# https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=26def1d7330bdb4f8c23c0e12dd355bfb4228ab6
+apply_jstultz_mainline_patch 26def1d7330bdb4f8c23c0e12dd355bfb4228ab6
+## HACK: adv7511: Add poweron delay to allow for EDID probing to work
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=33c13fd88156e07b94b1f71a2329408e759fbe7b
+apply_jstultz_mainline_patch 33c13fd88156e07b94b1f71a2329408e759fbe7b
 
 ## Mali Source for HiKey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20670
