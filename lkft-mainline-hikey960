@@ -47,7 +47,7 @@ function apply_android_review_mainline_patch(){
 ##################################################
 ## gki: add hikey960_gki.fragment and udpate gki_defconfig for hikey960 [NEW]
 ## http://android-review.linaro.org/c/kernel/common/+/20887
-apply --linaro --local kernel/common/mainline --remote kernel/common 20887/10
+apply --linaro --local kernel/common/mainline --remote kernel/common 20887/12
 
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## https://android-review.linaro.org/c/kernel/common/+/20669
@@ -81,23 +81,6 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20670/9
 ## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d369b15e4f0485de1e4b3fd50e66696bd5b407bf
 ## http://android-review.linaro.org/c/kernel/common/+/21381
 apply --linaro --local kernel/common/mainline --remote kernel/common 21381/1
-## usb: dwc3: dwc3-of-simple: Add support for dwc3 of Hisilicon Soc Platform
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3/dwc3-of-simple.c?h=dev/hikey960-mainline-WIP&id=e7f71d8361d7b2e05e686f2a3767f557e3a342e7
-apply_jstultz_mainline_patch e7f71d8361d7b2e05e686f2a3767f557e3a342e7
-## usb: dwc3: Add splitdisable quirk for Hisilicon Kirin Soc
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/usb/dwc3?h=dev/gki-hikey960-android-mainline&id=8c8c937e33739704d49f75a63416d105e25a6040
-## http://android-review.linaro.org/c/kernel/common/+/20862
-apply --linaro --local kernel/common/mainline --remote kernel/common 20862/1
-## usb: dwc3: Execute GCTL Core Soft Reset while switch mdoe for Hisilicon Kirin Soc
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3/core.c?id=34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
-apply_jstultz_mainline_patch 34cbbd42d380d1fbf1ab1de7f51d6dcb6bf5daae
-## usb: dwc3: Increase timeout for CmdAct cleared by device controller
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/dwc3/gadget.c?id=daeea2e203a38e1c9f67f506cdafb643cd977f8d
-apply_jstultz_mainline_patch daeea2e203a38e1c9f67f506cdafb643cd977f8d
-## usb: gadget: Add configfs attribuite for controling match_existing_only
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/usb/gadget/configfs.c?id=729fd81cf8fdf097861b58f73dd3e8110204bffd
-## http://android-review.linaro.org/c/kernel/common/+/21215
-apply --linaro --local kernel/common/mainline --remote kernel/common 21215/1
 ## reset: hisi-reboot: adb reboot bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=fe671288fa7ad845e525149d6e4686b692926ff8
 apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
