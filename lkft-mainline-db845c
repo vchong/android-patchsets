@@ -61,3 +61,5 @@ apply --linaro --local common --remote kernel/common 21555/1
 apply --linaro --local common --remote kernel/common 21556/1
 ## ANDROID: sdcardfs: remove sdcardfs from system
 apply --linaro --local common --remote kernel/common 21557/1
+## ANDROID: fscrypt: add key removal notifier chain
+apply --linaro --local common --remote kernel/common 21612/1
