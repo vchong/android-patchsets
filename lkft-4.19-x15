@@ -20,8 +20,8 @@ fi
 ##################################################
 ## https://android-review.googlesource.com/c/kernel/omap/+/1318399
 ## build.config: update to inherit from common configs
-apply --local kernel/omap/4.19-lkft --remote kernel/omap 1318399/3
+#apply --local kernel/omap/4.19-lkft --remote kernel/omap 1318399/3
 
 ## build.config: update to get OMAP_KERNEL_DIR dynamically
 ## https://android-review.googlesource.com/c/kernel/omap/+/1324409
-apply --local kernel/omap/4.19-lkft --remote kernel/omap 1324409/1
+#apply --local kernel/omap/4.19-lkft --remote kernel/omap 1324409/1
