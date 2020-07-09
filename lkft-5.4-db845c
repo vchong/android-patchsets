@@ -17,7 +17,7 @@ fi
 
 function apply_jstultz_mainline_patch(){
     local commit_id=$1 && shift
-    local target_dir="kernel/common/android-5.4-vendor"
+    local target_dir="kernel/common/android12-5.4-vendor"
     if [ -n "$1" ]; then
         target_dir=$1 && shift
     fi
