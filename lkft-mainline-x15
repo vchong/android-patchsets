@@ -36,16 +36,9 @@ function apply_x15_mainline_patch(){
 ################    ###################
 ##################################################
 ## Add ti_config_fragments/ from TI Android kernel v4.19
+## http://android-review.linaro.org/c/kernel/common/+/21636
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=29c3a9780ac275750a8ae664f31c3434b30ddc02
 apply_x15_mainline_patch 29c3a9780ac275750a8ae664f31c3434b30ddc02
-
-## ARM: dts: dra7x-evm: add android early mount partitions
-## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=479c0c5746c57da7782d26e52ca55a5ed1f4d60b
-apply_x15_mainline_patch 479c0c5746c57da7782d26e52ca55a5ed1f4d60b
-
-## ARM: dts: dra7x, am57x: Fix partitions node names
-## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=53ffa928a25be378d14491513573029ad9406526
-apply_x15_mainline_patch 53ffa928a25be378d14491513573029ad9406526
 
 ## arch: arm: Enable SGX in device tree
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
@@ -62,6 +55,7 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20529/5
 apply --linaro --local kernel/common/mainline --remote kernel/common 21201/1
 
 ## drivers: gpu: pvr: Fix build on kernel v5.0+
+## http://android-review.linaro.org/c/kernel/common/+/21637
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
 apply_x15_mainline_patch eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
 
@@ -86,6 +80,10 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20868/1
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
 
-## HACK: usb: dwc3: Disable sg_supported in order to avoid USB transfer errors
-## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=7444beab0a28bbcf9b374b503125a21748d8098e
-apply_x15_mainline_patch 7444beab0a28bbcf9b374b503125a21748d8098e
+## osfunc.c: fix compiling error on the reference of mmap_sem
+## http://android-review.linaro.org/c/kernel/common/+/21638
+apply --linaro --local kernel/common/mainline --remote kernel/common 21638/1
+
+## pvr/services4/srvkm/env/linux/mm.c: fix compiling error on call of __vmalloc
+## http://android-review.linaro.org/c/kernel/common/+/21639
+apply --linaro --local kernel/common/mainline --remote kernel/common 21639/1
