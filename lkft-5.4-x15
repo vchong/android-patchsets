@@ -1,0 +1,80 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_jstultz_mainline_patch(){
+    local commit_id=$1 && shift
+    local target_dir="common"
+    if [ -n "$1" ]; then
+        target_dir=$1 && shift
+    fi
+    if [ -d ${target_dir} ]; then
+        curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} ${target_dir}
+    fi
+}
+
+function apply_x15_mainline_patch(){
+    local commit_id=$1 && shift
+    # https://android-git.linaro.org/kernel/common.git/patch/?id=29c3a9780ac275750a8ae664f31c3434b30ddc02
+    curl_am https://android-git.linaro.org/kernel/common.git/patch/?id=${commit_id} kernel/common/android12-5.4-vendor
+}
+
+##################################################
+################    ###################
+##################################################
+## Add ti_config_fragments/ from TI Android kernel v4.19
+## http://android-review.linaro.org/c/kernel/common/+/21636
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=29c3a9780ac275750a8ae664f31c3434b30ddc02
+apply_x15_mainline_patch 29c3a9780ac275750a8ae664f31c3434b30ddc02
+
+## arch: arm: Enable SGX in device tree
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
+## http://android-review.linaro.org/c/kernel/common/+/20521
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 20521/1
+
+## drivers: gpu: pvr: Import SGX kernel driver
+## http://android-review.linaro.org/c/kernel/common/+/21641
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 21641/1
+
+## PVR: fix the broken problem because of the drop of ioremap_nocahe
+## http://android-review.linaro.org/c/kernel/common/+/21201
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 21201/1
+
+## drivers: gpu: pvr: Fix build on kernel v5.0+
+## http://android-review.linaro.org/c/kernel/common/+/21637
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
+apply_x15_mainline_patch eab1c123b7c09c91e4bf5306f05ed73e32b79ff4
+
+## drivers: gpu: pvr: dma-buf: rename reservation_object to dma_resv
+## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=498df5c8c578cd24531aed0937c5c4ab13cdf503
+## http://android-review.linaro.org/c/kernel/common/+/20868
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 20868/1
+
+## revert kbuild: remove 'addtree' and 'flags' magic for header search paths
+## /home/liuyq/data/lkft/kernel/common/mainline/drivers/gpu/pvr/services4/srvkm/bridged/bridged_pvr_bridge.c:48:10: fatal error: img_defs.h: No such file or directory
+## #include "img_defs.h"
+##          ^~~~~~~~~~~~
+## compilation terminated.
+## make[4]: *** [/home/liuyq/data/lkft/kernel/common/mainline/scripts/Makefile.build:279: drivers/gpu/pvr/services4/srvkm/bridged/bridged_pvr_bridge.o] Error 1
+## make[4]: *** Waiting for unfinished jobs....
+## /home/liuyq/data/lkft/kernel/common/mainline/drivers/gpu/pvr/services4/srvkm/bridged/bridged_support.c:45:10: fatal error: img_defs.h: No such file or directory
+## #include "img_defs.h"
+##          ^~~~~~~~~~~~
+## compilation terminated.
+## revert kernel/common/mainline cdd750bfb1f76fe9be8cfb53cbe77b2e811081ab
+## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
+## http://android-review.linaro.org/c/kernel/common/+/20530
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 20530/1
