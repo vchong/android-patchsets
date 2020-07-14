@@ -78,3 +78,7 @@ apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common
 ## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 20530/1
+
+## build.config.x15: add x15 build config for android12-5.4 kernel
+## http://android-review.linaro.org/c/kernel/common/+/21646
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 21646/1
