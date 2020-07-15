@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function patches_4_19_sdcardfs(){
+    local local_dir=${1}
+
+    ## 4da740c Revert "ANDROID: fscrypt: add key removal notifier chain"
+    revert ${local_dir} 4da740c
+    ## 67f9ece ANDROID: fs: export vfs_{read|write}
+    revert ${local_dir} 67f9ece
+    ## 9b733dd Revert "ANDROID: sdcardfs: Enable modular sdcardfs"
+    revert ${local_dir} 9b733dd
+    ## 3b7ef78 Revert "ANDROID: vfs: Add setattr2 for filesystems with per mount permissions"
+    revert ${local_dir} 3b7ef78
+    ## 7df42051 Revert "ANDROID: vfs: fix export symbol type"
+    revert ${local_dir} 7df42051
+    ## 633920f Revert "ANDROID: vfs: Add permission2 for filesystems with per mount permissions"
+    revert ${local_dir} 633920f
+    ## d60170f Revert "ANDROID: vfs: fix export symbol types"
+    revert ${local_dir} d60170f
+    ## fc411cf Revert "ANDROID: vfs: add d_canonical_path for stacked filesystem support"
+    revert ${local_dir} fc411cf
+    ## 0fb8b79 Revert "ANDROID: fs: Restore vfs_path_lookup() export"
+    revert ${local_dir} 0fb8b79
+    ## 7d8d128 ANDROID: sdcardfs: remove sdcardfs from system
+    revert ${local_dir} 7d8d128
+}

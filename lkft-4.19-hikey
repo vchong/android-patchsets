@@ -19,4 +19,4 @@ fi
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-patches_4_19_sdcardfs kernel/omap/4.19-stable-lkft
+patches_4_19_sdcardfs kernel/linaro/hisilicon-4.19-stable-lkft
