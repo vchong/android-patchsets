@@ -42,8 +42,8 @@ apply_x15_mainline_patch 29c3a9780ac275750a8ae664f31c3434b30ddc02
 
 ## arch: arm: Enable SGX in device tree
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
-## http://android-review.linaro.org/c/kernel/common/+/20521
-apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 20521/1
+## http://android-review.linaro.org/c/kernel/common/+/21687
+apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 21687/1
 
 ## drivers: gpu: pvr: Import SGX kernel driver
 ## http://android-review.linaro.org/c/kernel/common/+/21641
