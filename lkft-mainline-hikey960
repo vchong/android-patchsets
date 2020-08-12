@@ -51,63 +51,59 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20887/12
 
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## dts: Add usb mux hub for hikey960
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=2c5bf10b5a15605f0f3c3a5302168c746554b245
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=95c33482f5fdc9a36a87719513792b918d628258
 ## http://android-review.linaro.org/c/kernel/common/+/21678
 apply --linaro --local kernel/common/mainline --remote kernel/common 21678/1
 ## arm64: dts: hikey960: Add CMA entry for ION/framebuffers
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=7557b48e2481afb2cb37e0118d4225d482372b7e
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=1981114fee6439b2ac3ac9ad217e2f335a0ab572
 ## http://android-review.linaro.org/c/kernel/common/+/21679
 apply --linaro --local kernel/common/mainline --remote kernel/common 21679/1
 ## arm64: dts: hi3660: add display driver dts
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=6223a576d20c5aad7e812c43c66e338207d1a44e
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=f8788a10734cec35f692e34d8b92d4a57fab594c
 ## http://android-review.linaro.org/c/kernel/common/+/21680
-apply --linaro --local kernel/common/mainline --remote kernel/common 21680/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21680/3
 ## arm64: dts: hi3660-hikey960: Add i2s & sound device
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=2b8b1b008d2e1e0f4f879bc048daf11b0398023d
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=e84e68d9b7eebaf05857111d1af8893184a88a23
 ## http://android-review.linaro.org/c/kernel/common/+/21681
-apply --linaro --local kernel/common/mainline --remote kernel/common 21681/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21681/3
 ## arm64: dts: enable gpu
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=8e7479fec60803fc59f602216db4e7b0bbae6065
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=0c0b39ef80e2d599d6337bf1ad89bab7915f04c1
 ## http://android-review.linaro.org/c/kernel/common/+/21682
 apply --linaro --local kernel/common/mainline --remote kernel/common 21682/1
 ## dts: Add pmctrl entry
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=1798e274fb5ae20a734d6c4a3326c406f272b0b7
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=3fb5e44635e2ec7131eb535f02abc0a414594022
 ## http://android-review.linaro.org/c/kernel/common/+/21683
 apply --linaro --local kernel/common/mainline --remote kernel/common 21683/1
 ## arm64: dts: hi3660: adb reboot node
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=7280d580f225328079f105d9d954b361b7252279
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=05955848beebcaf896844bb420c6797def8d4dac
 ## http://android-review.linaro.org/c/kernel/common/+/21684
 apply --linaro --local kernel/common/mainline --remote kernel/common 21684/1
 ## dts: hikey960: Fix bootwarning on mapping reboot reason syscon
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=6abecb74daab9e9b2e47851c110127c03eabfa1a
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=a04c874593f6f127319d0395fba4d194c1680e3d
 ## http://android-review.linaro.org/c/kernel/common/+/21685
 apply --linaro --local kernel/common/mainline --remote kernel/common 21685/1
 
 ## Changes on DRM for hikey960 with android-mainline
 ## drm: kirin: Introduce kirin960
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=8003041caae7c8c3b3917953c604b5eb1deef2ac
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=6e3188453eeac4b36780eb7f806aef0894e01739
 ## http://android-review.linaro.org/c/kernel/common/+/21069
-apply --linaro --local kernel/common/mainline --remote kernel/common 21069/4
-## ANDROID: drm: kirin: fix export symbol type
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=56504c624176170aca2139465588b6ee214fd239
-## http://android-review.linaro.org/c/kernel/common/+/21672
-apply --linaro --local kernel/common/mainline --remote kernel/common 21672/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21069/5
 ## drm: kirin: Add kirin960 dpe driver support
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=583c136a98b70e12a373d780980d36d7f0caaf5a
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=b6e7c68c05a26653d4bcee0f2c92ebc0e4846d7b
 ## http://android-review.linaro.org/c/kernel/common/+/21071
-apply --linaro --local kernel/common/mainline --remote kernel/common 21071/2
+apply --linaro --local kernel/common/mainline --remote kernel/common 21071/3
 ## drm: kirin: remove wait for VACTIVE IRQ
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=86c382c3e1d68ebc1d80bf3d432206ce66933a43
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=1e3f5e4bc4c7c142cc4635e8d39b270a7f7406da
 ## http://android-review.linaro.org/c/kernel/common/+/21673
-apply --linaro --local kernel/common/mainline --remote kernel/common 21673/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21673/2
 ## drm: kirin_drm_dpe: Fix rdma_stride calculation
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=f9783dafe35c909fd01d6064a989442c07857c73
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=1c84ad41e9616afbc4a806d73a98480cd0c136e9
 ## http://android-review.linaro.org/c/kernel/common/+/21674
-apply --linaro --local kernel/common/mainline --remote kernel/common 21674/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21674/2
 ## drm: kirin960: Remove one mode-line that seems to be causing trouble
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=6cfdd43e72d1b146ee311d6080c1fdfadc525d8c
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=b2357cbd68c28a049d4e0338eb9718d3579f4c2a
 ## http://android-review.linaro.org/c/kernel/common/+/21675
-apply --linaro --local kernel/common/mainline --remote kernel/common 21675/1
+apply --linaro --local kernel/common/mainline --remote kernel/common 21675/2
 ## HACK: adv7511: Add poweron delay to allow for EDID probing to work
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=20572af2f4123ffc8e0ab64db2b6029ce8f727bd
 ## http://android-review.linaro.org/c/kernel/common/+/21676
