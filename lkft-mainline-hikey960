@@ -119,7 +119,8 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20670/9
 apply --linaro --local kernel/common/mainline --remote kernel/common 21381/1
 ## reset: hisi-reboot: adb reboot bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=fe671288fa7ad845e525149d6e4686b692926ff8
-apply_jstultz_mainline_patch fe671288fa7ad845e525149d6e4686b692926ff8
+## https://android-review.linaro.org/c/kernel/common/+/21719
+apply --linaro --local kernel/common/mainline --remote kernel/common 21719/1
 
 ## sound: Add hikey960 i2s audio driver
 ## https://android-git.linaro.org/kernel/common.git/patch/?id=2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
