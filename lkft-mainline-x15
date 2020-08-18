@@ -79,11 +79,13 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 20868/1
 ## drivers/gpu/pvr/Makefile: add srctree for -I option of ccflags-y
 ## http://android-review.linaro.org/c/kernel/common/+/20530
 apply --linaro --local kernel/common/mainline --remote kernel/common 20530/1
-
 ## osfunc.c: fix compiling error on the reference of mmap_sem
 ## http://android-review.linaro.org/c/kernel/common/+/21638
 apply --linaro --local kernel/common/mainline --remote kernel/common 21638/1
-
 ## pvr/services4/srvkm/env/linux/mm.c: fix compiling error on call of __vmalloc
 ## http://android-review.linaro.org/c/kernel/common/+/21639
 apply --linaro --local kernel/common/mainline --remote kernel/common 21639/1
+
+## build.config.x15: add x15 build config for android-mainline kernel
+## http://android-review.linaro.org/c/kernel/common/+/21724
+apply --linaro --local kernel/common/mainline --remote kernel/common 21724/1
