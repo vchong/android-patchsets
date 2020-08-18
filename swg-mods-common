@@ -184,11 +184,17 @@ echo "Skip kmgk_rebase_mbedtls"
 if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	# add wv components
 	# https://android-review.linaro.org/20212
-	apply --linaro device/linaro/hikey 20212/27
+	#apply --linaro device/linaro/hikey 20212/27
 
 	# oemcrypto_test: fix Makefiles
-	# https://dev-private-review.linaro.org/4510
-	apply --server ssh://git@dev-private-git.linaro.org/ --local vendor/widevine --remote widevine/android 4510/1
+	# https://dev-private-review.linaro.org/5026
+	# pi-widevine-release
+	#apply --server ssh://git@dev-private-git.linaro.org/ --local vendor/widevine --remote widevine/android 4510/1
+	# qt-widevine-release
+	apply --server ssh://git@dev-private-git.linaro.org/ --local vendor/widevine --remote widevine/android 5026/4
+	# libwvdrmengine: fix build error on master
+	# https://dev-private-review.linaro.org/5032
+	apply --server ssh://git@dev-private-git.linaro.org/ --local vendor/widevine --remote widevine/android 5032/1
 
 	# placeholder for internal wv patches
 	#apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 1234/5
