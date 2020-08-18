@@ -38,7 +38,8 @@ function apply_x15_mainline_patch(){
 ## Add ti_config_fragments/ from TI Android kernel v4.19
 ## http://android-review.linaro.org/c/kernel/common/+/21636
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=29c3a9780ac275750a8ae664f31c3434b30ddc02
-apply_x15_mainline_patch 29c3a9780ac275750a8ae664f31c3434b30ddc02
+## http://android-review.linaro.org/c/kernel/common/+/21726
+apply --linaro --local kernel/common/mainline --remote kernel/common 21726/3
 
 ## arch: arm: Enable SGX in device tree
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
@@ -89,3 +90,28 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21639/1
 ## build.config.x15: add x15 build config for android-mainline kernel
 ## http://android-review.linaro.org/c/kernel/common/+/21724
 apply --linaro --local kernel/common/mainline --remote kernel/common 21724/1
+
+######### temporary workarounds for sdcardfs ##################
+## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
+apply --linaro --local kernel/common/mainline --remote kernel/common 21553/4
+## ANDROID: vfs: Add permission2 for filesystems with per mount permissions
+apply --linaro --local kernel/common/mainline --remote kernel/common 21554/6
+## ANDROID: vfs: add d_canonical_path for stacked filesystem support
+## https://android-review.linaro.org/c/kernel/common/+/21555
+apply --linaro --local kernel/common/mainline --remote kernel/common 21555/4
+## ANDROID: fs: Restore vfs_path_lookup() export
+## https://android-review.linaro.org/c/kernel/common/+/21556
+apply --linaro --local kernel/common/mainline --remote kernel/common 21556/3
+## ANDROID: sdcardfs: remove sdcardfs from system
+apply --linaro --local kernel/common/mainline --remote kernel/common 21557/3
+## ANDROID: fscrypt: add key removal notifier chain
+apply --linaro --local kernel/common/mainline --remote kernel/common 21612/2
+## Revert "Revert "ANDROID: mnt: Add filesystem private data to mount points""
+## http://android-review.linaro.org/c/kernel/common/+/21705
+apply --linaro --local kernel/common/mainline --remote kernel/common 21705/1
+## Revert "Revert "ANDROID: mnt: Fix null pointer dereference""
+## http://android-review.linaro.org/c/kernel/common/+/21706
+apply --linaro --local kernel/common/mainline --remote kernel/common 21706/1
+## Revert "Revert "ANDROID: Add show_options2 to view private mount data""
+## http://android-review.linaro.org/c/kernel/common/+/21707
+apply --linaro --local kernel/common/mainline --remote kernel/common 21707/1
