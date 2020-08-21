@@ -200,6 +200,21 @@ if [ -d "${AOSP}/external/optee-widevine-ref" ]; then
 	#apply --server ssh://git@dev-private-git.linaro.org/ --local external/optee-widevine-ref --remote widevine/optee-widevine-ref 1234/5
 fi
 
+if [ -d "${AOSP}/kernel/linaro/hisilicon-5.4" ]; then
+	# tasks/kernel.mk: add support for gki ac 5.4
+	# http://android-review.linaro.org/c/device/linaro/common/+/21749
+	apply --linaro device/linaro/build 21749/4
+
+	# Revert "arm64: dts: hisilicon: hikey: fixes to comply with adi, adv7533
+	# http://android-review.linaro.org/c/kernel/common/+/21794
+	# This is needed to make hikey960 boot, but not sure why
+	apply --linaro --local kernel/linaro/hisilicon-5.4 --remote kernel/common 21794/1
+
+	# hikey960_gki.fragment: enable OP-TEE
+	# http://android-review.linaro.org/c/kernel/common/+/21795
+	apply --linaro --local kernel/linaro/hisilicon-5.4 --remote kernel/common 21795/1
+fi
+
 ##################################################
 ################ Backport ########################
 ##################################################
