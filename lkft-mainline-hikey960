@@ -45,10 +45,6 @@ function apply_android_review_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## gki: add hikey960_gki.fragment and udpate gki_defconfig for hikey960 [NEW]
-## http://android-review.linaro.org/c/kernel/common/+/20887
-apply --linaro --local kernel/common/mainline --remote kernel/common 20887/12
-
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## dts: Add usb mux hub for hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=95c33482f5fdc9a36a87719513792b918d628258
@@ -108,10 +104,6 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21675/2
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=20572af2f4123ffc8e0ab64db2b6029ce8f727bd
 ## http://android-review.linaro.org/c/kernel/common/+/21676
 apply --linaro --local kernel/common/mainline --remote kernel/common 21676/1
-
-## Mali Source for HiKey960 for android-mainline
-## https://android-review.linaro.org/c/kernel/common/+/20670
-apply --linaro --local kernel/common/mainline --remote kernel/common 20670/9
 
 ## misc: hisi_hikey_usb: Driver to support onboard USB gpio hub on Hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc/hisi_hikey_usb.c?h=dev/hikey960-mainline-WIP&id=33bdae00879e78e13897cd50eab92600f2fc737d
