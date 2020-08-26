@@ -26,5 +26,3 @@ function apply_hikey_hikey960_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-# arm64: dts: hisilicon: hikey: fixes to comply with adi, adv7533 DT binding
-revert common 274f4e9c575ab6032cf2318839b5a5af1d8c31f3
