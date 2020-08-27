@@ -23,19 +23,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## ANDROID: mm: add a field to store names for private anonymous memory
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=fb78b7801c3a7193c5ca406f17d1015f21043269
-#apply_jstultz_mainline_patch fb78b7801c3a7193c5ca406f17d1015f21043269
-## vma naming fixup for 5.8-rc1
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=f6a8f63b1d3f5d1603ac44a2e69db2806cfd3698
-#apply_jstultz_mainline_patch f6a8f63b1d3f5d1603ac44a2e69db2806cfd3698
-## fixup vma naming patch for 5.9-rc
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=95814c53a052a8b408024dec925ebc76c4f6806c
-#apply_jstultz_mainline_patch 95814c53a052a8b408024dec925ebc76c4f6806c
-## vma-naming: 5.9-rc fixup
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=8a70c8883205e98827739d78d3a3145f27b7fa6d
-#apply_jstultz_mainline_patch 8a70c8883205e98827739d78d3a3145f27b7fa6d
-
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=1b6f902017613cf6e0345601a8fc4b7f1ce189a4
 apply_jstultz_mainline_patch 1b6f902017613cf6e0345601a8fc4b7f1ce189a4
@@ -52,4 +39,4 @@ apply_jstultz_mainline_patch fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
 
 ## FROMLIST: usb: dwc2: Fix parameter type in function pointer prototype
 ## https://android-review.googlesource.com/c/kernel/common/+/1413328
-apply --local common --remote kernel/common 1413328/1
+apply --local kernel/common/mainline --remote kernel/common 1413328/1
