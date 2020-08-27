@@ -23,25 +23,33 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## add hikey_gki.fragment for gki build
-## https://android-review.linaro.org/c/kernel/common/+/20784/
-apply --linaro --local kernel/common/mainline --remote kernel/common 20784/21
+## ANDROID: mm: add a field to store names for private anonymous memory
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=fb78b7801c3a7193c5ca406f17d1015f21043269
+#apply_jstultz_mainline_patch fb78b7801c3a7193c5ca406f17d1015f21043269
+## vma naming fixup for 5.8-rc1
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=f6a8f63b1d3f5d1603ac44a2e69db2806cfd3698
+#apply_jstultz_mainline_patch f6a8f63b1d3f5d1603ac44a2e69db2806cfd3698
+## fixup vma naming patch for 5.9-rc
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=95814c53a052a8b408024dec925ebc76c4f6806c
+#apply_jstultz_mainline_patch 95814c53a052a8b408024dec925ebc76c4f6806c
+## vma-naming: 5.9-rc fixup
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=8a70c8883205e98827739d78d3a3145f27b7fa6d
+#apply_jstultz_mainline_patch 8a70c8883205e98827739d78d3a3145f27b7fa6d
 
-## revert drm: kirin: Revert "Fix for hikey620 display offset problem"
-revert kernel/common/mainline 1b79cfd99ff5127e6a143767b51694a527b3ea38
-## drm: kirin: Tweak the LDI handling
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=d378170e0055c8762df038c8b7e5c1561f44e0e8
-apply_jstultz_mainline_patch d378170e0055c8762df038c8b7e5c1561f44e0e8
-## another try at LDI fix
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=5d066b8fea8bd13ce382210638f8451816f2dfa0
-apply_jstultz_mainline_patch 5d066b8fea8bd13ce382210638f8451816f2dfa0
-
-## Workaround to use MALI for hikey
-## http://android-review.linaro.org/c/kernel/common/+/21395
-apply --linaro --local kernel/common/mainline --remote kernel/common 21395/1
-## reset: hi6220: Add support for AO reset controller
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/drivers/reset/hisilicon?id=0c74d79b2faee49e89488398f9a15d0f850fbeed
-apply_jstultz_mainline_patch  0c74d79b2faee49e89488398f9a15d0f850fbeed
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
-## https://git.linaro.org/people/john.stultz/android-dev.git/patch/arch/arm64/boot/dts?id=24392841a5aad963db8c8f572ed820e2fe67b130
-apply_jstultz_mainline_patch 24392841a5aad963db8c8f572ed820e2fe67b130
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=1b6f902017613cf6e0345601a8fc4b7f1ce189a4
+apply_jstultz_mainline_patch 1b6f902017613cf6e0345601a8fc4b7f1ce189a4
+
+## adv7511: Disable HPD sensing before powering on the chip
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=8682bbeada3eca42e6eaa90a6a6c0feacceaa5d4
+apply_jstultz_mainline_patch 8682bbeada3eca42e6eaa90a6a6c0feacceaa5d4
+## HACK: adv7511: Add poweron delay to allow for EDID probing to work
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=16d03eb253314ae1b6a43951f78bb7aeeb6ba77b
+apply_jstultz_mainline_patch 16d03eb253314ae1b6a43951f78bb7aeeb6ba77b
+## temp hack to make display work
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
+apply_jstultz_mainline_patch fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
+
+## FROMLIST: usb: dwc2: Fix parameter type in function pointer prototype
+## https://android-review.googlesource.com/c/kernel/common/+/1413328
+apply --local common --remote kernel/common 1413328/1
