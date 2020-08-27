@@ -36,7 +36,3 @@ apply_jstultz_mainline_patch 16d03eb253314ae1b6a43951f78bb7aeeb6ba77b
 ## temp hack to make display work
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
 apply_jstultz_mainline_patch fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
-
-## FROMLIST: usb: dwc2: Fix parameter type in function pointer prototype
-## https://android-review.googlesource.com/c/kernel/common/+/1413328
-apply --local kernel/common/mainline --remote kernel/common 1413328/1
