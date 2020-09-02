@@ -1,6 +1,7 @@
 #!/bin/bash
 
 . $(dirname $0)/functions
+. $(dirname $0)/lkft-mainline-sdcardfs
 
 PATCHES=0
 if [ -n "$1" ]; then
@@ -25,26 +26,4 @@ function apply_jstultz_mainline_patch(){
 ################ Linaro hack   ###################
 ##################################################
 ######### temporary workarounds for sdcardfs ##################
-## ANDROID: vfs: Add setattr2 for filesystems with per mount permissions
-apply --linaro --local common --remote kernel/common 21553/4
-## ANDROID: vfs: Add permission2 for filesystems with per mount permissions
-apply --linaro --local common --remote kernel/common 21554/6
-## ANDROID: vfs: add d_canonical_path for stacked filesystem support
-## https://android-review.linaro.org/c/kernel/common/+/21555
-apply --linaro --local common --remote kernel/common 21555/4
-## ANDROID: fs: Restore vfs_path_lookup() export
-## https://android-review.linaro.org/c/kernel/common/+/21556
-apply --linaro --local common --remote kernel/common 21556/3
-## ANDROID: sdcardfs: remove sdcardfs from system
-apply --linaro --local common --remote kernel/common 21557/3
-## ANDROID: fscrypt: add key removal notifier chain
-apply --linaro --local common --remote kernel/common 21612/2
-## Revert "Revert "ANDROID: mnt: Add filesystem private data to mount points""
-## http://android-review.linaro.org/c/kernel/common/+/21705
-apply --linaro --local common --remote kernel/common 21705/1
-## Revert "Revert "ANDROID: mnt: Fix null pointer dereference""
-## http://android-review.linaro.org/c/kernel/common/+/21706
-apply --linaro --local common --remote kernel/common 21706/1
-## Revert "Revert "ANDROID: Add show_options2 to view private mount data""
-## http://android-review.linaro.org/c/kernel/common/+/21707
-apply --linaro --local common --remote kernel/common 21707/1
+apply_sdcardfs_patch_for_mainline common
