@@ -114,10 +114,6 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21676/1
 ## https://android-review.linaro.org/c/kernel/common/+/21719
 apply --linaro --local kernel/common/mainline --remote kernel/common 21719/1
 
-## sound: Add hikey960 i2s audio driver
-## https://android-git.linaro.org/kernel/common.git/patch/?id=2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
-apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
-
 ## fix: bluetooth: hci_ll: set enable_gpio direction OUT at probe
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
 apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
