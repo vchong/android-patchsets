@@ -109,10 +109,6 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21675/2
 ## http://android-review.linaro.org/c/kernel/common/+/21676
 apply --linaro --local kernel/common/mainline --remote kernel/common 21676/1
 
-## misc: hisi_hikey_usb: Driver to support onboard USB gpio hub on Hikey960
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/misc/hisi_hikey_usb.c?h=dev/hikey960-mainline-WIP&id=33bdae00879e78e13897cd50eab92600f2fc737d
-## http://android-review.linaro.org/c/kernel/common/+/21381
-apply --linaro --local kernel/common/mainline --remote kernel/common 21381/1
 ## reset: hisi-reboot: adb reboot bootloader
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/power/reset?h=dev/hikey960-mainline-WIP&id=fe671288fa7ad845e525149d6e4686b692926ff8
 ## https://android-review.linaro.org/c/kernel/common/+/21719
