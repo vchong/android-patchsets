@@ -1,0 +1,40 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+
+function apply_jstultz_mainline_patch(){
+    local commit_id=$1 && shift
+    local local_dir=$1 && shift
+    curl_am https://git.linaro.org/people/john.stultz/android-dev.git/patch/?id=${commit_id} ${local_dir}
+}
+
+##################################################
+################ Linaro hack   ###################
+##################################################
+## ANDROID: dts: hi3660: Fix duplicate adv7533 nodes
+## https://android-review.googlesource.com/c/kernel/common/+/1411007
+cherrypick common 623715b470c6c51e54344a274ca90df19556b56a
+
+## ANDROID: hikey960_gki.fragment: Remove UFS and USB bits
+## https://android-review.googlesource.com/c/kernel/common/+/1352927
+cherrypick common ae78c73104aa2fa957cbb7b4524c3e3e862174fd
+
+## ANDROID: adding usb HCD dummy config to permit usb write ops on init
+## https://android-review.googlesource.com/c/kernel/common/+/1011350
+## https://android-review.googlesource.com/c/kernel/common/+/1322590
+## solution on userspace:
+##   https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1349264
+revert common a4178b8d3b3bae8106c37b22bb2e919d3ac6cd16
