@@ -27,14 +27,3 @@ function apply_jstultz_mainline_patch(){
 ## ANDROID: dts: hi3660: Fix duplicate adv7533 nodes
 ## https://android-review.googlesource.com/c/kernel/common/+/1411007
 cherrypick common 623715b470c6c51e54344a274ca90df19556b56a
-
-## ANDROID: hikey960_gki.fragment: Remove UFS and USB bits
-## https://android-review.googlesource.com/c/kernel/common/+/1352927
-cherrypick common ae78c73104aa2fa957cbb7b4524c3e3e862174fd
-
-## ANDROID: adding usb HCD dummy config to permit usb write ops on init
-## https://android-review.googlesource.com/c/kernel/common/+/1011350
-## https://android-review.googlesource.com/c/kernel/common/+/1322590
-## solution on userspace:
-##   https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1349264
-revert common a4178b8d3b3bae8106c37b22bb2e919d3ac6cd16
