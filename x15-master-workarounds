@@ -18,3 +18,7 @@ fi
 ######################################################
 ## workaround for TI projects
 ######################################################
+## [RenderEngine] Rebind output texture when unbinding framebuffer
+## https://android.googlesource.com/platform/frameworks/native/+/4dde178da6a2d1c4d3130b8319013f8f926d15f7%5E%21/
+## http://android-review.linaro.org/c/platform/frameworks/native/+/21844
+apply --linaro frameworks/native 21844/1
