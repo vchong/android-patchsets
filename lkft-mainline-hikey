@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . $(dirname $0)/functions
-. $(dirname $0)/lkft-mainline-sdcardfs
 
 PATCHES=0
 if [ -n "$1" ]; then
@@ -24,9 +23,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-######### temporary workarounds for sdcardfs ##################
-apply_sdcardfs_patch_for_mainline kernel/common/mainline
-
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=1b6f902017613cf6e0345601a8fc4b7f1ce189a4
 apply_jstultz_mainline_patch 1b6f902017613cf6e0345601a8fc4b7f1ce189a4

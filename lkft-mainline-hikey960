@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . $(dirname $0)/functions
-. $(dirname $0)/lkft-mainline-sdcardfs
 
 PATCHES=0
 if [ -n "$1" ]; then
@@ -46,9 +45,6 @@ function apply_android_review_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-######### temporary workarounds for sdcardfs ##################
-apply_sdcardfs_patch_for_mainline kernel/common/mainline
-
 ## DTS/hikey960_defconfig for hikey960 for android-mainline
 ## dts: Add usb mux hub for hikey960
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts/hisilicon?h=dev/hikey960-mainline-WIP&id=95c33482f5fdc9a36a87719513792b918d628258

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . $(dirname $0)/functions
-. $(dirname $0)/lkft-mainline-sdcardfs
 
 PATCHES=0
 if [ -n "$1" ]; then
@@ -51,5 +50,3 @@ function apply_patchwork(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-######### temporary workarounds for sdcardfs ##################
-apply_sdcardfs_patch_for_mainline common
