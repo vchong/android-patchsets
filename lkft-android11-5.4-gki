@@ -24,6 +24,3 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-## ANDROID: dts: hi3660: Fix duplicate adv7533 nodes
-## https://android-review.googlesource.com/c/kernel/common/+/1411007
-cherrypick common 623715b470c6c51e54344a274ca90df19556b56a
