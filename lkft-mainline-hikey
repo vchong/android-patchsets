@@ -24,15 +24,19 @@ function apply_jstultz_mainline_patch(){
 ################ Linaro hack   ###################
 ##################################################
 ## HACK: dts: hi6220: Add special mali utgard driver dts properties
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=1b6f902017613cf6e0345601a8fc4b7f1ce189a4
-apply_jstultz_mainline_patch 1b6f902017613cf6e0345601a8fc4b7f1ce189a4
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/arch/arm64/boot/dts?h=dev/hikey-mainline-WIP&id=c6f4b61a0d9622b706019625b35d4f51a35d2992
+## https://android-review.linaro.org/c/kernel/common/+/21855
+apply --linaro --local kernel/common/mainline --remote kernel/common 21855/1
 
 ## adv7511: Disable HPD sensing before powering on the chip
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=8682bbeada3eca42e6eaa90a6a6c0feacceaa5d4
-apply_jstultz_mainline_patch 8682bbeada3eca42e6eaa90a6a6c0feacceaa5d4
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=1dfbbfe35b44a1b566e92122bae0c65452f47ad7
+## https://android-review.linaro.org/c/kernel/common/+/21856
+apply --linaro --local kernel/common/mainline --remote kernel/common 21856/3
 ## HACK: adv7511: Add poweron delay to allow for EDID probing to work
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=16d03eb253314ae1b6a43951f78bb7aeeb6ba77b
-apply_jstultz_mainline_patch 16d03eb253314ae1b6a43951f78bb7aeeb6ba77b
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=3d75a489eec692e54abcd5048946d7169d9af120
+## https://android-review.linaro.org/c/kernel/common/+/21857
+apply --linaro --local kernel/common/mainline --remote kernel/common 21857/2
 ## temp hack to make display work
-## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
-apply_jstultz_mainline_patch fbc923819d0f41b5a4cdcaf15dd32ff83aaf7865
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=f3513568f11b21088ff8da2bba7a4025bb44c18b
+## https://android-review.linaro.org/c/kernel/common/+/21858
+apply --linaro --local kernel/common/mainline --remote kernel/common 21858/2
