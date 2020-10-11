@@ -40,3 +40,10 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21857/2
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey-mainline-WIP&id=f3513568f11b21088ff8da2bba7a4025bb44c18b
 ## https://android-review.linaro.org/c/kernel/common/+/21858
 apply --linaro --local kernel/common/mainline --remote kernel/common 21858/2
+
+## ANDROID: dma: Rework so dev_get_cma_area() can be called from a module
+## https://android-review.googlesource.com/c/kernel/common/+/1422535
+apply --local kernel/common/mainline --remote kernel/common 1422535/6
+## ANDROID: dma-buf: heaps: Allow cma heaps to be configured as a module
+## https://android-review.googlesource.com/c/kernel/common/+/1422536
+apply --local kernel/common/mainline --remote kernel/common 1422536/6
