@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . $(dirname $0)/functions
-. $(dirname $0)/lkft-4.19
 
 PATCHES=0
 if [ -n "$1" ]; then
@@ -19,4 +18,3 @@ fi
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
-patches_4_19_sdcardfs kernel/linaro/hisilicon-4.19-stable-lkft
