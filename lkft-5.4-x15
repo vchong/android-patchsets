@@ -39,3 +39,7 @@ function apply_x15_mainline_patch(){
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
 ## http://android-review.linaro.org/c/kernel/common/+/21687
 apply --linaro --local kernel/common/android12-5.4-vendor --remote kernel/common 21687/1
+
+## ARM: 8939/1: kbuild: use correct nm executable
+## https://lore.kernel.org/stable/20201014140046.GQ2415204@sasha-vm/T/#m06e8314bd8bff5e279575b79594d4912e7b28805
+cherrypick kernel/common/android12-5.4-vendor 29c623d64f0dcd6aa10e0eabd16233e77114090b
