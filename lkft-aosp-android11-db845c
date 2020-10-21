@@ -1,0 +1,26 @@
+#!/bin/bash
+
+. $(dirname $0)/functions
+
+PATCHES=0
+if [ -n "$1" ]; then
+        AOSP="$1"
+else
+        AOSP="`pwd`"
+fi
+
+if ! [ -d "$AOSP" ] && ! [ -d "$AOSP/bionic" ] && [ -d "$AOSP"/build ]; then
+        echo "This script must be run from the AOSP source directory"
+        echo "or with the AOSP source directory as its first parameter."
+        exit 1
+fi
+##################################################
+################ Linaro hack   ###################
+##################################################
+## db845c: Add support for cache partition
+## https://android.googlesource.com/device/linaro/dragonboard/+/70f37c65199443d2502da58ecb81a4be28d36d80%5E%21/
+#cherrypick device/linaro/dragonboard 70f37c65199443d2502da58ecb81a4be28d36d80
+
+## enable bootctrol for db845c build
+## https://android-review.linaro.org/c/device/linaro/dragonboard/+/21888
+apply --linaro device/linaro/dragonboard 21888/1
