@@ -22,7 +22,3 @@ fi
 ## https://android.googlesource.com/platform/frameworks/native/+/4dde178da6a2d1c4d3130b8319013f8f926d15f7%5E%21/
 ## http://android-review.linaro.org/c/platform/frameworks/native/+/21844
 apply --linaro frameworks/native 21844/1
-
-## device.mk: enable emulated storage after the merge of R
-## https://android-review.googlesource.com/c/device/ti/beagle-x15/+/1465874
-apply --local device/ti/beagle_x15 --remote device/ti/beagle-x15 1465874/1
