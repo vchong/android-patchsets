@@ -23,4 +23,9 @@ fi
 
 ## enable bootctrol for db845c build
 ## https://android-review.linaro.org/c/device/linaro/dragonboard/+/21888
-apply --linaro device/linaro/dragonboard 21888/1
+## https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1469002
+apply device/linaro/dragonboard 1469002/2
+
+## db845c.mk: set DB845C_KERNEL_DIR to use environment when specified
+## https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1462043
+apply device/linaro/dragonboard 1462043/1
