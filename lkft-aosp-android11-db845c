@@ -21,11 +21,6 @@ fi
 ## https://android.googlesource.com/device/linaro/dragonboard/+/70f37c65199443d2502da58ecb81a4be28d36d80%5E%21/
 #cherrypick device/linaro/dragonboard 70f37c65199443d2502da58ecb81a4be28d36d80
 
-## enable bootctrol for db845c build
-## https://android-review.linaro.org/c/device/linaro/dragonboard/+/21888
-## https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1469002
-apply device/linaro/dragonboard 1469002/2
-
 ## db845c.mk: set DB845C_KERNEL_DIR to use environment when specified
 ## https://android-review.googlesource.com/c/device/linaro/dragonboard/+/1462043
 apply device/linaro/dragonboard 1462043/1
