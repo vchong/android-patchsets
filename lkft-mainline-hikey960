@@ -100,6 +100,11 @@ apply --linaro --local kernel/common/mainline --remote kernel/common 21674/2
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=b2357cbd68c28a049d4e0338eb9718d3579f4c2a
 ## http://android-review.linaro.org/c/kernel/common/+/21675
 apply --linaro --local kernel/common/mainline --remote kernel/common 21675/2
+## HACK: drm workaround for build issue - needs proper fix for the removal of drm_panel_attach
+## https://android.googlesource.com/kernel/common/+/87154ff86bf69ecf76600e56ecab0b79fc3f71ea
+## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm/hisilicon/kirin?h=dev/hikey960-mainline-WIP&id=25148f60a5595958acad0e7b01bc4ee81faa4843
+## http://android-review.linaro.org/c/kernel/common/+/21926
+apply --linaro --local kernel/common/mainline --remote kernel/common 21926/1
 ## HACK: adv7511: Add poweron delay to allow for EDID probing to work
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/drivers/gpu/drm?h=dev/hikey960-mainline-WIP&id=20572af2f4123ffc8e0ab64db2b6029ce8f727bd
 ## http://android-review.linaro.org/c/kernel/common/+/21676
