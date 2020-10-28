@@ -35,6 +35,10 @@ function apply_x15_mainline_patch(){
 ##################################################
 ################    ###################
 ##################################################
+## "opp: Allow dev_pm_opp_get_opp_table() to return -EPROBE_DEFER"
+## https://www.spinics.net/lists/arm-kernel/msg849382.html
+revert kernel/common/mainline dd461cd9183fe80bee84fd6cab2a29bfc8f55a76
+
 ## arch: arm: Enable SGX in device tree
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=refs/heads/android-mainline-x15&id=1c59b34663f25385ea3ff288dba549f290db5e34
 ## http://android-review.linaro.org/c/kernel/common/+/20521
