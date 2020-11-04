@@ -123,13 +123,6 @@ apply_android_review_mainline_patch 2d6e446fde0abe2ee1425f745a23e5f2b3ad1736
 ## https://android-git.linaro.org/kernel/common.git/commit/?h=android-mainline-gki-hikey960&id=01f917927efca505bb8e31901a89ee2fa71d73e7
 apply_android_review_mainline_patch 01f917927efca505bb8e31901a89ee2fa71d73e7
 
-## ANDROID: dma: Rework so dev_get_cma_area() can be called from a module
-## https://android-review.googlesource.com/c/kernel/common/+/1422535
-apply --local kernel/common/mainline --remote kernel/common 1422535/10
-## ANDROID: dma-buf: heaps: Allow cma heaps to be configured as a module
-## https://android-review.googlesource.com/c/kernel/common/+/1422536
-apply --local kernel/common/mainline --remote kernel/common 1422536/10
-
 ## usb: dwc3: Trigger a GCTL soft reset when switching modes in DRD
 ## https://git.linaro.org/people/john.stultz/android-dev.git/commit/?h=dev/hikey960-mainline-WIP&id=6f9c4aa748bb57d78d5f6e3271c4b46d0b4bdf75
 ## https://android-review.linaro.org/c/kernel/common/+/21921
