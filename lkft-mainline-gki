@@ -24,3 +24,6 @@ function apply_jstultz_mainline_patch(){
 ##################################################
 ################ Linaro hack   ###################
 ##################################################
+## ANDROID: gki_defconfig: enable CRYPTO_MD5 explicitly
+## https://android-review.googlesource.com/c/kernel/common/+/1490557
+apply --local common --remote kernel/common 1490557/1
