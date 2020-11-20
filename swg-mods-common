@@ -82,17 +82,17 @@ if [ X"$TARGET_OUT_DIR" = X"hikey960" ] && { [ X"$LOCAL_MANIFEST_BRANCH" = X"lin
 
 	# AndroidFastbootApp: print sparse magic
 	# https://github.com/vchong/edk2/commit/2f09272cdaef3af665d48df83c8068f9bd3e5c12
-	cd optee/edk2 && \
+	cd optee/edk2
 	git fetch https://github.com/vchong/edk2 refact_960 && \
-	git cherry-pick 2f09272cdaef3af665d48df83c8068f9bd3e5c12 && \
+	git cherry-pick 2f09272cdaef3af665d48df83c8068f9bd3e5c12
 	cd -
 	# fastboot: mark nvme partition as ext4
 	# https://github.com/vchong/OpenPlatformPkg/commit/162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48
 	# fastboot: print sparse magic
 	# https://github.com/vchong/OpenPlatformPkg/commit/5d771815622b57404b002f52e786b6c4101a5a6e
-        cd optee/OpenPlatformPkg && \
+        cd optee/OpenPlatformPkg
         git fetch https://github.com/vchong/OpenPlatformPkg refact_960 && \
-        git cherry-pick 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48^..5d771815622b57404b002f52e786b6c4101a5a6e && \
+        git cherry-pick 162c6ea324fcd39ddf6e628cd4ed09aedbbb1a48^..5d771815622b57404b002f52e786b6c4101a5a6e
         cd -
 	# Below uses "curl <url>.patch|git am" (see file named 'functions') but
 	# fails due to ^M symbols inserted when editing in Windoze. For details see
