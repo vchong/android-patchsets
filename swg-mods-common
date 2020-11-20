@@ -30,11 +30,8 @@ fi
 ## Patches for SWG use cases different than r-lcr #####
 #######################################################
 if [ X"$MANIFEST_BRANCH" = X"master" ]; then
-	## print version_str on not_match
-	curl_am_optee system_keymaster 2afb818c88fe7fd0efb41ff89aa73a1904580df2 system/keymaster vchong
-
 	## convert alphabetic version to number
-	curl_am_optee system_keymaster d0cdd9ea97cf125ff62fb41d124bca531594fe7e system/keymaster vchong
+	curl_am_optee system_keymaster adc5da521b5e1198efeb17ecbefabe5d0bd2b612 system/keymaster vchong
 
 	## config.mk: do NOT obsolete export
 	#curl_am_optee platform_build da608cc3380c5c9a7d2adac0168b0ba05a2345ae build/make vchong
